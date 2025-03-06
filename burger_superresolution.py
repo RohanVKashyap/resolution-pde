@@ -184,12 +184,11 @@ def main():
     # Load your trained model
     checkpoint = torch.load(model_path, map_location=device)
     
-    # Assuming your model is FNO1d, you may need to adjust this based on your actual model
     model = FNO1d(
         in_channels=1,
         out_channels=1,
-        modes=16,  # Adjust based on your model
-        width=64   # Adjust based on your model
+        modes=16,  
+        width=64 
     ).to(device)
     
     # Load model weights
