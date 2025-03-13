@@ -110,74 +110,7 @@ def load_burger_data_from_mat(data_path1, data_path2=None, batch_size=16, res_sc
     test_dataset = TensorDataset(X_test, y_test)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
     
-    return train_loader, val_loader, test_loader, X_normalizer, y_normalizer    
-
-# def load_burger_data_from_mat(data_path, batch_size=16, split=[0.8, 0.1, 0.1]):
-#     """
-#     Load and preprocess Burger's equation dataset from .mat file
-#     Returns train, validation, and test data loaders with 80/10/10 split
-#     """
-#     print(f"Loading data from {data_path}")
-    
-#     data = scipy.io.loadmat(data_path)
-    
-#     print(f"Keys in data: {[k for k in data.keys() if not k.startswith('_')]}")
-    
-#     if 'a' in data and 'u' in data:
-#         X = data['a']  # Initial condition
-#         y = data['u']  # Solution at later time
-#     else:
-#         raise ValueError("Expected 'a' and 'u' keys not found in .mat file")
-    
-#     print(f"Loaded data shapes: X={X.shape}, y={y.shape}")
-    
-#     X = torch.from_numpy(X).float().unsqueeze(1)  # (2048, 1, 8192)
-#     y = torch.from_numpy(y).float().unsqueeze(1)  # (2048, 1, 8192)
-
-#     # grid = torch.tensor(np.linspace(0, 2*np.pi, X.shape[2]), dtype=torch.float)
-    
-#     # Split into train, validation, and test sets
-#     total_samples = X.shape[0]
-#     train_size = int(total_samples * split[0])
-#     val_size = int(total_samples * split[1])
-    
-#     # Training set
-#     X_train, y_train = X[:train_size], y[:train_size]
-    
-#     # Validation set
-#     X_val, y_val = X[train_size:train_size+val_size], y[train_size:train_size+val_size]
-    
-#     # Test set
-#     X_test, y_test = X[train_size+val_size:], y[train_size+val_size:]
-    
-#     print(f"Training set: {X_train.shape[0]} samples")
-#     print(f"Validation set: {X_val.shape[0]} samples")
-#     print(f"Test set: {X_test.shape[0]} samples")
-    
-#     # Normalize data using UnitGaussianNormalizer based on training set only
-#     X_normalizer = UnitGaussianNormalizer(X_train)
-#     y_normalizer = UnitGaussianNormalizer(y_train)
-    
-#     # Apply normalization to all sets
-#     X_train = X_normalizer.encode(X_train)
-#     X_val = X_normalizer.encode(X_val)
-#     X_test = X_normalizer.encode(X_test)
-    
-#     y_train = y_normalizer.encode(y_train)
-#     y_val = y_normalizer.encode(y_val)
-#     y_test = y_normalizer.encode(y_test)
-    
-#     # Create DataLoaders
-#     train_dataset = TensorDataset(X_train, y_train)
-#     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    
-#     val_dataset = TensorDataset(X_val, y_val)
-#     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
-    
-#     test_dataset = TensorDataset(X_test, y_test)
-#     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
-    
-#     return train_loader, val_loader, test_loader, X_normalizer, y_normalizer  
+    return train_loader, val_loader, test_loader, X_normalizer, y_normalizer     
 
 def load_darcy_data_from_mat(data_path1, data_path2, res_scale = 1, batch_size=16):
     """
