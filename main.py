@@ -23,12 +23,8 @@ from models.ffno import FFNO1D, FFNO2d
 from models.unet import UNet1d, UNet2d
 from utils.utils import plot_predictions
 
-
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")
-
-# path: lr_${learning_rate}_modes_${model.modes}_ep_${epochs}_${now:%Y-%m-%d_%H-%M-%S}
-# git clone https://RohanVKashyap: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@github.com/RohanVKashyap/resolution-pde.git
 
 @hydra.main(version_base=None, config_path='./conf', config_name='config')
 def main(args: DictConfig):
@@ -122,11 +118,6 @@ def main(args: DictConfig):
             model = UNet2d(
                in_channels=in_channels,
                out_channels=out_channels).to(device)    
-    
-    # # Initialize grid attribute for FFNO models
-    # if model_type == 'ffno':
-    #     if hasattr(model, 'grid'):
-    #         model.grid = None
     
     # Initialize optimizer and scheduler
     iterations = epochs * len(train_loader)
