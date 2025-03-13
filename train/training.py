@@ -30,7 +30,7 @@ def train(model, train_loader, val_loader, optimizer, scheduler, y_normalizer, u
             
             pred_y = model(batch_x)
 
-            if use_normalizer > 0:
+            if use_normalizer:
                 pred_y = y_normalizer.decode(pred_y).to(device)
                 batch_y = y_normalizer.decode(batch_y).to(device)
             
@@ -53,7 +53,7 @@ def train(model, train_loader, val_loader, optimizer, scheduler, y_normalizer, u
                 val_x, val_y = val_x.to(device), val_y.to(device)
                 val_pred = model(val_x)
 
-                if use_normalizer > 0:
+                if use_normalizer:
                     val_pred = y_normalizer.decode(val_pred).to(device)
                     val_y = y_normalizer.decode(val_y).to(device)
                 
