@@ -1,4 +1,3 @@
-project_name: darcy_flow_fno2d
-pde: darcy_flow
+pde: darcy_flow_mat
 data_path1: data/darcy_data_mat/piececonst_r241_N1024_smooth1.mat
 data_path2: data/darcy_data_mat/piececonst_r241_N1024_smooth2.mat

@@ -1,0 +1,4 @@
+pde: burger_0.01
+data_path1: data/pdebench/1D_Burgers_Sols_Nu0.01.h5
+
+ # wget https://darus.uni-stuttgart.de/api/access/datafile/281363 -O 1D_Burgers_Sols_Nu0.01.h5

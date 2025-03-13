@@ -1,3 +1,5 @@
 modes: 12
 width: 32
 n_blocks: 4
+
+name: fno_2d

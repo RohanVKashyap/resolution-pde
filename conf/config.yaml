@@ -11,7 +11,8 @@ use_normalizer: false
 res_scale: 1
 
 # Model selection
-model_type: fno               # [fno, ffno, unet]
+model_type: fno               
 
 # Project and data parameters
+project_name: ${dataset.pde}_${model.name}$
 checkpoint_dir: checkpoints
