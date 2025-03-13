@@ -1,0 +1,3 @@
+project_name: burger_fno_1d
+pde: burger
+data_path1: data/burger_data_mat/burgers_data_R10.mat

@@ -1,0 +1,10 @@
+factor: 4                # Feed-forward expansion factor         
+modes: 12
+width: 64
+n_blocks: 24
+dropout: 0.0             
+mode: full               # [full, low-pass, no-fourier]
+
+ff_weight_norm: true        
+n_ff_layers: 2           
+layer_norm: true            
