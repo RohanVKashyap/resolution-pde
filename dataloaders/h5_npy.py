@@ -72,69 +72,24 @@ def main():
 if __name__ == '__main__':
     main()
 
-# def main():
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument('--filename', type=str, required=True, help='Path to the HDF5 file')
-#     args = parser.parse_args()
-
-#     with h5py.File(args.filename, 'r') as f:
-#         for key in f.keys():
-#             data = f[key][()]
-#             np.save(f'{key}.npy', data)
-#             print(f"Saved {key} with shape {data.shape}")
-            
-#             print(f"Dataset: {key}")
-#             print(f"  Shape: {data.shape}")
-#             print(f"  Type: {data.dtype}")
-#             print(f"  Size: {data.size} elements")
-#             print()
-
-# def main():
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument('--filename', type=str, required=True, help='Path to the HDF5 file')
-#     parser.add_argument('--chunk_size', type=int, default=100, help='Number of samples to process at once')
-#     parser.add_argument('--output_dir', type=str, default='./output', help='Directory to save output files')
-#     args = parser.parse_args()
+# with h5py.File('/home/rvk/data/pde_bench/ns_incom_inhom_2d_512-0.h5', 'r') as f:
+#     # Print the keys at the top level
+#     print("Top level keys:", list(f.keys()))
     
-#     # Create output directory if it doesn't exist
-#     os.makedirs(args.output_dir, exist_ok=True)
-    
-#     with h5py.File(args.filename, 'r') as f:
-#         print("Available keys in the HDF5 file:")
-#         for key in f.keys():
-#             print(f"Dataset: {key}")
-#             data_shape = f[key].shape
-#             data_dtype = f[key].dtype
-#             data_size = np.prod(data_shape)
+#     # Iterate through each key and print shapes
+#     for key in f.keys():
+#         item = f[key]
+        
+#         # Check if it's a dataset (has shape) or a group
+#         if isinstance(item, h5py.Dataset):
+#             print(f"Dataset '{key}' has shape: {item.shape}")
+#             # Optionally print data type too
+#             print(f"Data type: {item.dtype}")
+#         else:
+#             print(f"Group '{key}' has items: {list(item.keys())}")
             
-#             print(f"  Shape: {data_shape}")
-#             print(f"  Type: {data_dtype}")
-#             print(f"  Size: {data_size} elements")
-#             print(f"  Memory required: {data_size * np.dtype(data_dtype).itemsize / (1024**3):.2f} GiB")
-            
-#             # Process in chunks
-#             if len(data_shape) >= 2:
-#                 # Determine chunk dimensions based on the first dimension
-#                 total_samples = data_shape[0]
-#                 chunk_size = min(args.chunk_size, total_samples)
-                
-#                 for i in range(0, total_samples, chunk_size):
-#                     end_idx = min(i + chunk_size, total_samples)
-#                     print(f"Processing {key} chunks {i} to {end_idx-1}")
-                    
-#                     # Load and save chunk
-#                     chunk_data = f[key][i:end_idx]
-#                     output_file = os.path.join(args.output_dir, f"{key}_chunk_{i}_{end_idx-1}.npy")
-#                     np.save(output_file, chunk_data)
-#                     print(f"  Saved chunk to {output_file}")
-#             else:
-#                 # Small dataset, save as is
-#                 try:
-#                     data = f[key][()]
-#                     output_file = os.path.join(args.output_dir, f"{key}.npy")
-#                     np.save(output_file, data)
-#                     print(f"  Saved to {output_file}")
-#                 except Exception as e:
-#                     print(f"  Error saving {key}: {e}")
-            
-#             print()
+#             # Recursively print shapes of items in the group
+#             for subkey in item.keys():
+#                 if isinstance(item[subkey], h5py.Dataset):
+#                     print(f"Dataset '{key}/{subkey}' has shape: {item[subkey].shape}")
+#                     print(f"Data type: {item[subkey].dtype}")

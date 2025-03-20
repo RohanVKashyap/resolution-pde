@@ -1,6 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import operator
+from functools import reduce
 import torch
+from torch.nn.modules.loss import _WeightedLoss
+from torch.nn.utils.rnn import pad_sequence
+from collections.abc import Iterable
 
 def plot_predictions(batch_x, batch_y_denorm, batch_pred_denorm, pde_type=None, max_examples=4, save_path=None):
     """
@@ -94,4 +99,7 @@ def plot_predictions(batch_x, batch_y_denorm, batch_pred_denorm, pde_type=None, 
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Figure saved to {save_path}")
     
-    return fig       
+    return fig   
+
+def is_iterable(obj):
+    return not isinstance(obj, str) and isinstance(obj, Iterable)               
