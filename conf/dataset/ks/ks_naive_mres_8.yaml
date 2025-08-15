@@ -1,0 +1,29 @@
+# wget https://darus.uni-stuttgart.de/api/access/datafile/133280 -O ./data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+dataset_params:
+  _target_: dataloaders.ks_naive_multires.ks_multires_markov_dataset        # dataloaders.ks.ks_markov_dataset
+  filename: KS_train_2048.h5
+  saved_folder: "/data/user_data/rvk/ks/res_512/visc_0.1_L64_lmax8_et5_51"
+  val_filename: KS_valid.h5
+  test_filename: KS_test.h5
+  reduced_batch: 1
+  reduced_resolution_t: 1 # 4
+  reduced_resolution: 16         # CNO uses 's', so this is a dummy 1
+  # s: 64                        # Use this for CNO (Training resolution)  
+  add_res: [64, 512]               # Additional higher resolution for training
+  num_add_res_samples: 200
+  data_normalizer: true
+  num_samples_max: -1
+  normalization_type: simple
+  eval_dataset_target: dataloaders.ks_naive.ks_markov_dataset  # NEW: Evaluation dataset
+
+train_mres: true
+
+window_size: 15        # Use this for S4
+original_res: 512
+max_test_resolution: 512   # The resolution till where we want to test [32, 64, 128, 256, 512]
+
+# multi_res:        # This is naive mres do not use this for the CNO resize function
+#  - 1
+#  - 16 
+
+pde: ks

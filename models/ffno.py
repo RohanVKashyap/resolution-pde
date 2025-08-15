@@ -27,7 +27,7 @@ class FFNO1D(nn.Module):
         self,
         in_channels,
         out_channels,
-        hidden_dim=64,
+        width=64,
         n_layers=4,
         n_modes=16,
         factor=4,
@@ -38,25 +38,28 @@ class FFNO1D(nn.Module):
         grid=None,
         mode='full',
         fft_norm="ortho",
-        activation="identity"
+        activation="identity",
+        use_grid=True
     ):
         super().__init__()
         self.in_channels = in_channels
         self.out_channels = out_channels
-        self.hidden_dim = hidden_dim
+        self.hidden_dim = width
         self.n_layers = n_layers
         self.n_modes = n_modes
         self.grid = grid
+        self.use_grid = grid
         
         # Input projection with WNLinear
-        self.in_proj = WNLinear(self.in_channels, hidden_dim, wnorm=ff_weight_norm)
+        in_linear = self.in_channels + 1 if self.use_grid else self.in_channels
+        self.in_proj = WNLinear(in_linear, self.hidden_dim, wnorm=ff_weight_norm)  # grid
         
         # F-FNO layers
         self.fourier_layers = nn.ModuleList([])
         for i in range(n_layers):
             self.fourier_layers.append(
                 FSpectralConv1d(
-                    hidden_dim, n_modes, 
+                    self.hidden_dim, n_modes, 
                     factor=factor,
                     ff_weight_norm=ff_weight_norm,
                     n_ff_layers=n_ff_layers,
@@ -69,10 +72,11 @@ class FFNO1D(nn.Module):
             )
         
         # Output projection with WNLinear
-        self.out_proj = WNLinear(hidden_dim, self.out_channels, wnorm=ff_weight_norm)
+        self.out_proj = WNLinear(self.hidden_dim, self.out_channels, wnorm=ff_weight_norm)
 
-    def get_grid(self, shape, device):
-        batchsize, size_x = shape[0], shape[1]
+    def get_grid(self, batch_size, seq_length, device):
+        batchsize = batch_size
+        size_x = seq_length
         
         if self.grid is not None:
             # Use provided grid coordinates
@@ -85,7 +89,7 @@ class FFNO1D(nn.Module):
             gridx = x_coordinate.reshape(1, size_x, 1).repeat([batchsize, 1, 1])
         else:
             # Create normalized grid coordinates from 0 to 1
-            gridx = torch.tensor(np.linspace(0, 2 * np.pi, size_x), dtype=torch.float)     # [0, 2 * pi]
+            gridx = torch.tensor(np.linspace(0, 1, size_x), dtype=torch.float)     
             gridx = gridx.reshape(1, size_x, 1).repeat([batchsize, 1, 1])
         
         return gridx.to(device)
@@ -95,11 +99,12 @@ class FFNO1D(nn.Module):
         batch_size, _, seq_length = x.shape
         
         # Create 1D grid
-        grid = self.get_grid(batch_size, seq_length, x.device)  # [batch_size, seq_length, 1]
-        grid = grid.permute(0, 2, 1)  # [batch_size, 1, seq_length]
-        
-        # Concatenate input and grid along channel dimension
-        x = torch.cat((x, grid), dim=1)  # [batch_size, channels+1, seq_length]
+        if self.use_grid:
+            grid = self.get_grid(batch_size, seq_length, x.device)  # [batch_size, seq_length, 1]
+            grid = grid.permute(0, 2, 1)  # [batch_size, 1, seq_length]
+            
+            # Concatenate input and grid along channel dimension
+            x = torch.cat((x, grid), dim=1)  # [batch_size, channels+1, seq_length]
         
         # Convert to channels-last format for processing
         x = x.permute(0, 2, 1)  # [batch_size, seq_length, channels+1]
@@ -123,12 +128,12 @@ class FFNO1D(nn.Module):
 #  2D FFNO
 ################################################################ 
 
-class FFNO2d(nn.Module):
+class FFNO2D(nn.Module):
     def __init__(
         self,
         in_channels,
         out_channels,
-        hidden_dim=64,
+        width=64,
         n_layers=4,
         n_modes=16,
         factor=4,
@@ -137,21 +142,24 @@ class FFNO2d(nn.Module):
         layer_norm=False,
         grid=None,
         dropout=0.0,
-        mode='full'):
+        mode='full',
+        use_grid=True):
 
         super().__init__()
         self.in_channels = in_channels
         self.out_channels = out_channels
-        self.hidden_dim = hidden_dim
+        self.hidden_dim = width
         self.n_layers = n_layers
         self.n_modes = n_modes
         self.ff_weight_norm = ff_weight_norm
         self.grid = grid
+        self.use_grid = use_grid
 
+        in_linear = self.in_channels + 2 if self.use_grid else self.in_channels
         if self.ff_weight_norm: 
-            self.in_proj = WNLinear(self.in_channels, hidden_dim, wnorm=ff_weight_norm)
+            self.in_proj = WNLinear(in_linear, self.hidden_dim, wnorm=ff_weight_norm)   # grid
         else:
-            self.in_proj = nn.Linear(self.in_channels, hidden_dim)
+            self.in_proj = nn.Linear(in_linear, self.hidden_dim)                        # grid
 
         
         # F-FNO layers
@@ -159,7 +167,7 @@ class FFNO2d(nn.Module):
         for i in range(n_layers):
             self.fourier_layers.append(
                 FSpectralConv2d(
-                    hidden_dim, n_modes, 
+                    self.hidden_dim, n_modes, 
                     factor=factor,
                     ff_weight_norm=ff_weight_norm,
                     n_ff_layers=n_ff_layers,
@@ -168,9 +176,9 @@ class FFNO2d(nn.Module):
                     mode=mode))
         
         if self.ff_weight_norm:     
-             self.out_proj = WNLinear(hidden_dim, self.out_channels, wnorm=ff_weight_norm)
+             self.out_proj = WNLinear(self.hidden_dim, self.out_channels, wnorm=ff_weight_norm)
         else:
-            self.out_proj = nn.Linear(hidden_dim, self.out_channels)
+            self.out_proj = nn.Linear(self.hidden_dim, self.out_channels)
 
     def get_grid(self, shape, device):
         batchsize, size_x, size_y = shape[0], shape[1], shape[2]
@@ -204,11 +212,12 @@ class FFNO2d(nn.Module):
         batch_size, _, size_x, size_y = x.shape
 
         # Create grid in channels-last format
-        grid = self.get_grid((batch_size, size_x, size_y), x.device)       # (batch, size_x, size_y, 2)
-        grid = grid.permute(0, 3, 1, 2)                                    # (batch, 2, size_x, size_y)
-        
-        # Concatenate input and grid along channel dimension
-        x = torch.cat((x, grid), dim = 1)                                   # (batch, channels + 2, size_x, size_y)
+        if self.use_grid: 
+            grid = self.get_grid((batch_size, size_x, size_y), x.device)       # (batch, size_x, size_y, 2)
+            grid = grid.permute(0, 3, 1, 2)                                    # (batch, 2, size_x, size_y)
+            
+            # Concatenate input and grid along channel dimension
+            x = torch.cat((x, grid), dim = 1)                                   # (batch, channels + 2, size_x, size_y)
 
         x = x.permute(0, 2, 3, 1)                                           # (batch, size_x, size_y, channels + 2)
         

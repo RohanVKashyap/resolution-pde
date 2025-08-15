@@ -6,10 +6,10 @@ from torch import nn
 
 class UNet1d(nn.Module):
     """Source Code: https://github.com/pdebench/PDEBench/blob/main/pdebench/models/unet/unet.py"""
-    def __init__(self, in_channels=3, out_channels=1, init_features=32):
+    def __init__(self, in_channels=3, out_channels=1, width=32):
         super().__init__()
 
-        features = init_features
+        features = width
         self.encoder1 = UNet1d._block(in_channels, features, name="enc1")
         self.pool1 = nn.MaxPool1d(kernel_size=2, stride=2)
         self.encoder2 = UNet1d._block(features, features * 2, name="enc2")
@@ -99,10 +99,10 @@ class UNet1d(nn.Module):
 
 
 class UNet2d(nn.Module):
-    def __init__(self, in_channels=3, out_channels=1, init_features=32):
+    def __init__(self, in_channels=3, out_channels=1, width=32):
         super().__init__()
 
-        features = init_features
+        features = width
         self.encoder1 = UNet2d._block(in_channels, features, name="enc1")
         self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2)
         self.encoder2 = UNet2d._block(features, features * 2, name="enc2")

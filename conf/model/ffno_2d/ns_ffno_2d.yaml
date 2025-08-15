@@ -1,0 +1,14 @@
+defaults:
+  - ns_base_model
+_target_: models.ffno.FFNO2D
+factor: 4                # Feed-forward expansion factor         
+n_modes: 16              # 16 
+width: 64                # 32, 64
+n_layers: 8              # 4, 8
+dropout: 0.1             # 0.0
+mode: full               # [full, low-pass, no-fourier]
+ff_weight_norm: true        
+n_ff_layers: 2           
+layer_norm: true
+
+use_grid: false

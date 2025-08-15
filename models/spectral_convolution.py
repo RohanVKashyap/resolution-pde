@@ -179,6 +179,22 @@ class FSpectralConv1d(nn.Module):
         else: 
             raise ValueError(f"Mode {self.mode} not recognized")
 
+        # Use [f /2] modes at each resolution (UPDATE)
+        # available_modes = Sx // 2 + 1
+        # effective_modes = min(self.n_modes, available_modes)
+        # if self.mode == 'full':
+        #     # Use effective_modes instead of self.n_modes
+        #     out_ft[:, :, :effective_modes] = torch.einsum(
+        #         "bix,iox->box",
+        #         x_ft[:, :, :effective_modes],
+        #         torch.view_as_complex(self.fourier_weight[0][:, :, :effective_modes]))
+                
+        # elif self.mode == 'low-pass':
+        #     # Use effective_modes instead of self.n_modes
+        #     out_ft[:, :, :effective_modes] = x_ft[:, :, :effective_modes]
+        # else:
+        #     raise ValueError(f"Mode {self.mode} not recognized")
+
         out = torch.fft.irfft(out_ft, n=Sx, dim=-1, norm=self.fft_norm)
         # x.shape == [batch_size, in_dim, grid_size, grid_size]
 

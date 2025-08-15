@@ -1,0 +1,4 @@
+defaults:
+  - base_model
+_target_: models.unet.UNet1d
+width: 32

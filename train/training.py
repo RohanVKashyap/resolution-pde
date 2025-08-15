@@ -12,14 +12,17 @@ import scipy
 import wandb  
 
 from utils.utils import plot_predictions
+from utils.loss import RelativeL2Loss
 
 # Check for GPU
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-def train(model, train_loader, val_loader, optimizer, scheduler, y_normalizer, use_normalizer = -1, epochs=100):
+def train(model, train_loader, val_loader, optimizer, scheduler, y_normalizer=None, use_normalizer=False, time=1, model_type=None, epochs=100, device='cuda'):
     model.train()
     loss_history = []
     val_loss_history = []
+    loss_fn = RelativeL2Loss(size_average=True)
+    time_val = torch.tensor([time])      # POS
     
     for epoch in tqdm(range(epochs)):
         model.train()
@@ -28,20 +31,23 @@ def train(model, train_loader, val_loader, optimizer, scheduler, y_normalizer, u
             batch_x, batch_y = batch_x.to(device), batch_y.to(device)
             optimizer.zero_grad()
             
-            pred_y = model(batch_x)
+            if model_type == 'pos':
+                pred_y = model(batch_x, time_val)['output']
+            else:     
+                pred_y = model(batch_x)
 
-            if use_normalizer:
-                pred_y = y_normalizer.decode(pred_y).to(device)
-                batch_y = y_normalizer.decode(batch_y).to(device)
+            if use_normalizer and y_normalizer is not None:
+                pred_y = y_normalizer.decode(pred_y, device=device)
+                batch_y = y_normalizer.decode(batch_y, device=device)
             
-            loss = F.mse_loss(pred_y, batch_y)
+            loss = loss_fn(pred_y, batch_y)
             
             loss.backward()
             optimizer.step()
             
             epoch_loss += loss.item()
-            
-            scheduler.step()
+
+        # scheduler.step()    # ORIGINAL  
             
         avg_train_loss = epoch_loss / len(train_loader)
         loss_history.append(avg_train_loss)
@@ -51,16 +57,26 @@ def train(model, train_loader, val_loader, optimizer, scheduler, y_normalizer, u
         with torch.no_grad():
             for val_x, val_y in val_loader:
                 val_x, val_y = val_x.to(device), val_y.to(device)
-                val_pred = model(val_x)
+                
+                if model_type == 'pos':
+                    val_pred = model(val_x, time_val)['output']
+                else:    
+                    val_pred = model(val_x)
 
                 if use_normalizer:
                     val_pred = y_normalizer.decode(val_pred).to(device)
                     val_y = y_normalizer.decode(val_y).to(device)
                 
-                val_loss += F.mse_loss(val_pred, val_y).item()
+                val_loss += loss_fn(val_pred, val_y).item()
                 
         avg_val_loss = val_loss / len(val_loader)
         val_loss_history.append(avg_val_loss)
+
+        # Updated scheduler step - pass validation loss for ReduceLROnPlateau: UPDATE
+        if hasattr(scheduler, 'step') and 'ReduceLROnPlateau' in str(type(scheduler)):
+            scheduler.step(avg_val_loss)  # For ReduceLROnPlateau
+        else:
+            scheduler.step()  # For other schedulers (StepLR, CosineAnnealingLR, etc.)
         
         wandb.log({
             'train_loss': avg_train_loss, 
@@ -72,49 +88,90 @@ def train(model, train_loader, val_loader, optimizer, scheduler, y_normalizer, u
         
     return loss_history, val_loss_history
 
+def denormalize_data(data, min_val, max_val):
+    return data * (max_val - min_val) + min_val
 
-def evaluate(model, test_loader, y_normalizer, pde, job_id=None):
+def evaluate(model, test_loader, 
+                 normalization_type='minmax',
+                 min_data=None, max_data=None, min_model=None, max_model=None,
+                 y_normalizer=None,
+                 pde=None, time=1, model_type='ffno2d', device='cuda'):
+
     model.eval()
     total_l2_loss = 0.0
-    num_samples = 0
-
+    num_batches = 0
+    loss_fn = RelativeL2Loss(size_average=True)
+    time_val = torch.tensor([time])  # For POS models
+    
     with torch.no_grad():
         for batch_x, batch_y in test_loader:
             batch_x, batch_y = batch_x.to(device), batch_y.to(device)
-            batch_pred = model(batch_x)
-
-            # Denormalize predictions and ground truth
-            batch_pred_denorm = y_normalizer.decode(batch_pred)
-            batch_y_denorm = y_normalizer.decode(batch_y)
-
-            loss = F.mse_loss(batch_pred_denorm, batch_y_denorm, reduction='sum')
+            
+            # Forward pass
+            if model_type == 'pos':
+                batch_pred = model(batch_x, time_val)['output']
+            else:
+                batch_pred = model(batch_x)
+            
+            # Denormalize predictions and ground truth based on normalization type
+            if normalization_type == 'minmax':
+                # Min-max denormalization
+                if min_model is not None and max_model is not None:
+                    batch_pred_denorm = denormalize_data(batch_pred, min_model, max_model)
+                    batch_y_denorm = denormalize_data(batch_y, min_model, max_model)
+                else:
+                    batch_pred_denorm = batch_pred
+                    batch_y_denorm = batch_y
+                    print("Warning: min_model/max_model not provided for minmax normalization")
+                    
+            elif normalization_type == 'simple':
+                # Simple (Gaussian-like) denormalization
+                if y_normalizer is not None:
+                    batch_pred_denorm = y_normalizer.decode(batch_pred, device=device)
+                    batch_y_denorm = y_normalizer.decode(batch_y, device=device)
+                else:
+                    batch_pred_denorm = batch_pred
+                    batch_y_denorm = batch_y
+                    print("Warning: y_normalizer not provided for simple normalization")
+                    
+            else:
+                raise ValueError(f"Invalid normalization_type: {normalization_type}. Must be 'minmax' or 'simple'")
+            
+            # Compute loss
+            loss = loss_fn(batch_pred_denorm, batch_y_denorm)
             total_l2_loss += loss.item()
-            num_samples += batch_y.shape[0]
-
+            num_batches += 1
+    
     # Get average L2 loss
-    avg_l2_loss = total_l2_loss / num_samples
+    avg_l2_loss = total_l2_loss / num_batches
     print(f"Test L2 Loss: {avg_l2_loss:.6f}")
-    
-    # Visualize a few test examples
-    with torch.no_grad():
-        batch_x, batch_y = next(iter(test_loader))
-        batch_x, batch_y = batch_x.to(device), batch_y.to(device)
-        batch_pred = model(batch_x)
-        
-        # Denormalize
-        batch_y_denorm = y_normalizer.decode(batch_y)
-        batch_pred_denorm = y_normalizer.decode(batch_pred)
-        
-        predictions_dir = os.path.join('output_logs', 'predictions')
-        os.makedirs(predictions_dir, exist_ok=True)
-        save_path = os.path.join(predictions_dir, f"{pde}_fno_{job_id}_predictions.png")
-        
-        fig = plot_predictions(
-            batch_x, 
-            batch_y_denorm, 
-            batch_pred_denorm, 
-            pde_type=pde,
-            save_path=save_path)
-        plt.show()
-    
     return avg_l2_loss
+
+# def evaluate(model, test_loader, y_normalizer, device='cuda'):
+#     model.eval()
+#     total_l2_loss = 0.0
+#     num_batches = 0
+#     loss_fn = RelativeL2Loss(size_average=True)
+
+#     with torch.no_grad():
+#         for batch_x, batch_y in test_loader:
+#             batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+#             batch_pred = model(batch_x)
+
+#             # Denormalize predictions and ground truth
+#             if y_normalizer is not None:
+#                 batch_pred_denorm = y_normalizer.decode(batch_pred, device=device)
+#                 batch_y_denorm = y_normalizer.decode(batch_y, device=device)
+#             else:
+#                 batch_pred_denorm = batch_pred
+#                 batch_y_denorm = batch_y
+
+#             loss = loss_fn(batch_pred_denorm, batch_y_denorm)    
+#             total_l2_loss += loss.item()                       
+#             num_batches += 1                     
+
+#     # Get average L2 loss
+#     avg_l2_loss = total_l2_loss / num_batches                 
+#     print(f"Test L2 Loss: {avg_l2_loss:.6f}")
+    
+#     return avg_l2_loss

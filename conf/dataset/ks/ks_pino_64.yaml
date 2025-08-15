@@ -1,0 +1,24 @@
+dataset_params:
+  _target_: dataloaders.ks_pino_markov.ks_pino_markov_dataset        # dataloaders.ks.ks_markov_dataset
+  filename: T=20,niu=0.01,N=1024,dt=0.001,6pi,dtsave=0.1,sample=600_ut.pt
+  saved_folder: "/data/user_data/rvk/pino/ks/"
+  # val_filename: KS_valid.h5
+  # test_filename: KS_test.h5
+  reduced_batch: 1
+  reduced_resolution: 1   # CNO uses 's', so this is a dummy 1
+  reduced_resolution_t: 1 # 4
+  s: 64                   # Use this for CNO (Training resolution) 
+  data_normalizer: true
+  num_samples_max: -1
+
+window_size: 15        # Use this for S4
+original_res: 1024
+max_test_resolution: 1024   # The resolution till where we want to test [32, 64, 128, 256, 512]
+
+multi_res:
+ - 1
+ - 16
+
+train_mres: false
+
+pde: ks

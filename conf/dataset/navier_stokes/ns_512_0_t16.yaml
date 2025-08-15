@@ -1,0 +1,27 @@
+# wget https://darus.uni-stuttgart.de/api/access/datafile/133280 -O ./data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+dataset_params:
+  _target_: dataloaders.active_matter_markov.active_matter_markov_dataset
+  filename: /data/user_data/rvk/well/datasets/active_matter/data/train/active_matter_L_10.0_zeta_17.0_alpha_-5.0.hdf5
+  saved_folder: "."
+  reduced_batch: 1
+  reduced_resolution: 1   # CNO uses 's', so this is a dummy 1
+  reduced_resolution_t: 1
+  s: 32                   # Use this for CNO (Training resolution) 
+  data_normalizer: true
+  num_samples_max: -1
+
+window_size: 15        # Use this for S4
+original_res: 256
+
+multi_res:
+ - 1
+ - 16
+
+train_mres: false
+
+pde: navier_stokes_0
+# data_path1: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+# data_path1: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+# data_path1: /data/user_data/rvk/well/datasets/active_matter/data/train/active_matter_L_10.0_zeta_17.0_alpha_-5.0.hdf5
+# data_path1: /data/user_data/rvk/ns_512_1e-3.mat
+# data_path1: /data/user_data/rvk/ns_512_1e-4.mat

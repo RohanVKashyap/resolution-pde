@@ -1,18 +1,12 @@
 defaults:
   - model: fno_2d/fno_2d           
-  - dataset: darcy_flow/darcy_flow
-  - _self_  
-
-# Training parameters
-batch_size: 64
-epochs: 500
-learning_rate: 1e-3
-use_normalizer: false
-res_scale: 1
+  - dataset: darcy_flow/darcy_flow_0.01
+  - training: default
+  - _self_
 
 # Model selection
-model_type: fno               
+# model_type: fno               
 
 # Project and data parameters
-project_name: ${dataset.pde}_${model.name}$
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
 checkpoint_dir: checkpoints

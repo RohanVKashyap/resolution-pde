@@ -1,23 +1,8 @@
 import torch
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset, DataLoader, random_split
 import os
 import h5py
 import numpy as np
-
-def get_start_end(N, if_test, test_ratio, num_samples_max):
-    if if_test: 
-        # when testing, ignore num_samples_max
-        start = int(N * (1-test_ratio))
-        end = N
-    elif num_samples_max > 0:
-        if num_samples_max > int(N * (1-test_ratio)):
-            raise ValueError(f"num_samples_max={num_samples_max} can't be larger than N * (1-test_ratio)={int(N * (1-test_ratio))}")
-        start = 0
-        end = num_samples_max
-    else: 
-        start = 0
-        end = int(N * (1-test_ratio))
-    return start, end
 
 class H5DarcyDataset(Dataset):
     def __init__(self, 
@@ -25,8 +10,6 @@ class H5DarcyDataset(Dataset):
                  saved_folder='../data/',
                  reduced_resolution=1,
                  reduced_batch=1,
-                 if_test=False,
-                 test_ratio=0.1,
                  num_samples_max=-1):
         """
         Dataset for Darcy Flow problems, using permeability field (nu) as input
@@ -37,8 +20,6 @@ class H5DarcyDataset(Dataset):
             saved_folder: Path to the folder containing the h5 file
             reduced_resolution: Factor by which to reduce spatial resolution
             reduced_batch: Factor by which to reduce batch size
-            if_test: Whether to use test set
-            test_ratio: Fraction of data to use for testing
             num_samples_max: Maximum number of samples to use (-1 for all)
         """
         # Define path to file
@@ -51,16 +32,17 @@ class H5DarcyDataset(Dataset):
             print('keys:', keys)
             print([(key, f[key].shape) for key in keys])
             
-            # Get split indices
+            # Get sample count
             N = f['nu'].shape[0]
-            start, end = get_start_end(N, if_test, test_ratio, num_samples_max)
+            if num_samples_max > 0:
+                N = min(N, num_samples_max)
             
             # Load permeability field (input)
-            nu_data = np.array(f['nu'], dtype=np.float32)[start:end:reduced_batch]
+            nu_data = np.array(f['nu'], dtype=np.float32)[:N:reduced_batch]
             nu_data = nu_data[:, ::reduced_resolution, ::reduced_resolution]
             
             # Load solution field (output)
-            tensor_data = np.array(f['tensor'], dtype=np.float32)[start:end:reduced_batch]
+            tensor_data = np.array(f['tensor'], dtype=np.float32)[:N:reduced_batch]
             # Squeeze out time dimension if it's 1
             if tensor_data.shape[1] == 1:
                 tensor_data = np.squeeze(tensor_data, axis=1)
@@ -100,3 +82,46 @@ class H5DarcyDataset(Dataset):
     def __getitem__(self, idx):
         """Return input, output, and grid for the given index"""
         return self.nu[idx], self.tensor[idx], self.grid
+
+
+def get_darcy_dataset(filename, saved_folder='../data/', reduced_resolution=1, reduced_batch=1, num_samples_max=-1):
+    """
+    Returns train, validation, and test datasets with 0.8/0.1/0.1 ratio.
+    
+    Args:
+        filename: H5 file name
+        saved_folder: Path to folder containing the file
+        reduced_resolution: Factor by which to reduce spatial resolution
+        reduced_batch: Factor by which to reduce batch size
+        num_samples_max: Maximum number of samples to use (-1 for all)
+        
+    Returns:
+        train_dataset, val_dataset, test_dataset
+    """
+    # Create the full dataset
+    full_dataset = H5DarcyDataset(
+        filename=filename,
+        saved_folder=saved_folder,
+        reduced_resolution=reduced_resolution,
+        reduced_batch=reduced_batch,
+        num_samples_max=num_samples_max
+    )
+    
+    # Calculate split sizes
+    dataset_size = len(full_dataset)
+    train_size = int(0.8 * dataset_size)
+    val_size = int(0.1 * dataset_size)
+    test_size = dataset_size - train_size - val_size
+    
+    # Split dataset
+    train_dataset, val_dataset, test_dataset = random_split(
+        full_dataset, 
+        [train_size, val_size, test_size],
+        generator=torch.Generator().manual_seed(42)  # For reproducibility
+    )
+    
+    print(f"Train dataset size: {len(train_dataset)}")
+    print(f"Validation dataset size: {len(val_dataset)}")
+    print(f"Test dataset size: {len(test_dataset)}")
+    
+    return train_dataset, val_dataset, test_dataset

@@ -1,0 +1,6 @@
+defaults:
+  - base_model
+_target_: models.unet.UNet2d
+in_channels: 3
+out_channels: 3
+width: 32

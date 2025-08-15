@@ -37,6 +37,14 @@ class UnitGaussianNormalizer(object):
         
         x = (x * std) + mean
         return x
+    
+    def cuda(self):
+        self.mean = self.mean.cuda()
+        self.std = self.std.cuda()
+
+    def cpu(self):
+        self.mean = self.mean.cpu()
+        self.std = self.std.cpu()
 
 class FeedForward(nn.Module):
     '''Adapted from https://github.com/alasdairtran/fourierflow'''

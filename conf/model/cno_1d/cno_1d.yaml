@@ -1,0 +1,11 @@
+_target_: models.CNO1d.CNO1d
+
+in_dim: 1                    # 3: Number of input channels (e.g., RGB or velocity components) 
+out_dim: 1                   # 3: Number of output channels
+N_layers: 4                  # Number of down/up sampling layers
+N_res: 4                     # Number of residual blocks per level (except the neck)
+N_res_neck: 4                # Number of residual blocks in bottleneck
+channel_multiplier: 32       # Channel growth factor
+use_bn: true
+
+# size: s                    # Input and Output spatial size (Training resolution)

@@ -1,2 +1,6 @@
+reduced_batch: 1 
+reduced_resolution: 1 
+reduced_resolution_t: 1
+
 pde: darcy_flow_0.01
-data_path1: data/pdebench/darcy_flow_beta_0.01.h5
+data_path1: data/pdebench/darcy_flow_beta_0.01.hdf5

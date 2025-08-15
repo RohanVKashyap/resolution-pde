@@ -1,0 +1,5 @@
+# config/model/base_model.yaml
+_target_: null 
+
+in_channels: 1  
+out_channels: 1  

@@ -1,3 +1,7 @@
+defaults:
+  - base_model
+_target_: models.fno.FNO2d
+
 modes: 12
 width: 32
 n_blocks: 4

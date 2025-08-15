@@ -1,0 +1,23 @@
+_target_: CNO.CNO2d_original_version.CNOModule.CNO
+
+in_dim: 3                    # 3: Number of input channels (e.g., RGB or velocity components) 
+out_dim: 3                   # 3: Number of output channels
+out_size: 1                  # Keep same size as input (out_size=1 means out_size=in_size)
+N_layers: 3                  # Number of down/up sampling layers
+N_res: 4                     # Number of residual blocks per level (except the neck)
+N_res_neck: 6                # Number of residual blocks in bottleneck
+channel_multiplier: 32       # Channel growth factor
+conv_kernel: 3               # Size of all the kernels
+cutoff_den: 2.0001           # Filter property 1
+filter_size: 6               # Filter property 2
+lrelu_upsampling: 2          # Filter property 3
+half_width_mult: 0.8         # Filter property 4
+radial: false                # Filter property 5. Is filter radial?
+batch_norm: true             # Add BN? We do not add BN in lifting/projection layer
+expand_input: false          # Start with original in_size, or expand it (pad zeros in the spectrum)
+latent_lift_proj_dim: 64     # Intermediate latent dimension in the lifting/projection layer
+add_inv: true                # Add invariant block (I) after the intermediate connections?
+activation: 'cno_lrelu'      # Activation function can be 'cno_lrelu' or 'lrelu'
+
+# size: s                    # Input and Output spatial size (Training resolution)
+

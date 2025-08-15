@@ -1,0 +1,22 @@
+# wget https://darus.uni-stuttgart.de/api/access/datafile/133280 -O ./data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+reduced_batch: 1   
+reduced_resolution: 1
+reduced_resolution_t: 4
+
+window_size: 15        # Use this for S4
+original_res: 512
+train_resolution: 512   # Use this for CNO
+
+multi_res:
+ - 1
+ - 4
+
+s: 512             # Use this for CNO (Training resolution) 
+
+train_mres: false    
+
+pde: navier_stokes_0
+data_path1: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+# data_path1: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+# data_path1: /data/user_data/rvk/ns_512_1e-3.mat
+# data_path1: /data/user_data/rvk/ns_512_1e-4.mat
