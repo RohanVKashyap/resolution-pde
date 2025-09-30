@@ -1,0 +1,8 @@
+Job started on babel-11-25 at Sat Mar 15 19:26:34 EDT 2025
+Job ID: 4379847
+(10000, 201, 1024)
+-1
+(9000, 51, 1024)
+<dataloaders.burger_markov.H5pyMarkovDataset object at 0x146702abe510>
+torch.Size([32, 1024, 1, 1]) torch.Size([32, 1024, 1, 1])
+Job completed at Sat Mar 15 19:26:41 EDT 2025

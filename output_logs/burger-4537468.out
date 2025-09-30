@@ -1,0 +1,153 @@
+Job started on babel-6-25 at Wed Apr  9 16:30:30 EDT 2025
+Job ID: 4537468
+GPU information:
+Wed Apr  9 16:30:30 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:02:00.0 Off |                  Off |
+| 36%   55C    P8             23W /  219W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:82:00.0 Off |                  Off |
+| 30%   36C    P8             19W /  219W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-04-09 16:30:34,644][root][INFO] - model:
+  _target_: models.s4_1d.S4Model
+  d_input: 15
+  d_output: 1
+  d_model: 64
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 4
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  window_size: 15
+  pde: burger_0.001
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.001.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_0.001_s4_1d/s4_1d
+Model name: models.s4_1d.S4Model
+PDE Dataset: burger_0.001
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+Total data shape: (2500, 201, 1024)
+x shape: (465000, 15, 1024)
+y shape: (465000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+---------Using data normalizer---------------
+Train dataset size: 372000
+Validation dataset size: 46500
+Test dataset size: 46500
+<class 'torch.Tensor'> -0.031699471175670624 -0.032101452350616455 1.003612995147705 1.0053316354751587
+Sample Input shape: torch.Size([64, 15, 1024])
+Sample Output shape: torch.Size([64, 1, 1024])
+[2025-04-09 16:31:42,348][models.s4][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-04-09 16:31:42,348][models.s4][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+[2025-04-09 16:31:42,471][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-09 16:31:42,640][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-09 16:31:42,774][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-09 16:31:42,963][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+S4Model(
+  (encoder): Linear(in_features=16, out_features=64, bias=True)
+  (s4_layers): ModuleList(
+    (0-3): 4 x S4Block(
+      (layer): FFTConv(
+        (activation): GELU(approximate='none')
+        (kernel): SSMKernelDPLR()
+        (drop): Dropout(p=0.2, inplace=False)
+        (drop_kernel): Identity()
+      )
+      (mult_activation): Identity()
+      (drop): Dropout(p=0.2, inplace=False)
+      (output_linear): Sequential(
+        (0): Linear(in_features=64, out_features=128, bias=True)
+        (1): GLU(dim=-1)
+      )
+      (residual_layer): ZeroLayer()
+    )
+  )
+  (norms): ModuleList(
+    (0-3): 4 x LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0-3): 4 x Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=64, out_features=1, bias=True)
+)
+[2025-04-09 16:31:53,487][models.s4][INFO] - S4: Initializing kernel to length 1024
+[2025-04-09 16:31:53,595][models.s4][INFO] - S4: Initializing kernel to length 1024
+[2025-04-09 16:31:53,603][models.s4][INFO] - S4: Initializing kernel to length 1024
+[2025-04-09 16:31:53,609][models.s4][INFO] - S4: Initializing kernel to length 1024
+Epoch 0, Train Loss: 0.02446780, Val Loss: 0.00859996
+Epoch 10, Train Loss: 0.00531207, Val Loss: 0.00522317
+Epoch 20, Train Loss: 0.00475913, Val Loss: 0.00455835
+Epoch 30, Train Loss: 0.00451138, Val Loss: 0.00535865
+Epoch 40, Train Loss: 0.00426531, Val Loss: 0.00541770
+Epoch 50, Train Loss: 0.00410553, Val Loss: 0.00482336
+Epoch 60, Train Loss: 0.00396254, Val Loss: 0.00494072
+Epoch 70, Train Loss: 0.00385628, Val Loss: 0.00517026
+Epoch 80, Train Loss: 0.00378283, Val Loss: 0.00492003
+Epoch 90, Train Loss: 0.00373947, Val Loss: 0.00516869
+Test L2 Loss: 0.005094
+-----Visualizing Saved------
+Figure saved to output_logs/predictions/burger_0.001_fno_4537468_predictions.png
+Model saved to checkpoints/s4model/burger_0.001_4537468.pt
+Original test data shape: x=torch.Size([46500, 15, 1024]), y=torch.Size([46500, 1, 1024])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.005094
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([46500, 15, 512]), y=torch.Size([46500, 1, 512])
+Resolution factor 2 - Relative L2 Loss: 0.016926
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([46500, 15, 256]), y=torch.Size([46500, 1, 256])
+Resolution factor 4 - Relative L2 Loss: 0.028729
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([46500, 15, 128]), y=torch.Size([46500, 1, 128])
+Resolution factor 8 - Relative L2 Loss: 0.043917
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([46500, 15, 64]), y=torch.Size([46500, 1, 64])
+Resolution factor 16 - Relative L2 Loss: 0.056288
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([46500, 15, 32]), y=torch.Size([46500, 1, 32])
+Resolution factor 32 - Relative L2 Loss: 0.057351
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.005094
+Resolution factor 2: Relative L2 Loss = 0.016926
+Resolution factor 4: Relative L2 Loss = 0.028729
+Resolution factor 8: Relative L2 Loss = 0.043917
+Resolution factor 16: Relative L2 Loss = 0.056288
+Resolution factor 32: Relative L2 Loss = 0.057351
+Job completed at Wed Apr  9 23:58:19 EDT 2025

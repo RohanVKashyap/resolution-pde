@@ -1,0 +1,22 @@
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250618_155700-sca9uw5x
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cerulean-eon-1
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d/runs/sca9uw5x
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [01:34<14:07, 94.15s/it] 20%|██        | 2/10 [03:06<12:23, 92.89s/it] 30%|███       | 3/10 [04:37<10:46, 92.32s/it] 40%|████      | 4/10 [06:09<09:12, 92.10s/it] 50%|█████     | 5/10 [07:42<07:41, 92.26s/it] 60%|██████    | 6/10 [09:14<06:08, 92.25s/it] 70%|███████   | 7/10 [10:46<04:36, 92.31s/it] 80%|████████  | 8/10 [12:19<03:04, 92.33s/it] 90%|█████████ | 9/10 [13:51<01:32, 92.28s/it]100%|██████████| 10/10 [15:23<00:00, 92.18s/it]100%|██████████| 10/10 [15:23<00:00, 92.32s/it]
+Error executing job with overrides: ['model=cno_2d/cno_2d', 'dataset=navier_stokes/ns_512_0_t2']
+Traceback (most recent call last):
+  File "/home/rvk/cno_main.py", line 139, in main
+    avg_l2_loss = cno_evaluate(model, test_loader, data_resolution, train_resolution, y_normalizer, args.dataset.pde, job_id)
+  File "/home/rvk/train/cno_training.py", line 110, in cno_evaluate
+    batch_pred_denorm = y_normalizer.decode(batch_pred)
+  File "/home/rvk/models/custom_layer.py", line 38, in decode
+    x = (x * std) + mean
+         ~~^~~~~
+RuntimeError: The size of tensor a (256) must match the size of tensor b (512) at non-singleton dimension 3
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-15-32: task 0: Exited with exit code 1

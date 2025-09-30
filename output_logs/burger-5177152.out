@@ -1,0 +1,72 @@
+Job started on babel-3-13 at Mon Jun 30 22:35:28 EDT 2025
+Job ID: 5177152
+GPU information:
+Mon Jun 30 22:35:28 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:56:00.0 Off |                    0 |
+| N/A   22C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:D1:00.0 Off |                    0 |
+| N/A   22C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-06-30 22:35:33,221][root][INFO] - model:
+  _target_: models.ffno.FFNO2D
+  in_channels: 3
+  out_channels: 3
+  width: 32
+  factor: 4
+  n_modes: 16
+  n_layers: 4
+  dropout: 0.1
+  mode: full
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: true
+  use_grid: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 16
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  train_resolution: 32
+  multi_res:
+  - 4
+  - 8
+  s: 32
+  train_mres: false
+  pde: navier_stokes_0
+  data_path1: data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_ffno_2d/ns_ffno_2d
+Model name: models.ffno.FFNO2D
+PDE Dataset: navier_stokes_0
+Model: ffno2d
+Loading from file: /home/rvk/data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Job completed at Mon Jun 30 22:35:33 EDT 2025

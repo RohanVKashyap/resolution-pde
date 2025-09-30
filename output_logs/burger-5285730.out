@@ -1,0 +1,304 @@
+Job started on babel-15-36 at Wed Jul 30 14:59:40 EDT 2025
+Job ID: 5285730
+GPU information:
+Wed Jul 30 14:59:40 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:1A:00.0 Off |                  Off |
+| 30%   42C    P8             19W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:1B:00.0 Off |                  Off |
+| 30%   35C    P5             27W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Data directory /data/user_data/rvk/ks/res_256/visc_0.001 exists and will be written to.
+Generating data
+File /data/user_data/rvk/ks/res_256/visc_0.001/KS_train_2048.h5 is deleted.
+File /data/user_data/rvk/ks/res_256/visc_0.001/KS_test.h5 is deleted.
+File /data/user_data/rvk/ks/res_256/visc_0.001/KS_valid.h5 is deleted.
+Equation: KS
+Mode: train
+Number of samples: 2048
+Solution was not successful.
+Solved indices: 0 : 0
+Solved batches: 1 of 2048
+Solution was not successful.
+Solved indices: 1 : 1
+Solved batches: 2 of 2048
+Solution was not successful.
+Solved indices: 2 : 2
+Solved batches: 3 of 2048
+Solution was not successful.
+Solved indices: 3 : 3
+Solved batches: 4 of 2048
+Solution was not successful.
+Solved indices: 4 : 4
+Solved batches: 5 of 2048
+Solution was not successful.
+Solved indices: 5 : 5
+Solved batches: 6 of 2048
+Solution was not successful.
+Solved indices: 6 : 6
+Solved batches: 7 of 2048
+Solution was not successful.
+Solved indices: 7 : 7
+Solved batches: 8 of 2048
+Solution was not successful.
+Solved indices: 8 : 8
+Solved batches: 9 of 2048
+Solution was not successful.
+Solved indices: 9 : 9
+Solved batches: 10 of 2048
+Solution was not successful.
+Solved indices: 10 : 10
+Solved batches: 11 of 2048
+Solution was not successful.
+Solved indices: 11 : 11
+Solved batches: 12 of 2048
+Solution was not successful.
+Solved indices: 12 : 12
+Solved batches: 13 of 2048
+Solution was not successful.
+Solved indices: 13 : 13
+Solved batches: 14 of 2048
+Solution was not successful.
+Solved indices: 14 : 14
+Solved batches: 15 of 2048
+Solution was not successful.
+Solved indices: 15 : 15
+Solved batches: 16 of 2048
+Solution was not successful.
+Solved indices: 16 : 16
+Solved batches: 17 of 2048
+Solution was not successful.
+Solved indices: 17 : 17
+Solved batches: 18 of 2048
+Solution was not successful.
+Solved indices: 18 : 18
+Solved batches: 19 of 2048
+Solution was not successful.
+Solved indices: 19 : 19
+Solved batches: 20 of 2048
+Solution was not successful.
+Solved indices: 20 : 20
+Solved batches: 21 of 2048
+Solution was not successful.
+Solved indices: 21 : 21
+Solved batches: 22 of 2048
+Solution was not successful.
+Solved indices: 22 : 22
+Solved batches: 23 of 2048
+Solution was not successful.
+Solved indices: 23 : 23
+Solved batches: 24 of 2048
+Solution was not successful.
+Solved indices: 24 : 24
+Solved batches: 25 of 2048
+Solution was not successful.
+Solved indices: 25 : 25
+Solved batches: 26 of 2048
+Solution was not successful.
+Solved indices: 26 : 26
+Solved batches: 27 of 2048
+Solution was not successful.
+Solved indices: 27 : 27
+Solved batches: 28 of 2048
+Solution was not successful.
+Solved indices: 28 : 28
+Solved batches: 29 of 2048
+Solution was not successful.
+Solved indices: 29 : 29
+Solved batches: 30 of 2048
+Solution was not successful.
+Solved indices: 30 : 30
+Solved batches: 31 of 2048
+Solution was not successful.
+Solved indices: 31 : 31
+Solved batches: 32 of 2048
+Solution was not successful.
+Solved indices: 32 : 32
+Solved batches: 33 of 2048
+Solution was not successful.
+Solved indices: 33 : 33
+Solved batches: 34 of 2048
+Solution was not successful.
+Solved indices: 34 : 34
+Solved batches: 35 of 2048
+Solution was not successful.
+Solved indices: 35 : 35
+Solved batches: 36 of 2048
+Solution was not successful.
+Solved indices: 36 : 36
+Solved batches: 37 of 2048
+Solution was not successful.
+Solved indices: 37 : 37
+Solved batches: 38 of 2048
+Solution was not successful.
+Solved indices: 38 : 38
+Solved batches: 39 of 2048
+Solution was not successful.
+Solved indices: 39 : 39
+Solved batches: 40 of 2048
+Solution was not successful.
+Solved indices: 40 : 40
+Solved batches: 41 of 2048
+Solution was not successful.
+Solved indices: 41 : 41
+Solved batches: 42 of 2048
+Solution was not successful.
+Solved indices: 42 : 42
+Solved batches: 43 of 2048
+Solution was not successful.
+Solved indices: 43 : 43
+Solved batches: 44 of 2048
+Solution was not successful.
+Solved indices: 44 : 44
+Solved batches: 45 of 2048
+Solution was not successful.
+Solved indices: 45 : 45
+Solved batches: 46 of 2048
+Solution was not successful.
+Solved indices: 46 : 46
+Solved batches: 47 of 2048
+Solution was not successful.
+Solved indices: 47 : 47
+Solved batches: 48 of 2048
+Solution was not successful.
+Solved indices: 48 : 48
+Solved batches: 49 of 2048
+Solution was not successful.
+Solved indices: 49 : 49
+Solved batches: 50 of 2048
+Solution was not successful.
+Solved indices: 50 : 50
+Solved batches: 51 of 2048
+Solution was not successful.
+Solved indices: 51 : 51
+Solved batches: 52 of 2048
+Solution was not successful.
+Solved indices: 52 : 52
+Solved batches: 53 of 2048
+Solution was not successful.
+Solved indices: 53 : 53
+Solved batches: 54 of 2048
+Solution was not successful.
+Solved indices: 54 : 54
+Solved batches: 55 of 2048
+Solution was not successful.
+Solved indices: 55 : 55
+Solved batches: 56 of 2048
+Solution was not successful.
+Solved indices: 56 : 56
+Solved batches: 57 of 2048
+Solution was not successful.
+Solved indices: 57 : 57
+Solved batches: 58 of 2048
+Solution was not successful.
+Solved indices: 58 : 58
+Solved batches: 59 of 2048
+Solution was not successful.
+Solved indices: 59 : 59
+Solved batches: 60 of 2048
+Solution was not successful.
+Solved indices: 60 : 60
+Solved batches: 61 of 2048
+Solution was not successful.
+Solved indices: 61 : 61
+Solved batches: 62 of 2048
+Solution was not successful.
+Solved indices: 62 : 62
+Solved batches: 63 of 2048
+Solution was not successful.
+Solved indices: 63 : 63
+Solved batches: 64 of 2048
+Solution was not successful.
+Solved indices: 64 : 64
+Solved batches: 65 of 2048
+Solution was not successful.
+Solved indices: 65 : 65
+Solved batches: 66 of 2048
+Solution was not successful.
+Solved indices: 66 : 66
+Solved batches: 67 of 2048
+Solution was not successful.
+Solved indices: 67 : 67
+Solved batches: 68 of 2048
+Solution was not successful.
+Solved indices: 68 : 68
+Solved batches: 69 of 2048
+Solution was not successful.
+Solved indices: 69 : 69
+Solved batches: 70 of 2048
+Solution was not successful.
+Solved indices: 70 : 70
+Solved batches: 71 of 2048
+Solution was not successful.
+Solved indices: 71 : 71
+Solved batches: 72 of 2048
+Solution was not successful.
+Solved indices: 72 : 72
+Solved batches: 73 of 2048
+Solution was not successful.
+Solved indices: 73 : 73
+Solved batches: 74 of 2048
+Solution was not successful.
+Solved indices: 74 : 74
+Solved batches: 75 of 2048
+Solution was not successful.
+Solved indices: 75 : 75
+Solved batches: 76 of 2048
+Solution was not successful.
+Solved indices: 76 : 76
+Solved batches: 77 of 2048
+Solution was not successful.
+Solved indices: 77 : 77
+Solved batches: 78 of 2048
+Solution was not successful.
+Solved indices: 78 : 78
+Solved batches: 79 of 2048
+Solution was not successful.
+Solved indices: 79 : 79
+Solved batches: 80 of 2048
+Solution was not successful.
+Solved indices: 80 : 80
+Solved batches: 81 of 2048
+Solution was not successful.
+Solved indices: 81 : 81
+Solved batches: 82 of 2048
+Solution was not successful.
+Solved indices: 82 : 82
+Solved batches: 83 of 2048
+Solution was not successful.
+Solved indices: 83 : 83
+Solved batches: 84 of 2048
+Solution was not successful.
+Solved indices: 84 : 84
+Solved batches: 85 of 2048
+Solution was not successful.
+Solved indices: 85 : 85
+Solved batches: 86 of 2048
+Solution was not successful.
+Solved indices: 86 : 86
+Solved batches: 87 of 2048
+Solution was not successful.
+Solved indices: 87 : 87
+Solved batches: 88 of 2048
+Solution was not successful.
+Solved indices: 88 : 88
+Solved batches: 89 of 2048

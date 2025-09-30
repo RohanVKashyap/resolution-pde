@@ -1,0 +1,12 @@
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.19.11 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.4
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250526_033327-7zrji31e
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run jumping-night-36
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/s4ndmodel
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/s4ndmodel/runs/7zrji31e
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:24<00:24, 24.70s/it]100%|██████████| 2/2 [00:48<00:00, 24.24s/it]100%|██████████| 2/2 [00:48<00:00, 24.31s/it]
+slurmstepd: error: Detected 1 oom_kill event in StepId=4937675.0. Some of the step tasks have been OOM Killed.
+srun: error: babel-5-27: task 0: Out Of Memory

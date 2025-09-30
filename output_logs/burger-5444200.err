@@ -1,0 +1,15 @@
+/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250909_020622-hfwuwcac
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run true-leaf-140
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/hfwuwcac
+srun: got SIGCONT
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+slurmstepd: error: *** JOB 5444200 ON babel-8-9 CANCELLED AT 2025-09-09T19:02:35 ***
+srun: forcing job termination
+  0%|          | 0/100 [00:00<?, ?it/s]slurmstepd: error: *** STEP 5444200.0 ON babel-8-9 CANCELLED AT 2025-09-09T19:02:35 ***

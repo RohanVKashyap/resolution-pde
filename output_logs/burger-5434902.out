@@ -1,0 +1,311 @@
+Job started on babel-10-5 at Thu Sep  4 19:43:33 EDT 2025
+Job ID: 5434902
+GPU information:
+Thu Sep  4 19:43:33 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:D2:00.0 Off |                    0 |
+| N/A   31C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:D5:00.0 Off |                    0 |
+| N/A   32C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+/home/rvk
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /data/user_data/rvk/ns_env
+
+  removed specs:
+    - pytorch
+    - pytorch-cuda
+    - torchaudio
+    - torchvision
+
+
+The following packages will be REMOVED:
+
+  cuda-11.6.1-0
+  cuda-cccl-11.6.55-hf6102b2_0
+  cuda-command-line-tools-11.6.2-0
+  cuda-compiler-11.6.2-0
+  cuda-cudart-11.6.55-he381448_0
+  cuda-cudart-dev-11.6.55-h42ad0f4_0
+  cuda-cuobjdump-11.6.124-h2eeebcb_0
+  cuda-cupti-11.6.124-h86345e5_0
+  cuda-cuxxfilt-11.6.124-hecbf4f6_0
+  cuda-driver-dev-11.6.55-0
+  cuda-gdb-12.4.127-0
+  cuda-libraries-11.6.1-0
+  cuda-libraries-dev-11.6.1-0
+  cuda-memcheck-11.8.86-0
+  cuda-nsight-12.4.127-0
+  cuda-nsight-compute-12.4.1-0
+  cuda-nvcc-11.6.124-hbba6d2d_0
+  cuda-nvdisasm-12.4.127-0
+  cuda-nvml-dev-11.6.55-haa9ef22_0
+  cuda-nvprof-12.4.127-0
+  cuda-nvprune-11.6.124-he22ec0a_0
+  cuda-nvrtc-11.6.124-h020bade_0
+  cuda-nvrtc-dev-11.6.124-h249d397_0
+  cuda-nvtx-11.6.124-h0630a44_0
+  cuda-nvvp-12.4.127-0
+  cuda-runtime-11.6.1-0
+  cuda-samples-11.6.101-h8efea70_0
+  cuda-sanitizer-api-12.4.127-0
+  cuda-toolkit-11.6.1-0
+  cuda-tools-11.6.1-0
+  cuda-visual-tools-11.6.1-0
+  cudatoolkit-11.6.0-habf752d_9
+  gds-tools-1.9.1.3-0
+  libcublas-11.9.2.110-h5e84587_0
+  libcublas-dev-11.9.2.110-h5c901ab_0
+  libcufft-10.7.1.112-hf425ae0_0
+  libcufft-dev-10.7.1.112-ha5ce4c0_0
+  libcufile-1.9.1.3-0
+  libcufile-dev-1.9.1.3-0
+  libcurand-10.3.5.147-0
+  libcurand-dev-10.3.5.147-0
+  libcusolver-11.3.4.124-h33c3c4e_0
+  libcusparse-11.7.2.124-h7538f96_0
+  libcusparse-dev-11.7.2.124-hbbe9722_0
+  libnpp-11.6.3.124-hd2722f0_0
+  libnpp-dev-11.6.3.124-h3c42840_0
+  libnvjpeg-11.6.2.124-hd473ad6_0
+  libnvjpeg-dev-11.6.2.124-hb5906b9_0
+  nsight-compute-2024.1.1.4-0
+  pytorch-1.12.1-py3.8_cuda11.6_cudnn8.3.2_0
+  pytorch-cuda-11.6-h867d48c_1
+  pytorch-mutex-1.0-cuda
+  torchaudio-0.12.1-py38_cu116
+  torchvision-0.15.2-cpu_py38h83e0c9b_0
+  typing_extensions-4.11.0-py38h06a4308_0
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: - done
+Verifying transaction: | / - \ done
+Executing transaction: / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | done
+Channels:
+ - pytorch
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /data/user_data/rvk/ns_env
+
+  added / updated specs:
+    - cudatoolkit=11.0
+    - pytorch=1.7.1
+    - torchaudio=0.7.2
+    - torchvision=0.8.2
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _pytorch_select-0.1        |            cpu_0           3 KB
+    cudatoolkit-11.0.221       |       h6bb024c_0       622.9 MB
+    pytorch-1.7.1              |py3.8_cuda11.0.221_cudnn8.0.5_0       770.6 MB  pytorch
+    torchaudio-0.7.2           |             py38         9.8 MB  pytorch
+    torchvision-0.8.2          |cpu_py38ha229d99_0         6.4 MB
+    ------------------------------------------------------------
+                                           Total:        1.38 GB
+
+The following NEW packages will be INSTALLED:
+
+  _pytorch_select    pkgs/main/linux-64::_pytorch_select-0.1-cpu_0 
+  cudatoolkit        pkgs/main/linux-64::cudatoolkit-11.0.221-h6bb024c_0 
+  libuv              pkgs/main/linux-64::libuv-1.48.0-h5eee18b_0 
+  ninja              pkgs/main/linux-64::ninja-1.12.1-h06a4308_0 
+  ninja-base         pkgs/main/linux-64::ninja-base-1.12.1-hdb19cb5_0 
+  pytorch            pytorch/linux-64::pytorch-1.7.1-py3.8_cuda11.0.221_cudnn8.0.5_0 
+  torchaudio         pytorch/linux-64::torchaudio-0.7.2-py38 
+  torchvision        pkgs/main/linux-64::torchvision-0.8.2-cpu_py38ha229d99_0 
+  typing_extensions  pkgs/main/linux-64::typing_extensions-4.11.0-py38h06a4308_0 
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages: ...working...pytorch-1.7.1        | 770.6 MB  |            |   0% 
+cudatoolkit-11.0.221 | 622.9 MB  |            |   0% [A
+
+torchaudio-0.7.2     | 9.8 MB    |            |   0% [A[A
+
+
+torchvision-0.8.2    | 6.4 MB    |            |   0% [A[A[A
+
+
+
+_pytorch_select-0.1  | 3 KB      |            |   0% [A[A[A[A
+cudatoolkit-11.0.221 | 622.9 MB  |            |   0% [Apytorch-1.7.1        | 770.6 MB  |            |   0% 
+
+torchaudio-0.7.2     | 9.8 MB    |            |   0% [A[A
+
+
+
+_pytorch_select-0.1  | 3 KB      | ########## | 100% [A[A[A[A
+
+
+
+_pytorch_select-0.1  | 3 KB      | ########## | 100% [A[A[A[A
+
+
+
+_pytorch_select-0.1  | 3 KB      | ########## | 100% [A[A[A[A
+
+
+torchvision-0.8.2    | 6.4 MB    |            |   0% [A[A[A
+cudatoolkit-11.0.221 | 622.9 MB  | 1          |   1% [Apytorch-1.7.1        | 770.6 MB  |            |   0% 
+
+torchaudio-0.7.2     | 9.8 MB    | 7          |   7% [A[A
+
+
+torchvision-0.8.2    | 6.4 MB    | ####6      |  46% [A[A[A
+cudatoolkit-11.0.221 | 622.9 MB  | 2          |   2% [Apytorch-1.7.1        | 770.6 MB  |            |   0% 
+
+torchaudio-0.7.2     | 9.8 MB    | ####3      |  43% [A[A
+
+
+torchvision-0.8.2    | 6.4 MB    | ########6  |  87% [A[A[A
+
+
+torchvision-0.8.2    | 6.4 MB    | ########## | 100% [A[A[A
+cudatoolkit-11.0.221 | 622.9 MB  | 3          |   3% [Apytorch-1.7.1        | 770.6 MB  |            |   0% 
+
+torchaudio-0.7.2     | 9.8 MB    | #######7   |  78% [A[A
+cudatoolkit-11.0.221 | 622.9 MB  | 4          |   4% [Apytorch-1.7.1        | 770.6 MB  |            |   0% 
+
+torchaudio-0.7.2     | 9.8 MB    | ########## | 100% [A[A
+
+
+torchvision-0.8.2    | 6.4 MB    | ########## | 100% [A[A[A
+cudatoolkit-11.0.221 | 622.9 MB  | 5          |   5% [Apytorch-1.7.1        | 770.6 MB  |            |   0% 
+cudatoolkit-11.0.221 | 622.9 MB  | 7          |   7% [Apytorch-1.7.1        | 770.6 MB  |            |   1% 
+cudatoolkit-11.0.221 | 622.9 MB  | 8          |   9% [Apytorch-1.7.1        | 770.6 MB  |            |   1% 
+cudatoolkit-11.0.221 | 622.9 MB  | #          |  10% [Apytorch-1.7.1        | 770.6 MB  |            |   1% 
+cudatoolkit-11.0.221 | 622.9 MB  | #1         |  12% [Apytorch-1.7.1        | 770.6 MB  | 1          |   1% 
+cudatoolkit-11.0.221 | 622.9 MB  | #3         |  13% [Apytorch-1.7.1        | 770.6 MB  | 1          |   1% 
+cudatoolkit-11.0.221 | 622.9 MB  | #4         |  15% [Apytorch-1.7.1        | 770.6 MB  | 1          |   2% 
+cudatoolkit-11.0.221 | 622.9 MB  | #5         |  16% [Apytorch-1.7.1        | 770.6 MB  | 2          |   2% 
+cudatoolkit-11.0.221 | 622.9 MB  | #7         |  17% [Apytorch-1.7.1        | 770.6 MB  | 2          |   2% pytorch-1.7.1        | 770.6 MB  | 2          |   3% 
+cudatoolkit-11.0.221 | 622.9 MB  | #8         |  19% [Apytorch-1.7.1        | 770.6 MB  | 3          |   3% 
+cudatoolkit-11.0.221 | 622.9 MB  | ##         |  20% [A
+
+torchaudio-0.7.2     | 9.8 MB    | ########## | 100% [A[Apytorch-1.7.1        | 770.6 MB  | 3          |   4% 
+cudatoolkit-11.0.221 | 622.9 MB  | ##1        |  21% [Apytorch-1.7.1        | 770.6 MB  | 4          |   4% 
+cudatoolkit-11.0.221 | 622.9 MB  | ##2        |  23% [A
+cudatoolkit-11.0.221 | 622.9 MB  | ##4        |  24% [Apytorch-1.7.1        | 770.6 MB  | 4          |   5% pytorch-1.7.1        | 770.6 MB  | 5          |   5% 
+cudatoolkit-11.0.221 | 622.9 MB  | ##5        |  25% [Apytorch-1.7.1        | 770.6 MB  | 6          |   6% 
+cudatoolkit-11.0.221 | 622.9 MB  | ##6        |  26% [Apytorch-1.7.1        | 770.6 MB  | 6          |   7% 
+cudatoolkit-11.0.221 | 622.9 MB  | ##7        |  28% [Apytorch-1.7.1        | 770.6 MB  | 7          |   7% 
+cudatoolkit-11.0.221 | 622.9 MB  | ##8        |  29% [Apytorch-1.7.1        | 770.6 MB  | 7          |   8% 
+cudatoolkit-11.0.221 | 622.9 MB  | ##9        |  30% [Apytorch-1.7.1        | 770.6 MB  | 8          |   8% 
+cudatoolkit-11.0.221 | 622.9 MB  | ###1       |  31% [A
+cudatoolkit-11.0.221 | 622.9 MB  | ###2       |  32% [Apytorch-1.7.1        | 770.6 MB  | 8          |   9% 
+cudatoolkit-11.0.221 | 622.9 MB  | ###3       |  33% [Apytorch-1.7.1        | 770.6 MB  | 9          |  10% 
+cudatoolkit-11.0.221 | 622.9 MB  | ###4       |  35% [Apytorch-1.7.1        | 770.6 MB  | #          |  10% 
+cudatoolkit-11.0.221 | 622.9 MB  | ###5       |  36% [Apytorch-1.7.1        | 770.6 MB  | #          |  11% pytorch-1.7.1        | 770.6 MB  | #1         |  11% 
+cudatoolkit-11.0.221 | 622.9 MB  | ###6       |  37% [A
+cudatoolkit-11.0.221 | 622.9 MB  | ###7       |  38% [Apytorch-1.7.1        | 770.6 MB  | #1         |  12% pytorch-1.7.1        | 770.6 MB  | #2         |  13% 
+cudatoolkit-11.0.221 | 622.9 MB  | ###9       |  39% [Apytorch-1.7.1        | 770.6 MB  | #3         |  13% 
+cudatoolkit-11.0.221 | 622.9 MB  | ####       |  40% [Apytorch-1.7.1        | 770.6 MB  | #3         |  14% 
+cudatoolkit-11.0.221 | 622.9 MB  | ####1      |  41% [Apytorch-1.7.1        | 770.6 MB  | #4         |  15% 
+cudatoolkit-11.0.221 | 622.9 MB  | ####2      |  42% [A
+cudatoolkit-11.0.221 | 622.9 MB  | ####3      |  43% [Apytorch-1.7.1        | 770.6 MB  | #5         |  15% 
+cudatoolkit-11.0.221 | 622.9 MB  | ####4      |  44% [Apytorch-1.7.1        | 770.6 MB  | #5         |  16% 
+cudatoolkit-11.0.221 | 622.9 MB  | ####5      |  46% [Apytorch-1.7.1        | 770.6 MB  | #6         |  16% 
+cudatoolkit-11.0.221 | 622.9 MB  | ####6      |  47% [Apytorch-1.7.1        | 770.6 MB  | #6         |  17% 
+cudatoolkit-11.0.221 | 622.9 MB  | ####7      |  48% [Apytorch-1.7.1        | 770.6 MB  | #7         |  18% 
+cudatoolkit-11.0.221 | 622.9 MB  | ####9      |  49% [Apytorch-1.7.1        | 770.6 MB  | #8         |  18% 
+cudatoolkit-11.0.221 | 622.9 MB  | #####      |  50% [Apytorch-1.7.1        | 770.6 MB  | #8         |  19% 
+cudatoolkit-11.0.221 | 622.9 MB  | #####1     |  51% [Apytorch-1.7.1        | 770.6 MB  | #9         |  19% 
+cudatoolkit-11.0.221 | 622.9 MB  | #####2     |  52% [Apytorch-1.7.1        | 770.6 MB  | ##         |  20% 
+cudatoolkit-11.0.221 | 622.9 MB  | #####3     |  53% [Apytorch-1.7.1        | 770.6 MB  | ##         |  21% 
+cudatoolkit-11.0.221 | 622.9 MB  | #####4     |  54% [Apytorch-1.7.1        | 770.6 MB  | ##1        |  21% 
+cudatoolkit-11.0.221 | 622.9 MB  | #####5     |  56% [Apytorch-1.7.1        | 770.6 MB  | ##2        |  22% 
+cudatoolkit-11.0.221 | 622.9 MB  | #####6     |  57% [Apytorch-1.7.1        | 770.6 MB  | ##2        |  23% 
+cudatoolkit-11.0.221 | 622.9 MB  | #####8     |  58% [Apytorch-1.7.1        | 770.6 MB  | ##3        |  23% 
+cudatoolkit-11.0.221 | 622.9 MB  | #####9     |  59% [Apytorch-1.7.1        | 770.6 MB  | ##3        |  24% 
+cudatoolkit-11.0.221 | 622.9 MB  | ######     |  60% [Apytorch-1.7.1        | 770.6 MB  | ##4        |  24% 
+cudatoolkit-11.0.221 | 622.9 MB  | ######1    |  62% [A
+cudatoolkit-11.0.221 | 622.9 MB  | ######2    |  63% [Apytorch-1.7.1        | 770.6 MB  | ##4        |  25% 
+cudatoolkit-11.0.221 | 622.9 MB  | ######3    |  64% [Apytorch-1.7.1        | 770.6 MB  | ##5        |  25% 
+cudatoolkit-11.0.221 | 622.9 MB  | ######5    |  65% [Apytorch-1.7.1        | 770.6 MB  | ##5        |  26% 
+cudatoolkit-11.0.221 | 622.9 MB  | ######6    |  66% [Apytorch-1.7.1        | 770.6 MB  | ##6        |  26% 
+cudatoolkit-11.0.221 | 622.9 MB  | ######7    |  67% [Apytorch-1.7.1        | 770.6 MB  | ##6        |  27% 
+cudatoolkit-11.0.221 | 622.9 MB  | ######8    |  69% [Apytorch-1.7.1        | 770.6 MB  | ##7        |  27% 
+cudatoolkit-11.0.221 | 622.9 MB  | ######9    |  70% [Apytorch-1.7.1        | 770.6 MB  | ##7        |  28% 
+cudatoolkit-11.0.221 | 622.9 MB  | #######1   |  71% [Apytorch-1.7.1        | 770.6 MB  | ##8        |  28% 
+cudatoolkit-11.0.221 | 622.9 MB  | #######2   |  72% [Apytorch-1.7.1        | 770.6 MB  | ##8        |  29% 
+cudatoolkit-11.0.221 | 622.9 MB  | #######3   |  73% [Apytorch-1.7.1        | 770.6 MB  | ##9        |  30% 
+cudatoolkit-11.0.221 | 622.9 MB  | #######4   |  74% [Apytorch-1.7.1        | 770.6 MB  | ###        |  30% 
+cudatoolkit-11.0.221 | 622.9 MB  | #######5   |  76% [Apytorch-1.7.1        | 770.6 MB  | ###        |  31% 
+cudatoolkit-11.0.221 | 622.9 MB  | #######6   |  77% [Apytorch-1.7.1        | 770.6 MB  | ###1       |  31% 
+cudatoolkit-11.0.221 | 622.9 MB  | #######7   |  78% [Apytorch-1.7.1        | 770.6 MB  | ###1       |  32% 
+cudatoolkit-11.0.221 | 622.9 MB  | #######9   |  79% [Apytorch-1.7.1        | 770.6 MB  | ###2       |  32% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########   |  80% [Apytorch-1.7.1        | 770.6 MB  | ###3       |  33% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########1  |  81% [Apytorch-1.7.1        | 770.6 MB  | ###3       |  34% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########2  |  83% [Apytorch-1.7.1        | 770.6 MB  | ###4       |  34% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########3  |  84% [Apytorch-1.7.1        | 770.6 MB  | ###4       |  35% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########4  |  85% [Apytorch-1.7.1        | 770.6 MB  | ###5       |  35% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########5  |  86% [Apytorch-1.7.1        | 770.6 MB  | ###6       |  36% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########7  |  87% [Apytorch-1.7.1        | 770.6 MB  | ###6       |  37% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########8  |  88% [Apytorch-1.7.1        | 770.6 MB  | ###7       |  37% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########9  |  89% [Apytorch-1.7.1        | 770.6 MB  | ###8       |  38% 
+cudatoolkit-11.0.221 | 622.9 MB  | #########  |  90% [A
+cudatoolkit-11.0.221 | 622.9 MB  | #########1 |  91% [Apytorch-1.7.1        | 770.6 MB  | ###8       |  39% 
+cudatoolkit-11.0.221 | 622.9 MB  | #########2 |  93% [Apytorch-1.7.1        | 770.6 MB  | ###9       |  39% 
+cudatoolkit-11.0.221 | 622.9 MB  | #########3 |  94% [Apytorch-1.7.1        | 770.6 MB  | ###9       |  40% 
+cudatoolkit-11.0.221 | 622.9 MB  | #########4 |  95% [Apytorch-1.7.1        | 770.6 MB  | ####       |  40% 
+cudatoolkit-11.0.221 | 622.9 MB  | #########6 |  96% [Apytorch-1.7.1        | 770.6 MB  | ####       |  41% 
+cudatoolkit-11.0.221 | 622.9 MB  | #########7 |  97% [Apytorch-1.7.1        | 770.6 MB  | ####1      |  41% 
+cudatoolkit-11.0.221 | 622.9 MB  | #########8 |  98% [Apytorch-1.7.1        | 770.6 MB  | ####2      |  42% 
+cudatoolkit-11.0.221 | 622.9 MB  | #########9 |  99% [Apytorch-1.7.1        | 770.6 MB  | ####2      |  43% pytorch-1.7.1        | 770.6 MB  | ####3      |  43% pytorch-1.7.1        | 770.6 MB  | ####3      |  44% pytorch-1.7.1        | 770.6 MB  | ####4      |  45% pytorch-1.7.1        | 770.6 MB  | ####5      |  45% pytorch-1.7.1        | 770.6 MB  | ####6      |  46% pytorch-1.7.1        | 770.6 MB  | ####7      |  47% pytorch-1.7.1        | 770.6 MB  | ####8      |  48% pytorch-1.7.1        | 770.6 MB  | ####9      |  49% pytorch-1.7.1        | 770.6 MB  | #####      |  50% pytorch-1.7.1        | 770.6 MB  | #####1     |  51% pytorch-1.7.1        | 770.6 MB  | #####2     |  52% pytorch-1.7.1        | 770.6 MB  | #####3     |  53% pytorch-1.7.1        | 770.6 MB  | #####4     |  54% pytorch-1.7.1        | 770.6 MB  | #####5     |  55% pytorch-1.7.1        | 770.6 MB  | #####6     |  56% pytorch-1.7.1        | 770.6 MB  | #####7     |  57% pytorch-1.7.1        | 770.6 MB  | #####8     |  58% pytorch-1.7.1        | 770.6 MB  | #####8     |  59% pytorch-1.7.1        | 770.6 MB  | ######     |  60% pytorch-1.7.1        | 770.6 MB  | ######     |  61% pytorch-1.7.1        | 770.6 MB  | ######1    |  62% pytorch-1.7.1        | 770.6 MB  | ######2    |  63% pytorch-1.7.1        | 770.6 MB  | ######3    |  64% pytorch-1.7.1        | 770.6 MB  | ######4    |  65% pytorch-1.7.1        | 770.6 MB  | ######5    |  66% pytorch-1.7.1        | 770.6 MB  | ######6    |  66% pytorch-1.7.1        | 770.6 MB  | ######7    |  67% pytorch-1.7.1        | 770.6 MB  | ######8    |  68% pytorch-1.7.1        | 770.6 MB  | ######9    |  69% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########## | 100% [Apytorch-1.7.1        | 770.6 MB  | #######    |  70% pytorch-1.7.1        | 770.6 MB  | #######1   |  71% pytorch-1.7.1        | 770.6 MB  | #######1   |  72% pytorch-1.7.1        | 770.6 MB  | #######2   |  73% pytorch-1.7.1        | 770.6 MB  | #######3   |  74% pytorch-1.7.1        | 770.6 MB  | #######4   |  75% pytorch-1.7.1        | 770.6 MB  | #######5   |  75% pytorch-1.7.1        | 770.6 MB  | #######6   |  76% pytorch-1.7.1        | 770.6 MB  | #######7   |  78% pytorch-1.7.1        | 770.6 MB  | #######8   |  79% pytorch-1.7.1        | 770.6 MB  | #######9   |  80% pytorch-1.7.1        | 770.6 MB  | ########   |  81% pytorch-1.7.1        | 770.6 MB  | ########1  |  82% pytorch-1.7.1        | 770.6 MB  | ########2  |  83% pytorch-1.7.1        | 770.6 MB  | ########3  |  84% pytorch-1.7.1        | 770.6 MB  | ########4  |  85% pytorch-1.7.1        | 770.6 MB  | ########5  |  85% pytorch-1.7.1        | 770.6 MB  | ########6  |  87% pytorch-1.7.1        | 770.6 MB  | ########7  |  88% pytorch-1.7.1        | 770.6 MB  | ########8  |  89% pytorch-1.7.1        | 770.6 MB  | ########9  |  90% pytorch-1.7.1        | 770.6 MB  | #########1 |  91% pytorch-1.7.1        | 770.6 MB  | #########2 |  92% pytorch-1.7.1        | 770.6 MB  | #########3 |  93% pytorch-1.7.1        | 770.6 MB  | #########3 |  94% pytorch-1.7.1        | 770.6 MB  | #########4 |  95% pytorch-1.7.1        | 770.6 MB  | #########5 |  96% pytorch-1.7.1        | 770.6 MB  | #########7 |  97% pytorch-1.7.1        | 770.6 MB  | #########8 |  98% pytorch-1.7.1        | 770.6 MB  | #########9 |  99% pytorch-1.7.1        | 770.6 MB  | ########## | 100% 
+cudatoolkit-11.0.221 | 622.9 MB  | ########## | 100% [Apytorch-1.7.1        | 770.6 MB  | ########## | 100%                                                      
+                                                     [A
+
+                                                     [A[A
+
+
+                                                     [A[A[A
+
+
+
+                                                     [A[A[A[A done
+Preparing transaction: - done
+Verifying transaction: | / - \ | / - \ done
+Executing transaction: / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ By downloading and using the CUDA Toolkit conda packages, you accept the terms and conditions of the CUDA End User License Agreement (EULA): https://docs.nvidia.com/cuda/eula/index.html
+
+| done
+PyTorch version: 1.7.1
+CUDA available: True

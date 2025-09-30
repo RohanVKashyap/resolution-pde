@@ -1,0 +1,27 @@
+/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250909_200323-ksftn28a
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run grateful-darkness-145
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/ksftn28a
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:11<03:34, 11.27s/it] 10%|█         | 2/20 [00:22<03:18, 11.04s/it] 15%|█▌        | 3/20 [00:33<03:08, 11.07s/it] 20%|██        | 4/20 [00:44<02:55, 10.97s/it] 25%|██▌       | 5/20 [00:54<02:43, 10.90s/it] 30%|███       | 6/20 [01:05<02:32, 10.86s/it] 35%|███▌      | 7/20 [01:16<02:20, 10.84s/it] 40%|████      | 8/20 [01:27<02:10, 10.88s/it] 45%|████▌     | 9/20 [01:38<01:59, 10.87s/it] 50%|█████     | 10/20 [01:49<01:48, 10.86s/it] 55%|█████▌    | 11/20 [01:59<01:37, 10.85s/it] 60%|██████    | 12/20 [02:10<01:26, 10.84s/it] 65%|██████▌   | 13/20 [02:21<01:15, 10.83s/it] 70%|███████   | 14/20 [02:32<01:04, 10.82s/it] 75%|███████▌  | 15/20 [02:43<00:54, 10.82s/it] 80%|████████  | 16/20 [02:53<00:43, 10.81s/it] 85%|████████▌ | 17/20 [03:04<00:32, 10.81s/it] 90%|█████████ | 18/20 [03:15<00:21, 10.81s/it] 95%|█████████▌| 19/20 [03:26<00:10, 10.80s/it]100%|██████████| 20/20 [03:37<00:00, 10.80s/it]100%|██████████| 20/20 [03:37<00:00, 10.86s/it]
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▂▂▂▃▃▄▄▄▅▅▅▆▆▇▇▇██
+wandb: train_loss █▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:   val_loss █▃▂▂▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 19
+wandb: train_loss 0.00679
+wandb:   val_loss 0.0058
+wandb: 
+wandb: 🚀 View run grateful-darkness-145 at: https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/ksftn28a
+wandb: ⭐️ View project at: https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250909_200323-ksftn28a/logs

@@ -1,0 +1,4962 @@
+Job started on babel-0-31 at Wed Aug 20 13:23:01 EDT 2025
+Job ID: 5377287
+GPU information:
+Wed Aug 20 13:23:01 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:81:00.0 Off |                  Off |
+| 30%   43C    P8             33W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:A1:00.0 Off |                  Off |
+| 30%   43C    P8             40W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Retrieving notices: - done
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/rvk/miniconda3/envs/pdebench_env
+
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: | done
+Verifying transaction: - done
+Executing transaction: | done
+#
+# To activate this environment, use
+#
+#     $ conda activate pdebench_env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/rvk/miniconda3
+
+  added / updated specs:
+    - matplotlib
+    - numpy
+    - scipy
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2025.7.15  |       h06a4308_0         126 KB
+    certifi-2025.8.3           |  py312h06a4308_0         159 KB
+    contourpy-1.3.1            |  py312hdb19cb5_0         276 KB
+    cyrus-sasl-2.1.28          |       h1110e0f_3         242 KB
+    fonttools-4.55.3           |  py312h5eee18b_0         2.9 MB
+    kiwisolver-1.4.8           |  py312h6a678d5_0          69 KB
+    libcups-2.4.2              |       h252cb56_2         4.5 MB
+    libevent-2.1.12            |       hdbd6064_1         453 KB
+    libgl-1.7.0                |       h5eee18b_2         149 KB
+    libglib-2.84.2             |       h37c7471_0         1.7 MB
+    libglvnd-1.7.0             |       h5eee18b_2         140 KB
+    libglx-1.7.0               |       h5eee18b_2          87 KB
+    libkrb5-1.21.3             |       h520c7b4_4         874 KB
+    libpq-17.4                 |       h02b6914_2         3.0 MB
+    libxkbcommon-1.0.1         |       h097e994_2         590 KB
+    lmdb-0.9.31                |       hb25bd0a_0         469 KB
+    matplotlib-3.10.0          |  py312h06a4308_0           7 KB
+    matplotlib-base-3.10.0     |  py312hbfdbfaf_0         8.2 MB
+    mkl-service-2.4.0          |  py312h5eee18b_2          67 KB
+    mkl_fft-1.3.11             |  py312h5eee18b_0         205 KB
+    mkl_random-1.2.8           |  py312h526ad5a_0         324 KB
+    numpy-2.3.1                |  py312h2470af2_0          11 KB
+    numpy-base-2.3.1           |  py312h06ae042_0         8.6 MB
+    openldap-2.6.10            |       h8e75217_0         815 KB
+    openssl-3.0.17             |       h5eee18b_0         5.2 MB
+    pillow-11.1.0              |  py312hcea889d_0         958 KB
+    pyparsing-3.2.0            |  py312h06a4308_0         471 KB
+    pyqt-6.7.1                 |  py312h8dad735_2         5.1 MB
+    pyqt6-sip-13.9.1           |  py312h6ce4db3_2          81 KB
+    python-dateutil-2.9.0post0 |  py312h06a4308_2         318 KB
+    qtbase-6.7.3               |       hdaa5aa8_0        16.1 MB
+    qtdeclarative-6.7.3        |       h7934f7d_1        16.2 MB
+    qtsvg-6.7.3                |       he4bddd1_1         291 KB
+    qttools-6.7.3              |       h5a8de97_1         6.6 MB
+    qtwebchannel-6.7.3         |       h7934f7d_1         153 KB
+    qtwebsockets-6.7.3         |       h7934f7d_1         135 KB
+    scipy-1.16.0               |  py312h0cc6016_0        24.8 MB
+    setuptools-72.1.0          |  py312h06a4308_0         2.9 MB
+    sip-6.10.0                 |  py312h6a678d5_0         701 KB
+    six-1.17.0                 |  py312h06a4308_0          36 KB
+    tornado-6.5.1              |  py312h5eee18b_0         875 KB
+    unicodedata2-15.1.0        |  py312h5eee18b_1         524 KB
+    xcb-util-0.4.1             |       h5eee18b_2          19 KB
+    xcb-util-cursor-0.1.5      |       h5eee18b_0          19 KB
+    xcb-util-image-0.4.0       |       h5eee18b_2          23 KB
+    xcb-util-renderutil-0.3.10 |       h5eee18b_0          16 KB
+    ------------------------------------------------------------
+                                           Total:       115.2 MB
+
+The following NEW packages will be INSTALLED:
+
+  blas               pkgs/main/linux-64::blas-1.0-mkl 
+  contourpy          pkgs/main/linux-64::contourpy-1.3.1-py312hdb19cb5_0 
+  cycler             pkgs/main/noarch::cycler-0.11.0-pyhd3eb1b0_0 
+  cyrus-sasl         pkgs/main/linux-64::cyrus-sasl-2.1.28-h1110e0f_3 
+  fontconfig         pkgs/main/linux-64::fontconfig-2.14.1-h55d465d_3 
+  fonttools          pkgs/main/linux-64::fonttools-4.55.3-py312h5eee18b_0 
+  freetype           pkgs/main/linux-64::freetype-2.13.3-h4a9f257_0 
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2023.1.0-hdb19cb5_46306 
+  jpeg               pkgs/main/linux-64::jpeg-9e-h5eee18b_3 
+  kiwisolver         pkgs/main/linux-64::kiwisolver-1.4.8-py312h6a678d5_0 
+  lcms2              pkgs/main/linux-64::lcms2-2.16-hb9589c4_0 
+  lerc               pkgs/main/linux-64::lerc-4.0.0-h6a678d5_0 
+  libabseil          pkgs/main/linux-64::libabseil-20250127.0-cxx17_h6a678d5_0 
+  libcups            pkgs/main/linux-64::libcups-2.4.2-h252cb56_2 
+  libdeflate         pkgs/main/linux-64::libdeflate-1.22-h5eee18b_0 
+  libevent           pkgs/main/linux-64::libevent-2.1.12-hdbd6064_1 
+  libgfortran-ng     pkgs/main/linux-64::libgfortran-ng-11.2.0-h00389a5_1 
+  libgfortran5       pkgs/main/linux-64::libgfortran5-11.2.0-h1234567_1 
+  libgl              pkgs/main/linux-64::libgl-1.7.0-h5eee18b_2 
+  libglib            pkgs/main/linux-64::libglib-2.84.2-h37c7471_0 
+  libglvnd           pkgs/main/linux-64::libglvnd-1.7.0-h5eee18b_2 
+  libglx             pkgs/main/linux-64::libglx-1.7.0-h5eee18b_2 
+  libiconv           pkgs/main/linux-64::libiconv-1.16-h5eee18b_3 
+  libkrb5            pkgs/main/linux-64::libkrb5-1.21.3-h520c7b4_4 
+  libpng             pkgs/main/linux-64::libpng-1.6.39-h5eee18b_0 
+  libpq              pkgs/main/linux-64::libpq-17.4-h02b6914_2 
+  libprotobuf        pkgs/main/linux-64::libprotobuf-5.29.3-h3cdef7c_1 
+  libsodium          pkgs/main/linux-64::libsodium-1.0.18-h7b6447c_0 
+  libtiff            pkgs/main/linux-64::libtiff-4.5.1-hffd6297_1 
+  libwebp-base       pkgs/main/linux-64::libwebp-base-1.3.2-h5eee18b_1 
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0 
+  libxkbcommon       pkgs/main/linux-64::libxkbcommon-1.0.1-h097e994_2 
+  lmdb               pkgs/main/linux-64::lmdb-0.9.31-hb25bd0a_0 
+  matplotlib         pkgs/main/linux-64::matplotlib-3.10.0-py312h06a4308_0 
+  matplotlib-base    pkgs/main/linux-64::matplotlib-base-3.10.0-py312hbfdbfaf_0 
+  mkl                pkgs/main/linux-64::mkl-2023.1.0-h213fc3f_46344 
+  mkl-service        pkgs/main/linux-64::mkl-service-2.4.0-py312h5eee18b_2 
+  mkl_fft            pkgs/main/linux-64::mkl_fft-1.3.11-py312h5eee18b_0 
+  mkl_random         pkgs/main/linux-64::mkl_random-1.2.8-py312h526ad5a_0 
+  mysql              pkgs/main/linux-64::mysql-8.4.0-h721767e_2 
+  numpy              pkgs/main/linux-64::numpy-2.3.1-py312h2470af2_0 
+  numpy-base         pkgs/main/linux-64::numpy-base-2.3.1-py312h06ae042_0 
+  openjpeg           pkgs/main/linux-64::openjpeg-2.5.2-he7f1fd0_0 
+  openldap           pkgs/main/linux-64::openldap-2.6.10-h8e75217_0 
+  pillow             pkgs/main/linux-64::pillow-11.1.0-py312hcea889d_0 
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h0ce48e5_1 
+  pyparsing          pkgs/main/linux-64::pyparsing-3.2.0-py312h06a4308_0 
+  pyqt               pkgs/main/linux-64::pyqt-6.7.1-py312h8dad735_2 
+  pyqt6-sip          pkgs/main/linux-64::pyqt6-sip-13.9.1-py312h6ce4db3_2 
+  python-dateutil    pkgs/main/linux-64::python-dateutil-2.9.0post0-py312h06a4308_2 
+  qtbase             pkgs/main/linux-64::qtbase-6.7.3-hdaa5aa8_0 
+  qtdeclarative      pkgs/main/linux-64::qtdeclarative-6.7.3-h7934f7d_1 
+  qtsvg              pkgs/main/linux-64::qtsvg-6.7.3-he4bddd1_1 
+  qttools            pkgs/main/linux-64::qttools-6.7.3-h5a8de97_1 
+  qtwebchannel       pkgs/main/linux-64::qtwebchannel-6.7.3-h7934f7d_1 
+  qtwebsockets       pkgs/main/linux-64::qtwebsockets-6.7.3-h7934f7d_1 
+  scipy              pkgs/main/linux-64::scipy-1.16.0-py312h0cc6016_0 
+  sip                pkgs/main/linux-64::sip-6.10.0-py312h6a678d5_0 
+  six                pkgs/main/linux-64::six-1.17.0-py312h06a4308_0 
+  tbb                pkgs/main/linux-64::tbb-2021.8.0-hdb19cb5_0 
+  tornado            pkgs/main/linux-64::tornado-6.5.1-py312h5eee18b_0 
+  unicodedata2       pkgs/main/linux-64::unicodedata2-15.1.0-py312h5eee18b_1 
+  xcb-util           pkgs/main/linux-64::xcb-util-0.4.1-h5eee18b_2 
+  xcb-util-cursor    pkgs/main/linux-64::xcb-util-cursor-0.1.5-h5eee18b_0 
+  xcb-util-image     pkgs/main/linux-64::xcb-util-image-0.4.0-h5eee18b_2 
+  xcb-util-renderut~ pkgs/main/linux-64::xcb-util-renderutil-0.3.10-h5eee18b_0 
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.12-h9b100fa_1 
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0 
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0 
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2024.1-h5eee18b_1 
+
+The following packages will be UPDATED:
+
+  ca-certificates                      2025.2.25-h06a4308_0 --> 2025.7.15-h06a4308_0 
+  certifi                         2025.1.31-py312h06a4308_0 --> 2025.8.3-py312h06a4308_0 
+  openssl                                 3.0.16-h5eee18b_0 --> 3.0.17-h5eee18b_0 
+
+The following packages will be DOWNGRADED:
+
+  setuptools                         75.8.0-py312h06a4308_0 --> 72.1.0-py312h06a4308_0 
+
+
+
+Downloading and Extracting Packages: ...working...scipy-1.16.0         | 24.8 MB   |            |   0% 
+qtdeclarative-6.7.3  | 16.2 MB   |            |   0% [A
+
+qtbase-6.7.3         | 16.1 MB   |            |   0% [A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    |            |   0% [A[A[A
+
+
+
+matplotlib-base-3.10 | 8.2 MB    |            |   0% [A[A[A[A
+
+
+
+
+qttools-6.7.3        | 6.6 MB    |            |   0% [A[A[A[A[A
+
+
+
+
+
+openssl-3.0.17       | 5.2 MB    |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+pyqt-6.7.1           | 5.1 MB    |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libcups-2.4.2        | 4.5 MB    |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libpq-17.4           | 3.0 MB    |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.55.3     | 2.9 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+setuptools-72.1.0    | 2.9 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+libglib-2.84.2       | 1.7 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+pillow-11.1.0        | 958 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tornado-6.5.1        | 875 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libkrb5-1.21.3       | 874 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+openldap-2.6.10      | 815 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sip-6.10.0           | 701 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libxkbcommon-1.0.1   | 590 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+matplotlib-base-3.10 | 8.2 MB    | #4         |  15% [A[A[A[Ascipy-1.16.0         | 24.8 MB   |            |   0% 
+
+qtbase-6.7.3         | 16.1 MB   |            |   0% [A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    |            |   0% [A[A[Ascipy-1.16.0         | 24.8 MB   | 1          |   1% 
+
+qtbase-6.7.3         | 16.1 MB   | #4         |  14% [A[A
+
+
+
+matplotlib-base-3.10 | 8.2 MB    | #####6     |  56% [A[A[A[Ascipy-1.16.0         | 24.8 MB   | 3          |   3% 
+
+qtbase-6.7.3         | 16.1 MB   | ###6       |  37% [A[A
+
+
+
+matplotlib-base-3.10 | 8.2 MB    | ########## | 100% [A[A[A[A
+
+
+
+matplotlib-base-3.10 | 8.2 MB    | ########## | 100% [A[A[A[A
+qtdeclarative-6.7.3  | 16.2 MB   |            |   0% [A
+
+
+numpy-base-2.3.1     | 8.6 MB    |            |   1% [A[A[A
+
+
+
+
+qttools-6.7.3        | 6.6 MB    |            |   0% [A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | 4          |   4% 
+qtdeclarative-6.7.3  | 16.2 MB   | ##         |  20% [A
+
+qtbase-6.7.3         | 16.1 MB   | #####1     |  51% [A[A
+
+
+
+
+qttools-6.7.3        | 6.6 MB    | ####       |  41% [A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | 5          |   6% 
+qtdeclarative-6.7.3  | 16.2 MB   | ####       |  41% [A
+
+qtbase-6.7.3         | 16.1 MB   | ######9    |  70% [A[A
+
+
+
+
+qttools-6.7.3        | 6.6 MB    | ########   |  80% [A[A[A[A[A
+qtdeclarative-6.7.3  | 16.2 MB   | #####6     |  56% [A
+
+qtbase-6.7.3         | 16.1 MB   | ########5  |  85% [A[Ascipy-1.16.0         | 24.8 MB   | 7          |   7% 
+
+
+
+
+qttools-6.7.3        | 6.6 MB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+
+openssl-3.0.17       | 5.2 MB    |            |   0% [A[A[A[A[A[A
+qtdeclarative-6.7.3  | 16.2 MB   | #######4   |  74% [Ascipy-1.16.0         | 24.8 MB   | 8          |   8% 
+
+
+
+
+
+openssl-3.0.17       | 5.2 MB    | ####6      |  46% [A[A[A[A[A[A
+qtdeclarative-6.7.3  | 16.2 MB   | #########1 |  92% [Ascipy-1.16.0         | 24.8 MB   | #          |  10% 
+
+
+
+
+
+openssl-3.0.17       | 5.2 MB    | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+openssl-3.0.17       | 5.2 MB    | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+
+pyqt-6.7.1           | 5.1 MB    |            |   0% [A[A[A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | #3         |  14% 
+qtdeclarative-6.7.3  | 16.2 MB   | ########## | 100% [A
+
+
+
+
+
+
+
+libcups-2.4.2        | 4.5 MB    |            |   0% [A[A[A[A[A[A[A[A
+
+qtbase-6.7.3         | 16.1 MB   | ########## | 100% [A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    | 1          |   1% [A[A[A
+
+
+
+
+
+
+pyqt-6.7.1           | 5.1 MB    | ########3  |  83% [A[A[A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | #8         |  18% 
+
+
+
+
+
+
+
+
+libpq-17.4           | 3.0 MB    |            |   1% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+pyqt-6.7.1           | 5.1 MB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libcups-2.4.2        | 4.5 MB    | #####8     |  58% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.55.3     | 2.9 MB    |            |   1% [A[A[A[A[A[A[A[A[A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    | 3          |   4% [A[A[A
+
+
+
+
+
+openssl-3.0.17       | 5.2 MB    | ########## | 100% [A[A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | ##3        |  23% 
+
+
+
+
+qttools-6.7.3        | 6.6 MB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+
+
+
+
+libpq-17.4           | 3.0 MB    | ####4      |  44% [A[A[A[A[A[A[A[A[A
+
+
+
+matplotlib-base-3.10 | 8.2 MB    | ########## | 100% [A[A[A[A
+
+
+
+
+
+
+
+libcups-2.4.2        | 4.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.55.3     | 2.9 MB    | #######9   |  79% [A[A[A[A[A[A[A[A[A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    | 6          |   6% [A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.55.3     | 2.9 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+setuptools-72.1.0    | 2.9 MB    |            |   1% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libpq-17.4           | 3.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | ##9        |  29% 
+
+
+
+
+
+
+
+
+
+
+
+libglib-2.84.2       | 1.7 MB    |            |   1% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+pillow-11.1.0        | 958 KB    | 1          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    | 8          |   9% [A[A[A
+
+
+
+
+
+
+
+
+
+
+setuptools-72.1.0    | 2.9 MB    | #######3   |  73% [A[A[A[A[A[A[A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | ###3       |  33% 
+
+
+
+
+
+
+
+
+
+
+
+libglib-2.84.2       | 1.7 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+libglib-2.84.2       | 1.7 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+pillow-11.1.0        | 958 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+setuptools-72.1.0    | 2.9 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tornado-6.5.1        | 875 KB    | 1          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libkrb5-1.21.3       | 874 KB    | 1          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+openldap-2.6.10      | 815 KB    | 1          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    | #1         |  11% [A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tornado-6.5.1        | 875 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | ###7       |  38% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+openldap-2.6.10      | 815 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libkrb5-1.21.3       | 874 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sip-6.10.0           | 701 KB    | 2          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sip-6.10.0           | 701 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libxkbcommon-1.0.1   | 590 KB    | 2          |   3% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libxkbcommon-1.0.1   | 590 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | ####3      |  44% scipy-1.16.0         | 24.8 MB   | #####      |  50% 
+
+
+numpy-base-2.3.1     | 8.6 MB    | #3         |  13% [A[A[Ascipy-1.16.0         | 24.8 MB   | #####9     |  59% 
+
+
+numpy-base-2.3.1     | 8.6 MB    | #9         |  19% [A[A[Ascipy-1.16.0         | 24.8 MB   | #######    |  70% 
+
+
+numpy-base-2.3.1     | 8.6 MB    | ##2        |  23% [A[A[Ascipy-1.16.0         | 24.8 MB   | ########3  |  84% 
+
+
+
+
+
+
+pyqt-6.7.1           | 5.1 MB    | ########## | 100% [A[A[A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | #########3 |  93% 
+
+
+
+
+
+
+
+libcups-2.4.2        | 4.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libcups-2.4.2        | 4.5 MB    | ########## | 100% [A[A[A[A[A[A[A[Ascipy-1.16.0         | 24.8 MB   | ########## | 100% 
+
+
+numpy-base-2.3.1     | 8.6 MB    | ##5        |  25% [A[A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    | #####6     |  57% [A[A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    | #########2 |  93% [A[A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    | ########## | 100% [A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.55.3     | 2.9 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libpq-17.4           | 3.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libpq-17.4           | 3.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+pillow-11.1.0        | 958 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+pillow-11.1.0        | 958 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+libglib-2.84.2       | 1.7 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+qtdeclarative-6.7.3  | 16.2 MB   | ########## | 100% [A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tornado-6.5.1        | 875 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tornado-6.5.1        | 875 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+openldap-2.6.10      | 815 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+openldap-2.6.10      | 815 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libkrb5-1.21.3       | 874 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libkrb5-1.21.3       | 874 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+qtbase-6.7.3         | 16.1 MB   | ########## | 100% [A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libxkbcommon-1.0.1   | 590 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libxkbcommon-1.0.1   | 590 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+setuptools-72.1.0    | 2.9 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sip-6.10.0           | 701 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sip-6.10.0           | 701 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+numpy-base-2.3.1     | 8.6 MB    | ########## | 100% [A[A[Ascipy-1.16.0         | 24.8 MB   | ########## | 100% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A                                                     
+                                                     [A
+
+                                                     [A[A
+
+
+                                                     [A[A[A
+
+
+
+                                                     [A[A[A[A
+
+
+
+
+                                                     [A[A[A[A[A
+
+
+
+
+
+                                                     [A[A[A[A[A[A
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A done
+Preparing transaction: - \ | / done
+Verifying transaction: \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
+Executing transaction: | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ done
+Channels:
+ - pytorch
+ - nvidia
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/rvk/miniconda3
+
+  added / updated specs:
+    - pytorch
+    - pytorch-cuda=12.4
+    - torchaudio
+    - torchvision
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    cuda-cudart-12.4.127       |                0         198 KB  nvidia
+    cuda-cupti-12.4.127        |                0        16.4 MB  nvidia
+    cuda-libraries-12.4.1      |                0           2 KB  nvidia
+    cuda-nvrtc-12.4.127        |                0        21.0 MB  nvidia
+    cuda-nvtx-12.4.127         |                0          58 KB  nvidia
+    cuda-opencl-12.9.19        |                0          25 KB  nvidia
+    cuda-runtime-12.4.1        |                0           2 KB  nvidia
+    cuda-version-12.9          |                3          17 KB  nvidia
+    ffmpeg-4.3                 |       hf484d3e_0         9.9 MB  pytorch
+    giflib-5.2.2               |       h5eee18b_0          80 KB
+    gnutls-3.6.15              |       he1e5248_0         1.0 MB
+    lame-3.100                 |       h7b6447c_0         323 KB
+    libcublas-12.4.5.8         |                0       309.2 MB  nvidia
+    libcufft-11.2.1.3          |                0       190.5 MB  nvidia
+    libcufile-1.14.1.1         |                4         946 KB  nvidia
+    libcurand-10.3.10.19       |                0        44.0 MB  nvidia
+    libcusolver-11.6.1.9       |                0       114.0 MB  nvidia
+    libcusparse-12.3.1.170     |                0       179.6 MB  nvidia
+    libidn2-2.3.4              |       h5eee18b_0         146 KB
+    libjpeg-turbo-2.0.0        |       h9bf148f_0         950 KB  pytorch
+    libnpp-12.2.5.30           |                0       142.8 MB  nvidia
+    libnvfatbin-12.9.82        |                0         799 KB  nvidia
+    libnvjitlink-12.4.127      |                0        18.2 MB  nvidia
+    libnvjpeg-12.3.1.117       |                0         3.0 MB  nvidia
+    libtasn1-4.19.0            |       h5eee18b_0          63 KB
+    libunistring-0.9.10        |       h27cfd23_0         536 KB
+    libwebp-1.3.2              |       h11a3e52_0          87 KB
+    llvm-openmp-14.0.6         |       h9e868ea_0         4.4 MB
+    nettle-3.7.3               |       hbbd107a_1         809 KB
+    ocl-icd-2.3.2              |       h5eee18b_1         136 KB
+    openh264-2.1.1             |       h4ff587b_0         711 KB
+    pytorch-2.5.1              |py3.12_cuda12.4_cudnn9.1.0_0        1.46 GB  pytorch
+    pytorch-cuda-12.4          |       hc786d27_7           7 KB  pytorch
+    pytorch-mutex-1.0          |             cuda           3 KB  pytorch
+    torchaudio-2.5.1           |      py312_cu124         6.3 MB  pytorch
+    torchtriton-3.1.0          |            py312       233.6 MB  pytorch
+    torchvision-0.20.1         |      py312_cu124         8.4 MB  pytorch
+    ------------------------------------------------------------
+                                           Total:        2.74 GB
+
+The following NEW packages will be INSTALLED:
+
+  cuda-cudart        nvidia/linux-64::cuda-cudart-12.4.127-0 
+  cuda-cupti         nvidia/linux-64::cuda-cupti-12.4.127-0 
+  cuda-libraries     nvidia/linux-64::cuda-libraries-12.4.1-0 
+  cuda-nvrtc         nvidia/linux-64::cuda-nvrtc-12.4.127-0 
+  cuda-nvtx          nvidia/linux-64::cuda-nvtx-12.4.127-0 
+  cuda-opencl        nvidia/linux-64::cuda-opencl-12.9.19-0 
+  cuda-runtime       nvidia/linux-64::cuda-runtime-12.4.1-0 
+  cuda-version       nvidia/noarch::cuda-version-12.9-3 
+  ffmpeg             pytorch/linux-64::ffmpeg-4.3-hf484d3e_0 
+  giflib             pkgs/main/linux-64::giflib-5.2.2-h5eee18b_0 
+  gmp                pkgs/main/linux-64::gmp-6.3.0-h6a678d5_0 
+  gnutls             pkgs/main/linux-64::gnutls-3.6.15-he1e5248_0 
+  lame               pkgs/main/linux-64::lame-3.100-h7b6447c_0 
+  libcublas          nvidia/linux-64::libcublas-12.4.5.8-0 
+  libcufft           nvidia/linux-64::libcufft-11.2.1.3-0 
+  libcufile          nvidia/linux-64::libcufile-1.14.1.1-4 
+  libcurand          nvidia/linux-64::libcurand-10.3.10.19-0 
+  libcusolver        nvidia/linux-64::libcusolver-11.6.1.9-0 
+  libcusparse        nvidia/linux-64::libcusparse-12.3.1.170-0 
+  libidn2            pkgs/main/linux-64::libidn2-2.3.4-h5eee18b_0 
+  libjpeg-turbo      pytorch/linux-64::libjpeg-turbo-2.0.0-h9bf148f_0 
+  libnpp             nvidia/linux-64::libnpp-12.2.5.30-0 
+  libnvfatbin        nvidia/linux-64::libnvfatbin-12.9.82-0 
+  libnvjitlink       nvidia/linux-64::libnvjitlink-12.4.127-0 
+  libnvjpeg          nvidia/linux-64::libnvjpeg-12.3.1.117-0 
+  libtasn1           pkgs/main/linux-64::libtasn1-4.19.0-h5eee18b_0 
+  libunistring       pkgs/main/linux-64::libunistring-0.9.10-h27cfd23_0 
+  libwebp            pkgs/main/linux-64::libwebp-1.3.2-h11a3e52_0 
+  llvm-openmp        pkgs/main/linux-64::llvm-openmp-14.0.6-h9e868ea_0 
+  nettle             pkgs/main/linux-64::nettle-3.7.3-hbbd107a_1 
+  ocl-icd            pkgs/main/linux-64::ocl-icd-2.3.2-h5eee18b_1 
+  openh264           pkgs/main/linux-64::openh264-2.1.1-h4ff587b_0 
+  pytorch            pytorch/linux-64::pytorch-2.5.1-py3.12_cuda12.4_cudnn9.1.0_0 
+  pytorch-cuda       pytorch/linux-64::pytorch-cuda-12.4-hc786d27_7 
+  pytorch-mutex      pytorch/noarch::pytorch-mutex-1.0-cuda 
+  torchaudio         pytorch/linux-64::torchaudio-2.5.1-py312_cu124 
+  torchtriton        pytorch/linux-64::torchtriton-3.1.0-py312 
+  torchvision        pytorch/linux-64::torchvision-0.20.1-py312_cu124 
+
+
+
+Downloading and Extracting Packages: ...working...pytorch-2.5.1        | 1.46 GB   |            |   0% 
+libcublas-12.4.5.8   | 309.2 MB  |            |   0% [A
+
+torchtriton-3.1.0    | 233.6 MB  |            |   0% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  |            |   0% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  |            |   0% [A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  |            |   0% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libnvjitlink-12.4.12 | 18.2 MB   |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.3           | 9.9 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.1   | 8.4 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.1     | 6.3 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+llvm-openmp-14.0.6   | 4.4 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libnvjpeg-12.3.1.117 | 3.0 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gnutls-3.6.15        | 1.0 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libjpeg-turbo-2.0.0  | 950 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libcufile-1.14.1.1   | 946 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   |            |   0% 
+libcublas-12.4.5.8   | 309.2 MB  |            |   0% [A
+
+torchtriton-3.1.0    | 233.6 MB  |            |   0% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  |            |   0% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  |            |   0% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  |            |   0% [A
+
+torchtriton-3.1.0    | 233.6 MB  |            |   0% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  |            |   0% [A[A[A[Apytorch-2.5.1        | 1.46 GB   |            |   0% 
+libcublas-12.4.5.8   | 309.2 MB  |            |   1% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  |            |   1% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  |            |   0% [A[Apytorch-2.5.1        | 1.46 GB   |            |   0% 
+libcublas-12.4.5.8   | 309.2 MB  | 1          |   1% [A
+
+torchtriton-3.1.0    | 233.6 MB  |            |   1% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | 1          |   2% [A[A[A[Apytorch-2.5.1        | 1.46 GB   |            |   0% 
+libcublas-12.4.5.8   | 309.2 MB  | 1          |   2% [A
+
+torchtriton-3.1.0    | 233.6 MB  | 1          |   1% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | 3          |   4% [A[A[A[Apytorch-2.5.1        | 1.46 GB   |            |   1% 
+libcublas-12.4.5.8   | 309.2 MB  | 2          |   3% [A
+
+torchtriton-3.1.0    | 233.6 MB  | 1          |   2% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | 4          |   5% [A[A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   1% 
+libcublas-12.4.5.8   | 309.2 MB  | 3          |   3% [A
+
+torchtriton-3.1.0    | 233.6 MB  | 2          |   2% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | 5          |   6% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | 3          |   4% [A
+
+torchtriton-3.1.0    | 233.6 MB  | 3          |   3% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  |            |   0% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | 6          |   7% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | 4          |   5% [A
+
+torchtriton-3.1.0    | 233.6 MB  | 4          |   4% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  |            |   0% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | 7          |   8% [A[A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   1% 
+
+torchtriton-3.1.0    | 233.6 MB  | 5          |   5% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  |            |   0% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | 5          |   5% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | 8          |   9% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | 6          |   7% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  |            |   1% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | 5          |   6% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | 9          |  10% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  |            |   1% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | 6          |   6% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #          |  11% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | 7          |   8% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | 6          |   7% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 1          |   1% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #1         |  12% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | 9          |  10% [A[Apytorch-2.5.1        | 1.46 GB   | 1          |   1% 
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 1          |   1% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | 7          |   8% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #2         |  13% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #1         |  11% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | 8          |   8% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 1          |   2% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #4         |  14% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #2         |  13% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | 8          |   9% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 1          |   2% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #5         |  15% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #4         |  14% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | 9          |  10% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 2          |   2% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #6         |  16% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #5         |  15% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | #          |  10% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 2          |   2% [A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #7         |  17% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #1         |  11% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #6         |  17% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 2          |   3% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #8         |  19% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #2         |  12% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 3          |   3% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #7         |  18% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #9         |  20% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #3         |  13% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 3          |   3% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #9         |  19% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ##         |  21% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #3         |  14% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 3          |   4% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ##         |  21% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ##1        |  22% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #4         |  15% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 4          |   4% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ##1        |  22% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ##2        |  23% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #5         |  16% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 4          |   4% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ##2        |  23% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ##3        |  24% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #6         |  16% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 4          |   5% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ##3        |  24% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ##4        |  25% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #7         |  17% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 5          |   5% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ##5        |  25% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ##6        |  26% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 5          |   5% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #8         |  18% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ##7        |  27% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ##6        |  26% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 5          |   6% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #8         |  19% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ##8        |  28% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ##7        |  28% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 6          |   6% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #9         |  20% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ##9        |  29% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ##8        |  29% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 6          |   6% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##         |  21% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ###        |  30% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 6          |   7% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##1        |  21% [A
+
+torchtriton-3.1.0    | 233.6 MB  | ##9        |  30% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ###1       |  31% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##2        |  22% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 7          |   7% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ###2       |  33% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ###1       |  31% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 7          |   7% [A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+libcublas-12.4.5.8   | 309.2 MB  | ##2        |  23% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ###4       |  34% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ###2       |  32% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 7          |   8% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##3        |  24% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ###5       |  35% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ###3       |  33% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 8          |   8% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##4        |  24% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ###6       |  36% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ###4       |  35% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 8          |   9% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##5        |  25% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ###7       |  38% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 9          |   9% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##5        |  26% [A
+
+torchtriton-3.1.0    | 233.6 MB  | ###5       |  35% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ###8       |  39% [A[A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+
+libcufft-11.2.1.3    | 190.5 MB  | 9          |  10% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##6        |  26% [A
+
+torchtriton-3.1.0    | 233.6 MB  | ###6       |  37% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ####       |  40% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #          |  10% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##6        |  27% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ####1      |  41% [A[A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #1         |  11% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ###7       |  38% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##7        |  28% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ####2      |  42% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #1         |  12% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ###9       |  39% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##8        |  28% [Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #2         |  12% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ####3      |  44% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ####       |  40% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #2         |  13% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##8        |  29% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ####4      |  45% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ####1      |  41% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ##9        |  29% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #3         |  14% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ####5      |  46% [A[A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+torchtriton-3.1.0    | 233.6 MB  | ####2      |  42% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ####6      |  47% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #4         |  14% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###        |  30% [A
+
+torchtriton-3.1.0    | 233.6 MB  | ####3      |  43% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ####8      |  48% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #5         |  15% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###        |  31% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ####9      |  49% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #5         |  16% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ####4      |  44% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###1       |  31% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #####      |  50% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ####5      |  46% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #6         |  17% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###2       |  32% [Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #####1     |  52% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ####7      |  47% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###2       |  33% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #7         |  17% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #####2     |  53% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###3       |  33% [A
+
+torchtriton-3.1.0    | 233.6 MB  | ####8      |  48% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #8         |  18% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #####3     |  54% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###3       |  34% [A
+
+torchtriton-3.1.0    | 233.6 MB  | ####9      |  49% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #9         |  19% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #####4     |  55% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###4       |  34% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #####      |  50% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##         |  20% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #####6     |  56% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###5       |  35% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #####1     |  51% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##         |  21% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #####7     |  57% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###5       |  36% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #####2     |  52% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##1        |  22% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #####8     |  59% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###6       |  36% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##2        |  22% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #####3     |  53% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #####9     |  60% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###6       |  37% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #####4     |  55% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##3        |  23% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ######1    |  61% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###7       |  37% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##4        |  24% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #####5     |  56% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ######2    |  62% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###8       |  38% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##5        |  25% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #####7     |  57% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###8       |  39% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ######3    |  63% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##6        |  26% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #####8     |  58% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ######4    |  64% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ###9       |  39% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##7        |  27% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #####9     |  59% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ######5    |  65% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####       |  40% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##8        |  28% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ######     |  60% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ######6    |  67% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####       |  41% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ##9        |  29% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ######1    |  61% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ######7    |  68% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####1      |  42% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ###        |  30% [A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+torchtriton-3.1.0    | 233.6 MB  | ######2    |  62% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ######8    |  69% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####2      |  42% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ###1       |  31% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ######3    |  63% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ######9    |  70% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####3      |  43% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ###2       |  32% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ######4    |  64% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####3      |  44% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #######    |  71% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ###3       |  34% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ######5    |  65% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #######1   |  72% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####4      |  45% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ###4       |  34% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ######5    |  66% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####5      |  46% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #######2   |  73% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ###5       |  35% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ######6    |  67% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #######3   |  74% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####6      |  46% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ###6       |  36% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ######7    |  68% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #######4   |  75% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####7      |  47% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ###7       |  37% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####8      |  48% [A
+
+torchtriton-3.1.0    | 233.6 MB  | ######8    |  69% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #######5   |  76% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ###8       |  38% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####9      |  49% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #######7   |  77% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ######9    |  69% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ###9       |  39% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ####9      |  50% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #######8   |  78% [A[A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #######    |  70% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ####       |  40% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####      |  51% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #######1   |  71% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #######9   |  79% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ####1      |  41% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####1     |  52% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #######2   |  72% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########   |  80% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ####2      |  43% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########1  |  81% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ####3      |  44% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #######2   |  73% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####2     |  52% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########2  |  82% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ####4      |  45% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #######4   |  74% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####3     |  54% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########3  |  83% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ####5      |  46% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #######5   |  75% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########4  |  84% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####4     |  55% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ####6      |  47% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #######6   |  77% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########5  |  86% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####5     |  55% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ####7      |  47% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #######7   |  78% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########6  |  86% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####6     |  56% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ####8      |  48% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | #######8   |  79% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########7  |  87% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####6     |  57% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ####9      |  49% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ########   |  80% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####7     |  58% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########8  |  88% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #####      |  50% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ########1  |  81% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########9  |  89% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####8     |  58% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #####1     |  51% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ########2  |  82% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #########  |  91% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####9     |  59% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #####2     |  52% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ########3  |  83% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | #####9     |  60% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #########1 |  91% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #####3     |  53% [A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+torchtriton-3.1.0    | 233.6 MB  | ########4  |  85% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ######     |  60% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #########2 |  93% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #####4     |  54% [A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+torchtriton-3.1.0    | 233.6 MB  | ########5  |  86% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ######1    |  61% [A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #########3 |  93% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #####5     |  55% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ########6  |  87% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #########4 |  94% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ######1    |  62% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #####6     |  56% [A[A[A
+
+torchtriton-3.1.0    | 233.6 MB  | ########8  |  88% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #########5 |  95% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ######2    |  63% [A
+
+torchtriton-3.1.0    | 233.6 MB  | ########9  |  89% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #####7     |  57% [A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #########6 |  97% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ######3    |  64% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #########  |  90% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #####8     |  58% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #########7 |  98% [A[A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+libcublas-12.4.5.8   | 309.2 MB  | ######4    |  64% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #########1 |  92% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #####9     |  59% [A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | #########8 |  99% [A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ######4    |  65% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #########2 |  93% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ######     |  60% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ######5    |  66% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #########4 |  94% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ######1    |  61% [A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+libcublas-12.4.5.8   | 309.2 MB  | ######6    |  67% [A
+
+torchtriton-3.1.0    | 233.6 MB  | #########5 |  96% [A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ######2    |  62% [A[A[Apytorch-2.5.1        | 1.46 GB   | 1          |   2% 
+
+torchtriton-3.1.0    | 233.6 MB  | #########7 |  97% [A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########## | 100% [A[A[A[A
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########## | 100% [A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ######3    |  64% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ######7    |  67% [A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  |            |   0% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+
+torchtriton-3.1.0    | 233.6 MB  | #########8 |  99% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | ######7    |  68% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ######4    |  65% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  |            |   0% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+libcublas-12.4.5.8   | 309.2 MB  | ######8    |  69% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ######6    |  66% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | 2          |   3% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+libcublas-12.4.5.8   | 309.2 MB  | #######    |  70% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ######7    |  68% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | 5          |   5% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+libcublas-12.4.5.8   | 309.2 MB  | #######1   |  71% [A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | 7          |   8% [A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ######9    |  69% [A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+
+torchtriton-3.1.0    | 233.6 MB  | ########## | 100% [A[A
+libcublas-12.4.5.8   | 309.2 MB  | #######2   |  73% [A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #1         |  11% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  |            |   0% [A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | 1          |   1% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #3         |  14% [A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #######4   |  74% [Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | 4          |   4% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #6         |  16% [A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #######5   |  75% [A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | 7          |   8% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #8         |  19% [A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #######6   |  77% [Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+libcublas-12.4.5.8   | 309.2 MB  | #######7   |  78% [A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #          |  11% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ##1        |  21% [A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######    |  70% [A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #3         |  14% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ##3        |  24% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #6         |  17% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######1   |  71% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ##5        |  26% [A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #######8   |  79% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######2   |  72% [A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #9         |  19% [A[A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #######9   |  80% [A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ##7        |  28% [A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######3   |  73% [A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ##1        |  21% [A[A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ########1  |  81% [A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ##9        |  30% [A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######3   |  74% [A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ##3        |  24% [A[A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ########2  |  82% [A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ###1       |  32% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######4   |  75% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ########3  |  84% [A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ##5        |  26% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ###3       |  33% [A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######5   |  76% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ########4  |  85% [A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ##7        |  28% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ###5       |  35% [A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######6   |  76% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ########5  |  86% [A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ###        |  30% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ###7       |  37% [A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ########7  |  87% [A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ###2       |  33% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######7   |  77% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ###8       |  39% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ###4       |  35% [A[A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ########8  |  88% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######7   |  78% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ####       |  41% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ###6       |  37% [A[A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ########9  |  89% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######8   |  79% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ####2      |  43% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ###9       |  39% [A[A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #########  |  91% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######9   |  79% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ####4      |  44% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   2% 
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ####1      |  41% [A[A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #########1 |  92% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #######9   |  80% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ####5      |  46% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   3% 
+libcublas-12.4.5.8   | 309.2 MB  | #########2 |  93% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########   |  81% [A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ####3      |  43% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ####7      |  48% [A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #########3 |  94% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########1  |  81% [A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ####6      |  46% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ####9      |  49% [A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #########4 |  95% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########1  |  82% [A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ####9      |  49% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #####      |  51% [A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #########6 |  96% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########2  |  82% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #####2     |  52% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #####1     |  51% [A[A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #########7 |  97% [A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########3  |  83% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #####3     |  54% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #####3     |  54% [A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   3% 
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########3  |  84% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #########8 |  98% [A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #####5     |  55% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #####6     |  56% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########4  |  84% [A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | #########9 |  99% [A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #####6     |  57% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #####8     |  59% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########4  |  85% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #####9     |  59% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ######1    |  61% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########5  |  86% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ######1    |  61% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ######3    |  64% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########6  |  87% [A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   3% 
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ######3    |  63% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ######5    |  66% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########7  |  88% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ######5    |  65% [A[A[A[A[A
+libcublas-12.4.5.8   | 309.2 MB  | ########## | 100% [A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ######8    |  68% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########8  |  89% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ######7    |  68% [A[A[A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #######1   |  71% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########9  |  90% [A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | 4          |   5% [A[A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ######9    |  70% [A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########  |  91% [A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #######3   |  73% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #######2   |  72% [A[A[A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | #          |  11% [A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   3% 
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########1 |  91% [A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #######5   |  76% [A[A[A[A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | #7         |  17% [A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   3% 
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #######4   |  74% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #######8   |  78% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########2 |  92% [A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | ##4        |  25% [A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   3% 
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #######6   |  76% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ########   |  80% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########3 |  93% [A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | ###1       |  31% [A[A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #######8   |  78% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ########2  |  83% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########3 |  94% [A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | ###7       |  38% [A[A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #######9   |  80% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ########4  |  85% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########4 |  95% [A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | ####4      |  44% [A[A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ########1  |  82% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ########6  |  87% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########5 |  95% [A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | #####1     |  52% [A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 2          |   3% 
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ########3  |  83% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ########8  |  89% [A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########5 |  96% [A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | #####8     |  59% [A[A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ########4  |  85% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #########  |  91% [A[A[A[A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | ######5    |  65% [A[A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########6 |  97% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ########6  |  86% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #########2 |  93% [A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 3          |   3% 
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | #######3   |  73% [A[A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########7 |  97% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ########7  |  88% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #########5 |  95% [A[A[A[A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | ########   |  81% [A[A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########8 |  98% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ########9  |  90% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 3          |   3% 
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #########7 |  97% [A[A[A[A[A[A
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | ########7  |  87% [A[A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########8 |  99% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #########1 |  91% [A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | #########9 | 100% [A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 3          |   3% 
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | #########5 |  96% [A[A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | #########9 | 100% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #########3 |  94% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 3          |   3% 
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #########5 |  96% [A[A[A[A[A
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   |            |   0% [A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 3          |   3% 
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   | 6          |   6% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libnvjitlink-12.4.12 | 18.2 MB   |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########## | 100% [A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #########7 |  97% [A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | #########9 |  99% [A[A[A[A[A
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   | ##         |  21% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libnvjitlink-12.4.12 | 18.2 MB   | 7          |   8% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   | #1         |  11% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   | ####1      |  41% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libnvjitlink-12.4.12 | 18.2 MB   | ###3       |  33% [A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 3          |   3% 
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   | ##4        |  25% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ########## | 100% [A[A[A[A[A
+
+
+
+
+
+
+
+
+libnvjitlink-12.4.12 | 18.2 MB   | #####      |  50% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   | #####5     |  55% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.3           | 9.9 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   | ###8       |  39% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libnvjitlink-12.4.12 | 18.2 MB   | ######6    |  67% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   | ######7    |  68% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.3           | 9.9 MB    | 9          |   9% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   | #####1     |  51% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libnvjitlink-12.4.12 | 18.2 MB   | ########1  |  81% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.3           | 9.9 MB    | ###3       |  33% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   | #######9   |  79% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   | ######3    |  63% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libnvjitlink-12.4.12 | 18.2 MB   | #########5 |  95% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.3           | 9.9 MB    | #####1     |  51% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   | #########2 |  92% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   | #######6   |  76% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libnvjitlink-12.4.12 | 18.2 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.3           | 9.9 MB    | ########8  |  88% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.1   | 8.4 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   | ########9  |  90% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.1     | 6.3 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.3           | 9.9 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+llvm-openmp-14.0.6   | 4.4 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.1   | 8.4 MB    | ##7        |  27% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.1     | 6.3 MB    | ###4       |  34% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+llvm-openmp-14.0.6   | 4.4 MB    | ########2  |  83% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libnvjpeg-12.3.1.117 | 3.0 MB    |            |   1% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 3          |   3% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+llvm-openmp-14.0.6   | 4.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.1   | 8.4 MB    | #####4     |  54% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.1     | 6.3 MB    | #######6   |  76% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gnutls-3.6.15        | 1.0 MB    | 1          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gnutls-3.6.15        | 1.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libnvjpeg-12.3.1.117 | 3.0 MB    | ####3      |  44% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 3          |   3% 
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.1     | 6.3 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.1   | 8.4 MB    | ########4  |  84% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libjpeg-turbo-2.0.0  | 950 KB    | 1          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libnvjpeg-12.3.1.117 | 3.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libcufile-1.14.1.1   | 946 KB    | 1          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.1   | 8.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libjpeg-turbo-2.0.0  | 950 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libcufile-1.14.1.1   | 946 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 3          |   3% pytorch-2.5.1        | 1.46 GB   | 3          |   4% pytorch-2.5.1        | 1.46 GB   | 3          |   4% pytorch-2.5.1        | 1.46 GB   | 3          |   4% pytorch-2.5.1        | 1.46 GB   | 3          |   4% pytorch-2.5.1        | 1.46 GB   | 3          |   4% pytorch-2.5.1        | 1.46 GB   | 3          |   4% pytorch-2.5.1        | 1.46 GB   | 4          |   4% pytorch-2.5.1        | 1.46 GB   | 4          |   4% pytorch-2.5.1        | 1.46 GB   | 4          |   4% pytorch-2.5.1        | 1.46 GB   | 4          |   4% pytorch-2.5.1        | 1.46 GB   | 4          |   4% pytorch-2.5.1        | 1.46 GB   | 4          |   4% pytorch-2.5.1        | 1.46 GB   | 4          |   4% pytorch-2.5.1        | 1.46 GB   | 4          |   4% pytorch-2.5.1        | 1.46 GB   | 4          |   5% pytorch-2.5.1        | 1.46 GB   | 4          |   5% pytorch-2.5.1        | 1.46 GB   | 4          |   5% pytorch-2.5.1        | 1.46 GB   | 4          |   5% pytorch-2.5.1        | 1.46 GB   | 4          |   5% pytorch-2.5.1        | 1.46 GB   | 4          |   5% pytorch-2.5.1        | 1.46 GB   | 4          |   5% pytorch-2.5.1        | 1.46 GB   | 4          |   5% pytorch-2.5.1        | 1.46 GB   | 4          |   5% pytorch-2.5.1        | 1.46 GB   | 4          |   5% pytorch-2.5.1        | 1.46 GB   | 5          |   5% pytorch-2.5.1        | 1.46 GB   | 5          |   5% pytorch-2.5.1        | 1.46 GB   | 5          |   5% pytorch-2.5.1        | 1.46 GB   | 5          |   5% pytorch-2.5.1        | 1.46 GB   | 5          |   5% pytorch-2.5.1        | 1.46 GB   | 5          |   5% pytorch-2.5.1        | 1.46 GB   | 5          |   5% pytorch-2.5.1        | 1.46 GB   | 5          |   6% pytorch-2.5.1        | 1.46 GB   | 5          |   6% pytorch-2.5.1        | 1.46 GB   | 5          |   6% pytorch-2.5.1        | 1.46 GB   | 5          |   6% pytorch-2.5.1        | 1.46 GB   | 5          |   6% pytorch-2.5.1        | 1.46 GB   | 5          |   6% pytorch-2.5.1        | 1.46 GB   | 5          |   6% pytorch-2.5.1        | 1.46 GB   | 5          |   6% pytorch-2.5.1        | 1.46 GB   | 5          |   6% pytorch-2.5.1        | 1.46 GB   | 5          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   6% pytorch-2.5.1        | 1.46 GB   | 6          |   7% pytorch-2.5.1        | 1.46 GB   | 6          |   7% pytorch-2.5.1        | 1.46 GB   | 6          |   7% pytorch-2.5.1        | 1.46 GB   | 6          |   7% 
+
+
+
+libcusparse-12.3.1.1 | 179.6 MB  | ########## | 100% [A[A[A[Apytorch-2.5.1        | 1.46 GB   | 6          |   7% pytorch-2.5.1        | 1.46 GB   | 6          |   7% pytorch-2.5.1        | 1.46 GB   | 6          |   7% 
+
+
+
+
+
+
+libcurand-10.3.10.19 | 44.0 MB   | ########## | 100% [A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | 6          |   7% pytorch-2.5.1        | 1.46 GB   | 6          |   7% pytorch-2.5.1        | 1.46 GB   | 6          |   7% pytorch-2.5.1        | 1.46 GB   | 7          |   7% pytorch-2.5.1        | 1.46 GB   | 7          |   7% pytorch-2.5.1        | 1.46 GB   | 7          |   7% pytorch-2.5.1        | 1.46 GB   | 7          |   7% pytorch-2.5.1        | 1.46 GB   | 7          |   7% pytorch-2.5.1        | 1.46 GB   | 7          |   7% pytorch-2.5.1        | 1.46 GB   | 7          |   7% pytorch-2.5.1        | 1.46 GB   | 7          |   7% pytorch-2.5.1        | 1.46 GB   | 7          |   8% pytorch-2.5.1        | 1.46 GB   | 7          |   8% pytorch-2.5.1        | 1.46 GB   | 7          |   8% pytorch-2.5.1        | 1.46 GB   | 7          |   8% pytorch-2.5.1        | 1.46 GB   | 7          |   8% pytorch-2.5.1        | 1.46 GB   | 7          |   8% pytorch-2.5.1        | 1.46 GB   | 7          |   8% pytorch-2.5.1        | 1.46 GB   | 7          |   8% pytorch-2.5.1        | 1.46 GB   | 7          |   8% pytorch-2.5.1        | 1.46 GB   | 8          |   8% pytorch-2.5.1        | 1.46 GB   | 8          |   8% pytorch-2.5.1        | 1.46 GB   | 8          |   8% pytorch-2.5.1        | 1.46 GB   | 8          |   8% pytorch-2.5.1        | 1.46 GB   | 8          |   8% pytorch-2.5.1        | 1.46 GB   | 8          |   8% pytorch-2.5.1        | 1.46 GB   | 8          |   8% pytorch-2.5.1        | 1.46 GB   | 8          |   8% pytorch-2.5.1        | 1.46 GB   | 8          |   8% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 8          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |   9% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | 9          |  10% pytorch-2.5.1        | 1.46 GB   | #          |  10% pytorch-2.5.1        | 1.46 GB   | #          |  10% pytorch-2.5.1        | 1.46 GB   | #          |  10% pytorch-2.5.1        | 1.46 GB   | #          |  10% pytorch-2.5.1        | 1.46 GB   | #          |  10% 
+
+torchtriton-3.1.0    | 233.6 MB  | ########## | 100% [A[Apytorch-2.5.1        | 1.46 GB   | #          |  10% pytorch-2.5.1        | 1.46 GB   | #          |  10% pytorch-2.5.1        | 1.46 GB   | #          |  10% pytorch-2.5.1        | 1.46 GB   | #          |  11% pytorch-2.5.1        | 1.46 GB   | #          |  11% pytorch-2.5.1        | 1.46 GB   | #          |  11% pytorch-2.5.1        | 1.46 GB   | #          |  11% pytorch-2.5.1        | 1.46 GB   | #          |  11% pytorch-2.5.1        | 1.46 GB   | #          |  11% 
+
+
+
+
+
+libcusolver-11.6.1.9 | 114.0 MB  | ########## | 100% [A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #          |  11% pytorch-2.5.1        | 1.46 GB   | #          |  11% pytorch-2.5.1        | 1.46 GB   | #          |  11% pytorch-2.5.1        | 1.46 GB   | #          |  11% pytorch-2.5.1        | 1.46 GB   | #1         |  11% pytorch-2.5.1        | 1.46 GB   | #1         |  11% pytorch-2.5.1        | 1.46 GB   | #1         |  11% pytorch-2.5.1        | 1.46 GB   | #1         |  11% pytorch-2.5.1        | 1.46 GB   | #1         |  11% pytorch-2.5.1        | 1.46 GB   | #1         |  11% pytorch-2.5.1        | 1.46 GB   | #1         |  11% pytorch-2.5.1        | 1.46 GB   | #1         |  11% pytorch-2.5.1        | 1.46 GB   | #1         |  11% pytorch-2.5.1        | 1.46 GB   | #1         |  12% pytorch-2.5.1        | 1.46 GB   | #1         |  12% pytorch-2.5.1        | 1.46 GB   | #1         |  12% pytorch-2.5.1        | 1.46 GB   | #1         |  12% pytorch-2.5.1        | 1.46 GB   | #1         |  12% pytorch-2.5.1        | 1.46 GB   | #1         |  12% pytorch-2.5.1        | 1.46 GB   | #1         |  12% pytorch-2.5.1        | 1.46 GB   | #1         |  12% pytorch-2.5.1        | 1.46 GB   | #1         |  12% pytorch-2.5.1        | 1.46 GB   | #1         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% pytorch-2.5.1        | 1.46 GB   | #2         |  12% 
+libcublas-12.4.5.8   | 309.2 MB  | ########## | 100% [Apytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #2         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  13% 
+
+
+
+
+
+
+
+
+libnvjitlink-12.4.12 | 18.2 MB   | ########## | 100% [A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #3         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  13% pytorch-2.5.1        | 1.46 GB   | #3         |  14% pytorch-2.5.1        | 1.46 GB   | #3         |  14% pytorch-2.5.1        | 1.46 GB   | #3         |  14% pytorch-2.5.1        | 1.46 GB   | #3         |  14% pytorch-2.5.1        | 1.46 GB   | #3         |  14% pytorch-2.5.1        | 1.46 GB   | #3         |  14% pytorch-2.5.1        | 1.46 GB   | #3         |  14% pytorch-2.5.1        | 1.46 GB   | #3         |  14% pytorch-2.5.1        | 1.46 GB   | #4         |  14% pytorch-2.5.1        | 1.46 GB   | #4         |  14% pytorch-2.5.1        | 1.46 GB   | #4         |  14% 
+
+
+
+
+
+
+
+cuda-nvrtc-12.4.127  | 21.0 MB   | ########## | 100% [A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #4         |  14% pytorch-2.5.1        | 1.46 GB   | #4         |  14% pytorch-2.5.1        | 1.46 GB   | #4         |  14% pytorch-2.5.1        | 1.46 GB   | #4         |  14% pytorch-2.5.1        | 1.46 GB   | #4         |  14% pytorch-2.5.1        | 1.46 GB   | #4         |  14% pytorch-2.5.1        | 1.46 GB   | #4         |  14% pytorch-2.5.1        | 1.46 GB   | #4         |  15% 
+
+
+
+
+
+
+
+
+
+
+ffmpeg-4.3           | 9.9 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #4         |  15% pytorch-2.5.1        | 1.46 GB   | #4         |  15% pytorch-2.5.1        | 1.46 GB   | #4         |  15% pytorch-2.5.1        | 1.46 GB   | #4         |  15% pytorch-2.5.1        | 1.46 GB   | #4         |  15% pytorch-2.5.1        | 1.46 GB   | #4         |  15% pytorch-2.5.1        | 1.46 GB   | #4         |  15% pytorch-2.5.1        | 1.46 GB   | #5         |  15% pytorch-2.5.1        | 1.46 GB   | #5         |  15% pytorch-2.5.1        | 1.46 GB   | #5         |  15% pytorch-2.5.1        | 1.46 GB   | #5         |  15% pytorch-2.5.1        | 1.46 GB   | #5         |  15% pytorch-2.5.1        | 1.46 GB   | #5         |  15% pytorch-2.5.1        | 1.46 GB   | #5         |  15% pytorch-2.5.1        | 1.46 GB   | #5         |  16% 
+
+
+
+
+
+
+
+
+
+cuda-cupti-12.4.127  | 16.4 MB   | ########## | 100% [A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #5         |  16% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+llvm-openmp-14.0.6   | 4.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #5         |  16% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gnutls-3.6.15        | 1.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gnutls-3.6.15        | 1.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #5         |  16% pytorch-2.5.1        | 1.46 GB   | #5         |  16% pytorch-2.5.1        | 1.46 GB   | #5         |  16% pytorch-2.5.1        | 1.46 GB   | #5         |  16% pytorch-2.5.1        | 1.46 GB   | #6         |  16% pytorch-2.5.1        | 1.46 GB   | #6         |  16% pytorch-2.5.1        | 1.46 GB   | #6         |  16% pytorch-2.5.1        | 1.46 GB   | #6         |  16% 
+
+
+
+
+libnpp-12.2.5.30     | 142.8 MB  | ########## | 100% [A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #6         |  16% pytorch-2.5.1        | 1.46 GB   | #6         |  16% 
+
+
+
+
+
+
+
+
+
+
+
+
+torchaudio-2.5.1     | 6.3 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #6         |  17% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libnvjpeg-12.3.1.117 | 3.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libnvjpeg-12.3.1.117 | 3.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #6         |  17% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libjpeg-turbo-2.0.0  | 950 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libjpeg-turbo-2.0.0  | 950 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libcufile-1.14.1.1   | 946 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libcufile-1.14.1.1   | 946 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #6         |  17% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #6         |  17% pytorch-2.5.1        | 1.46 GB   | #6         |  17% pytorch-2.5.1        | 1.46 GB   | #6         |  17% 
+
+
+libcufft-11.2.1.3    | 190.5 MB  | ########## | 100% [A[A[Apytorch-2.5.1        | 1.46 GB   | #7         |  17% pytorch-2.5.1        | 1.46 GB   | #7         |  17% pytorch-2.5.1        | 1.46 GB   | #7         |  17% 
+
+
+
+
+
+
+
+
+
+
+
+torchvision-0.20.1   | 8.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[Apytorch-2.5.1        | 1.46 GB   | #7         |  17% pytorch-2.5.1        | 1.46 GB   | #7         |  17% pytorch-2.5.1        | 1.46 GB   | #7         |  17% pytorch-2.5.1        | 1.46 GB   | #7         |  17% pytorch-2.5.1        | 1.46 GB   | #7         |  17% pytorch-2.5.1        | 1.46 GB   | #7         |  17% pytorch-2.5.1        | 1.46 GB   | #7         |  18% pytorch-2.5.1        | 1.46 GB   | #7         |  18% pytorch-2.5.1        | 1.46 GB   | #7         |  18% pytorch-2.5.1        | 1.46 GB   | #7         |  18% pytorch-2.5.1        | 1.46 GB   | #7         |  18% pytorch-2.5.1        | 1.46 GB   | #7         |  18% pytorch-2.5.1        | 1.46 GB   | #7         |  18% pytorch-2.5.1        | 1.46 GB   | #7         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  18% pytorch-2.5.1        | 1.46 GB   | #8         |  19% pytorch-2.5.1        | 1.46 GB   | #8         |  19% pytorch-2.5.1        | 1.46 GB   | #8         |  19% pytorch-2.5.1        | 1.46 GB   | #8         |  19% pytorch-2.5.1        | 1.46 GB   | #8         |  19% pytorch-2.5.1        | 1.46 GB   | #8         |  19% pytorch-2.5.1        | 1.46 GB   | #8         |  19% pytorch-2.5.1        | 1.46 GB   | #8         |  19% pytorch-2.5.1        | 1.46 GB   | #9         |  19% pytorch-2.5.1        | 1.46 GB   | #9         |  19% pytorch-2.5.1        | 1.46 GB   | #9         |  19% pytorch-2.5.1        | 1.46 GB   | #9         |  19% pytorch-2.5.1        | 1.46 GB   | #9         |  19% pytorch-2.5.1        | 1.46 GB   | #9         |  19% pytorch-2.5.1        | 1.46 GB   | #9         |  19% pytorch-2.5.1        | 1.46 GB   | #9         |  19% pytorch-2.5.1        | 1.46 GB   | #9         |  19% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | #9         |  20% pytorch-2.5.1        | 1.46 GB   | ##         |  20% pytorch-2.5.1        | 1.46 GB   | ##         |  20% pytorch-2.5.1        | 1.46 GB   | ##         |  20% pytorch-2.5.1        | 1.46 GB   | ##         |  20% pytorch-2.5.1        | 1.46 GB   | ##         |  20% pytorch-2.5.1        | 1.46 GB   | ##         |  20% pytorch-2.5.1        | 1.46 GB   | ##         |  20% pytorch-2.5.1        | 1.46 GB   | ##         |  20% pytorch-2.5.1        | 1.46 GB   | ##         |  20% pytorch-2.5.1        | 1.46 GB   | ##         |  21% pytorch-2.5.1        | 1.46 GB   | ##         |  21% pytorch-2.5.1        | 1.46 GB   | ##         |  21% pytorch-2.5.1        | 1.46 GB   | ##         |  21% pytorch-2.5.1        | 1.46 GB   | ##         |  21% pytorch-2.5.1        | 1.46 GB   | ##         |  21% pytorch-2.5.1        | 1.46 GB   | ##         |  21% pytorch-2.5.1        | 1.46 GB   | ##         |  21% pytorch-2.5.1        | 1.46 GB   | ##         |  21% pytorch-2.5.1        | 1.46 GB   | ##         |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  21% pytorch-2.5.1        | 1.46 GB   | ##1        |  22% pytorch-2.5.1        | 1.46 GB   | ##1        |  22% pytorch-2.5.1        | 1.46 GB   | ##1        |  22% pytorch-2.5.1        | 1.46 GB   | ##1        |  22% pytorch-2.5.1        | 1.46 GB   | ##1        |  22% pytorch-2.5.1        | 1.46 GB   | ##1        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  22% pytorch-2.5.1        | 1.46 GB   | ##2        |  23% pytorch-2.5.1        | 1.46 GB   | ##2        |  23% pytorch-2.5.1        | 1.46 GB   | ##2        |  23% pytorch-2.5.1        | 1.46 GB   | ##2        |  23% pytorch-2.5.1        | 1.46 GB   | ##2        |  23% pytorch-2.5.1        | 1.46 GB   | ##2        |  23% pytorch-2.5.1        | 1.46 GB   | ##2        |  23% pytorch-2.5.1        | 1.46 GB   | ##2        |  23% pytorch-2.5.1        | 1.46 GB   | ##2        |  23% pytorch-2.5.1        | 1.46 GB   | ##2        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  23% pytorch-2.5.1        | 1.46 GB   | ##3        |  24% pytorch-2.5.1        | 1.46 GB   | ##3        |  24% pytorch-2.5.1        | 1.46 GB   | ##3        |  24% pytorch-2.5.1        | 1.46 GB   | ##3        |  24% pytorch-2.5.1        | 1.46 GB   | ##3        |  24% pytorch-2.5.1        | 1.46 GB   | ##3        |  24% pytorch-2.5.1        | 1.46 GB   | ##3        |  24% pytorch-2.5.1        | 1.46 GB   | ##3        |  24% pytorch-2.5.1        | 1.46 GB   | ##3        |  24% pytorch-2.5.1        | 1.46 GB   | ##3        |  24% pytorch-2.5.1        | 1.46 GB   | ##4        |  24% pytorch-2.5.1        | 1.46 GB   | ##4        |  24% pytorch-2.5.1        | 1.46 GB   | ##4        |  24% pytorch-2.5.1        | 1.46 GB   | ##4        |  24% pytorch-2.5.1        | 1.46 GB   | ##4        |  24% pytorch-2.5.1        | 1.46 GB   | ##4        |  24% pytorch-2.5.1        | 1.46 GB   | ##4        |  24% pytorch-2.5.1        | 1.46 GB   | ##4        |  24% pytorch-2.5.1        | 1.46 GB   | ##4        |  24% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##4        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  25% pytorch-2.5.1        | 1.46 GB   | ##5        |  26% pytorch-2.5.1        | 1.46 GB   | ##5        |  26% pytorch-2.5.1        | 1.46 GB   | ##5        |  26% pytorch-2.5.1        | 1.46 GB   | ##5        |  26% pytorch-2.5.1        | 1.46 GB   | ##5        |  26% pytorch-2.5.1        | 1.46 GB   | ##5        |  26% pytorch-2.5.1        | 1.46 GB   | ##5        |  26% pytorch-2.5.1        | 1.46 GB   | ##5        |  26% pytorch-2.5.1        | 1.46 GB   | ##5        |  26% pytorch-2.5.1        | 1.46 GB   | ##5        |  26% pytorch-2.5.1        | 1.46 GB   | ##6        |  26% pytorch-2.5.1        | 1.46 GB   | ##6        |  26% pytorch-2.5.1        | 1.46 GB   | ##6        |  26% pytorch-2.5.1        | 1.46 GB   | ##6        |  26% pytorch-2.5.1        | 1.46 GB   | ##6        |  26% pytorch-2.5.1        | 1.46 GB   | ##6        |  26% pytorch-2.5.1        | 1.46 GB   | ##6        |  26% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##6        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  27% pytorch-2.5.1        | 1.46 GB   | ##7        |  28% pytorch-2.5.1        | 1.46 GB   | ##7        |  28% pytorch-2.5.1        | 1.46 GB   | ##7        |  28% pytorch-2.5.1        | 1.46 GB   | ##7        |  28% pytorch-2.5.1        | 1.46 GB   | ##7        |  28% pytorch-2.5.1        | 1.46 GB   | ##7        |  28% pytorch-2.5.1        | 1.46 GB   | ##7        |  28% pytorch-2.5.1        | 1.46 GB   | ##7        |  28% pytorch-2.5.1        | 1.46 GB   | ##7        |  28% pytorch-2.5.1        | 1.46 GB   | ##8        |  28% pytorch-2.5.1        | 1.46 GB   | ##8        |  28% pytorch-2.5.1        | 1.46 GB   | ##8        |  28% pytorch-2.5.1        | 1.46 GB   | ##8        |  28% pytorch-2.5.1        | 1.46 GB   | ##8        |  28% pytorch-2.5.1        | 1.46 GB   | ##8        |  28% pytorch-2.5.1        | 1.46 GB   | ##8        |  28% pytorch-2.5.1        | 1.46 GB   | ##8        |  28% pytorch-2.5.1        | 1.46 GB   | ##8        |  28% pytorch-2.5.1        | 1.46 GB   | ##8        |  29% pytorch-2.5.1        | 1.46 GB   | ##8        |  29% pytorch-2.5.1        | 1.46 GB   | ##8        |  29% pytorch-2.5.1        | 1.46 GB   | ##8        |  29% pytorch-2.5.1        | 1.46 GB   | ##8        |  29% pytorch-2.5.1        | 1.46 GB   | ##8        |  29% pytorch-2.5.1        | 1.46 GB   | ##8        |  29% pytorch-2.5.1        | 1.46 GB   | ##8        |  29% pytorch-2.5.1        | 1.46 GB   | ##8        |  29% pytorch-2.5.1        | 1.46 GB   | ##9        |  29% pytorch-2.5.1        | 1.46 GB   | ##9        |  29% pytorch-2.5.1        | 1.46 GB   | ##9        |  29% pytorch-2.5.1        | 1.46 GB   | ##9        |  29% pytorch-2.5.1        | 1.46 GB   | ##9        |  29% pytorch-2.5.1        | 1.46 GB   | ##9        |  29% pytorch-2.5.1        | 1.46 GB   | ##9        |  29% pytorch-2.5.1        | 1.46 GB   | ##9        |  29% pytorch-2.5.1        | 1.46 GB   | ##9        |  29% pytorch-2.5.1        | 1.46 GB   | ##9        |  30% pytorch-2.5.1        | 1.46 GB   | ##9        |  30% pytorch-2.5.1        | 1.46 GB   | ##9        |  30% pytorch-2.5.1        | 1.46 GB   | ##9        |  30% pytorch-2.5.1        | 1.46 GB   | ##9        |  30% pytorch-2.5.1        | 1.46 GB   | ##9        |  30% pytorch-2.5.1        | 1.46 GB   | ##9        |  30% pytorch-2.5.1        | 1.46 GB   | ##9        |  30% pytorch-2.5.1        | 1.46 GB   | ##9        |  30% pytorch-2.5.1        | 1.46 GB   | ###        |  30% pytorch-2.5.1        | 1.46 GB   | ###        |  30% pytorch-2.5.1        | 1.46 GB   | ###        |  30% pytorch-2.5.1        | 1.46 GB   | ###        |  30% pytorch-2.5.1        | 1.46 GB   | ###        |  30% pytorch-2.5.1        | 1.46 GB   | ###        |  30% pytorch-2.5.1        | 1.46 GB   | ###        |  30% pytorch-2.5.1        | 1.46 GB   | ###        |  30% pytorch-2.5.1        | 1.46 GB   | ###        |  31% pytorch-2.5.1        | 1.46 GB   | ###        |  31% pytorch-2.5.1        | 1.46 GB   | ###        |  31% pytorch-2.5.1        | 1.46 GB   | ###        |  31% pytorch-2.5.1        | 1.46 GB   | ###        |  31% pytorch-2.5.1        | 1.46 GB   | ###        |  31% pytorch-2.5.1        | 1.46 GB   | ###        |  31% pytorch-2.5.1        | 1.46 GB   | ###        |  31% pytorch-2.5.1        | 1.46 GB   | ###        |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  31% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###1       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  32% pytorch-2.5.1        | 1.46 GB   | ###2       |  33% pytorch-2.5.1        | 1.46 GB   | ###2       |  33% pytorch-2.5.1        | 1.46 GB   | ###2       |  33% pytorch-2.5.1        | 1.46 GB   | ###2       |  33% pytorch-2.5.1        | 1.46 GB   | ###2       |  33% pytorch-2.5.1        | 1.46 GB   | ###2       |  33% pytorch-2.5.1        | 1.46 GB   | ###2       |  33% pytorch-2.5.1        | 1.46 GB   | ###2       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  33% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###3       |  34% pytorch-2.5.1        | 1.46 GB   | ###4       |  34% pytorch-2.5.1        | 1.46 GB   | ###4       |  34% pytorch-2.5.1        | 1.46 GB   | ###4       |  34% pytorch-2.5.1        | 1.46 GB   | ###4       |  34% pytorch-2.5.1        | 1.46 GB   | ###4       |  34% pytorch-2.5.1        | 1.46 GB   | ###4       |  34% pytorch-2.5.1        | 1.46 GB   | ###4       |  34% pytorch-2.5.1        | 1.46 GB   | ###4       |  35% pytorch-2.5.1        | 1.46 GB   | ###4       |  35% pytorch-2.5.1        | 1.46 GB   | ###4       |  35% pytorch-2.5.1        | 1.46 GB   | ###4       |  35% pytorch-2.5.1        | 1.46 GB   | ###4       |  35% pytorch-2.5.1        | 1.46 GB   | ###4       |  35% pytorch-2.5.1        | 1.46 GB   | ###4       |  35% pytorch-2.5.1        | 1.46 GB   | ###4       |  35% pytorch-2.5.1        | 1.46 GB   | ###4       |  35% pytorch-2.5.1        | 1.46 GB   | ###4       |  35% pytorch-2.5.1        | 1.46 GB   | ###5       |  35% pytorch-2.5.1        | 1.46 GB   | ###5       |  35% pytorch-2.5.1        | 1.46 GB   | ###5       |  35% pytorch-2.5.1        | 1.46 GB   | ###5       |  35% pytorch-2.5.1        | 1.46 GB   | ###5       |  35% pytorch-2.5.1        | 1.46 GB   | ###5       |  35% pytorch-2.5.1        | 1.46 GB   | ###5       |  36% pytorch-2.5.1        | 1.46 GB   | ###5       |  36% pytorch-2.5.1        | 1.46 GB   | ###5       |  36% pytorch-2.5.1        | 1.46 GB   | ###5       |  36% pytorch-2.5.1        | 1.46 GB   | ###5       |  36% pytorch-2.5.1        | 1.46 GB   | ###5       |  36% pytorch-2.5.1        | 1.46 GB   | ###5       |  36% pytorch-2.5.1        | 1.46 GB   | ###5       |  36% pytorch-2.5.1        | 1.46 GB   | ###5       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  36% pytorch-2.5.1        | 1.46 GB   | ###6       |  37% pytorch-2.5.1        | 1.46 GB   | ###6       |  37% pytorch-2.5.1        | 1.46 GB   | ###6       |  37% pytorch-2.5.1        | 1.46 GB   | ###6       |  37% pytorch-2.5.1        | 1.46 GB   | ###6       |  37% pytorch-2.5.1        | 1.46 GB   | ###6       |  37% pytorch-2.5.1        | 1.46 GB   | ###6       |  37% pytorch-2.5.1        | 1.46 GB   | ###6       |  37% pytorch-2.5.1        | 1.46 GB   | ###6       |  37% pytorch-2.5.1        | 1.46 GB   | ###6       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  37% pytorch-2.5.1        | 1.46 GB   | ###7       |  38% pytorch-2.5.1        | 1.46 GB   | ###7       |  38% pytorch-2.5.1        | 1.46 GB   | ###7       |  38% pytorch-2.5.1        | 1.46 GB   | ###7       |  38% pytorch-2.5.1        | 1.46 GB   | ###7       |  38% pytorch-2.5.1        | 1.46 GB   | ###7       |  38% pytorch-2.5.1        | 1.46 GB   | ###7       |  38% pytorch-2.5.1        | 1.46 GB   | ###7       |  38% pytorch-2.5.1        | 1.46 GB   | ###7       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  38% pytorch-2.5.1        | 1.46 GB   | ###8       |  39% pytorch-2.5.1        | 1.46 GB   | ###8       |  39% pytorch-2.5.1        | 1.46 GB   | ###8       |  39% pytorch-2.5.1        | 1.46 GB   | ###8       |  39% pytorch-2.5.1        | 1.46 GB   | ###8       |  39% pytorch-2.5.1        | 1.46 GB   | ###8       |  39% pytorch-2.5.1        | 1.46 GB   | ###8       |  39% pytorch-2.5.1        | 1.46 GB   | ###8       |  39% pytorch-2.5.1        | 1.46 GB   | ###9       |  39% pytorch-2.5.1        | 1.46 GB   | ###9       |  39% pytorch-2.5.1        | 1.46 GB   | ###9       |  39% pytorch-2.5.1        | 1.46 GB   | ###9       |  39% pytorch-2.5.1        | 1.46 GB   | ###9       |  39% pytorch-2.5.1        | 1.46 GB   | ###9       |  39% pytorch-2.5.1        | 1.46 GB   | ###9       |  39% pytorch-2.5.1        | 1.46 GB   | ###9       |  39% pytorch-2.5.1        | 1.46 GB   | ###9       |  40% pytorch-2.5.1        | 1.46 GB   | ###9       |  40% pytorch-2.5.1        | 1.46 GB   | ###9       |  40% pytorch-2.5.1        | 1.46 GB   | ###9       |  40% pytorch-2.5.1        | 1.46 GB   | ###9       |  40% pytorch-2.5.1        | 1.46 GB   | ###9       |  40% pytorch-2.5.1        | 1.46 GB   | ###9       |  40% pytorch-2.5.1        | 1.46 GB   | ###9       |  40% pytorch-2.5.1        | 1.46 GB   | ###9       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  40% pytorch-2.5.1        | 1.46 GB   | ####       |  41% pytorch-2.5.1        | 1.46 GB   | ####       |  41% pytorch-2.5.1        | 1.46 GB   | ####       |  41% pytorch-2.5.1        | 1.46 GB   | ####       |  41% pytorch-2.5.1        | 1.46 GB   | ####       |  41% pytorch-2.5.1        | 1.46 GB   | ####       |  41% pytorch-2.5.1        | 1.46 GB   | ####       |  41% pytorch-2.5.1        | 1.46 GB   | ####       |  41% pytorch-2.5.1        | 1.46 GB   | ####       |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  41% pytorch-2.5.1        | 1.46 GB   | ####1      |  42% pytorch-2.5.1        | 1.46 GB   | ####1      |  42% pytorch-2.5.1        | 1.46 GB   | ####1      |  42% pytorch-2.5.1        | 1.46 GB   | ####1      |  42% pytorch-2.5.1        | 1.46 GB   | ####1      |  42% pytorch-2.5.1        | 1.46 GB   | ####1      |  42% pytorch-2.5.1        | 1.46 GB   | ####1      |  42% pytorch-2.5.1        | 1.46 GB   | ####1      |  42% pytorch-2.5.1        | 1.46 GB   | ####1      |  42% pytorch-2.5.1        | 1.46 GB   | ####1      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  42% pytorch-2.5.1        | 1.46 GB   | ####2      |  43% pytorch-2.5.1        | 1.46 GB   | ####2      |  43% pytorch-2.5.1        | 1.46 GB   | ####2      |  43% pytorch-2.5.1        | 1.46 GB   | ####2      |  43% pytorch-2.5.1        | 1.46 GB   | ####2      |  43% pytorch-2.5.1        | 1.46 GB   | ####2      |  43% pytorch-2.5.1        | 1.46 GB   | ####2      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  43% pytorch-2.5.1        | 1.46 GB   | ####3      |  44% pytorch-2.5.1        | 1.46 GB   | ####3      |  44% pytorch-2.5.1        | 1.46 GB   | ####3      |  44% pytorch-2.5.1        | 1.46 GB   | ####3      |  44% pytorch-2.5.1        | 1.46 GB   | ####3      |  44% pytorch-2.5.1        | 1.46 GB   | ####3      |  44% pytorch-2.5.1        | 1.46 GB   | ####4      |  44% pytorch-2.5.1        | 1.46 GB   | ####4      |  44% pytorch-2.5.1        | 1.46 GB   | ####4      |  44% pytorch-2.5.1        | 1.46 GB   | ####4      |  44% pytorch-2.5.1        | 1.46 GB   | ####4      |  44% pytorch-2.5.1        | 1.46 GB   | ####4      |  44% pytorch-2.5.1        | 1.46 GB   | ####4      |  44% pytorch-2.5.1        | 1.46 GB   | ####4      |  44% pytorch-2.5.1        | 1.46 GB   | ####4      |  44% pytorch-2.5.1        | 1.46 GB   | ####4      |  45% pytorch-2.5.1        | 1.46 GB   | ####4      |  45% pytorch-2.5.1        | 1.46 GB   | ####4      |  45% pytorch-2.5.1        | 1.46 GB   | ####4      |  45% pytorch-2.5.1        | 1.46 GB   | ####4      |  45% pytorch-2.5.1        | 1.46 GB   | ####4      |  45% pytorch-2.5.1        | 1.46 GB   | ####4      |  45% pytorch-2.5.1        | 1.46 GB   | ####4      |  45% pytorch-2.5.1        | 1.46 GB   | ####4      |  45% pytorch-2.5.1        | 1.46 GB   | ####5      |  45% pytorch-2.5.1        | 1.46 GB   | ####5      |  45% pytorch-2.5.1        | 1.46 GB   | ####5      |  45% pytorch-2.5.1        | 1.46 GB   | ####5      |  45% pytorch-2.5.1        | 1.46 GB   | ####5      |  45% pytorch-2.5.1        | 1.46 GB   | ####5      |  45% pytorch-2.5.1        | 1.46 GB   | ####5      |  45% pytorch-2.5.1        | 1.46 GB   | ####5      |  45% pytorch-2.5.1        | 1.46 GB   | ####5      |  45% pytorch-2.5.1        | 1.46 GB   | ####5      |  46% pytorch-2.5.1        | 1.46 GB   | ####5      |  46% pytorch-2.5.1        | 1.46 GB   | ####5      |  46% pytorch-2.5.1        | 1.46 GB   | ####5      |  46% pytorch-2.5.1        | 1.46 GB   | ####5      |  46% pytorch-2.5.1        | 1.46 GB   | ####5      |  46% pytorch-2.5.1        | 1.46 GB   | ####5      |  46% pytorch-2.5.1        | 1.46 GB   | ####5      |  46% pytorch-2.5.1        | 1.46 GB   | ####6      |  46% pytorch-2.5.1        | 1.46 GB   | ####6      |  46% pytorch-2.5.1        | 1.46 GB   | ####6      |  46% pytorch-2.5.1        | 1.46 GB   | ####6      |  46% pytorch-2.5.1        | 1.46 GB   | ####6      |  46% pytorch-2.5.1        | 1.46 GB   | ####6      |  46% pytorch-2.5.1        | 1.46 GB   | ####6      |  46% pytorch-2.5.1        | 1.46 GB   | ####6      |  46% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####6      |  47% pytorch-2.5.1        | 1.46 GB   | ####7      |  47% pytorch-2.5.1        | 1.46 GB   | ####7      |  47% pytorch-2.5.1        | 1.46 GB   | ####7      |  47% pytorch-2.5.1        | 1.46 GB   | ####7      |  47% pytorch-2.5.1        | 1.46 GB   | ####7      |  47% pytorch-2.5.1        | 1.46 GB   | ####7      |  47% pytorch-2.5.1        | 1.46 GB   | ####7      |  47% pytorch-2.5.1        | 1.46 GB   | ####7      |  47% pytorch-2.5.1        | 1.46 GB   | ####7      |  48% pytorch-2.5.1        | 1.46 GB   | ####7      |  48% pytorch-2.5.1        | 1.46 GB   | ####7      |  48% pytorch-2.5.1        | 1.46 GB   | ####7      |  48% pytorch-2.5.1        | 1.46 GB   | ####7      |  48% pytorch-2.5.1        | 1.46 GB   | ####7      |  48% pytorch-2.5.1        | 1.46 GB   | ####7      |  48% pytorch-2.5.1        | 1.46 GB   | ####7      |  48% pytorch-2.5.1        | 1.46 GB   | ####8      |  48% pytorch-2.5.1        | 1.46 GB   | ####8      |  48% pytorch-2.5.1        | 1.46 GB   | ####8      |  48% pytorch-2.5.1        | 1.46 GB   | ####8      |  48% pytorch-2.5.1        | 1.46 GB   | ####8      |  48% pytorch-2.5.1        | 1.46 GB   | ####8      |  48% pytorch-2.5.1        | 1.46 GB   | ####8      |  48% pytorch-2.5.1        | 1.46 GB   | ####8      |  48% pytorch-2.5.1        | 1.46 GB   | ####8      |  48% pytorch-2.5.1        | 1.46 GB   | ####8      |  49% pytorch-2.5.1        | 1.46 GB   | ####8      |  49% pytorch-2.5.1        | 1.46 GB   | ####8      |  49% pytorch-2.5.1        | 1.46 GB   | ####8      |  49% pytorch-2.5.1        | 1.46 GB   | ####8      |  49% pytorch-2.5.1        | 1.46 GB   | ####8      |  49% pytorch-2.5.1        | 1.46 GB   | ####8      |  49% pytorch-2.5.1        | 1.46 GB   | ####8      |  49% pytorch-2.5.1        | 1.46 GB   | ####8      |  49% pytorch-2.5.1        | 1.46 GB   | ####8      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  49% pytorch-2.5.1        | 1.46 GB   | ####9      |  50% pytorch-2.5.1        | 1.46 GB   | ####9      |  50% pytorch-2.5.1        | 1.46 GB   | ####9      |  50% pytorch-2.5.1        | 1.46 GB   | ####9      |  50% pytorch-2.5.1        | 1.46 GB   | ####9      |  50% pytorch-2.5.1        | 1.46 GB   | ####9      |  50% pytorch-2.5.1        | 1.46 GB   | ####9      |  50% pytorch-2.5.1        | 1.46 GB   | ####9      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  50% pytorch-2.5.1        | 1.46 GB   | #####      |  51% pytorch-2.5.1        | 1.46 GB   | #####      |  51% pytorch-2.5.1        | 1.46 GB   | #####      |  51% pytorch-2.5.1        | 1.46 GB   | #####      |  51% pytorch-2.5.1        | 1.46 GB   | #####      |  51% pytorch-2.5.1        | 1.46 GB   | #####      |  51% pytorch-2.5.1        | 1.46 GB   | #####      |  51% pytorch-2.5.1        | 1.46 GB   | #####      |  51% pytorch-2.5.1        | 1.46 GB   | #####      |  51% pytorch-2.5.1        | 1.46 GB   | #####      |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  51% pytorch-2.5.1        | 1.46 GB   | #####1     |  52% pytorch-2.5.1        | 1.46 GB   | #####1     |  52% pytorch-2.5.1        | 1.46 GB   | #####1     |  52% pytorch-2.5.1        | 1.46 GB   | #####1     |  52% pytorch-2.5.1        | 1.46 GB   | #####1     |  52% pytorch-2.5.1        | 1.46 GB   | #####1     |  52% pytorch-2.5.1        | 1.46 GB   | #####1     |  52% pytorch-2.5.1        | 1.46 GB   | #####1     |  52% pytorch-2.5.1        | 1.46 GB   | #####2     |  52% pytorch-2.5.1        | 1.46 GB   | #####2     |  52% pytorch-2.5.1        | 1.46 GB   | #####2     |  52% pytorch-2.5.1        | 1.46 GB   | #####2     |  52% pytorch-2.5.1        | 1.46 GB   | #####2     |  52% pytorch-2.5.1        | 1.46 GB   | #####2     |  52% pytorch-2.5.1        | 1.46 GB   | #####2     |  52% pytorch-2.5.1        | 1.46 GB   | #####2     |  53% pytorch-2.5.1        | 1.46 GB   | #####2     |  53% pytorch-2.5.1        | 1.46 GB   | #####2     |  53% pytorch-2.5.1        | 1.46 GB   | #####2     |  53% pytorch-2.5.1        | 1.46 GB   | #####2     |  53% pytorch-2.5.1        | 1.46 GB   | #####2     |  53% pytorch-2.5.1        | 1.46 GB   | #####2     |  53% pytorch-2.5.1        | 1.46 GB   | #####2     |  53% pytorch-2.5.1        | 1.46 GB   | #####2     |  53% pytorch-2.5.1        | 1.46 GB   | #####3     |  53% pytorch-2.5.1        | 1.46 GB   | #####3     |  53% pytorch-2.5.1        | 1.46 GB   | #####3     |  53% pytorch-2.5.1        | 1.46 GB   | #####3     |  53% pytorch-2.5.1        | 1.46 GB   | #####3     |  53% pytorch-2.5.1        | 1.46 GB   | #####3     |  54% pytorch-2.5.1        | 1.46 GB   | #####3     |  54% pytorch-2.5.1        | 1.46 GB   | #####3     |  54% pytorch-2.5.1        | 1.46 GB   | #####3     |  54% pytorch-2.5.1        | 1.46 GB   | #####3     |  54% pytorch-2.5.1        | 1.46 GB   | #####3     |  54% pytorch-2.5.1        | 1.46 GB   | #####3     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  54% pytorch-2.5.1        | 1.46 GB   | #####4     |  55% pytorch-2.5.1        | 1.46 GB   | #####4     |  55% pytorch-2.5.1        | 1.46 GB   | #####4     |  55% pytorch-2.5.1        | 1.46 GB   | #####4     |  55% pytorch-2.5.1        | 1.46 GB   | #####4     |  55% pytorch-2.5.1        | 1.46 GB   | #####4     |  55% pytorch-2.5.1        | 1.46 GB   | #####4     |  55% pytorch-2.5.1        | 1.46 GB   | #####4     |  55% pytorch-2.5.1        | 1.46 GB   | #####4     |  55% pytorch-2.5.1        | 1.46 GB   | #####4     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  55% pytorch-2.5.1        | 1.46 GB   | #####5     |  56% pytorch-2.5.1        | 1.46 GB   | #####5     |  56% pytorch-2.5.1        | 1.46 GB   | #####5     |  56% pytorch-2.5.1        | 1.46 GB   | #####5     |  56% pytorch-2.5.1        | 1.46 GB   | #####5     |  56% pytorch-2.5.1        | 1.46 GB   | #####5     |  56% pytorch-2.5.1        | 1.46 GB   | #####5     |  56% pytorch-2.5.1        | 1.46 GB   | #####5     |  56% pytorch-2.5.1        | 1.46 GB   | #####5     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  56% pytorch-2.5.1        | 1.46 GB   | #####6     |  57% pytorch-2.5.1        | 1.46 GB   | #####6     |  57% pytorch-2.5.1        | 1.46 GB   | #####6     |  57% pytorch-2.5.1        | 1.46 GB   | #####6     |  57% pytorch-2.5.1        | 1.46 GB   | #####6     |  57% pytorch-2.5.1        | 1.46 GB   | #####6     |  57% pytorch-2.5.1        | 1.46 GB   | #####6     |  57% pytorch-2.5.1        | 1.46 GB   | #####6     |  57% pytorch-2.5.1        | 1.46 GB   | #####6     |  57% pytorch-2.5.1        | 1.46 GB   | #####6     |  57% pytorch-2.5.1        | 1.46 GB   | #####7     |  57% pytorch-2.5.1        | 1.46 GB   | #####7     |  57% pytorch-2.5.1        | 1.46 GB   | #####7     |  57% pytorch-2.5.1        | 1.46 GB   | #####7     |  57% pytorch-2.5.1        | 1.46 GB   | #####7     |  57% pytorch-2.5.1        | 1.46 GB   | #####7     |  57% pytorch-2.5.1        | 1.46 GB   | #####7     |  57% pytorch-2.5.1        | 1.46 GB   | #####7     |  57% pytorch-2.5.1        | 1.46 GB   | #####7     |  57% pytorch-2.5.1        | 1.46 GB   | #####7     |  58% pytorch-2.5.1        | 1.46 GB   | #####7     |  58% pytorch-2.5.1        | 1.46 GB   | #####7     |  58% pytorch-2.5.1        | 1.46 GB   | #####7     |  58% pytorch-2.5.1        | 1.46 GB   | #####7     |  58% pytorch-2.5.1        | 1.46 GB   | #####7     |  58% pytorch-2.5.1        | 1.46 GB   | #####7     |  58% pytorch-2.5.1        | 1.46 GB   | #####7     |  58% pytorch-2.5.1        | 1.46 GB   | #####7     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  58% pytorch-2.5.1        | 1.46 GB   | #####8     |  59% pytorch-2.5.1        | 1.46 GB   | #####8     |  59% pytorch-2.5.1        | 1.46 GB   | #####8     |  59% pytorch-2.5.1        | 1.46 GB   | #####8     |  59% pytorch-2.5.1        | 1.46 GB   | #####8     |  59% pytorch-2.5.1        | 1.46 GB   | #####8     |  59% pytorch-2.5.1        | 1.46 GB   | #####8     |  59% pytorch-2.5.1        | 1.46 GB   | #####8     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  59% pytorch-2.5.1        | 1.46 GB   | #####9     |  60% pytorch-2.5.1        | 1.46 GB   | #####9     |  60% pytorch-2.5.1        | 1.46 GB   | #####9     |  60% pytorch-2.5.1        | 1.46 GB   | #####9     |  60% pytorch-2.5.1        | 1.46 GB   | #####9     |  60% pytorch-2.5.1        | 1.46 GB   | #####9     |  60% pytorch-2.5.1        | 1.46 GB   | #####9     |  60% pytorch-2.5.1        | 1.46 GB   | #####9     |  60% pytorch-2.5.1        | 1.46 GB   | #####9     |  60% pytorch-2.5.1        | 1.46 GB   | ######     |  60% pytorch-2.5.1        | 1.46 GB   | ######     |  60% pytorch-2.5.1        | 1.46 GB   | ######     |  60% pytorch-2.5.1        | 1.46 GB   | ######     |  60% pytorch-2.5.1        | 1.46 GB   | ######     |  60% pytorch-2.5.1        | 1.46 GB   | ######     |  60% pytorch-2.5.1        | 1.46 GB   | ######     |  60% pytorch-2.5.1        | 1.46 GB   | ######     |  60% pytorch-2.5.1        | 1.46 GB   | ######     |  60% pytorch-2.5.1        | 1.46 GB   | ######     |  61% pytorch-2.5.1        | 1.46 GB   | ######     |  61% pytorch-2.5.1        | 1.46 GB   | ######     |  61% pytorch-2.5.1        | 1.46 GB   | ######     |  61% pytorch-2.5.1        | 1.46 GB   | ######     |  61% pytorch-2.5.1        | 1.46 GB   | ######     |  61% pytorch-2.5.1        | 1.46 GB   | ######     |  61% pytorch-2.5.1        | 1.46 GB   | ######     |  61% pytorch-2.5.1        | 1.46 GB   | ######     |  61% pytorch-2.5.1        | 1.46 GB   | ######     |  61% pytorch-2.5.1        | 1.46 GB   | ######1    |  61% pytorch-2.5.1        | 1.46 GB   | ######1    |  61% pytorch-2.5.1        | 1.46 GB   | ######1    |  61% pytorch-2.5.1        | 1.46 GB   | ######1    |  61% pytorch-2.5.1        | 1.46 GB   | ######1    |  61% pytorch-2.5.1        | 1.46 GB   | ######1    |  61% pytorch-2.5.1        | 1.46 GB   | ######1    |  61% pytorch-2.5.1        | 1.46 GB   | ######1    |  61% pytorch-2.5.1        | 1.46 GB   | ######1    |  61% pytorch-2.5.1        | 1.46 GB   | ######1    |  62% pytorch-2.5.1        | 1.46 GB   | ######1    |  62% pytorch-2.5.1        | 1.46 GB   | ######1    |  62% pytorch-2.5.1        | 1.46 GB   | ######1    |  62% pytorch-2.5.1        | 1.46 GB   | ######1    |  62% pytorch-2.5.1        | 1.46 GB   | ######1    |  62% pytorch-2.5.1        | 1.46 GB   | ######1    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  62% pytorch-2.5.1        | 1.46 GB   | ######2    |  63% pytorch-2.5.1        | 1.46 GB   | ######2    |  63% pytorch-2.5.1        | 1.46 GB   | ######2    |  63% pytorch-2.5.1        | 1.46 GB   | ######2    |  63% pytorch-2.5.1        | 1.46 GB   | ######2    |  63% pytorch-2.5.1        | 1.46 GB   | ######3    |  63% pytorch-2.5.1        | 1.46 GB   | ######3    |  63% pytorch-2.5.1        | 1.46 GB   | ######3    |  63% pytorch-2.5.1        | 1.46 GB   | ######3    |  63% pytorch-2.5.1        | 1.46 GB   | ######3    |  63% pytorch-2.5.1        | 1.46 GB   | ######3    |  63% pytorch-2.5.1        | 1.46 GB   | ######3    |  64% pytorch-2.5.1        | 1.46 GB   | ######3    |  64% pytorch-2.5.1        | 1.46 GB   | ######3    |  64% pytorch-2.5.1        | 1.46 GB   | ######3    |  64% pytorch-2.5.1        | 1.46 GB   | ######3    |  64% pytorch-2.5.1        | 1.46 GB   | ######4    |  64% pytorch-2.5.1        | 1.46 GB   | ######4    |  64% pytorch-2.5.1        | 1.46 GB   | ######4    |  64% pytorch-2.5.1        | 1.46 GB   | ######4    |  64% pytorch-2.5.1        | 1.46 GB   | ######4    |  64% pytorch-2.5.1        | 1.46 GB   | ######4    |  64% pytorch-2.5.1        | 1.46 GB   | ######4    |  65% pytorch-2.5.1        | 1.46 GB   | ######4    |  65% pytorch-2.5.1        | 1.46 GB   | ######4    |  65% pytorch-2.5.1        | 1.46 GB   | ######4    |  65% pytorch-2.5.1        | 1.46 GB   | ######4    |  65% pytorch-2.5.1        | 1.46 GB   | ######4    |  65% pytorch-2.5.1        | 1.46 GB   | ######4    |  65% pytorch-2.5.1        | 1.46 GB   | ######4    |  65% pytorch-2.5.1        | 1.46 GB   | ######4    |  65% pytorch-2.5.1        | 1.46 GB   | ######4    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  65% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######5    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  66% pytorch-2.5.1        | 1.46 GB   | ######6    |  67% pytorch-2.5.1        | 1.46 GB   | ######6    |  67% pytorch-2.5.1        | 1.46 GB   | ######6    |  67% pytorch-2.5.1        | 1.46 GB   | ######6    |  67% pytorch-2.5.1        | 1.46 GB   | ######6    |  67% pytorch-2.5.1        | 1.46 GB   | ######6    |  67% pytorch-2.5.1        | 1.46 GB   | ######6    |  67% pytorch-2.5.1        | 1.46 GB   | ######6    |  67% pytorch-2.5.1        | 1.46 GB   | ######6    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  67% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######7    |  68% pytorch-2.5.1        | 1.46 GB   | ######8    |  68% pytorch-2.5.1        | 1.46 GB   | ######8    |  68% pytorch-2.5.1        | 1.46 GB   | ######8    |  68% pytorch-2.5.1        | 1.46 GB   | ######8    |  68% pytorch-2.5.1        | 1.46 GB   | ######8    |  68% pytorch-2.5.1        | 1.46 GB   | ######8    |  68% pytorch-2.5.1        | 1.46 GB   | ######8    |  68% pytorch-2.5.1        | 1.46 GB   | ######8    |  68% pytorch-2.5.1        | 1.46 GB   | ######8    |  69% pytorch-2.5.1        | 1.46 GB   | ######8    |  69% pytorch-2.5.1        | 1.46 GB   | ######8    |  69% pytorch-2.5.1        | 1.46 GB   | ######8    |  69% pytorch-2.5.1        | 1.46 GB   | ######8    |  69% pytorch-2.5.1        | 1.46 GB   | ######8    |  69% pytorch-2.5.1        | 1.46 GB   | ######8    |  69% pytorch-2.5.1        | 1.46 GB   | ######8    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  69% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | ######9    |  70% pytorch-2.5.1        | 1.46 GB   | #######    |  70% pytorch-2.5.1        | 1.46 GB   | #######    |  70% pytorch-2.5.1        | 1.46 GB   | #######    |  70% pytorch-2.5.1        | 1.46 GB   | #######    |  70% pytorch-2.5.1        | 1.46 GB   | #######    |  70% pytorch-2.5.1        | 1.46 GB   | #######    |  70% pytorch-2.5.1        | 1.46 GB   | #######    |  70% pytorch-2.5.1        | 1.46 GB   | #######    |  71% pytorch-2.5.1        | 1.46 GB   | #######    |  71% pytorch-2.5.1        | 1.46 GB   | #######    |  71% pytorch-2.5.1        | 1.46 GB   | #######    |  71% pytorch-2.5.1        | 1.46 GB   | #######    |  71% pytorch-2.5.1        | 1.46 GB   | #######    |  71% pytorch-2.5.1        | 1.46 GB   | #######    |  71% pytorch-2.5.1        | 1.46 GB   | #######    |  71% pytorch-2.5.1        | 1.46 GB   | #######    |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  71% pytorch-2.5.1        | 1.46 GB   | #######1   |  72% pytorch-2.5.1        | 1.46 GB   | #######1   |  72% pytorch-2.5.1        | 1.46 GB   | #######1   |  72% pytorch-2.5.1        | 1.46 GB   | #######1   |  72% pytorch-2.5.1        | 1.46 GB   | #######1   |  72% pytorch-2.5.1        | 1.46 GB   | #######1   |  72% pytorch-2.5.1        | 1.46 GB   | #######1   |  72% pytorch-2.5.1        | 1.46 GB   | #######1   |  72% pytorch-2.5.1        | 1.46 GB   | #######1   |  72% pytorch-2.5.1        | 1.46 GB   | #######1   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  72% pytorch-2.5.1        | 1.46 GB   | #######2   |  73% pytorch-2.5.1        | 1.46 GB   | #######2   |  73% pytorch-2.5.1        | 1.46 GB   | #######2   |  73% pytorch-2.5.1        | 1.46 GB   | #######2   |  73% pytorch-2.5.1        | 1.46 GB   | #######2   |  73% pytorch-2.5.1        | 1.46 GB   | #######2   |  73% pytorch-2.5.1        | 1.46 GB   | #######2   |  73% pytorch-2.5.1        | 1.46 GB   | #######2   |  73% pytorch-2.5.1        | 1.46 GB   | #######3   |  73% pytorch-2.5.1        | 1.46 GB   | #######3   |  73% pytorch-2.5.1        | 1.46 GB   | #######3   |  73% pytorch-2.5.1        | 1.46 GB   | #######3   |  73% pytorch-2.5.1        | 1.46 GB   | #######3   |  73% pytorch-2.5.1        | 1.46 GB   | #######3   |  73% pytorch-2.5.1        | 1.46 GB   | #######3   |  73% pytorch-2.5.1        | 1.46 GB   | #######3   |  73% pytorch-2.5.1        | 1.46 GB   | #######3   |  73% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######3   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  74% pytorch-2.5.1        | 1.46 GB   | #######4   |  75% pytorch-2.5.1        | 1.46 GB   | #######4   |  75% pytorch-2.5.1        | 1.46 GB   | #######4   |  75% pytorch-2.5.1        | 1.46 GB   | #######4   |  75% pytorch-2.5.1        | 1.46 GB   | #######4   |  75% pytorch-2.5.1        | 1.46 GB   | #######4   |  75% pytorch-2.5.1        | 1.46 GB   | #######4   |  75% pytorch-2.5.1        | 1.46 GB   | #######4   |  75% pytorch-2.5.1        | 1.46 GB   | #######4   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  75% pytorch-2.5.1        | 1.46 GB   | #######5   |  76% pytorch-2.5.1        | 1.46 GB   | #######5   |  76% pytorch-2.5.1        | 1.46 GB   | #######5   |  76% pytorch-2.5.1        | 1.46 GB   | #######5   |  76% pytorch-2.5.1        | 1.46 GB   | #######5   |  76% pytorch-2.5.1        | 1.46 GB   | #######5   |  76% pytorch-2.5.1        | 1.46 GB   | #######5   |  76% pytorch-2.5.1        | 1.46 GB   | #######5   |  76% pytorch-2.5.1        | 1.46 GB   | #######5   |  76% pytorch-2.5.1        | 1.46 GB   | #######5   |  76% pytorch-2.5.1        | 1.46 GB   | #######6   |  76% pytorch-2.5.1        | 1.46 GB   | #######6   |  76% pytorch-2.5.1        | 1.46 GB   | #######6   |  76% pytorch-2.5.1        | 1.46 GB   | #######6   |  76% pytorch-2.5.1        | 1.46 GB   | #######6   |  76% pytorch-2.5.1        | 1.46 GB   | #######6   |  76% pytorch-2.5.1        | 1.46 GB   | #######6   |  76% pytorch-2.5.1        | 1.46 GB   | #######6   |  77% pytorch-2.5.1        | 1.46 GB   | #######6   |  77% pytorch-2.5.1        | 1.46 GB   | #######6   |  77% pytorch-2.5.1        | 1.46 GB   | #######6   |  77% pytorch-2.5.1        | 1.46 GB   | #######6   |  77% pytorch-2.5.1        | 1.46 GB   | #######6   |  77% pytorch-2.5.1        | 1.46 GB   | #######6   |  77% pytorch-2.5.1        | 1.46 GB   | #######6   |  77% pytorch-2.5.1        | 1.46 GB   | #######6   |  77% pytorch-2.5.1        | 1.46 GB   | #######7   |  77% pytorch-2.5.1        | 1.46 GB   | #######7   |  77% pytorch-2.5.1        | 1.46 GB   | #######7   |  77% pytorch-2.5.1        | 1.46 GB   | #######7   |  77% pytorch-2.5.1        | 1.46 GB   | #######7   |  77% pytorch-2.5.1        | 1.46 GB   | #######7   |  77% pytorch-2.5.1        | 1.46 GB   | #######7   |  77% pytorch-2.5.1        | 1.46 GB   | #######7   |  77% pytorch-2.5.1        | 1.46 GB   | #######7   |  77% pytorch-2.5.1        | 1.46 GB   | #######7   |  78% pytorch-2.5.1        | 1.46 GB   | #######7   |  78% pytorch-2.5.1        | 1.46 GB   | #######7   |  78% pytorch-2.5.1        | 1.46 GB   | #######7   |  78% pytorch-2.5.1        | 1.46 GB   | #######7   |  78% pytorch-2.5.1        | 1.46 GB   | #######7   |  78% pytorch-2.5.1        | 1.46 GB   | #######7   |  78% pytorch-2.5.1        | 1.46 GB   | #######8   |  78% pytorch-2.5.1        | 1.46 GB   | #######8   |  78% pytorch-2.5.1        | 1.46 GB   | #######8   |  78% pytorch-2.5.1        | 1.46 GB   | #######8   |  78% pytorch-2.5.1        | 1.46 GB   | #######8   |  78% pytorch-2.5.1        | 1.46 GB   | #######8   |  78% pytorch-2.5.1        | 1.46 GB   | #######8   |  78% pytorch-2.5.1        | 1.46 GB   | #######8   |  78% pytorch-2.5.1        | 1.46 GB   | #######8   |  78% pytorch-2.5.1        | 1.46 GB   | #######8   |  79% pytorch-2.5.1        | 1.46 GB   | #######8   |  79% pytorch-2.5.1        | 1.46 GB   | #######8   |  79% pytorch-2.5.1        | 1.46 GB   | #######8   |  79% pytorch-2.5.1        | 1.46 GB   | #######8   |  79% pytorch-2.5.1        | 1.46 GB   | #######8   |  79% pytorch-2.5.1        | 1.46 GB   | #######8   |  79% pytorch-2.5.1        | 1.46 GB   | #######8   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  79% pytorch-2.5.1        | 1.46 GB   | #######9   |  80% pytorch-2.5.1        | 1.46 GB   | #######9   |  80% pytorch-2.5.1        | 1.46 GB   | #######9   |  80% pytorch-2.5.1        | 1.46 GB   | #######9   |  80% pytorch-2.5.1        | 1.46 GB   | #######9   |  80% pytorch-2.5.1        | 1.46 GB   | #######9   |  80% pytorch-2.5.1        | 1.46 GB   | #######9   |  80% pytorch-2.5.1        | 1.46 GB   | #######9   |  80% pytorch-2.5.1        | 1.46 GB   | #######9   |  80% pytorch-2.5.1        | 1.46 GB   | ########   |  80% pytorch-2.5.1        | 1.46 GB   | ########   |  80% pytorch-2.5.1        | 1.46 GB   | ########   |  80% pytorch-2.5.1        | 1.46 GB   | ########   |  80% pytorch-2.5.1        | 1.46 GB   | ########   |  80% pytorch-2.5.1        | 1.46 GB   | ########   |  80% pytorch-2.5.1        | 1.46 GB   | ########   |  80% pytorch-2.5.1        | 1.46 GB   | ########   |  80% pytorch-2.5.1        | 1.46 GB   | ########   |  80% pytorch-2.5.1        | 1.46 GB   | ########   |  81% pytorch-2.5.1        | 1.46 GB   | ########   |  81% pytorch-2.5.1        | 1.46 GB   | ########   |  81% pytorch-2.5.1        | 1.46 GB   | ########   |  81% pytorch-2.5.1        | 1.46 GB   | ########   |  81% pytorch-2.5.1        | 1.46 GB   | ########   |  81% pytorch-2.5.1        | 1.46 GB   | ########   |  81% pytorch-2.5.1        | 1.46 GB   | ########   |  81% pytorch-2.5.1        | 1.46 GB   | ########   |  81% pytorch-2.5.1        | 1.46 GB   | ########   |  81% pytorch-2.5.1        | 1.46 GB   | ########1  |  81% pytorch-2.5.1        | 1.46 GB   | ########1  |  81% pytorch-2.5.1        | 1.46 GB   | ########1  |  81% pytorch-2.5.1        | 1.46 GB   | ########1  |  81% pytorch-2.5.1        | 1.46 GB   | ########1  |  81% pytorch-2.5.1        | 1.46 GB   | ########1  |  81% pytorch-2.5.1        | 1.46 GB   | ########1  |  81% pytorch-2.5.1        | 1.46 GB   | ########1  |  82% pytorch-2.5.1        | 1.46 GB   | ########1  |  82% pytorch-2.5.1        | 1.46 GB   | ########1  |  82% pytorch-2.5.1        | 1.46 GB   | ########1  |  82% pytorch-2.5.1        | 1.46 GB   | ########1  |  82% pytorch-2.5.1        | 1.46 GB   | ########1  |  82% pytorch-2.5.1        | 1.46 GB   | ########1  |  82% pytorch-2.5.1        | 1.46 GB   | ########1  |  82% pytorch-2.5.1        | 1.46 GB   | ########1  |  82% pytorch-2.5.1        | 1.46 GB   | ########1  |  82% pytorch-2.5.1        | 1.46 GB   | ########2  |  82% pytorch-2.5.1        | 1.46 GB   | ########2  |  82% pytorch-2.5.1        | 1.46 GB   | ########2  |  82% pytorch-2.5.1        | 1.46 GB   | ########2  |  82% pytorch-2.5.1        | 1.46 GB   | ########2  |  82% pytorch-2.5.1        | 1.46 GB   | ########2  |  82% pytorch-2.5.1        | 1.46 GB   | ########2  |  82% pytorch-2.5.1        | 1.46 GB   | ########2  |  82% pytorch-2.5.1        | 1.46 GB   | ########2  |  83% pytorch-2.5.1        | 1.46 GB   | ########2  |  83% pytorch-2.5.1        | 1.46 GB   | ########2  |  83% pytorch-2.5.1        | 1.46 GB   | ########2  |  83% pytorch-2.5.1        | 1.46 GB   | ########2  |  83% pytorch-2.5.1        | 1.46 GB   | ########2  |  83% pytorch-2.5.1        | 1.46 GB   | ########2  |  83% pytorch-2.5.1        | 1.46 GB   | ########2  |  83% pytorch-2.5.1        | 1.46 GB   | ########2  |  83% pytorch-2.5.1        | 1.46 GB   | ########3  |  83% pytorch-2.5.1        | 1.46 GB   | ########3  |  83% pytorch-2.5.1        | 1.46 GB   | ########3  |  83% pytorch-2.5.1        | 1.46 GB   | ########3  |  83% pytorch-2.5.1        | 1.46 GB   | ########3  |  83% pytorch-2.5.1        | 1.46 GB   | ########3  |  83% pytorch-2.5.1        | 1.46 GB   | ########3  |  83% pytorch-2.5.1        | 1.46 GB   | ########3  |  83% pytorch-2.5.1        | 1.46 GB   | ########3  |  83% pytorch-2.5.1        | 1.46 GB   | ########3  |  84% pytorch-2.5.1        | 1.46 GB   | ########3  |  84% pytorch-2.5.1        | 1.46 GB   | ########3  |  84% pytorch-2.5.1        | 1.46 GB   | ########3  |  84% pytorch-2.5.1        | 1.46 GB   | ########4  |  84% pytorch-2.5.1        | 1.46 GB   | ########4  |  84% pytorch-2.5.1        | 1.46 GB   | ########4  |  84% pytorch-2.5.1        | 1.46 GB   | ########4  |  84% pytorch-2.5.1        | 1.46 GB   | ########4  |  84% pytorch-2.5.1        | 1.46 GB   | ########4  |  84% pytorch-2.5.1        | 1.46 GB   | ########4  |  84% pytorch-2.5.1        | 1.46 GB   | ########4  |  85% pytorch-2.5.1        | 1.46 GB   | ########4  |  85% pytorch-2.5.1        | 1.46 GB   | ########4  |  85% pytorch-2.5.1        | 1.46 GB   | ########4  |  85% pytorch-2.5.1        | 1.46 GB   | ########4  |  85% pytorch-2.5.1        | 1.46 GB   | ########4  |  85% pytorch-2.5.1        | 1.46 GB   | ########4  |  85% pytorch-2.5.1        | 1.46 GB   | ########4  |  85% pytorch-2.5.1        | 1.46 GB   | ########4  |  85% pytorch-2.5.1        | 1.46 GB   | ########4  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  85% pytorch-2.5.1        | 1.46 GB   | ########5  |  86% pytorch-2.5.1        | 1.46 GB   | ########5  |  86% pytorch-2.5.1        | 1.46 GB   | ########5  |  86% pytorch-2.5.1        | 1.46 GB   | ########5  |  86% pytorch-2.5.1        | 1.46 GB   | ########5  |  86% pytorch-2.5.1        | 1.46 GB   | ########5  |  86% pytorch-2.5.1        | 1.46 GB   | ########5  |  86% pytorch-2.5.1        | 1.46 GB   | ########5  |  86% pytorch-2.5.1        | 1.46 GB   | ########5  |  86% pytorch-2.5.1        | 1.46 GB   | ########6  |  86% pytorch-2.5.1        | 1.46 GB   | ########6  |  86% pytorch-2.5.1        | 1.46 GB   | ########6  |  86% pytorch-2.5.1        | 1.46 GB   | ########6  |  86% pytorch-2.5.1        | 1.46 GB   | ########6  |  86% pytorch-2.5.1        | 1.46 GB   | ########6  |  86% pytorch-2.5.1        | 1.46 GB   | ########6  |  86% pytorch-2.5.1        | 1.46 GB   | ########6  |  86% pytorch-2.5.1        | 1.46 GB   | ########6  |  86% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########6  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  87% pytorch-2.5.1        | 1.46 GB   | ########7  |  88% pytorch-2.5.1        | 1.46 GB   | ########7  |  88% pytorch-2.5.1        | 1.46 GB   | ########7  |  88% pytorch-2.5.1        | 1.46 GB   | ########7  |  88% pytorch-2.5.1        | 1.46 GB   | ########7  |  88% pytorch-2.5.1        | 1.46 GB   | ########7  |  88% pytorch-2.5.1        | 1.46 GB   | ########7  |  88% pytorch-2.5.1        | 1.46 GB   | ########7  |  88% pytorch-2.5.1        | 1.46 GB   | ########7  |  88% pytorch-2.5.1        | 1.46 GB   | ########8  |  88% pytorch-2.5.1        | 1.46 GB   | ########8  |  88% pytorch-2.5.1        | 1.46 GB   | ########8  |  88% pytorch-2.5.1        | 1.46 GB   | ########8  |  88% pytorch-2.5.1        | 1.46 GB   | ########8  |  88% pytorch-2.5.1        | 1.46 GB   | ########8  |  88% pytorch-2.5.1        | 1.46 GB   | ########8  |  88% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########8  |  89% pytorch-2.5.1        | 1.46 GB   | ########9  |  89% pytorch-2.5.1        | 1.46 GB   | ########9  |  89% pytorch-2.5.1        | 1.46 GB   | ########9  |  89% pytorch-2.5.1        | 1.46 GB   | ########9  |  89% pytorch-2.5.1        | 1.46 GB   | ########9  |  89% pytorch-2.5.1        | 1.46 GB   | ########9  |  89% pytorch-2.5.1        | 1.46 GB   | ########9  |  89% pytorch-2.5.1        | 1.46 GB   | ########9  |  89% pytorch-2.5.1        | 1.46 GB   | ########9  |  90% pytorch-2.5.1        | 1.46 GB   | ########9  |  90% pytorch-2.5.1        | 1.46 GB   | ########9  |  90% pytorch-2.5.1        | 1.46 GB   | ########9  |  90% pytorch-2.5.1        | 1.46 GB   | ########9  |  90% pytorch-2.5.1        | 1.46 GB   | ########9  |  90% pytorch-2.5.1        | 1.46 GB   | ########9  |  90% pytorch-2.5.1        | 1.46 GB   | #########  |  90% pytorch-2.5.1        | 1.46 GB   | #########  |  90% pytorch-2.5.1        | 1.46 GB   | #########  |  90% pytorch-2.5.1        | 1.46 GB   | #########  |  90% pytorch-2.5.1        | 1.46 GB   | #########  |  90% pytorch-2.5.1        | 1.46 GB   | #########  |  90% pytorch-2.5.1        | 1.46 GB   | #########  |  90% pytorch-2.5.1        | 1.46 GB   | #########  |  90% pytorch-2.5.1        | 1.46 GB   | #########  |  91% pytorch-2.5.1        | 1.46 GB   | #########  |  91% pytorch-2.5.1        | 1.46 GB   | #########  |  91% pytorch-2.5.1        | 1.46 GB   | #########  |  91% pytorch-2.5.1        | 1.46 GB   | #########  |  91% pytorch-2.5.1        | 1.46 GB   | #########  |  91% pytorch-2.5.1        | 1.46 GB   | #########  |  91% pytorch-2.5.1        | 1.46 GB   | #########1 |  91% pytorch-2.5.1        | 1.46 GB   | #########1 |  91% pytorch-2.5.1        | 1.46 GB   | #########1 |  91% pytorch-2.5.1        | 1.46 GB   | #########1 |  91% pytorch-2.5.1        | 1.46 GB   | #########1 |  91% pytorch-2.5.1        | 1.46 GB   | #########1 |  91% pytorch-2.5.1        | 1.46 GB   | #########1 |  91% pytorch-2.5.1        | 1.46 GB   | #########1 |  91% pytorch-2.5.1        | 1.46 GB   | #########1 |  91% pytorch-2.5.1        | 1.46 GB   | #########1 |  92% pytorch-2.5.1        | 1.46 GB   | #########1 |  92% pytorch-2.5.1        | 1.46 GB   | #########1 |  92% pytorch-2.5.1        | 1.46 GB   | #########1 |  92% pytorch-2.5.1        | 1.46 GB   | #########1 |  92% pytorch-2.5.1        | 1.46 GB   | #########1 |  92% pytorch-2.5.1        | 1.46 GB   | #########1 |  92% pytorch-2.5.1        | 1.46 GB   | #########1 |  92% pytorch-2.5.1        | 1.46 GB   | #########2 |  92% pytorch-2.5.1        | 1.46 GB   | #########2 |  92% pytorch-2.5.1        | 1.46 GB   | #########2 |  92% pytorch-2.5.1        | 1.46 GB   | #########2 |  92% pytorch-2.5.1        | 1.46 GB   | #########2 |  92% pytorch-2.5.1        | 1.46 GB   | #########2 |  92% pytorch-2.5.1        | 1.46 GB   | #########2 |  92% pytorch-2.5.1        | 1.46 GB   | #########2 |  92% pytorch-2.5.1        | 1.46 GB   | #########2 |  92% pytorch-2.5.1        | 1.46 GB   | #########2 |  93% pytorch-2.5.1        | 1.46 GB   | #########2 |  93% pytorch-2.5.1        | 1.46 GB   | #########2 |  93% pytorch-2.5.1        | 1.46 GB   | #########2 |  93% pytorch-2.5.1        | 1.46 GB   | #########2 |  93% pytorch-2.5.1        | 1.46 GB   | #########2 |  93% pytorch-2.5.1        | 1.46 GB   | #########2 |  93% pytorch-2.5.1        | 1.46 GB   | #########2 |  93% pytorch-2.5.1        | 1.46 GB   | #########2 |  93% pytorch-2.5.1        | 1.46 GB   | #########3 |  93% pytorch-2.5.1        | 1.46 GB   | #########3 |  93% pytorch-2.5.1        | 1.46 GB   | #########3 |  93% pytorch-2.5.1        | 1.46 GB   | #########3 |  93% pytorch-2.5.1        | 1.46 GB   | #########3 |  93% pytorch-2.5.1        | 1.46 GB   | #########3 |  93% pytorch-2.5.1        | 1.46 GB   | #########3 |  93% pytorch-2.5.1        | 1.46 GB   | #########3 |  93% pytorch-2.5.1        | 1.46 GB   | #########3 |  93% pytorch-2.5.1        | 1.46 GB   | #########3 |  94% pytorch-2.5.1        | 1.46 GB   | #########3 |  94% pytorch-2.5.1        | 1.46 GB   | #########3 |  94% pytorch-2.5.1        | 1.46 GB   | #########3 |  94% pytorch-2.5.1        | 1.46 GB   | #########3 |  94% pytorch-2.5.1        | 1.46 GB   | #########3 |  94% pytorch-2.5.1        | 1.46 GB   | #########3 |  94% pytorch-2.5.1        | 1.46 GB   | #########3 |  94% pytorch-2.5.1        | 1.46 GB   | #########3 |  94% pytorch-2.5.1        | 1.46 GB   | #########4 |  94% pytorch-2.5.1        | 1.46 GB   | #########4 |  94% pytorch-2.5.1        | 1.46 GB   | #########4 |  94% pytorch-2.5.1        | 1.46 GB   | #########4 |  94% pytorch-2.5.1        | 1.46 GB   | #########4 |  94% pytorch-2.5.1        | 1.46 GB   | #########4 |  94% pytorch-2.5.1        | 1.46 GB   | #########4 |  94% pytorch-2.5.1        | 1.46 GB   | #########4 |  95% pytorch-2.5.1        | 1.46 GB   | #########4 |  95% pytorch-2.5.1        | 1.46 GB   | #########4 |  95% pytorch-2.5.1        | 1.46 GB   | #########4 |  95% pytorch-2.5.1        | 1.46 GB   | #########4 |  95% pytorch-2.5.1        | 1.46 GB   | #########4 |  95% pytorch-2.5.1        | 1.46 GB   | #########4 |  95% pytorch-2.5.1        | 1.46 GB   | #########4 |  95% pytorch-2.5.1        | 1.46 GB   | #########5 |  95% pytorch-2.5.1        | 1.46 GB   | #########5 |  95% pytorch-2.5.1        | 1.46 GB   | #########5 |  95% pytorch-2.5.1        | 1.46 GB   | #########5 |  95% pytorch-2.5.1        | 1.46 GB   | #########5 |  95% pytorch-2.5.1        | 1.46 GB   | #########5 |  95% pytorch-2.5.1        | 1.46 GB   | #########5 |  95% pytorch-2.5.1        | 1.46 GB   | #########5 |  95% pytorch-2.5.1        | 1.46 GB   | #########5 |  95% pytorch-2.5.1        | 1.46 GB   | #########5 |  96% pytorch-2.5.1        | 1.46 GB   | #########5 |  96% pytorch-2.5.1        | 1.46 GB   | #########5 |  96% pytorch-2.5.1        | 1.46 GB   | #########5 |  96% pytorch-2.5.1        | 1.46 GB   | #########5 |  96% pytorch-2.5.1        | 1.46 GB   | #########5 |  96% pytorch-2.5.1        | 1.46 GB   | #########5 |  96% pytorch-2.5.1        | 1.46 GB   | #########5 |  96% pytorch-2.5.1        | 1.46 GB   | #########5 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  96% pytorch-2.5.1        | 1.46 GB   | #########6 |  97% pytorch-2.5.1        | 1.46 GB   | #########6 |  97% pytorch-2.5.1        | 1.46 GB   | #########6 |  97% pytorch-2.5.1        | 1.46 GB   | #########6 |  97% pytorch-2.5.1        | 1.46 GB   | #########6 |  97% pytorch-2.5.1        | 1.46 GB   | #########6 |  97% pytorch-2.5.1        | 1.46 GB   | #########6 |  97% pytorch-2.5.1        | 1.46 GB   | #########6 |  97% pytorch-2.5.1        | 1.46 GB   | #########6 |  97% pytorch-2.5.1        | 1.46 GB   | #########6 |  97% pytorch-2.5.1        | 1.46 GB   | #########7 |  97% pytorch-2.5.1        | 1.46 GB   | #########7 |  97% pytorch-2.5.1        | 1.46 GB   | #########7 |  97% pytorch-2.5.1        | 1.46 GB   | #########7 |  97% pytorch-2.5.1        | 1.46 GB   | #########7 |  97% pytorch-2.5.1        | 1.46 GB   | #########7 |  97% pytorch-2.5.1        | 1.46 GB   | #########7 |  97% pytorch-2.5.1        | 1.46 GB   | #########7 |  97% pytorch-2.5.1        | 1.46 GB   | #########7 |  98% pytorch-2.5.1        | 1.46 GB   | #########7 |  98% pytorch-2.5.1        | 1.46 GB   | #########7 |  98% pytorch-2.5.1        | 1.46 GB   | #########7 |  98% pytorch-2.5.1        | 1.46 GB   | #########7 |  98% pytorch-2.5.1        | 1.46 GB   | #########7 |  98% pytorch-2.5.1        | 1.46 GB   | #########7 |  98% pytorch-2.5.1        | 1.46 GB   | #########7 |  98% pytorch-2.5.1        | 1.46 GB   | #########7 |  98% pytorch-2.5.1        | 1.46 GB   | #########7 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  98% pytorch-2.5.1        | 1.46 GB   | #########8 |  99% pytorch-2.5.1        | 1.46 GB   | #########8 |  99% pytorch-2.5.1        | 1.46 GB   | #########8 |  99% pytorch-2.5.1        | 1.46 GB   | #########8 |  99% pytorch-2.5.1        | 1.46 GB   | #########8 |  99% pytorch-2.5.1        | 1.46 GB   | #########8 |  99% pytorch-2.5.1        | 1.46 GB   | #########8 |  99% pytorch-2.5.1        | 1.46 GB   | #########8 |  99% pytorch-2.5.1        | 1.46 GB   | #########8 |  99% pytorch-2.5.1        | 1.46 GB   | #########9 |  99% pytorch-2.5.1        | 1.46 GB   | #########9 |  99% pytorch-2.5.1        | 1.46 GB   | #########9 |  99% pytorch-2.5.1        | 1.46 GB   | #########9 |  99% pytorch-2.5.1        | 1.46 GB   | #########9 |  99% pytorch-2.5.1        | 1.46 GB   | #########9 |  99% pytorch-2.5.1        | 1.46 GB   | #########9 |  99% pytorch-2.5.1        | 1.46 GB   | #########9 |  99% pytorch-2.5.1        | 1.46 GB   | #########9 | 100% pytorch-2.5.1        | 1.46 GB   | #########9 | 100% pytorch-2.5.1        | 1.46 GB   | #########9 | 100% pytorch-2.5.1        | 1.46 GB   | #########9 | 100% pytorch-2.5.1        | 1.46 GB   | #########9 | 100% pytorch-2.5.1        | 1.46 GB   | #########9 | 100% pytorch-2.5.1        | 1.46 GB   | #########9 | 100% pytorch-2.5.1        | 1.46 GB   | #########9 | 100% pytorch-2.5.1        | 1.46 GB   | ########## | 100% pytorch-2.5.1        | 1.46 GB   | ########## | 100% pytorch-2.5.1        | 1.46 GB   | ########## | 100% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A                                                     
+                                                     [A
+
+                                                     [A[A
+
+
+                                                     [A[A[A
+
+
+
+                                                     [A[A[A[A
+
+
+
+
+                                                     [A[A[A[A[A
+
+
+
+
+
+                                                     [A[A[A[A[A[A
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A done
+Preparing transaction: - \ | done
+Verifying transaction: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
+Executing transaction: | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ done
+Looking in links: https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+Collecting jax[cuda12_pip]
+  Downloading jax-0.7.1-py3-none-any.whl.metadata (13 kB)
+Collecting jaxlib<=0.7.1,>=0.7.1 (from jax[cuda12_pip])
+  Downloading jaxlib-0.7.1-cp312-cp312-manylinux_2_27_x86_64.whl.metadata (1.3 kB)
+Collecting ml_dtypes>=0.5.0 (from jax[cuda12_pip])
+  Downloading ml_dtypes-0.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+Requirement already satisfied: numpy>=1.26 in ./miniconda3/lib/python3.12/site-packages (from jax[cuda12_pip]) (2.2.3)
+Collecting opt_einsum (from jax[cuda12_pip])
+  Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
+Requirement already satisfied: scipy>=1.12 in ./miniconda3/lib/python3.12/site-packages (from jax[cuda12_pip]) (1.15.2)
+Downloading jaxlib-0.7.1-cp312-cp312-manylinux_2_27_x86_64.whl (81.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.2/81.2 MB 3.4 MB/s eta 0:00:00
+Downloading ml_dtypes-0.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 3.1 MB/s eta 0:00:00
+Downloading jax-0.7.1-py3-none-any.whl (2.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 2.9 MB/s eta 0:00:00
+Downloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+Installing collected packages: opt_einsum, ml_dtypes, jaxlib, jax
+Successfully installed jax-0.7.1 jaxlib-0.7.1 ml_dtypes-0.5.3 opt_einsum-3.4.0
+Collecting hydra-core
+  Using cached hydra_core-1.3.2-py3-none-any.whl.metadata (5.5 kB)
+Collecting omegaconf
+  Using cached omegaconf-2.3.0-py3-none-any.whl.metadata (3.9 kB)
+Requirement already satisfied: einops in ./miniconda3/lib/python3.12/site-packages (0.8.1)
+Requirement already satisfied: h5py in ./miniconda3/lib/python3.12/site-packages (3.13.0)
+Collecting antlr4-python3-runtime==4.9.* (from hydra-core)
+  Using cached antlr4-python3-runtime-4.9.3.tar.gz (117 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: packaging in ./miniconda3/lib/python3.12/site-packages (from hydra-core) (24.2)
+Requirement already satisfied: PyYAML>=5.1.0 in ./miniconda3/lib/python3.12/site-packages (from omegaconf) (6.0.2)
+Requirement already satisfied: numpy>=1.19.3 in ./miniconda3/lib/python3.12/site-packages (from h5py) (2.2.3)
+Using cached hydra_core-1.3.2-py3-none-any.whl (154 kB)
+Using cached omegaconf-2.3.0-py3-none-any.whl (79 kB)
+Building wheels for collected packages: antlr4-python3-runtime
+  Building wheel for antlr4-python3-runtime (setup.py): started
+  Building wheel for antlr4-python3-runtime (setup.py): finished with status 'done'
+  Created wheel for antlr4-python3-runtime: filename=antlr4_python3_runtime-4.9.3-py3-none-any.whl size=144554 sha256=2a9f0d82d755e139eef11a693c16590db44aabaf59674d77a7d837e6ed17cef0
+  Stored in directory: /home/rvk/.cache/pip/wheels/1f/be/48/13754633f1d08d1fbfc60d5e80ae1e5d7329500477685286cd
+Successfully built antlr4-python3-runtime
+Installing collected packages: antlr4-python3-runtime, omegaconf, hydra-core
+Successfully installed antlr4-python3-runtime-4.9.3 hydra-core-1.3.2 omegaconf-2.3.0
+PyTorch CUDA available: True
+PyTorch CUDA version: 12.4
+JAX devices: [CpuDevice(id=0)]
+Number of GPUs (JAX): 1
+Job completed at Wed Aug 20 13:30:51 EDT 2025

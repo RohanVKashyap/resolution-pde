@@ -1,0 +1,76 @@
+Job started on babel-12-5 at Tue Apr  1 00:39:36 EDT 2025
+Job ID: 4485535
+Using device: cuda
+[2025-04-01 00:39:40,877][root][INFO] - model:
+  _target_: models.s4_1d.S4Model
+  d_input: 1
+  d_output: 1
+  d_model: 256
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 4
+  pde: burger_0.1
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_0.1_s4_1d/s4_1d
+Model name: models.s4_1d.S4Model
+PDE Dataset: burger_0.1
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+(10000, 201, 1024)
+Total data shape: (10000, 51, 1024)
+x shape: (490000, 1, 1024)
+y shape: (490000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+---------Using data normalizer---------------
+Train dataset size: 392000
+Validation dataset size: 49000
+Test dataset size: 49000
+<class 'torch.Tensor'> 0.01142776757478714 0.011456217616796494 0.9396387338638306 0.9366191029548645
+Sample Input shape: torch.Size([64, 1, 1024])
+Sample Output shape: torch.Size([64, 1, 1024])
+S4Model(
+  (encoder): Linear(in_features=2, out_features=256, bias=True)
+  (s4_layers): ModuleList(
+    (0-3): 4 x S4D(
+      (kernel): S4DKernel()
+      (activation): GELU(approximate='none')
+      (dropout): DropoutNd()
+      (output_linear): Sequential(
+        (0): Conv1d(256, 512, kernel_size=(1,), stride=(1,))
+        (1): GLU(dim=-2)
+      )
+    )
+  )
+  (norms): ModuleList(
+    (0-3): 4 x LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0-3): 4 x Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=256, out_features=1, bias=True)
+)
+Epoch 0, Train Loss: 0.07153803, Val Loss: 0.03766902
+Epoch 10, Train Loss: 0.00824820, Val Loss: 0.01154902
+Epoch 20, Train Loss: 0.00690485, Val Loss: 0.00550302
+Epoch 30, Train Loss: 0.00625814, Val Loss: 0.00526188
+Epoch 40, Train Loss: 0.00570821, Val Loss: 0.00420171
+Epoch 50, Train Loss: 0.00524865, Val Loss: 0.00462932
+Epoch 60, Train Loss: 0.00479015, Val Loss: 0.00439347
+Epoch 70, Train Loss: 0.00450202, Val Loss: 0.00439484
+Epoch 80, Train Loss: 0.00428623, Val Loss: 0.00364521
+Epoch 90, Train Loss: 0.00416562, Val Loss: 0.00368237
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mvolcanic-firebrand-3[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/s4model/runs/a16pb58q[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250401_004005-a16pb58q/logs[0m
+Job completed at Tue Apr  1 12:37:36 EDT 2025

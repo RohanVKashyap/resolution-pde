@@ -1,0 +1,24 @@
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.19.9 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.4
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250408_002230-vmqpmczv
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dainty-breeze-7
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/s4model
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/s4model/runs/vmqpmczv
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [01:25<12:51, 85.72s/it] 20%|██        | 2/10 [03:07<12:39, 94.99s/it] 30%|███       | 3/10 [04:46<11:17, 96.85s/it] 40%|████      | 4/10 [06:38<10:18, 103.01s/it] 50%|█████     | 5/10 [09:10<10:02, 120.47s/it] 60%|██████    | 6/10 [11:43<08:46, 131.66s/it] 70%|███████   | 7/10 [13:52<06:31, 130.65s/it] 80%|████████  | 8/10 [16:01<04:20, 130.37s/it] 90%|█████████ | 9/10 [18:31<02:16, 136.29s/it]100%|██████████| 10/10 [20:24<00:00, 129.20s/it]100%|██████████| 10/10 [20:24<00:00, 122.45s/it]
+wandb: - 0.014 MB of 0.014 MB uploadedwandb: \ 0.014 MB of 0.014 MB uploadedwandb: | 0.014 MB of 0.014 MB uploadedwandb: / 0.014 MB of 0.014 MB uploadedwandb: - 0.024 MB of 0.024 MB uploadedwandb: 
+wandb: Run history:
+wandb:      epoch ▁▂▃▃▄▅▆▆▇█
+wandb: train_loss █▃▂▂▂▁▁▁▁▁
+wandb:   val_loss █▅▄▃▄▃▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 9
+wandb: train_loss 0.01318
+wandb:   val_loss 0.00988
+wandb: 
+wandb: 🚀 View run dainty-breeze-7 at: https://wandb.ai/rohanvk-carnegie-mellon-university/s4model/runs/vmqpmczv
+wandb: Synced 6 W&B file(s), 1 media file(s), 1 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250408_002230-vmqpmczv/logs

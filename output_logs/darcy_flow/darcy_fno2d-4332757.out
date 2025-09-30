@@ -1,0 +1,9 @@
+Job started on babel-4-1 at Tue Mar  4 23:20:59 EST 2025
+Using device: cuda
+Loading data from data/darcy_data_mat/piececonst_r421_N1024_smooth1.mat and data/darcy_data_mat/piececonst_r421_N1024_smooth2.mat
+Loaded data shapes: X=(2048, 421, 421), y=(2048, 421, 421)
+Training set: 1638 samples
+Validation set: 204 samples
+Test set: 206 samples
+Input shape: torch.Size([64, 1, 421, 421])
+Output shape: torch.Size([64, 1, 421, 421])

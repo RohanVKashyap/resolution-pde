@@ -1,0 +1,18 @@
+Job started on babel-5-15 at Thu Mar 20 12:18:52 EDT 2025
+Job ID: 4411357
+Using device: cuda:0
+Target features are normalized using pointwise unit normalizer
+Input features are normalized using unit transformer
+Target features are normalized using pointwise unit normalizer
+Input features are normalized using unit transformer
+Graph g: 25600 nodes, 0 edges
+Node features shape: torch.Size([25600, 1])
+Node targets shape: torch.Size([25600, 1])
+Parameters u_p shape: torch.Size([25, 1])
+Trunk size: 2, Branch size: 1
+Using Linear Attention
+Using Linear Attention
+Using Linear Attention
+
+Model: MoEGPTNO	 Number of params: 1135693
+Job completed at Thu Mar 20 12:19:00 EDT 2025

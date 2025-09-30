@@ -1,0 +1,142 @@
+Job started on babel-5-27 at Fri Apr 25 11:27:16 EDT 2025
+Job ID: 4656127
+GPU information:
+Fri Apr 25 11:27:16 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100 80GB PCIe          On  |   00000000:01:00.0 Off |                    0 |
+| N/A   42C    P0             58W /  219W |       1MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA A100 80GB PCIe          On  |   00000000:61:00.0 Off |                    0 |
+| N/A   40C    P0             55W /  219W |       1MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-04-25 11:27:21,458][root][INFO] - model:
+  _target_: models.ffno.FFNO2D
+  in_channels: 3
+  out_channels: 3
+  width: 32
+  factor: 4
+  n_modes: 16
+  n_layers: 4
+  dropout: 0.0
+  mode: full
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: true
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 4
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_ffno_2d/ns_ffno_2d
+Model name: models.ffno.FFNO2D
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 512, 512, 3)
+x shape: torch.Size([992, 3, 512, 512])
+y shape: torch.Size([992, 3, 512, 512])
+---------Using data normalizer---------------
+Train dataset size: 793
+Validation dataset size: 99
+Test dataset size: 100
+<class 'torch.Tensor'> 0.006702815648168325 0.006770485546439886 1.0027652978897095 1.0091438293457031
+Sample Input shape: torch.Size([16, 3, 512, 512])
+Sample Output shape: torch.Size([16, 3, 512, 512])
+FFNO2D(
+  (in_proj): WNLinear(in_features=5, out_features=32, bias=True)
+  (fourier_layers): ModuleList(
+    (0-3): 4 x FSpectralConv2d(
+      (fourier_weight): ParameterList(
+          (0): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)]
+          (1): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)]
+      )
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=32, out_features=128, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=128, out_features=32, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): Identity()
+            (3): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (out_proj): WNLinear(in_features=32, out_features=3, bias=True)
+)
+Epoch 0, Train Loss: 0.37588695, Val Loss: 0.13163880
+Epoch 10, Train Loss: 0.04990015, Val Loss: 0.04536441
+Epoch 20, Train Loss: 0.04362690, Val Loss: 0.03904563
+Epoch 30, Train Loss: 0.03361295, Val Loss: 0.03651185
+Epoch 40, Train Loss: 0.03096392, Val Loss: 0.03247896
+Epoch 50, Train Loss: 0.02958867, Val Loss: 0.03221441
+Epoch 60, Train Loss: 0.02849719, Val Loss: 0.02962220
+Epoch 70, Train Loss: 0.02789366, Val Loss: 0.02912842
+Epoch 80, Train Loss: 0.02758322, Val Loss: 0.02885070
+Epoch 90, Train Loss: 0.02740797, Val Loss: 0.02872881
+Test L2 Loss: 0.018632
+Model saved to checkpoints/ffno2d/navier_stokes_0_4656127.pt
+Original test data shape: x=torch.Size([100, 3, 512, 512]), y=torch.Size([100, 3, 512, 512])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.018062
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([100, 3, 256, 256]), y=torch.Size([100, 3, 256, 256])
+Resolution factor 2 - Relative L2 Loss: 0.253519
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([100, 3, 128, 128]), y=torch.Size([100, 3, 128, 128])
+Resolution factor 4 - Relative L2 Loss: 0.254877
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([100, 3, 64, 64]), y=torch.Size([100, 3, 64, 64])
+Resolution factor 8 - Relative L2 Loss: 0.061149
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([100, 3, 32, 32]), y=torch.Size([100, 3, 32, 32])
+Resolution factor 16 - Relative L2 Loss: 0.082862
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([100, 3, 16, 16]), y=torch.Size([100, 3, 16, 16])
+Skipping Resolution factor 32 because not enough modes
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mdry-glade-1[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/6z7hbwfv[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250425_112827-6z7hbwfv/logs[0m
+Job completed at Fri Apr 25 12:23:34 EDT 2025

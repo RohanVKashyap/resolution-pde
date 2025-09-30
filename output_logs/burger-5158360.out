@@ -1,0 +1,91 @@
+Job started on babel-6-21 at Wed Jun 25 00:52:32 EDT 2025
+Job ID: 5158360
+GPU information:
+Wed Jun 25 00:52:32 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:41:00.0 Off |                  Off |
+| 30%   32C    P8             21W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:61:00.0 Off |                  Off |
+| 30%   32C    P8             26W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-06-25 00:52:51,853][root][INFO] - model:
+  _target_: models.ffno.FFNO2D
+  in_channels: 3
+  out_channels: 3
+  width: 64
+  factor: 4
+  n_modes: 16
+  n_layers: 8
+  dropout: 0.1
+  mode: full
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: true
+  use_grid: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  train_resolution: 512
+  multi_res:
+  - 1
+  - 4
+  s: 512
+  train_mres: false
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_ffno_2d/ns_ffno_2d
+Model name: models.ffno.FFNO2D
+PDE Dataset: navier_stokes_0
+Model: ffno2d
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 1000, 512, 512, 3)
+Current Spatial Size: 512
+x shape: torch.Size([3992, 3, 512, 512])
+y shape: torch.Size([3992, 3, 512, 512])
+---------Computing min-max normalization statistics---------------
+Input data range: [-2.759037, 2.506686]
+Output data range: [-2.752234, 2.492671]
+Train dataset size: 3193
+Validation dataset size: 399
+Test dataset size: 400
+<class 'torch.Tensor'> 0.5242372155189514 0.5250215530395508 0.10017773509025574 0.10051296651363373
+Total Model Parameters: 2.36M
+Trainable Parameters: 2.36M
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mroyal-darkness-34[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/2qea1pqt[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250625_005438-2qea1pqt/logs[0m
+Job completed at Wed Jun 25 00:54:41 EDT 2025

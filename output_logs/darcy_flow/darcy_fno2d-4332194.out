@@ -1,0 +1,35 @@
+Job started on babel-0-27 at Tue Mar  4 18:12:52 EST 2025
+Using device: cuda
+Loading data from data/darcy_data_mat/piececonst_r241_N1024_smooth1.mat and data/darcy_data_mat/piececonst_r241_N1024_smooth2.mat
+Loaded data shapes: X=(2048, 241, 241), y=(2048, 241, 241)
+Training set: 1638 samples
+Validation set: 204 samples
+Test set: 206 samples
+Input shape: torch.Size([64, 1, 241, 241])
+Output shape: torch.Size([64, 1, 241, 241])
+Epoch 0, Train Loss: 0.637549, Val Loss: 0.000001
+Epoch 10, Train Loss: 0.008772, Val Loss: 0.000000
+Epoch 20, Train Loss: 0.002708, Val Loss: 0.000000
+Epoch 30, Train Loss: 0.001464, Val Loss: 0.000000
+Epoch 40, Train Loss: 0.001135, Val Loss: 0.000000
+Epoch 50, Train Loss: 0.000788, Val Loss: 0.000000
+Epoch 60, Train Loss: 0.000619, Val Loss: 0.000000
+Epoch 70, Train Loss: 0.000534, Val Loss: 0.000000
+Epoch 80, Train Loss: 0.000458, Val Loss: 0.000000
+Epoch 90, Train Loss: 0.000410, Val Loss: 0.000000
+Epoch 100, Train Loss: 0.000356, Val Loss: 0.000000
+Epoch 110, Train Loss: 0.000325, Val Loss: 0.000000
+Epoch 120, Train Loss: 0.000289, Val Loss: 0.000000
+Epoch 130, Train Loss: 0.000271, Val Loss: 0.000000
+Epoch 140, Train Loss: 0.000258, Val Loss: 0.000000
+Epoch 150, Train Loss: 0.000245, Val Loss: 0.000000
+Epoch 160, Train Loss: 0.000235, Val Loss: 0.000000
+Epoch 170, Train Loss: 0.000231, Val Loss: 0.000000
+Epoch 180, Train Loss: 0.000227, Val Loss: 0.000000
+Epoch 190, Train Loss: 0.000226, Val Loss: 0.000000
+Test L2 Loss: 0.000163
+Model saved to checkpoints/darcy_flow_fno2d/darcy_flow_fno2d.pt
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mfluent-water-3[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/darcy_flow_fno2d/runs/zullzcqr[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250304_181354-zullzcqr/logs[0m
+Job completed at Tue Mar  4 19:37:09 EST 2025

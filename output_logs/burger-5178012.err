@@ -1,0 +1,22 @@
+/data/user_data/rvk/pos/lib/python3.11/site-packages/huggingface_hub/file_download.py:943: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of ScOT were not initialized from the model checkpoint at camlab-ethz/Poseidon-B and are newly initialized because the shapes did not match:
+- embeddings.patch_embeddings.projection.weight: found shape torch.Size([96, 4, 4, 4]) in the checkpoint and torch.Size([96, 3, 4, 4]) in the model instantiated
+- patch_recovery.mixup.weight: found shape torch.Size([4, 4, 5, 5]) in the checkpoint and torch.Size([3, 3, 5, 5]) in the model instantiated
+- patch_recovery.projection.bias: found shape torch.Size([4]) in the checkpoint and torch.Size([3]) in the model instantiated
+- patch_recovery.projection.weight: found shape torch.Size([96, 4, 4, 4]) in the checkpoint and torch.Size([96, 3, 4, 4]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.20.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250701_113946-d2xrlihn
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run proud-voice-39
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/pos
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/pos/runs/d2xrlihn
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: got SIGCONT
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:59<1:38:16, 59.56s/it]  2%|▏         | 2/100 [01:56<1:34:24, 57.80s/it]  3%|▎         | 3/100 [02:52<1:32:23, 57.15s/it]  4%|▍         | 4/100 [03:49<1:31:02, 56.90s/it]  5%|▌         | 5/100 [04:45<1:29:56, 56.81s/it]  6%|▌         | 6/100 [05:42<1:28:51, 56.71s/it]slurmstepd: error: *** STEP 5178012.0 ON babel-11-25 CANCELLED AT 2025-07-01T11:45:49 ***
+slurmstepd: error: *** JOB 5178012 ON babel-11-25 CANCELLED AT 2025-07-01T11:45:49 ***
+srun: forcing job termination

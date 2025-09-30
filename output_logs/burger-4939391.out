@@ -1,0 +1,55 @@
+Job started on babel-5-27 at Mon May 26 14:47:45 EDT 2025
+Job ID: 4939391
+GPU information:
+Mon May 26 14:47:45 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100 80GB PCIe          On  |   00000000:01:00.0 Off |                    0 |
+| N/A   53C    P0             90W /  270W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA A100 80GB PCIe          On  |   00000000:E1:00.0 Off |                    0 |
+| N/A   34C    P0             54W /  270W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-05-26 14:47:50,643][root][INFO] - model:
+  _target_: models.s4_2d.S4NDModel
+  d_input: 15
+  d_output: 3
+  d_model: 64
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 4
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Job completed at Mon May 26 14:49:28 EDT 2025

@@ -1,0 +1,67 @@
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.20.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250628_001007-bycjrno1
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run super-oath-10
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/cno
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/cno/runs/bycjrno1
+  0%|          | 0/100 [00:00<?, ?it/s]  0%|          | 0/100 [01:17<?, ?it/s]
+Error executing job with overrides: ['model=cno_2d/cno_2d_original', 'dataset=navier_stokes/ns_512_0_t16']
+Traceback (most recent call last):
+  File "/home/rvk/cno_original_main.py", line 147, in main
+    loss_history, val_loss_history = train(
+                                     ^^^^^^
+  File "/home/rvk/train/training.py", line 36, in train
+    pred_y = model(batch_x)
+             ^^^^^^^^^^^^^^
+  File "/data/user_data/rvk/pos/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/CNO/CNO2d_original_version/CNOModule.py", line 491, in forward
+    x = self.lift(x)
+        ^^^^^^^^^^^^
+  File "/data/user_data/rvk/pos/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/CNO/CNO2d_original_version/CNOModule.py", line 158, in forward
+    x = self.inter_CNOBlock(x)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/user_data/rvk/pos/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/CNO/CNO2d_original_version/CNOModule.py", line 111, in forward
+    return self.activation(x)
+           ^^^^^^^^^^^^^^^^^^
+  File "/data/user_data/rvk/pos/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/CNO/CNO2d_original_version/training/filtered_networks.py", line 392, in forward
+    x = filtered_lrelu.filtered_lrelu(x=x, fu=self.up_filter, fd=self.down_filter, b=self.bias.to(x.dtype),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/CNO/CNO2d_original_version/torch_utils/ops/filtered_lrelu.py", line 114, in filtered_lrelu
+    if impl == 'cuda' and x.device.type == 'cuda' and _init():
+                                                      ^^^^^^^
+  File "/home/rvk/CNO/CNO2d_original_version/torch_utils/ops/filtered_lrelu.py", line 26, in _init
+    _plugin = custom_ops.get_plugin(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/CNO/CNO2d_original_version/torch_utils/custom_ops.py", line 136, in get_plugin
+    torch.utils.cpp_extension.load(name=module_name, build_directory=cached_build_dir,
+  File "/data/user_data/rvk/pos/lib/python3.11/site-packages/torch/utils/cpp_extension.py", line 1284, in load
+    return _jit_compile(
+           ^^^^^^^^^^^^^
+  File "/data/user_data/rvk/pos/lib/python3.11/site-packages/torch/utils/cpp_extension.py", line 1509, in _jit_compile
+    _write_ninja_file_and_build_library(
+  File "/data/user_data/rvk/pos/lib/python3.11/site-packages/torch/utils/cpp_extension.py", line 1593, in _write_ninja_file_and_build_library
+    verify_ninja_availability()
+  File "/data/user_data/rvk/pos/lib/python3.11/site-packages/torch/utils/cpp_extension.py", line 1649, in verify_ninja_availability
+    raise RuntimeError("Ninja is required to load C++ extensions")
+RuntimeError: Ninja is required to load C++ extensions
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run super-oath-10 at: https://wandb.ai/rohanvk-carnegie-mellon-university/cno/runs/bycjrno1
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250628_001007-bycjrno1/logs
+srun: error: babel-15-36: task 0: Exited with exit code 1

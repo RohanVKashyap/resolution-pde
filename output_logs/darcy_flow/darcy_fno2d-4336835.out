@@ -1,0 +1,36 @@
+Job started on babel-6-17 at Wed Mar  5 23:19:49 EST 2025
+Using device: cuda
+Loading data from data/darcy_data_mat/piececonst_r241_N1024_smooth1.mat and data/darcy_data_mat/piececonst_r241_N1024_smooth2.mat
+Loaded data shapes: X=(2048, 241, 241), y=(2048, 241, 241)
+Training set: 1638 samples
+Validation set: 204 samples
+Test set: 206 samples
+Input shape: torch.Size([16, 1, 241, 241])
+Output shape: torch.Size([16, 1, 241, 241])
+Epoch 0, Train Loss: 2.65656549, Val Loss: 0.14429565
+Epoch 10, Train Loss: 0.00809452, Val Loss: 0.00642711
+Epoch 20, Train Loss: 0.00306562, Val Loss: 0.00312743
+Epoch 30, Train Loss: 0.00315716, Val Loss: 0.00206582
+Epoch 40, Train Loss: 0.00267593, Val Loss: 0.00273272
+Epoch 50, Train Loss: 0.00166307, Val Loss: 0.00195355
+Epoch 60, Train Loss: 0.00380727, Val Loss: 0.00414888
+Epoch 70, Train Loss: 0.00085919, Val Loss: 0.00135955
+Epoch 80, Train Loss: 0.00185604, Val Loss: 0.00291632
+Epoch 90, Train Loss: 0.00123513, Val Loss: 0.00143167
+Epoch 100, Train Loss: 0.00044594, Val Loss: 0.00080400
+Epoch 110, Train Loss: 0.00047339, Val Loss: 0.00078992
+Epoch 120, Train Loss: 0.00076858, Val Loss: 0.00086693
+Epoch 130, Train Loss: 0.00035162, Val Loss: 0.00083491
+Epoch 140, Train Loss: 0.00027976, Val Loss: 0.00072839
+Epoch 150, Train Loss: 0.00010901, Val Loss: 0.00044227
+Epoch 160, Train Loss: 0.00009434, Val Loss: 0.00038701
+Epoch 170, Train Loss: 0.00007434, Val Loss: 0.00034412
+Epoch 180, Train Loss: 0.00006534, Val Loss: 0.00033787
+Epoch 190, Train Loss: 0.00006173, Val Loss: 0.00033045
+Test L2 Loss: 0.000068
+Figure saved to output_logs/predictions/darcy_flow_fno_4336835_predictions.png
+Model saved to checkpoints/darcy_flow_fno2d/darcy_flow_fno2d_ffno_4336835.pt
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mworldly-frog-11[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/darcy_flow_fno2d/runs/z4ing30s[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250305_232005-z4ing30s/logs[0m
+Job completed at Thu Mar  6 03:05:25 EST 2025

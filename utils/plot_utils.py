@@ -873,6 +873,193 @@ def create_combined_channel_plot(plot_data, num_resolutions, save_dir, timestamp
     plt.savefig(combined_plot_path, dpi=300, bbox_inches='tight')
     print(f"Saved all channels comparison plot to: {combined_plot_path}")
     
-    plt.close()            
+    plt.close()   
+
+
+def plot_2d_pde_examples_multiple(plot_data, test_resolutions, pde="PDE", save_dir=None, num_examples=10):
+    """
+    Plot multiple prediction vs target examples for 2D PDE across different resolutions.
+    
+    Args:
+        plot_data: Dictionary with resolution as key and dict containing arrays of predictions, targets, inputs
+        test_resolutions: List of resolutions tested
+        pde: Name of PDE for labeling
+        save_dir: Directory to save plots (optional)
+        num_examples: Number of examples to plot
+    """
+    import matplotlib.pyplot as plt
+    
+    # For 2D data, we'll create separate plots for each example to avoid overcrowding
+    # Create a summary plot showing one example across all resolutions
+    fig, axes = plt.subplots(3, len(test_resolutions), 
+                            figsize=(4*len(test_resolutions), 12))
+    
+    # Handle case where we only have one resolution
+    if len(test_resolutions) == 1:
+        axes = axes.reshape(3, 1)
+    
+    fig.suptitle(f'2D {pde.upper()} Predictions vs Targets - Example 1', fontsize=16, y=0.98)
+    
+    # Plot the first example across all resolutions
+    example_idx = 0
+    for res_idx, resolution in enumerate(test_resolutions):
+        if (resolution in plot_data and 
+            example_idx < len(plot_data[resolution]['predictions'])):
+            
+            # Get data for first example - assume single channel for visualization
+            input_data = plot_data[resolution]['inputs'][example_idx]
+            prediction = plot_data[resolution]['predictions'][example_idx]
+            target = plot_data[resolution]['targets'][example_idx]
+            
+            # Handle multi-channel data by taking first channel
+            if input_data.ndim == 3:  # (C, H, W)
+                input_data = input_data[0]
+                prediction = prediction[0]
+                target = target[0]
+            elif input_data.ndim == 4:  # (B, C, H, W)
+                input_data = input_data[0, 0]
+                prediction = prediction[0, 0]
+                target = target[0, 0]
+            
+            # Plot input
+            im1 = axes[0, res_idx].imshow(input_data, cmap='RdBu_r', aspect='equal')
+            axes[0, res_idx].set_title(f'Input\nRes: {resolution}x{resolution}')
+            axes[0, res_idx].set_xticks([])
+            axes[0, res_idx].set_yticks([])
+            plt.colorbar(im1, ax=axes[0, res_idx], shrink=0.8)
+            
+            # Plot prediction
+            im2 = axes[1, res_idx].imshow(prediction, cmap='RdBu_r', aspect='equal')
+            axes[1, res_idx].set_title(f'Prediction\nRes: {resolution}x{resolution}')
+            axes[1, res_idx].set_xticks([])
+            axes[1, res_idx].set_yticks([])
+            plt.colorbar(im2, ax=axes[1, res_idx], shrink=0.8)
+            
+            # Plot target
+            im3 = axes[2, res_idx].imshow(target, cmap='RdBu_r', aspect='equal')
+            axes[2, res_idx].set_title(f'Target\nRes: {resolution}x{resolution}')
+            axes[2, res_idx].set_xticks([])
+            axes[2, res_idx].set_yticks([])
+            plt.colorbar(im3, ax=axes[2, res_idx], shrink=0.8)
+            
+            # Calculate and display error
+            error = np.mean((prediction - target)**2)
+            axes[2, res_idx].text(0.02, 0.98, f'MSE: {error:.4f}', 
+                                 transform=axes[2, res_idx].transAxes, 
+                                 verticalalignment='top',
+                                 bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
+            
+            # Add row labels
+            if res_idx == 0:
+                axes[0, res_idx].set_ylabel('Input', fontsize=14, fontweight='bold')
+                axes[1, res_idx].set_ylabel('Prediction', fontsize=14, fontweight='bold')
+                axes[2, res_idx].set_ylabel('Target', fontsize=14, fontweight='bold')
+        else:
+            # No data available
+            for row in range(3):
+                axes[row, res_idx].text(0.5, 0.5, 'No data', ha='center', va='center', 
+                                      transform=axes[row, res_idx].transAxes)
+                axes[row, res_idx].set_title(f'Resolution {resolution}x{resolution}')
+    
+    plt.tight_layout()
+    
+    # Save main comparison plot
+    if save_dir:
+        filename = f'{pde.lower()}_2d_main_comparison.png'
+        filepath = os.path.join(save_dir, filename)
+        plt.savefig(filepath, dpi=300, bbox_inches='tight')
+        print(f"Saved main 2D comparison plot: {filepath}")
+    
+    plt.show()
+    
+    # Create individual example plots for detailed analysis
+    if save_dir:
+        create_individual_2d_example_plots(plot_data, test_resolutions, pde, save_dir, num_examples)
+
+
+def create_individual_2d_example_plots(plot_data, test_resolutions, pde, save_dir, num_examples):
+    """Create individual plots for each example at each resolution"""
+    import matplotlib.pyplot as plt
+    from datetime import datetime
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    for resolution in test_resolutions:
+        if resolution not in plot_data:
+            continue
+            
+        # Create plots for up to num_examples
+        actual_examples = min(num_examples, len(plot_data[resolution]['predictions']))
+        
+        for ex_idx in range(actual_examples):
+            # Get data for this example
+            input_data = plot_data[resolution]['inputs'][ex_idx]
+            prediction = plot_data[resolution]['predictions'][ex_idx]
+            target = plot_data[resolution]['targets'][ex_idx]
+            
+            # Handle multi-channel data by taking first channel
+            if input_data.ndim == 3:  # (C, H, W)
+                input_data = input_data[0]
+                prediction = prediction[0]
+                target = target[0]
+            elif input_data.ndim == 4:  # (B, C, H, W)
+                input_data = input_data[0, 0]
+                prediction = prediction[0, 0]
+                target = target[0, 0]
+            
+            # Create 2x2 subplot for this example
+            fig, axes = plt.subplots(2, 2, figsize=(10, 10))
+            
+            # Input
+            im1 = axes[0, 0].imshow(input_data, cmap='RdBu_r', aspect='equal')
+            axes[0, 0].set_title('Input')
+            axes[0, 0].set_xticks([])
+            axes[0, 0].set_yticks([])
+            plt.colorbar(im1, ax=axes[0, 0])
+            
+            # Prediction
+            im2 = axes[0, 1].imshow(prediction, cmap='RdBu_r', aspect='equal')
+            axes[0, 1].set_title('Prediction')
+            axes[0, 1].set_xticks([])
+            axes[0, 1].set_yticks([])
+            plt.colorbar(im2, ax=axes[0, 1])
+            
+            # Target
+            im3 = axes[1, 0].imshow(target, cmap='RdBu_r', aspect='equal')
+            axes[1, 0].set_title('Target')
+            axes[1, 0].set_xticks([])
+            axes[1, 0].set_yticks([])
+            plt.colorbar(im3, ax=axes[1, 0])
+            
+            # Error
+            error_data = np.abs(prediction - target)
+            im4 = axes[1, 1].imshow(error_data, cmap='Reds', aspect='equal')
+            axes[1, 1].set_title('Absolute Error')
+            axes[1, 1].set_xticks([])
+            axes[1, 1].set_yticks([])
+            plt.colorbar(im4, ax=axes[1, 1])
+            
+            # Add error statistics
+            mean_error = np.mean(error_data)
+            max_error = np.max(error_data)
+            std_error = np.std(error_data)
+            axes[1, 1].text(0.02, 0.98, f'Mean: {mean_error:.4f}\nMax: {max_error:.4f}\nStd: {std_error:.4f}', 
+                           transform=axes[1, 1].transAxes, 
+                           verticalalignment='top',
+                           bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
+            
+            plt.suptitle(f'2D {pde.upper()} - Resolution {resolution}x{resolution} - Example {ex_idx+1}', 
+                        fontsize=14, fontweight='bold')
+            plt.tight_layout()
+            
+            # Save individual plot
+            filename = f'{pde.lower()}_2d_res_{resolution}_example_{ex_idx+1}_{timestamp}.png'
+            filepath = os.path.join(save_dir, filename)
+            plt.savefig(filepath, dpi=300, bbox_inches='tight')
+            print(f"Saved individual 2D plot: {filepath}")
+            
+            plt.close()
+    
+    print(f"Created individual plots for {actual_examples} examples at each resolution")
 
 

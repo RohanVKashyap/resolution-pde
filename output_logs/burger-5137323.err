@@ -1,0 +1,61 @@
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250620_143305-pg06oqsw
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run chocolate-river-3
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d/runs/pg06oqsw
+  0%|          | 0/2 [00:00<?, ?it/s]  0%|          | 0/2 [00:01<?, ?it/s]
+Error executing job with overrides: ['model=cno_2d/cno_2d', 'dataset=navier_stokes/ns_512_0']
+Traceback (most recent call last):
+  File "/home/rvk/cno_main.py", line 119, in main
+    loss_history, val_loss_history = train(
+                                     ~~~~~^
+            model, train_loader, val_loader, optimizer, scheduler, y_normalizer=None, use_normalizer=use_normalizer, epochs=epochs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/train/training.py", line 32, in train
+    pred_y = model(batch_x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 337, in forward
+    x = self.project(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 114, in forward
+    x = self.inter_CNOBlock(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 86, in forward
+    return self.act(x)
+           ~~~~~~~~^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 44, in forward
+    x = self.act(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/activation.py", line 828, in forward
+    return F.leaky_relu(input, self.negative_slope, self.inplace)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/functional.py", line 1902, in leaky_relu
+    result = torch._C._nn.leaky_relu(input, negative_slope)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 0 has a total capacity of 47.40 GiB of which 7.13 GiB is free. Including non-PyTorch memory, this process has 40.27 GiB memory in use. Of the allocated memory 39.41 GiB is allocated by PyTorch, and 564.32 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-6-25: task 0: Exited with exit code 1

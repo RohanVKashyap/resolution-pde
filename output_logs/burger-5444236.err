@@ -1,0 +1,9 @@
+In 'config': Could not find 'dataset/burger/burger_naive_true_mres4'
+
+Config search path:
+	provider=hydra, path=pkg://hydra.conf
+	provider=main, path=file:///home/rvk/conf
+	provider=schema, path=structured://
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-4-37: task 0: Exited with exit code 1

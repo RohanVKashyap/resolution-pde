@@ -1,0 +1,47 @@
+Job started on babel-15-36 at Wed Jul 30 15:06:10 EDT 2025
+Job ID: 5285753
+GPU information:
+Wed Jul 30 15:06:10 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:1A:00.0 Off |                  Off |
+| 30%   43C    P8             19W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:1B:00.0 Off |                  Off |
+| 30%   36C    P5             29W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Data directory /data/user_data/rvk/ks/res_512/visc_0.001 created.
+Log directory /data/user_data/rvk/ks/res_512/visc_0.001/log created.
+Generating data
+No file /data/user_data/rvk/ks/res_512/visc_0.001/KS_train_2048.h5 exists yet.
+No file /data/user_data/rvk/ks/res_512/visc_0.001/KS_valid.h5 exists yet.
+No file /data/user_data/rvk/ks/res_512/visc_0.001/KS_test.h5 exists yet.
+Equation: KS
+Mode: train
+Number of samples: 2048
+Solution was not successful.
+Solved indices: 0 : 0
+Solved batches: 1 of 2048
+Solution was not successful.
+Solved indices: 1 : 1
+Solved batches: 2 of 2048
+Solution was not successful.
+Solved indices: 2 : 2
+Solved batches: 3 of 2048

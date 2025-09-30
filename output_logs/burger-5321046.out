@@ -1,0 +1,83 @@
+Job started on babel-3-9 at Wed Aug 13 18:52:03 EDT 2025
+Job ID: 5321046
+GPU information:
+Wed Aug 13 18:52:03 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:D2:00.0 Off |                    0 |
+| N/A   23C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:D5:00.0 Off |                    0 |
+| N/A   24C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Project name: KS_solver
+FFT normalization: forward
+Viscosity parameter (niu): 0.01
+Number of trajectories (Nsum): 51
+Maximum simulation time (tmax): 20
+Spatial grid points (N): 1024
+Projection grid points (N_proj): 1024
+Time step size (timegrid): 0.001
+Half period (half_period): 3
+Domain length: [0, 18.8496] = [0, 6π]
+Space scaling factor: 18.8496
+Initial condition choice (choose_ic): 5 (Gaussian Random Field)
+Coefficient scheme choice (choose_coef): 0
+Complex circle averaging points (M): 64
+Total simulation timesteps (nmax): 20000
+Number of snapshots to save (num_plot): 200
+Save every nplt timesteps: 100
+Time interval between saved snapshots (dt_save): 0.1
+Stability parameter (eta_stb_change): 0.1
+Output filename: T=20,niu=0.01,N=1024,dt=0.001,6pi,dtsave=0.1,sample=51
+
+==================================================
+SIMULATION SUMMARY:
+==================================================
+Domain: [0, 6π] with 1024 spatial points
+Time: [0, 20] with timestep 0.001
+Total simulation steps: 20,000
+Trajectories: 51
+Snapshots per trajectory: 201 (including t=0)
+Time between snapshots: 0.1
+Expected output shape: [51, 201, 1024]
+Total data points: 10,497,024
+==================================================
+t= 1.0
+t= 2.0
+t= 3.0
+t= 4.0
+t= 5.0
+t= 6.0
+t= 7.0
+t= 8.0
+t= 9.0
+t= 10.0
+t= 11.0
+t= 12.0
+t= 13.0
+t= 14.0
+t= 15.0
+t= 16.0
+t= 17.0
+t= 18.0
+t= 19.0
+t= 20.0
+Job completed at Wed Aug 13 18:52:17 EDT 2025

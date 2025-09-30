@@ -1,0 +1,10 @@
+/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250415_115319-iwtlfj62
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run toasty-sponge-8
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/FFNO%20Test%20Resolution
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/FFNO%20Test%20Resolution/runs/iwtlfj62

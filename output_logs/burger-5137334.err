@@ -1,0 +1,24 @@
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250620_143732-hivdysmh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run eager-dream-5
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d/runs/hivdysmh
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [02:40<00:00, 160.55s/it]100%|██████████| 1/1 [02:40<00:00, 160.55s/it]
+Error executing job with overrides: ['model=cno_2d/cno_2d', 'dataset=navier_stokes/ns_512_0']
+Traceback (most recent call last):
+  File "/home/rvk/cno_main.py", line 142, in main
+    resolution_results = evaluate_cno_all_resolution(
+            model=model,
+    ...<11 lines>...
+            device='cuda'
+        )
+  File "/home/rvk/utils/cno_utils.py", line 162, in evaluate_cno_all_resolution
+    _, _, original_test_dataset, _, _, _, _ = ns_markov_dataset(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 7, got 5)
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-4-29: task 0: Exited with exit code 1

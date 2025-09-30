@@ -1,0 +1,37 @@
+Job started on babel-5-19 at Tue Mar  4 21:48:35 EST 2025
+Using device: cuda
+Loading data from data/burger_data_mat/burgers_data_R10.mat
+Keys in data: ['a', 'a_smooth', 'a_smooth_x', 'a_x', 'u']
+Loaded data shapes: X=(2048, 8192), y=(2048, 8192)
+Training set: 1638 samples
+Validation set: 204 samples
+Test set: 206 samples
+Input shape: torch.Size([64, 1, 8192])
+Output shape: torch.Size([64, 1, 8192])
+Epoch 0, Train Loss: 0.08035652, Val Loss: 0.01397100
+Epoch 10, Train Loss: 0.00005856, Val Loss: 0.00005389
+Epoch 20, Train Loss: 0.00006598, Val Loss: 0.00004519
+Epoch 30, Train Loss: 0.00003424, Val Loss: 0.00003139
+Epoch 40, Train Loss: 0.00004244, Val Loss: 0.00004518
+Epoch 50, Train Loss: 0.00001243, Val Loss: 0.00002005
+Epoch 60, Train Loss: 0.00002580, Val Loss: 0.00002234
+Epoch 70, Train Loss: 0.00000912, Val Loss: 0.00001618
+Epoch 80, Train Loss: 0.00000782, Val Loss: 0.00001220
+Epoch 90, Train Loss: 0.00000719, Val Loss: 0.00001125
+Epoch 100, Train Loss: 0.00000597, Val Loss: 0.00001178
+Epoch 110, Train Loss: 0.00000494, Val Loss: 0.00000989
+Epoch 120, Train Loss: 0.00000440, Val Loss: 0.00000943
+Epoch 130, Train Loss: 0.00000394, Val Loss: 0.00000854
+Epoch 140, Train Loss: 0.00000371, Val Loss: 0.00000858
+Epoch 150, Train Loss: 0.00000341, Val Loss: 0.00000819
+Epoch 160, Train Loss: 0.00000327, Val Loss: 0.00000808
+Epoch 170, Train Loss: 0.00000318, Val Loss: 0.00000803
+Epoch 180, Train Loss: 0.00000310, Val Loss: 0.00000786
+Epoch 190, Train Loss: 0.00000307, Val Loss: 0.00000786
+Test L2 Loss: 0.089521
+Figure saved to fno_burger_predictions.png
+Model saved to checkpoints/burger_fno_1d/burger_fno_1d_jobid-4332546.pt
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mtrim-sunset-4[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/burger_fno_1d/runs/b04hcff3[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250304_214848-b04hcff3/logs[0m
+Job completed at Tue Mar  4 21:53:35 EST 2025

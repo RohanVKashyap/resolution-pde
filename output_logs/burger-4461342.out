@@ -1,0 +1,32 @@
+Job started on babel-3-17 at Thu Mar 27 10:57:15 EDT 2025
+Job ID: 4461342
+Using device: cuda
+[2025-03-27 10:57:19,458][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  width: 32
+  n_modes: 16
+  factor: 4
+  n_layers: 4
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: false
+  grid: null
+  dropout: 0.0
+  mode: full
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  pde: burger_0.1
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Job completed at Thu Mar 27 10:58:02 EDT 2025

@@ -1,0 +1,113 @@
+Job started on babel-2-29 at Mon Mar 24 10:10:15 EDT 2025
+Job ID: 4434126
+Using device: cuda
+[2025-03-24 10:10:21,365][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  width: 32
+  n_modes: 16
+  factor: 4
+  n_layers: 4
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: false
+  grid: null
+  dropout: 0.0
+  mode: full
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 4
+  pde: burger_0.01
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.01.hdf5
+training:
+  batch_size: 64
+  epochs: 200
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_0.01_ffno_1d/ffno_1d
+Model name: models.ffno.FFNO1D
+PDE Dataset: burger_0.01
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu0.01.hdf5
+(10000, 201, 1024)
+Total data shape: (10000, 51, 1024)
+x shape: (490000, 1, 1024)
+y shape: (490000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+---------Using data normalizer---------------
+Train dataset size: 392000
+Validation dataset size: 49000
+Test dataset size: 49000
+<class 'torch.Tensor'> 0.14367400109767914 0.14453449845314026 0.8905337452888489 0.8907788991928101
+Sample Input shape: torch.Size([64, 1, 1024])
+Sample Output shape: torch.Size([64, 1, 1024])
+FFNO1D(
+  (in_proj): WNLinear(in_features=2, out_features=32, bias=True)
+  (fourier_layers): ModuleList(
+    (0-3): 4 x FSpectralConv1d(
+      (fourier_weight): ParameterList(  (0): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)])
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=32, out_features=128, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=128, out_features=32, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): Identity()
+            (3): Identity()
+          )
+        )
+      )
+      (act): Identity()
+    )
+  )
+  (out_proj): WNLinear(in_features=32, out_features=1, bias=True)
+)
+Epoch 0, Train Loss: 0.02005577, Val Loss: 0.00705224
+Epoch 10, Train Loss: 0.00242394, Val Loss: 0.00183468
+Test L2 Loss: 0.000007
+Figure saved to output_logs/predictions/burger_0.01_fno_4434126_predictions.png
+Original test data shape: x=torch.Size([49000, 1, 1024]), y=torch.Size([49000, 1, 1024])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.000459
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([49000, 1, 512]), y=torch.Size([49000, 1, 512])
+Resolution factor 2 - Relative L2 Loss: 0.002019
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([49000, 1, 256]), y=torch.Size([49000, 1, 256])
+Resolution factor 4 - Relative L2 Loss: 0.002020
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([49000, 1, 128]), y=torch.Size([49000, 1, 128])
+Resolution factor 8 - Relative L2 Loss: 0.002021
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([49000, 1, 64]), y=torch.Size([49000, 1, 64])
+Resolution factor 16 - Relative L2 Loss: 0.002256
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([49000, 1, 32]), y=torch.Size([49000, 1, 32])
+Resolution factor 32 - Relative L2 Loss: 0.009897
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.000459
+Resolution factor 2: Relative L2 Loss = 0.002019
+Resolution factor 4: Relative L2 Loss = 0.002020
+Resolution factor 8: Relative L2 Loss = 0.002021
+Resolution factor 16: Relative L2 Loss = 0.002256
+Resolution factor 32: Relative L2 Loss = 0.009897
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mcrisp-mountain-6[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/u2d4tm22[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250324_101136-u2d4tm22/logs[0m
+Job completed at Mon Mar 24 10:40:46 EDT 2025

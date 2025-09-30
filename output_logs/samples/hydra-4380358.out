@@ -1,0 +1,26 @@
+Job started on babel-4-33 at Sat Mar 15 22:09:04 EDT 2025
+Job ID: 4380358
+Using device: cuda:0
+Target features are normalized using pointwise unit normalizer
+Input features are normalized using unit transformer
+Target features are normalized using pointwise unit normalizer
+Input features are normalized using unit transformer
+Graph(num_nodes=8192, num_edges=0,
+      ndata_schemes={'x': Scheme(shape=(1,), dtype=torch.float32), 'y': Scheme(shape=(1,), dtype=torch.float32), 'u_flag': Scheme(shape=(1,), dtype=torch.float32)}
+      edata_schemes={}) tensor([[0.],
+        [0.],
+        [0.],
+        [0.],
+        [0.],
+        [0.],
+        [0.],
+        [0.]]) Graph(num_nodes=8192, num_edges=0,
+      ndata_schemes={'x': Scheme(shape=(1,), dtype=torch.float32), 'u': Scheme(shape=(1,), dtype=torch.float32)}
+      edata_schemes={})
+Graph g: 8192 nodes, 0 edges
+Node features shape: torch.Size([8192, 1])
+Node targets shape: torch.Size([8192, 1])
+Parameters u_p shape: torch.Size([8, 1])
+Graph g_u: 8192 nodes, 0 edges
+g_u node features shape: torch.Size([8192, 1])
+Job completed at Sat Mar 15 22:09:08 EDT 2025

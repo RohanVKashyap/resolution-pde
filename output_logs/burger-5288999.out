@@ -1,0 +1,340 @@
+Job started on babel-10-5 at Thu Jul 31 16:36:14 EDT 2025
+Job ID: 5288999
+GPU information:
+Thu Jul 31 16:36:14 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:4F:00.0 Off |                    0 |
+| N/A   24C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:57:00.0 Off |                    0 |
+| N/A   25C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+============================================================
+KS Multi-Resolution Dataset Sample Plotter
+============================================================
+Data folder: /data/user_data/rvk/ks/res_32/visc_0.1
+Resolutions: [32, 64, 128, 256, 512]
+Samples per resolution: 10
+Save directory: ./multiresolution_plots
+\n----------------------------------------
+Processing Resolution: 32
+----------------------------------------
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (2048, 51, 32)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (2048, 51, 32)
+Current Spatial Size: 32
+x shape: torch.Size([102400, 1, 32])
+y shape: torch.Size([102400, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (256, 51, 32)
+Time data shape: (256, 51)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (256, 51, 32)
+Current Spatial Size: 32
+x shape: torch.Size([12800, 1, 32])
+y shape: torch.Size([12800, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (256, 51, 32)
+Time data shape: (256, 51)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (256, 51, 32)
+Current Spatial Size: 32
+x shape: torch.Size([12800, 1, 32])
+y shape: torch.Size([12800, 1, 32])
+spatial coordinates shape: (32,)
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Resolution 32 - Plotting 10 samples
+  Input shape: (10, 1, 32)
+  Target shape: (10, 1, 32)
+  Input range: [-0.882875, 0.693190]
+  Target range: [-0.005984, 0.006151]
+  Plot saved: ./multiresolution_plots/ks_samples_resolution_32.png
+Successfully processed resolution 32
+\n----------------------------------------
+Processing Resolution: 64
+----------------------------------------
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (2048, 51, 32)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (2048, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 64
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (2048, 51, 64)
+Updated spatial coordinates shape: (64,)
+x shape: torch.Size([102400, 1, 64])
+y shape: torch.Size([102400, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (256, 51, 32)
+Time data shape: (256, 51)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (256, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 64
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (256, 51, 64)
+Updated spatial coordinates shape: (64,)
+x shape: torch.Size([12800, 1, 64])
+y shape: torch.Size([12800, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (256, 51, 32)
+Time data shape: (256, 51)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (256, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 64
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (256, 51, 64)
+Updated spatial coordinates shape: (64,)
+x shape: torch.Size([12800, 1, 64])
+y shape: torch.Size([12800, 1, 64])
+spatial coordinates shape: (64,)
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Resolution 64 - Plotting 10 samples
+  Input shape: (10, 1, 64)
+  Target shape: (10, 1, 64)
+  Input range: [-0.906850, 0.726685]
+  Target range: [-0.005984, 0.006151]
+  Plot saved: ./multiresolution_plots/ks_samples_resolution_64.png
+Successfully processed resolution 64
+\n----------------------------------------
+Processing Resolution: 128
+----------------------------------------
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (2048, 51, 32)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (2048, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 128
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (2048, 51, 128)
+Updated spatial coordinates shape: (128,)
+x shape: torch.Size([102400, 1, 128])
+y shape: torch.Size([102400, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (256, 51, 32)
+Time data shape: (256, 51)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (256, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 128
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (256, 51, 128)
+Updated spatial coordinates shape: (128,)
+x shape: torch.Size([12800, 1, 128])
+y shape: torch.Size([12800, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (256, 51, 32)
+Time data shape: (256, 51)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (256, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 128
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (256, 51, 128)
+Updated spatial coordinates shape: (128,)
+x shape: torch.Size([12800, 1, 128])
+y shape: torch.Size([12800, 1, 128])
+spatial coordinates shape: (128,)
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Resolution 128 - Plotting 10 samples
+  Input shape: (10, 1, 128)
+  Target shape: (10, 1, 128)
+  Input range: [-0.924305, 0.733355]
+  Target range: [-0.006002, 0.006153]
+  Plot saved: ./multiresolution_plots/ks_samples_resolution_128.png
+Successfully processed resolution 128
+\n----------------------------------------
+Processing Resolution: 256
+----------------------------------------
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (2048, 51, 32)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (2048, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 256
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (2048, 51, 256)
+Updated spatial coordinates shape: (256,)
+x shape: torch.Size([102400, 1, 256])
+y shape: torch.Size([102400, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (256, 51, 32)
+Time data shape: (256, 51)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (256, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 256
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (256, 51, 256)
+Updated spatial coordinates shape: (256,)
+x shape: torch.Size([12800, 1, 256])
+y shape: torch.Size([12800, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (256, 51, 32)
+Time data shape: (256, 51)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (256, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 256
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (256, 51, 256)
+Updated spatial coordinates shape: (256,)
+x shape: torch.Size([12800, 1, 256])
+y shape: torch.Size([12800, 1, 256])
+spatial coordinates shape: (256,)
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Resolution 256 - Plotting 10 samples
+  Input shape: (10, 1, 256)
+  Target shape: (10, 1, 256)
+  Input range: [-0.924305, 0.736262]
+  Target range: [-0.006002, 0.006168]
+  Plot saved: ./multiresolution_plots/ks_samples_resolution_256.png
+Successfully processed resolution 256
+\n----------------------------------------
+Processing Resolution: 512
+----------------------------------------
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (2048, 51, 32)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (2048, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 512
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (2048, 51, 512)
+Updated spatial coordinates shape: (512,)
+x shape: torch.Size([102400, 1, 512])
+y shape: torch.Size([102400, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (256, 51, 32)
+Time data shape: (256, 51)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (256, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 512
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (256, 51, 512)
+Updated spatial coordinates shape: (512,)
+x shape: torch.Size([12800, 1, 512])
+y shape: torch.Size([12800, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-32', 't', 'x']
+PDE data shape: (256, 51, 32)
+Time data shape: (256, 51)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (256, 51, 32)
+Current Spatial Size: 32
+Resizing from 32 to 512
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (256, 51, 512)
+Updated spatial coordinates shape: (512,)
+x shape: torch.Size([12800, 1, 512])
+y shape: torch.Size([12800, 1, 512])
+spatial coordinates shape: (512,)
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Resolution 512 - Plotting 10 samples
+  Input shape: (10, 1, 512)
+  Target shape: (10, 1, 512)
+  Input range: [-0.925410, 0.736331]
+  Target range: [-0.006002, 0.006168]
+  Plot saved: ./multiresolution_plots/ks_samples_resolution_512.png
+Successfully processed resolution 512
+\n----------------------------------------
+Creating Resolution Comparison Plot
+----------------------------------------
+\nLoading resolution 32 for comparison...
+Loading from file: /home/rvk/saved_folder/KS_train_2048.h5
+Error creating comparison plot: [Errno 2] Unable to synchronously open file (unable to open file: name = '/home/rvk/saved_folder/KS_train_2048.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+\n============================================================
+All plots completed!
+Check the directory: ./multiresolution_plots
+============================================================
+Job completed at Thu Jul 31 16:36:41 EDT 2025

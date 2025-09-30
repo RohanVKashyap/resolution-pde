@@ -1,0 +1,22 @@
+/data/user_data/rvk/pos/lib/python3.11/site-packages/huggingface_hub/file_download.py:943: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of ScOT were not initialized from the model checkpoint at camlab-ethz/Poseidon-B and are newly initialized because the shapes did not match:
+- embeddings.patch_embeddings.projection.weight: found shape torch.Size([96, 4, 4, 4]) in the checkpoint and torch.Size([96, 3, 4, 4]) in the model instantiated
+- patch_recovery.mixup.weight: found shape torch.Size([4, 4, 5, 5]) in the checkpoint and torch.Size([3, 3, 5, 5]) in the model instantiated
+- patch_recovery.projection.bias: found shape torch.Size([4]) in the checkpoint and torch.Size([3]) in the model instantiated
+- patch_recovery.projection.weight: found shape torch.Size([96, 4, 4, 4]) in the checkpoint and torch.Size([96, 3, 4, 4]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.20.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250701_112814-4t78vlgu
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run faithful-spaceship-38
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/pos
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/pos/runs/4t78vlgu
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: got SIGCONT
+slurmstepd: error: *** JOB 5177958 ON babel-11-25 CANCELLED AT 2025-07-01T11:37:53 ***
+srun: forcing job termination
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [03:08<5:11:00, 188.49s/it]  2%|▏         | 2/100 [04:03<2:59:49, 110.10s/it]  3%|▎         | 3/100 [04:58<2:17:22, 84.97s/it]   4%|▍         | 4/100 [05:53<1:57:09, 73.22s/it]  5%|▌         | 5/100 [06:49<1:45:41, 66.76s/it]  6%|▌         | 6/100 [07:44<1:38:28, 62.86s/it]  7%|▋         | 7/100 [08:39<1:33:38, 60.41s/it]slurmstepd: error: *** STEP 5177958.0 ON babel-11-25 CANCELLED AT 2025-07-01T11:37:53 ***

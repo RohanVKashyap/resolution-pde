@@ -1,0 +1,163 @@
+Job started on babel-7-25 at Sat Sep  6 02:31:12 PM EDT 2025
+Job ID: 5438759
+GPU information:
+Sat Sep  6 14:31:12 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:02:00.0 Off |                  Off |
+| 30%   28C    P8             19W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:03:00.0 Off |                  Off |
+| 30%   30C    P8             26W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+/home/rvk
+Requirement already satisfied: h5py in /data/user_data/rvk/ns_env/lib/python3.8/site-packages (3.11.0)
+Requirement already satisfied: numpy>=1.17.3 in /data/user_data/rvk/ns_env/lib/python3.8/site-packages (from h5py) (1.24.3)
+Data Resolution: 512
+Viscosity: 0.001
+Number of Solutions: 1000
+Setup 2d GRF successful!
+Number of Steps: 32
+Batch Size: 25
+Generating Data at Viscosity: 0.001
+0 25 1436.7279179799953
+Batch 1/40 | Samples: 25/1000 | Time: 23m 56.7s
+Generating Data at Viscosity: 0.001
+1 50 2876.4051563809917
+Batch 2/40 | Samples: 50/1000 | Time: 47m 56.4s
+Generating Data at Viscosity: 0.001
+2 75 4316.277252022992
+Batch 3/40 | Samples: 75/1000 | Time: 71m 56.3s
+Generating Data at Viscosity: 0.001
+3 100 5755.872151902993
+Batch 4/40 | Samples: 100/1000 | Time: 95m 55.9s
+Generating Data at Viscosity: 0.001
+4 125 7195.382308270986
+Batch 5/40 | Samples: 125/1000 | Time: 119m 55.4s
+Generating Data at Viscosity: 0.001
+5 150 8635.65999535899
+Batch 6/40 | Samples: 150/1000 | Time: 143m 55.7s
+Generating Data at Viscosity: 0.001
+6 175 10076.038678318
+Batch 7/40 | Samples: 175/1000 | Time: 167m 56.0s
+Generating Data at Viscosity: 0.001
+7 200 11514.989401277999
+Batch 8/40 | Samples: 200/1000 | Time: 191m 55.0s
+Generating Data at Viscosity: 0.001
+8 225 12953.338488385984
+Batch 9/40 | Samples: 225/1000 | Time: 215m 53.3s
+Generating Data at Viscosity: 0.001
+9 250 14391.550246711995
+Batch 10/40 | Samples: 250/1000 | Time: 239m 51.6s
+Generating Data at Viscosity: 0.001
+10 275 15829.947229718993
+Batch 11/40 | Samples: 275/1000 | Time: 263m 49.9s
+Generating Data at Viscosity: 0.001
+11 300 17268.632551377
+Batch 12/40 | Samples: 300/1000 | Time: 287m 48.6s
+Generating Data at Viscosity: 0.001
+12 325 18707.347395232006
+Batch 13/40 | Samples: 325/1000 | Time: 311m 47.3s
+Generating Data at Viscosity: 0.001
+13 350 20145.96408506899
+Batch 14/40 | Samples: 350/1000 | Time: 335m 46.0s
+Generating Data at Viscosity: 0.001
+14 375 21584.576892651006
+Batch 15/40 | Samples: 375/1000 | Time: 359m 44.6s
+Generating Data at Viscosity: 0.001
+15 400 23023.18216081601
+Batch 16/40 | Samples: 400/1000 | Time: 383m 43.2s
+Generating Data at Viscosity: 0.001
+16 425 24460.918865413987
+Batch 17/40 | Samples: 425/1000 | Time: 407m 40.9s
+Generating Data at Viscosity: 0.001
+17 450 25898.914930733998
+Batch 18/40 | Samples: 450/1000 | Time: 431m 38.9s
+Generating Data at Viscosity: 0.001
+18 475 27336.384256218007
+Batch 19/40 | Samples: 475/1000 | Time: 455m 36.4s
+Generating Data at Viscosity: 0.001
+19 500 28773.911677908007
+Batch 20/40 | Samples: 500/1000 | Time: 479m 33.9s
+Generating Data at Viscosity: 0.001
+20 525 30211.580718857993
+Batch 21/40 | Samples: 525/1000 | Time: 503m 31.6s
+Generating Data at Viscosity: 0.001
+21 550 31649.185917808005
+Batch 22/40 | Samples: 550/1000 | Time: 527m 29.2s
+Generating Data at Viscosity: 0.001
+22 575 33087.302501244005
+Batch 23/40 | Samples: 575/1000 | Time: 551m 27.3s
+Generating Data at Viscosity: 0.001
+23 600 34527.20366140001
+Batch 24/40 | Samples: 600/1000 | Time: 575m 27.2s
+Generating Data at Viscosity: 0.001
+24 625 35966.736635735
+Batch 25/40 | Samples: 625/1000 | Time: 599m 26.7s
+Generating Data at Viscosity: 0.001
+25 650 37405.32228865099
+Batch 26/40 | Samples: 650/1000 | Time: 623m 25.3s
+Generating Data at Viscosity: 0.001
+26 675 38843.919531925
+Batch 27/40 | Samples: 675/1000 | Time: 647m 23.9s
+Generating Data at Viscosity: 0.001
+27 700 40282.20456992599
+Batch 28/40 | Samples: 700/1000 | Time: 671m 22.2s
+Generating Data at Viscosity: 0.001
+28 725 41720.01938290399
+Batch 29/40 | Samples: 725/1000 | Time: 695m 20.0s
+Generating Data at Viscosity: 0.001
+29 750 43158.27016605099
+Batch 30/40 | Samples: 750/1000 | Time: 719m 18.3s
+Generating Data at Viscosity: 0.001
+30 775 44596.334723153006
+Batch 31/40 | Samples: 775/1000 | Time: 743m 16.3s
+Generating Data at Viscosity: 0.001
+31 800 46034.57114480401
+Batch 32/40 | Samples: 800/1000 | Time: 767m 14.6s
+Generating Data at Viscosity: 0.001
+32 825 47472.613835962984
+Batch 33/40 | Samples: 825/1000 | Time: 791m 12.6s
+Generating Data at Viscosity: 0.001
+33 850 48910.734064341
+Batch 34/40 | Samples: 850/1000 | Time: 815m 10.7s
+Generating Data at Viscosity: 0.001
+34 875 50348.92346848201
+Batch 35/40 | Samples: 875/1000 | Time: 839m 8.9s
+Generating Data at Viscosity: 0.001
+35 900 51787.03099868799
+Batch 36/40 | Samples: 900/1000 | Time: 863m 7.0s
+Generating Data at Viscosity: 0.001
+36 925 53224.956073832
+Batch 37/40 | Samples: 925/1000 | Time: 887m 5.0s
+Generating Data at Viscosity: 0.001
+37 950 54662.75764611398
+Batch 38/40 | Samples: 950/1000 | Time: 911m 2.8s
+Generating Data at Viscosity: 0.001
+38 975 56100.99248476399
+Batch 39/40 | Samples: 975/1000 | Time: 935m 1.0s
+Generating Data at Viscosity: 0.001
+39 1000 57539.767325249995
+Batch 40/40 | Samples: 1000/1000 | Time: 958m 59.8s
+MATLAB format failed (Matrix too large to save with Matlab 5 format), saving as HDF5...
+Saved as HDF5 format: /data/user_data/rvk/ns_512_1e-03.h5
+Save path: /data/user_data/rvk/ns_512_1e-03
+✅ Data Generation Successful!
+Job completed at Sun Sep  7 06:39:23 AM EDT 2025

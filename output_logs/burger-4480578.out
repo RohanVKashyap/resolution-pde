@@ -1,0 +1,121 @@
+Job started on babel-13-5 at Sun Mar 30 20:32:36 EDT 2025
+Job ID: 4480578
+Using device: cuda
+[2025-03-30 20:32:40,547][root][INFO] - model:
+  _target_: models.unet.UNet1d
+  in_channels: 1
+  out_channels: 1
+  width: 32
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 16
+  pde: burger_0.001
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.001.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_0.001_unet/unet_1d
+Model name: models.unet.UNet1d
+PDE Dataset: burger_0.001
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+Total data shape: (10000, 13, 1024)
+x shape: (110000, 1, 1024)
+y shape: (110000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+---------Using data normalizer---------------
+Train dataset size: 88000
+Validation dataset size: 11000
+Test dataset size: 11000
+<class 'torch.Tensor'> 0.02607358619570732 0.026472382247447968 1.0348029136657715 1.0298106670379639
+Sample Input shape: torch.Size([64, 1, 1024])
+Sample Output shape: torch.Size([64, 1, 1024])
+UNet1d(
+  (encoder1): Sequential(
+    (enc1conv1): Conv1d(1, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh1): Tanh()
+    (enc1conv2): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm2): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh2): Tanh()
+  )
+  (pool1): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder2): Sequential(
+    (enc2conv1): Conv1d(32, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh1): Tanh()
+    (enc2conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh2): Tanh()
+  )
+  (pool2): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder3): Sequential(
+    (enc3conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh1): Tanh()
+    (enc3conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh2): Tanh()
+  )
+  (pool3): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder4): Sequential(
+    (enc4conv1): Conv1d(128, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh1): Tanh()
+    (enc4conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh2): Tanh()
+  )
+  (pool4): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (bottleneck): Sequential(
+    (bottleneckconv1): Conv1d(256, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh1): Tanh()
+    (bottleneckconv2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh2): Tanh()
+  )
+  (upconv4): ConvTranspose1d(512, 256, kernel_size=(2,), stride=(2,))
+  (decoder4): Sequential(
+    (dec4conv1): Conv1d(512, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh1): Tanh()
+    (dec4conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh2): Tanh()
+  )
+  (upconv3): ConvTranspose1d(256, 128, kernel_size=(2,), stride=(2,))
+  (decoder3): Sequential(
+    (dec3conv1): Conv1d(256, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh1): Tanh()
+    (dec3conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh2): Tanh()
+  )
+  (upconv2): ConvTranspose1d(128, 64, kernel_size=(2,), stride=(2,))
+  (decoder2): Sequential(
+    (dec2conv1): Conv1d(128, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh1): Tanh()
+    (dec2conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh2): Tanh()
+  )
+  (upconv1): ConvTranspose1d(64, 32, kernel_size=(2,), stride=(2,))
+  (decoder1): Sequential(
+    (dec1conv1): Conv1d(64, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh1): Tanh()
+    (dec1conv2): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm2): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh2): Tanh()
+  )
+  (conv): Conv1d(32, 1, kernel_size=(1,), stride=(1,))
+)

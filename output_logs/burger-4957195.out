@@ -1,0 +1,211 @@
+Job started on babel-11-9 at Fri May 30 00:41:07 EDT 2025
+Job ID: 4957195
+GPU information:
+Fri May 30 00:41:07 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:B2:00.0 Off |                  Off |
+| 30%   32C    P8             21W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:B3:00.0 Off |                  Off |
+| 30%   32C    P8             26W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-05-30 00:41:12,595][root][INFO] - model:
+  _target_: models.unet.UNet2d
+  in_channels: 3
+  out_channels: 3
+  width: 32
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 4
+  window_size: 15
+  original_res: 512
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 4
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_unet/unet_2d
+Model name: models.unet.UNet2d
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 512, 512, 3)
+x shape: torch.Size([992, 3, 512, 512])
+y shape: torch.Size([992, 3, 512, 512])
+---------Using data normalizer---------------
+Train dataset size: 793
+Validation dataset size: 99
+Test dataset size: 100
+<class 'torch.Tensor'> -0.010777839459478855 -0.012306972406804562 1.039113163948059 1.047020435333252
+Sample Input shape: torch.Size([4, 3, 512, 512])
+Sample Output shape: torch.Size([4, 3, 512, 512])
+UNet2d(
+  (encoder1): Sequential(
+    (enc1conv1): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (enc1norm1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh1): Tanh()
+    (enc1conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (enc1norm2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh2): Tanh()
+  )
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder2): Sequential(
+    (enc2conv1): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (enc2norm1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh1): Tanh()
+    (enc2conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (enc2norm2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh2): Tanh()
+  )
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder3): Sequential(
+    (enc3conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (enc3norm1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh1): Tanh()
+    (enc3conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (enc3norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh2): Tanh()
+  )
+  (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder4): Sequential(
+    (enc4conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (enc4norm1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh1): Tanh()
+    (enc4conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (enc4norm2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh2): Tanh()
+  )
+  (pool4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (bottleneck): Sequential(
+    (bottleneckconv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bottlenecknorm1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh1): Tanh()
+    (bottleneckconv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bottlenecknorm2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh2): Tanh()
+  )
+  (upconv4): ConvTranspose2d(512, 256, kernel_size=(2, 2), stride=(2, 2))
+  (decoder4): Sequential(
+    (dec4conv1): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (dec4norm1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh1): Tanh()
+    (dec4conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (dec4norm2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh2): Tanh()
+  )
+  (upconv3): ConvTranspose2d(256, 128, kernel_size=(2, 2), stride=(2, 2))
+  (decoder3): Sequential(
+    (dec3conv1): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (dec3norm1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh1): Tanh()
+    (dec3conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (dec3norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh2): Tanh()
+  )
+  (upconv2): ConvTranspose2d(128, 64, kernel_size=(2, 2), stride=(2, 2))
+  (decoder2): Sequential(
+    (dec2conv1): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (dec2norm1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh1): Tanh()
+    (dec2conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (dec2norm2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh2): Tanh()
+  )
+  (upconv1): ConvTranspose2d(64, 32, kernel_size=(2, 2), stride=(2, 2))
+  (decoder1): Sequential(
+    (dec1conv1): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (dec1norm1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh1): Tanh()
+    (dec1conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (dec1norm2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh2): Tanh()
+  )
+  (conv): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+)
+Epoch 0, Train Loss: 0.33849708, Val Loss: 0.33321409
+Epoch 10, Train Loss: 0.13556635, Val Loss: 0.17904054
+Epoch 20, Train Loss: 0.10579470, Val Loss: 0.09611404
+Epoch 30, Train Loss: 0.09443648, Val Loss: 0.09413083
+Epoch 40, Train Loss: 0.07404024, Val Loss: 0.07678252
+Epoch 50, Train Loss: 0.06351166, Val Loss: 0.05858095
+Epoch 60, Train Loss: 0.05559524, Val Loss: 0.05993240
+Epoch 70, Train Loss: 0.05059751, Val Loss: 0.05328877
+Epoch 80, Train Loss: 0.04815318, Val Loss: 0.11275378
+Epoch 90, Train Loss: 0.04552663, Val Loss: 0.05178374
+Test L2 Loss: 0.030898
+Model saved to checkpoints/unet2d/navier_stokes_0_4957195.pt
+Original test data shape: x=torch.Size([100, 3, 512, 512]), y=torch.Size([100, 3, 512, 512])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.030193
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([100, 3, 256, 256]), y=torch.Size([100, 3, 256, 256])
+Resolution factor 2 - Relative L2 Loss: 0.073604
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([100, 3, 128, 128]), y=torch.Size([100, 3, 128, 128])
+Resolution factor 4 - Relative L2 Loss: 0.110327
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([100, 3, 64, 64]), y=torch.Size([100, 3, 64, 64])
+Resolution factor 8 - Relative L2 Loss: 0.185654
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([100, 3, 32, 32]), y=torch.Size([100, 3, 32, 32])
+Resolution factor 16 - Relative L2 Loss: 0.341121
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([100, 3, 16, 16]), y=torch.Size([100, 3, 16, 16])
+Resolution factor 32 - Relative L2 Loss: 0.540411
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 512, 512, 3)
+x shape: torch.Size([992, 3, 512, 512])
+y shape: torch.Size([992, 3, 512, 512])
+---------Using data normalizer---------------
+Train dataset size: 793
+Validation dataset size: 99
+Test dataset size: 100
+Original test data shape: x=torch.Size([100, 3, 512, 512]), y=torch.Size([100, 3, 512, 512])
+Testing resolutions: []
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.030193
+Resolution factor 2: Relative L2 Loss = 0.073604
+Resolution factor 4: Relative L2 Loss = 0.110327
+Resolution factor 8: Relative L2 Loss = 0.185654
+Resolution factor 16: Relative L2 Loss = 0.341121
+Resolution factor 32: Relative L2 Loss = 0.540411
+
+Summary of Higher-Resolution Evaluation:
+Job completed at Fri May 30 01:15:18 EDT 2025

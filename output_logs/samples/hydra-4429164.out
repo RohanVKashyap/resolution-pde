@@ -1,0 +1,29 @@
+Job started on babel-4-17 at Sun Mar 23 12:43:34 EDT 2025
+Job ID: 4429164
+[KeOps] Compiling cuda jit compiler engine ... 
+[KeOps] Warning : There were warnings or errors :
+/usr/bin/ld: cannot find -lnvrtc
+collect2: error: ld returned 1 exit status
+
+OK
+[pyKeOps] Compiling nvrtc binder for python ... 
+[KeOps] Warning : There were warnings or errors :
+/usr/bin/ld: cannot find -lnvrtc
+collect2: error: ld returned 1 exit status
+
+OK
+2.6.0+cu124
+12.4
+cuda
+Loading from file: /home/rvk/data/pdebench/darcy_flow_beta_0.01.hdf5
+keys: ['nu', 't-coordinate', 'tensor', 'x-coordinate', 'y-coordinate']
+[('nu', (10000, 128, 128)), ('t-coordinate', (10,)), ('tensor', (10000, 1, 128, 128)), ('x-coordinate', (128,)), ('y-coordinate', (128,))]
+Input shape: torch.Size([9000, 128, 128, 1])
+Output shape: torch.Size([9000, 128, 128, 1])
+Grid shape: torch.Size([128, 128, 2])
+Input shape: torch.Size([32, 128, 128, 1])
+Output shape: torch.Size([32, 128, 128, 1])
+Grid Shape: torch.Size([32, 128, 128, 2])
+x_sample shape: torch.Size([32, 1, 128, 128])
+output: torch.Size([32, 1, 128, 128])
+Job completed at Sun Mar 23 12:43:55 EDT 2025

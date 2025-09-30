@@ -1,0 +1,26 @@
+Job started on babel-4-21 at Thu Mar  6 14:38:37 EST 2025
+Using device: cuda
+Creating model with modes=16, width=64
+
+Testing at resolution scale 1/1 (8192 points)
+Scale 1/1: L2 Error = 0.001548
+
+Testing at resolution scale 1/2 (4096 points)
+Scale 1/2: L2 Error = 0.001548
+
+Testing at resolution scale 1/4 (2048 points)
+Scale 1/4: L2 Error = 0.001548
+
+Testing at resolution scale 1/8 (1024 points)
+Scale 1/8: L2 Error = 0.001548
+
+Testing at resolution scale 1/16 (512 points)
+Scale 1/16: L2 Error = 0.001547
+
+Summary of L2 Errors at Different Resolutions:
+Resolution Scale 1/1: 0.001548
+Resolution Scale 1/2: 0.001548
+Resolution Scale 1/4: 0.001548
+Resolution Scale 1/8: 0.001548
+Resolution Scale 1/16: 0.001547
+Job completed at Thu Mar  6 14:38:46 EST 2025

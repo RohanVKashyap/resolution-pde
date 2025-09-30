@@ -1,0 +1,42 @@
+Job started on babel-4-37 at Thu Mar 20 02:13:54 EDT 2025
+Job ID: 4410586
+[KeOps] Compiling cuda jit compiler engine ... 
+[KeOps] Warning : There were warnings or errors :
+/usr/bin/ld: cannot find -lnvrtc
+collect2: error: ld returned 1 exit status
+
+OK
+[pyKeOps] Compiling nvrtc binder for python ... 
+[KeOps] Warning : There were warnings or errors :
+/usr/bin/ld: cannot find -lnvrtc
+collect2: error: ld returned 1 exit status
+
+OK
+2.6.0+cu124
+12.4
+cuda
+DarcyFlowS4Model(
+  (encoder): Linear(in_features=2, out_features=256, bias=True)
+  (s4_layers): ModuleList(
+    (0-3): 4 x S4ND(
+      (kernel): ModuleList(
+        (0-1): 2 x SSMKernelDPLR()
+      )
+    )
+  )
+  (norms): ModuleList(
+    (0-3): 4 x LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0-3): 4 x Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=256, out_features=1, bias=True)
+)
+Loading from file: /home/rvk/data/pdebench/darcy_flow_beta_0.01.hdf5
+keys: ['nu', 't-coordinate', 'tensor', 'x-coordinate', 'y-coordinate']
+[('nu', (10000, 128, 128)), ('t-coordinate', (10,)), ('tensor', (10000, 1, 128, 128)), ('x-coordinate', (128,)), ('y-coordinate', (128,))]
+Input shape: torch.Size([9000, 128, 128, 1])
+Output shape: torch.Size([9000, 128, 128, 1])
+Grid shape: torch.Size([128, 128, 2])
+Shape: torch.Size([32, 128, 128, 1]) torch.Size([32, 128, 128, 1]) torch.Size([32, 128, 128, 2])
+Job completed at Thu Mar 20 02:20:17 EDT 2025

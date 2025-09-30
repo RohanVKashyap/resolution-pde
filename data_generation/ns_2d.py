@@ -14,6 +14,9 @@ from timeit import default_timer
 
 import scipy.io
 
+
+import h5py
+
 #w0: initial vorticity
 #f: forcing term
 #visc: viscosity (1/Re)
@@ -128,15 +131,15 @@ def navier_stokes_2d(w0, f, visc, T, delta_t=1e-4, record_steps=1):
 device = torch.device('cuda')
 
 # Resolution
-s = 32
-viscosity = 1e-4
+s = 256
+viscosity = 1e-5
 
 sub = 1
 print('Data Resolution:', s)
 print('Viscosity:', viscosity)
 
 #Number of solutions to generate
-N = 20
+N = 1000
 print('Number of Solutions:', N)
 
 #Set up 2d GRF with covariance parameters
@@ -162,7 +165,7 @@ u = torch.zeros(N, s, s, record_steps)
 #Solve equations in batches (order of magnitude speed-up)
 
 #Batch size
-bsize = 20
+bsize = 50
 print('Batch Size:', bsize)
 
 c = 0
@@ -173,7 +176,8 @@ for j in range(N//bsize):
     w0 = GRF.sample(bsize)
 
     #Solve NS
-    sol, sol_t = navier_stokes_2d(w0, f, viscosity, 50.0, 1e-4, record_steps)
+    T_final = 50.0
+    sol, sol_t = navier_stokes_2d(w0, f, viscosity, T_final, 1e-4, record_steps)
 
     a[c:(c+bsize),...] = w0
     u[c:(c+bsize),...] = sol
@@ -187,8 +191,17 @@ for j in range(N//bsize):
     seconds = elapsed % 60
     print(f"Batch {j+1}/{N//bsize} | Samples: {c}/{N} | Time: {minutes}m {seconds:.1f}s")
 
-filename = f'/data/user_data/rvk/ns_{s}_{viscosity:.0e}.mat'
-scipy.io.savemat(filename, mdict={'a': a.cpu().numpy(), 'u': u.cpu().numpy(), 't': sol_t.cpu().numpy()})
 
-print('Save path:', filename)
+viscosity_str = f"{viscosity:.6f}".rstrip('0').rstrip('.')
+filename_base = f'/data/user_data/rvk/ns_{s}_{viscosity_str}'
+
+filename_h5 = f'{filename_base}.h5'
+with h5py.File(filename_h5, 'w') as f:
+    f.create_dataset('a', data=a.cpu().numpy())
+    f.create_dataset('u', data=u.cpu().numpy()) 
+    f.create_dataset('t', data=sol_t.cpu().numpy())
+
+print(f'Saved as HDF5 format: {filename_h5}')
+
+print('Save path:', filename_base)
 print('✅ Data Generation Successful!')

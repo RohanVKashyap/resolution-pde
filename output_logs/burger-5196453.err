@@ -1,0 +1,7 @@
+Error executing job with overrides: ['model=cno_2d/cno_2d_original', 'dataset=navier_stokes/ns_active_t16']
+Error in call to target 'dataloaders.active_matter_all_markov.multi_file_active_matter_markov_dataset':
+ValueError('cannot reshape array of size 63700992 into shape (3,81,2,2,4)')
+full_key: dataset.dataset_params
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-6-29: task 0: Exited with exit code 1

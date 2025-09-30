@@ -1,0 +1,84 @@
+Job started on babel-5-31 at Mon May 26 16:18:57 EDT 2025
+Job ID: 4939605
+GPU information:
+Mon May 26 16:18:57 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100 80GB PCIe          On  |   00000000:01:00.0 Off |                    0 |
+| N/A   49C    P0             59W /  270W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA A100 80GB PCIe          On  |   00000000:25:00.0 Off |                    0 |
+| N/A   50C    P0             63W /  270W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-05-26 16:19:02,418][root][INFO] - model:
+  _target_: models.s4_2d.S4NDModel
+  d_input: 15
+  d_output: 3
+  d_model: 64
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 4
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_s4_2d/s4_2d
+Model name: models.s4_2d.S4NDModel
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Time data shape: (4, 1000)
+Combined data shape: (4, 1000, 512, 512, 3)
+Dataset initialized with 3940 samples
+Raw data shape: (4, 1000, 512, 512, 3)
+Window size: 15, Flatten window: True
+Train dataset size: 3152
+Validation dataset size: 394
+Test dataset size: 394
+<class 'torch.Tensor'> 0.0036173355765640736 0.003665779484435916 0.5184999108314514 0.5161092877388
+Sample Input shape: torch.Size([4, 45, 512, 512])
+Sample Output shape: torch.Size([4, 3, 512, 512])
+[2025-05-26 16:19:44,225][models.s4][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-05-26 16:19:44,226][models.s4][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+[2025-05-26 16:19:44,230][models.s4nd][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-05-26 16:19:44,230][models.s4nd][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+-----Hi------ torch.Size([4, 3, 512, 512])
+torch.Size([4, 45, 512, 512]) torch.Size([4, 3, 512, 512]) torch.Size([4, 3, 512, 512])
+----loss------, tensor(1.2736, device='cuda:0')
+Test L2 Loss: 1.286118
+average loss: 1.2861177511889526
+Sample Output: torch.Size([4, 3, 512, 512])
+Loss: tensor(1.3360, device='cuda:0')
+Job completed at Mon May 26 16:20:06 EDT 2025

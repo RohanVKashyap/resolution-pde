@@ -1,0 +1,50 @@
+Job started on babel-5-31 at Tue May 20 03:31:09 EDT 2025
+Job ID: 4906223
+Using device: cuda
+[2025-05-20 03:31:13,099][root][INFO] - model:
+  _target_: models.s4_2d.S4NDModel
+  d_input: 15
+  d_output: 3
+  d_model: 64
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 8
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-100.hdf5
+training:
+  batch_size: 8
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_s4_2d/s4_2d
+Model name: models.s4_2d.S4NDModel
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-100.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Time data shape: (4, 1000)
+Combined data shape: (4, 1000, 64, 64, 3)
+x shape: torch.Size([3940, 45, 64, 64])
+y shape: torch.Size([3940, 3, 64, 64])
+---------Using data normalizer---------------
+Train dataset size: 3152
+Validation dataset size: 394
+Test dataset size: 394
+<class 'torch.Tensor'> -0.015926910564303398 -0.016254916787147522 0.847042441368103 0.8626239895820618
+Sample Input shape: torch.Size([8, 45, 64, 64])
+Sample Output shape: torch.Size([8, 3, 64, 64])
+[2025-05-20 03:31:45,704][models.s4][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-05-20 03:31:45,704][models.s4][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+[2025-05-20 03:31:45,708][models.s4nd][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-05-20 03:31:45,708][models.s4nd][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+Job completed at Tue May 20 03:52:15 EDT 2025

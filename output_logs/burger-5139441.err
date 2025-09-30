@@ -1,0 +1,4 @@
+srun: error: JobId=5139441 failed to distribute tasks (bind_type:threads,mask_cpu,one_thread) - this should never happen
+srun: error: Task launch for StepId=5139441.0 failed on node babel-2-25: Unable to layout tasks on given cpus
+srun: error: Application launch failed: Unable to layout tasks on given cpus
+srun: Job step aborted

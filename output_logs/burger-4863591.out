@@ -1,0 +1,131 @@
+Job started on babel-5-27 at Tue May 13 03:29:12 EDT 2025
+Job ID: 4863591
+Using device: cuda
+[2025-05-13 03:29:16,951][root][INFO] - model:
+  _target_: models.s4_2d.S4NDModel
+  d_input: 15
+  d_output: 3
+  d_model: 64
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 2
+  reduced_resolution_t: 4
+  window_size: 15
+  original_res: 512
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-100.hdf5
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_s4_2d/s4_2d
+Model name: models.s4_2d.S4NDModel
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-100.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Time data shape: (4, 250)
+Combined data shape: (4, 250, 256, 256, 3)
+x shape: torch.Size([940, 45, 256, 256])
+y shape: torch.Size([940, 3, 256, 256])
+---------Using data normalizer---------------
+Train dataset size: 752
+Validation dataset size: 94
+Test dataset size: 94
+<class 'torch.Tensor'> -0.005490596871823072 -0.003076542168855667 0.9100139141082764 0.9190230965614319
+Sample Input shape: torch.Size([16, 45, 256, 256])
+Sample Output shape: torch.Size([16, 3, 256, 256])
+[2025-05-13 03:30:23,918][models.s4][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-05-13 03:30:23,918][models.s4][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+[2025-05-13 03:30:23,925][models.s4nd][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-05-13 03:30:23,926][models.s4nd][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+S4NDModel(
+  (encoder): Linear(in_features=47, out_features=64, bias=True)
+  (s4_layers): ModuleList(
+    (0-3): 4 x S4ND(
+      (kernel): ModuleList(
+        (0-1): 2 x SSMKernelDPLR()
+      )
+    )
+  )
+  (norms): ModuleList(
+    (0-3): 4 x LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0-3): 4 x Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=64, out_features=3, bias=True)
+)
+Epoch 0, Train Loss: 0.70665703, Val Loss: 0.43786150
+Epoch 10, Train Loss: 0.12088622, Val Loss: 0.21175405
+Epoch 20, Train Loss: 0.07941726, Val Loss: 0.23799646
+Epoch 30, Train Loss: 0.06325609, Val Loss: 0.26788798
+Epoch 40, Train Loss: 0.05489417, Val Loss: 0.25747315
+Epoch 50, Train Loss: 0.04911904, Val Loss: 0.23654262
+Epoch 60, Train Loss: 0.04555251, Val Loss: 0.21856135
+Epoch 70, Train Loss: 0.04355072, Val Loss: 0.20737197
+Epoch 80, Train Loss: 0.04223200, Val Loss: 0.20523963
+Epoch 90, Train Loss: 0.04175230, Val Loss: 0.19869101
+Test L2 Loss: 0.181714
+Model saved to checkpoints/s4ndmodel/navier_stokes_0_4863591.pt
+Original test data shape: x=torch.Size([94, 45, 256, 256]), y=torch.Size([94, 3, 256, 256])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.181989
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([94, 45, 128, 128]), y=torch.Size([94, 3, 128, 128])
+Resolution factor 2 - Relative L2 Loss: 0.088758
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([94, 45, 64, 64]), y=torch.Size([94, 3, 64, 64])
+Resolution factor 4 - Relative L2 Loss: 0.085024
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([94, 45, 32, 32]), y=torch.Size([94, 3, 32, 32])
+Resolution factor 8 - Relative L2 Loss: 0.154191
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([94, 45, 16, 16]), y=torch.Size([94, 3, 16, 16])
+Resolution factor 16 - Relative L2 Loss: 0.223761
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([94, 45, 8, 8]), y=torch.Size([94, 3, 8, 8])
+Resolution factor 32 - Relative L2 Loss: 0.289956
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-100.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Time data shape: (4, 250)
+Combined data shape: (4, 250, 512, 512, 3)
+x shape: torch.Size([940, 45, 512, 512])
+y shape: torch.Size([940, 3, 512, 512])
+---------Using data normalizer---------------
+Train dataset size: 752
+Validation dataset size: 94
+Test dataset size: 94
+Original test data shape: x=torch.Size([94, 45, 512, 512]), y=torch.Size([94, 3, 512, 512])
+Testing resolutions: [512]
+
+Evaluating at resolution: 512
+Downsampled shapes: x=torch.Size([94, 45, 512, 512]), y=torch.Size([94, 3, 512, 512])
+Error evaluating resolution 512: CUDA out of memory. Tried to allocate 16.03 GiB. GPU 0 has a total capacity of 79.25 GiB of which 5.17 GiB is free. Including non-PyTorch memory, this process has 74.07 GiB memory in use. Of the allocated memory 71.49 GiB is allocated by PyTorch, and 2.08 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.181989
+Resolution factor 2: Relative L2 Loss = 0.088758
+Resolution factor 4: Relative L2 Loss = 0.085024
+Resolution factor 8: Relative L2 Loss = 0.154191
+Resolution factor 16: Relative L2 Loss = 0.223761
+Resolution factor 32: Relative L2 Loss = 0.289956
+
+Summary of Higher-Resolution Evaluation:
+Job completed at Tue May 13 04:01:21 EDT 2025

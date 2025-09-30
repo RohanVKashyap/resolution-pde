@@ -1,0 +1,122 @@
+Job started on babel-10-9 at Mon Aug  4 23:48:13 EDT 2025
+Job ID: 5299724
+GPU information:
+Mon Aug  4 23:48:13 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:D5:00.0 Off |                    0 |
+| N/A   31C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:D6:00.0 Off |                    0 |
+| N/A   31C    P8             33W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-08-04 23:48:19,017][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  factor: 4
+  n_modes: 16
+  width: 64
+  n_layers: 8
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: true
+  dropout: 0.1
+  mode: full
+  activation: relu
+  use_grid: false
+dataset:
+  dataset_params:
+    _target_: dataloaders.cno_burger_markov.burger_markov_dataset
+    filename: 1D_Burgers_Sols_Nu0.001.hdf5
+    saved_folder: /data/user_data/rvk/data/pdebench/
+    reduced_batch: 1
+    reduced_resolution: 1
+    reduced_resolution_t: 4
+    s: 32
+    data_normalizer: true
+    num_samples_max: -1
+  window_size: 15
+  original_res: 1024
+  multi_res:
+  - 1
+  - 16
+  train_mres: false
+  pde: ks
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: ks_ffno_1d/ffno_1d
+Model name: models.ffno.FFNO1D
+PDE Dataset: ks
+---------------------
+Loading from file: /data/user_data/rvk/data/pdebench/1D_Burgers_Sols_Nu0.001.hdf5
+Original data shape: (10000, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (10000, 51, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 32
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (10000, 51, 32)
+Updated grid shape: torch.Size([32, 1])
+x shape: (490000, 1, 32)
+y shape: (490000, 1, 32)
+grid shape: torch.Size([32, 1])
+---------Computing min-max normalization statistics---------------
+Input data range: [-3.338968, 3.490862]
+Output data range: [-3.145130, 3.490862]
+Train dataset size: 392000
+Validation dataset size: 49000
+Test dataset size: 49000
+<dataloaders.cno_burger_markov.burger_markov_dataset.<locals>.MinMaxNormalizedDataset object at 0x151903680e10>
+<class 'torch.Tensor'> 0.4969945251941681 0.48230165243148804 0.0846152976155281 0.08623835444450378
+FFNO1D(
+  (in_proj): WNLinear(in_features=1, out_features=64, bias=True)
+  (fourier_layers): ModuleList(
+    (0-7): 8 x FSpectralConv1d(
+      (fourier_weight): ParameterList(  (0): Parameter containing: [torch.float32 of size 64x64x16x2 (cuda:0)])
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=64, out_features=256, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=256, out_features=64, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): Identity()
+            (3): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (out_proj): WNLinear(in_features=64, out_features=1, bias=True)
+)
+Total Model Parameters: 1.31M
+Trainable Parameters: 1.31M

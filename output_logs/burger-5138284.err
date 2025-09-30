@@ -1,0 +1,9 @@
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250620_171141-rrnj4fds
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run light-thunder-8
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d/runs/rrnj4fds
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:49<07:25, 49.52s/it] 20%|██        | 2/10 [01:39<06:36, 49.51s/it] 30%|███       | 3/10 [02:28<05:45, 49.33s/it] 40%|████      | 4/10 [03:16<04:53, 48.96s/it] 50%|█████     | 5/10 [04:05<04:04, 48.94s/it] 60%|██████    | 6/10 [04:54<03:16, 49.13s/it] 70%|███████   | 7/10 [05:43<02:26, 48.87s/it] 80%|████████  | 8/10 [06:32<01:37, 48.93s/it] 90%|█████████ | 9/10 [07:21<00:49, 49.07s/it]100%|██████████| 10/10 [08:11<00:00, 49.14s/it]100%|██████████| 10/10 [08:11<00:00, 49.10s/it]

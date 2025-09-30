@@ -1,0 +1,239 @@
+Job started on babel-8-9 at Sun Jun 29 22:43:32 EDT 2025
+Job ID: 5171605
+GPU information:
+Sun Jun 29 22:43:32 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:D1:00.0 Off |                    0 |
+| N/A   24C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:D2:00.0 Off |                    0 |
+| N/A   24C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-06-29 22:43:37,326][root][INFO] - model:
+  _target_: models.ffno.FFNO2D
+  in_channels: 1
+  out_channels: 1
+  width: 32
+  factor: 4
+  n_modes: 16
+  n_layers: 4
+  dropout: 0.1
+  mode: full
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: true
+  use_grid: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 16
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  train_resolution: 32
+  multi_res:
+  - 4
+  - 8
+  s: 32
+  train_mres: false
+  pde: navier_stokes_0
+  data_path1: /data/user_data/rvk/ns_512_1e-3.mat
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_ffno_2d/ns_ffno_2d
+Model name: models.ffno.FFNO2D
+PDE Dataset: navier_stokes_0
+Model: ffno2d
+Loading from file: /data/user_data/rvk/ns_512_1e-3.mat
+a shape: (20, 512, 512)
+u shape: (20, 512, 512, 200)
+t shape: (1, 200)
+Combined data shape: (20, 512, 512, 201)
+Reshaped data shape: (20, 201, 512, 512, 1)
+Grid shape: torch.Size([512, 512, 2])
+Current Spatial Size: 512
+Downsampling from 512x512 to 32x32
+Data shape after downsampling: (20, 201, 32, 32, 1)
+x shape: torch.Size([4000, 1, 32, 32])
+y shape: torch.Size([4000, 1, 32, 32])
+grid shape: torch.Size([32, 32, 2])
+---------Computing min-max normalization statistics---------------
+Input data range: [-2.115077, 2.103389]
+Output data range: [-2.115106, 2.103389]
+Train dataset size: 3200
+Validation dataset size: 400
+Test dataset size: 400
+<class 'torch.Tensor'> 0.5013853311538696 0.5013887286186218 0.20797649025917053 0.20844918489456177
+FFNO2D(
+  (in_proj): WNLinear(in_features=1, out_features=32, bias=True)
+  (fourier_layers): ModuleList(
+    (0-3): 4 x FSpectralConv2d(
+      (fourier_weight): ParameterList(
+          (0): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)]
+          (1): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)]
+      )
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=32, out_features=128, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=128, out_features=32, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): Identity()
+            (3): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (out_proj): WNLinear(in_features=32, out_features=1, bias=True)
+)
+Total Model Parameters: 0.30M
+Trainable Parameters: 0.30M
+Epoch 0, Train Loss: 0.24259407, Val Loss: 0.07962730
+Epoch 10, Train Loss: 0.01896077, Val Loss: 0.03475811
+Epoch 20, Train Loss: 0.01230243, Val Loss: 0.03439668
+Epoch 30, Train Loss: 0.00811057, Val Loss: 0.02033836
+Epoch 40, Train Loss: 0.00705182, Val Loss: 0.01357854
+Epoch 50, Train Loss: 0.00539887, Val Loss: 0.01153060
+Epoch 60, Train Loss: 0.00510844, Val Loss: 0.00940954
+Epoch 70, Train Loss: 0.00472880, Val Loss: 0.00735479
+Epoch 80, Train Loss: 0.00430514, Val Loss: 0.00709873
+Epoch 90, Train Loss: 0.00411533, Val Loss: 0.00640436
+Test L2 Loss: 0.022226
+Model saved to checkpoints/ffno2d/navier_stokes_0_5171605.pt
+Using provided normalization statistics from training resolution 32:
+  Input range: [-2.115077, 2.103389]
+  Output range: [-2.115106, 2.103389]
+Testing resolutions: [32, 64, 128, 256, 512]
+Loading from file: /data/user_data/rvk/ns_512_1e-3.mat
+a shape: (20, 512, 512)
+u shape: (20, 512, 512, 200)
+t shape: (1, 200)
+Combined data shape: (20, 512, 512, 201)
+Reshaped data shape: (20, 201, 512, 512, 1)
+Grid shape: torch.Size([512, 512, 2])
+Current Spatial Size: 512
+Downsampling from 512x512 to 32x32
+Data shape after downsampling: (20, 201, 32, 32, 1)
+x shape: torch.Size([4000, 1, 32, 32])
+y shape: torch.Size([4000, 1, 32, 32])
+grid shape: torch.Size([32, 32, 2])
+Train dataset size: 3200
+Validation dataset size: 400
+Test dataset size: 400
+Resolution 32 - Relative L2 Loss: 0.022226
+Loading from file: /data/user_data/rvk/ns_512_1e-3.mat
+a shape: (20, 512, 512)
+u shape: (20, 512, 512, 200)
+t shape: (1, 200)
+Combined data shape: (20, 512, 512, 201)
+Reshaped data shape: (20, 201, 512, 512, 1)
+Grid shape: torch.Size([512, 512, 2])
+Current Spatial Size: 512
+Downsampling from 512x512 to 64x64
+Data shape after downsampling: (20, 201, 64, 64, 1)
+x shape: torch.Size([4000, 1, 64, 64])
+y shape: torch.Size([4000, 1, 64, 64])
+grid shape: torch.Size([64, 64, 2])
+Train dataset size: 3200
+Validation dataset size: 400
+Test dataset size: 400
+Resolution 64 - Relative L2 Loss: 0.022226
+Loading from file: /data/user_data/rvk/ns_512_1e-3.mat
+a shape: (20, 512, 512)
+u shape: (20, 512, 512, 200)
+t shape: (1, 200)
+Combined data shape: (20, 512, 512, 201)
+Reshaped data shape: (20, 201, 512, 512, 1)
+Grid shape: torch.Size([512, 512, 2])
+Current Spatial Size: 512
+Downsampling from 512x512 to 128x128
+Data shape after downsampling: (20, 201, 128, 128, 1)
+x shape: torch.Size([4000, 1, 128, 128])
+y shape: torch.Size([4000, 1, 128, 128])
+grid shape: torch.Size([128, 128, 2])
+Train dataset size: 3200
+Validation dataset size: 400
+Test dataset size: 400
+Resolution 128 - Relative L2 Loss: 0.022226
+Loading from file: /data/user_data/rvk/ns_512_1e-3.mat
+a shape: (20, 512, 512)
+u shape: (20, 512, 512, 200)
+t shape: (1, 200)
+Combined data shape: (20, 512, 512, 201)
+Reshaped data shape: (20, 201, 512, 512, 1)
+Grid shape: torch.Size([512, 512, 2])
+Current Spatial Size: 512
+Downsampling from 512x512 to 256x256
+Data shape after downsampling: (20, 201, 256, 256, 1)
+x shape: torch.Size([4000, 1, 256, 256])
+y shape: torch.Size([4000, 1, 256, 256])
+grid shape: torch.Size([256, 256, 2])
+Train dataset size: 3200
+Validation dataset size: 400
+Test dataset size: 400
+Resolution 256 - Relative L2 Loss: 0.022226
+Loading from file: /data/user_data/rvk/ns_512_1e-3.mat
+a shape: (20, 512, 512)
+u shape: (20, 512, 512, 200)
+t shape: (1, 200)
+Combined data shape: (20, 512, 512, 201)
+Reshaped data shape: (20, 201, 512, 512, 1)
+Grid shape: torch.Size([512, 512, 2])
+Current Spatial Size: 512
+x shape: torch.Size([4000, 1, 512, 512])
+y shape: torch.Size([4000, 1, 512, 512])
+grid shape: torch.Size([512, 512, 2])
+Train dataset size: 3200
+Validation dataset size: 400
+Test dataset size: 400
+Resolution 512 - Relative L2 Loss: 0.022226
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.022226
+Resolution  64: 0.022226
+Resolution 128: 0.022226
+Resolution 256: 0.022226
+Resolution 512: 0.022226
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 32: Relative L2 Loss = 0.022226
+Resolution factor 64: Relative L2 Loss = 0.022226
+Resolution factor 128: Relative L2 Loss = 0.022226
+Resolution factor 256: Relative L2 Loss = 0.022226
+Resolution factor 512: Relative L2 Loss = 0.022226
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mgallant-lion-49[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/44pfrx33[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250629_224358-44pfrx33/logs[0m
+Job completed at Sun Jun 29 22:48:55 EDT 2025

@@ -19,17 +19,16 @@ import h5py
 
 from train.training import train, evaluate
 from models.custom_layer import UnitGaussianNormalizer
-from utils.utils import plot_predictions
 from utils.loss import RelativeL2Loss
 from train.mres_training import create_grouped_dataloaders 
 from utils.resize_utils import get_lower_resolutions, evaluate_cno_original_1d_all_resolution
 from utils.naive_utils import evaluate_1d_all_resolution
+from utils.autoregressive_step import evaluate_1d_rollout_all_resolution
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")
 
 # git clone https://RohanVKashyap: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@github.com/RohanVKashyap/resolution-pde.git
-# This was earlier cno_original_main_1d.py (CORRECT)
 
 @hydra.main(version_base=None, config_path='./conf', config_name='config')
 def main(args: DictConfig):
@@ -46,30 +45,44 @@ def main(args: DictConfig):
     use_normalizer = args.training.use_normalizer 
 
     data_resolution = args.dataset['original_res']                            # Original Data Resolution (512)
-    train_resolution = args.dataset['dataset_params']['s']                    # Training Resolution (128)
+    
+    if 's' in args.dataset['dataset_params']:
+        train_resolution = args.dataset['dataset_params']['s']
+        print('Loaded Data using downsample_1d / resize_1d function')
+    elif 'reduced_resolution' in args.dataset['dataset_params']:
+        print('Loaded Data using naive downsampling')
+        train_resolution = data_resolution // args.dataset['dataset_params']['reduced_resolution']
+    else:
+        print('This is True Multi-Resolution Training. Train Resolution is the highest data resolution in the multi-resolution data') 
+        train_resolution = args.dataset['original_res']   
+
     normalizer_type = args.dataset['dataset_params']['normalization_type']
-    evaluation_type = args.dataset['dataset_params']['evaluation_type']
+    evaluation_type = args.dataset['evaluation_type']
 
     model_type = args.model._target_.split(".")[-1].lower()   
 
-    # Load appropriate dataset based on PDE type
+    # Load Data
     if any(substring in args.dataset['pde'] for substring in ['ks', 'burger', 'ns']):      
         print('---------------------')
         # Instantiate the dataset function: KS dataset has 2 additional files (default): KS_valid.h5, ks_test.h5
         data_ = instantiate(args.dataset.dataset_params, use_strain_orientation=True)
-        train_dataset, val_dataset, test_dataset = data_[:3]          
+        # train_dataset, val_dataset, test_dataset = data_[:3]
+        train_dataset, val_dataset, test_dataset, _ = data_[:4]          
                                                     
     else:
         raise ValueError(f"Unsupported PDE type: {args.pde}")
     
-    print(val_dataset)
 
     if normalizer_type == 'simple':
-        x_normalizer, y_normalizer = data_[3:]
+        # x_normalizer, y_normalizer = data_[3:]
+        x_normalizer, y_normalizer = data_[4:]
         min_data = max_data = min_model = max_model = None
     else:
-        min_data, max_data, min_model, max_model = data_[3:]
+        # min_data, max_data, min_model, max_model = data_[3:]
+        min_data, max_data, min_model, max_model = data_[4:]
         x_normalizer = y_normalizer = None
+
+    print(val_dataset)    
     
     if not args.dataset['train_mres']:
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
@@ -87,7 +100,7 @@ def main(args: DictConfig):
         model = instantiate(
                 args.model,
                 _recursive_=False,
-                size=train_resolution).to(device)    # in_size: UPDATE
+                size=32).to(device)    # in_size: UPDATE
         
     elif model_type == 'pos':  
         from scOT.model import ScOT, ScOTConfig
@@ -115,8 +128,10 @@ def main(args: DictConfig):
     # print('Loss:', loss_fn(y_sample.to(device), torch.rand_like(y_sample).to(device)))
     
     # Initialize optimizer and scheduler: Vanilla CNO Training
-    optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-5)
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=100, eta_min=1e-6)
+    # optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-5)
+    # scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=100, eta_min=1e-6)
+    optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-4)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=100, eta_min=1e-5)
 
     # Initialize WandB
     job_id = os.environ.get('SLURM_JOB_ID', 'local')
@@ -128,7 +143,6 @@ def main(args: DictConfig):
             'project_name': args.project_name,
             'pde': args.dataset['pde'],
             'job_id': job_id,
-            'reduced_resolution': args.dataset['dataset_params']['reduced_resolution'],
             'reduced_resolution_t': args.dataset['dataset_params']['reduced_resolution_t'],
             'learning_rate': learning_rate,
             'epochs': epochs,
@@ -159,7 +173,6 @@ def main(args: DictConfig):
                            min_model=min_model, 
                            max_model=max_model, 
                            y_normalizer=y_normalizer,
-                           pde=args.dataset['pde'], 
                            time=1, 
                            model_type=model_type)
 
@@ -195,7 +208,7 @@ def main(args: DictConfig):
                         model=model,
                         dataset_config=args.dataset,
                         eval_dataset_target=eval_dataset_target if args.dataset['train_mres'] else None,  # This is only for multi-resolution
-                        current_res=args.dataset['dataset_params']['s'],
+                        current_res=train_resolution,
                         test_resolutions=test_resolutions,
                         data_resolution=data_resolution,   # UPDATE: LINE 1088 in cno_utils.py (IMPORTANT)
                         pde=args.dataset['pde'],
@@ -216,8 +229,8 @@ def main(args: DictConfig):
                         device='cuda',
                         plot_examples=True,
                         save_dir=figures_dir, 
-                        analyze_frequencies=False,     # Plot Frequency Histogram                  
-                    ) 
+                        analyze_frequencies=False,)     # Plot Frequency Histogram  
+                        # current_res=args.dataset['dataset_params']['s'],               
         
     elif evaluation_type == 'naive_downsample': 
         resolution_results = evaluate_1d_all_resolution(
@@ -242,7 +255,28 @@ def main(args: DictConfig):
                 analyze_frequencies=False,     # Plot Frequency Histogram                  
             )  
 
-    
+    rollout_results = evaluate_1d_rollout_all_resolution(
+        model=model,
+        dataset_config=args.dataset,
+        eval_dataset_target=eval_dataset_target if args.dataset['train_mres'] else None,
+        current_res=train_resolution,
+        test_resolutions=test_resolutions,
+        data_resolution=data_resolution,
+        pde=args.dataset['pde'],
+        saved_folder=args.dataset['dataset_params']['saved_folder'],
+        reduced_batch=args.dataset['dataset_params']['reduced_batch'],
+        reduced_resolution_t=args.dataset['dataset_params']['reduced_resolution_t'],
+        x_normalizer=x_normalizer,
+        y_normalizer=y_normalizer,
+        batch_size=batch_size,
+        rollout_steps=args.dataset.rollout_steps,   # IMPORTANT
+        time=1,
+        model_type=model_type,
+        device='cuda',
+        plot_examples=True,
+        save_dir=figures_dir
+    )   
+
     wandb.log({"super_resolution": wandb.Table(
     columns=["Resolution Factor", "Relative L2 Loss"],
     data=[[res, loss] for res, loss in resolution_results.items()])})

@@ -1,0 +1,2477 @@
+Job started on babel-10-17 at Wed Jul 30 23:45:54 EDT 2025
+Job ID: 5287734
+GPU information:
+Wed Jul 30 23:45:54 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX 6000 Ada Gene...    On  |   00000000:81:00.0 Off |                  Off |
+| 30%   27C    P8             28W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX 6000 Ada Gene...    On  |   00000000:C1:00.0 Off |                  Off |
+| 30%   27C    P8             25W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Data directory /data/user_data/rvk/ks/res_128/visc_0.001 exists and will be written to.
+Generating data
+File /data/user_data/rvk/ks/res_128/visc_0.001/KS_valid.h5 is deleted.
+File /data/user_data/rvk/ks/res_128/visc_0.001/KS_train_2048.h5 is deleted.
+File /data/user_data/rvk/ks/res_128/visc_0.001/KS_test.h5 is deleted.
+Equation: KS
+Mode: valid
+Number of samples: 256
+Solution was not successful.
+Solved indices: 0 : 0
+Solved batches: 1 of 256
+Solution was not successful.
+Solved indices: 1 : 1
+Solved batches: 2 of 256
+Solution was not successful.
+Solved indices: 2 : 2
+Solved batches: 3 of 256
+Solution was not successful.
+Solved indices: 3 : 3
+Solved batches: 4 of 256
+Solution was not successful.
+Solved indices: 4 : 4
+Solved batches: 5 of 256
+Solution was not successful.
+Solved indices: 5 : 5
+Solved batches: 6 of 256
+Solution was not successful.
+Solved indices: 6 : 6
+Solved batches: 7 of 256
+Solution was not successful.
+Solved indices: 7 : 7
+Solved batches: 8 of 256
+Solution was not successful.
+Solved indices: 8 : 8
+Solved batches: 9 of 256
+Solution was not successful.
+Solved indices: 9 : 9
+Solved batches: 10 of 256
+Solution was not successful.
+Solved indices: 10 : 10
+Solved batches: 11 of 256
+Solution was not successful.
+Solved indices: 11 : 11
+Solved batches: 12 of 256
+Solution was not successful.
+Solved indices: 12 : 12
+Solved batches: 13 of 256
+Solution was not successful.
+Solved indices: 13 : 13
+Solved batches: 14 of 256
+Solution was not successful.
+Solved indices: 14 : 14
+Solved batches: 15 of 256
+Solution was not successful.
+Solved indices: 15 : 15
+Solved batches: 16 of 256
+Solution was not successful.
+Solved indices: 16 : 16
+Solved batches: 17 of 256
+Solution was not successful.
+Solved indices: 17 : 17
+Solved batches: 18 of 256
+Solution was not successful.
+Solved indices: 18 : 18
+Solved batches: 19 of 256
+Solution was not successful.
+Solved indices: 19 : 19
+Solved batches: 20 of 256
+Solution was not successful.
+Solved indices: 20 : 20
+Solved batches: 21 of 256
+Solution was not successful.
+Solved indices: 21 : 21
+Solved batches: 22 of 256
+Solution was not successful.
+Solved indices: 22 : 22
+Solved batches: 23 of 256
+Solution was not successful.
+Solved indices: 23 : 23
+Solved batches: 24 of 256
+Solution was not successful.
+Solved indices: 24 : 24
+Solved batches: 25 of 256
+Solution was not successful.
+Solved indices: 25 : 25
+Solved batches: 26 of 256
+Solution was not successful.
+Solved indices: 26 : 26
+Solved batches: 27 of 256
+Solution was not successful.
+Solved indices: 27 : 27
+Solved batches: 28 of 256
+Solution was not successful.
+Solved indices: 28 : 28
+Solved batches: 29 of 256
+Solution was not successful.
+Solved indices: 29 : 29
+Solved batches: 30 of 256
+Solution was not successful.
+Solved indices: 30 : 30
+Solved batches: 31 of 256
+Solution was not successful.
+Solved indices: 31 : 31
+Solved batches: 32 of 256
+Solution was not successful.
+Solved indices: 32 : 32
+Solved batches: 33 of 256
+Solution was not successful.
+Solved indices: 33 : 33
+Solved batches: 34 of 256
+Solution was not successful.
+Solved indices: 34 : 34
+Solved batches: 35 of 256
+Solution was not successful.
+Solved indices: 35 : 35
+Solved batches: 36 of 256
+Solution was not successful.
+Solved indices: 36 : 36
+Solved batches: 37 of 256
+Solution was not successful.
+Solved indices: 37 : 37
+Solved batches: 38 of 256
+Solution was not successful.
+Solved indices: 38 : 38
+Solved batches: 39 of 256
+Solution was not successful.
+Solved indices: 39 : 39
+Solved batches: 40 of 256
+Solution was not successful.
+Solved indices: 40 : 40
+Solved batches: 41 of 256
+Solution was not successful.
+Solved indices: 41 : 41
+Solved batches: 42 of 256
+Solution was not successful.
+Solved indices: 42 : 42
+Solved batches: 43 of 256
+Solution was not successful.
+Solved indices: 43 : 43
+Solved batches: 44 of 256
+Solution was not successful.
+Solved indices: 44 : 44
+Solved batches: 45 of 256
+Solution was not successful.
+Solved indices: 45 : 45
+Solved batches: 46 of 256
+Solution was not successful.
+Solved indices: 46 : 46
+Solved batches: 47 of 256
+Solution was not successful.
+Solved indices: 47 : 47
+Solved batches: 48 of 256
+Solution was not successful.
+Solved indices: 48 : 48
+Solved batches: 49 of 256
+Solution was not successful.
+Solved indices: 49 : 49
+Solved batches: 50 of 256
+Solution was not successful.
+Solved indices: 50 : 50
+Solved batches: 51 of 256
+Solution was not successful.
+Solved indices: 51 : 51
+Solved batches: 52 of 256
+Solution was not successful.
+Solved indices: 52 : 52
+Solved batches: 53 of 256
+Solution was not successful.
+Solved indices: 53 : 53
+Solved batches: 54 of 256
+Solution was not successful.
+Solved indices: 54 : 54
+Solved batches: 55 of 256
+Solution was not successful.
+Solved indices: 55 : 55
+Solved batches: 56 of 256
+Solution was not successful.
+Solved indices: 56 : 56
+Solved batches: 57 of 256
+Solution was not successful.
+Solved indices: 57 : 57
+Solved batches: 58 of 256
+Solution was not successful.
+Solved indices: 58 : 58
+Solved batches: 59 of 256
+Solution was not successful.
+Solved indices: 59 : 59
+Solved batches: 60 of 256
+Solution was not successful.
+Solved indices: 60 : 60
+Solved batches: 61 of 256
+Solution was not successful.
+Solved indices: 61 : 61
+Solved batches: 62 of 256
+Solution was not successful.
+Solved indices: 62 : 62
+Solved batches: 63 of 256
+Solution was not successful.
+Solved indices: 63 : 63
+Solved batches: 64 of 256
+Solution was not successful.
+Solved indices: 64 : 64
+Solved batches: 65 of 256
+Solution was not successful.
+Solved indices: 65 : 65
+Solved batches: 66 of 256
+Solution was not successful.
+Solved indices: 66 : 66
+Solved batches: 67 of 256
+Solution was not successful.
+Solved indices: 67 : 67
+Solved batches: 68 of 256
+Solution was not successful.
+Solved indices: 68 : 68
+Solved batches: 69 of 256
+Solution was not successful.
+Solved indices: 69 : 69
+Solved batches: 70 of 256
+Solution was not successful.
+Solved indices: 70 : 70
+Solved batches: 71 of 256
+Solution was not successful.
+Solved indices: 71 : 71
+Solved batches: 72 of 256
+Solution was not successful.
+Solved indices: 72 : 72
+Solved batches: 73 of 256
+Solution was not successful.
+Solved indices: 73 : 73
+Solved batches: 74 of 256
+Solution was not successful.
+Solved indices: 74 : 74
+Solved batches: 75 of 256
+Solution was not successful.
+Solved indices: 75 : 75
+Solved batches: 76 of 256
+Solution was not successful.
+Solved indices: 76 : 76
+Solved batches: 77 of 256
+Solution was not successful.
+Solved indices: 77 : 77
+Solved batches: 78 of 256
+Solution was not successful.
+Solved indices: 78 : 78
+Solved batches: 79 of 256
+Solution was not successful.
+Solved indices: 79 : 79
+Solved batches: 80 of 256
+Solution was not successful.
+Solved indices: 80 : 80
+Solved batches: 81 of 256
+Solution was not successful.
+Solved indices: 81 : 81
+Solved batches: 82 of 256
+Solution was not successful.
+Solved indices: 82 : 82
+Solved batches: 83 of 256
+Solution was not successful.
+Solved indices: 83 : 83
+Solved batches: 84 of 256
+Solution was not successful.
+Solved indices: 84 : 84
+Solved batches: 85 of 256
+Solution was not successful.
+Solved indices: 85 : 85
+Solved batches: 86 of 256
+Solution was not successful.
+Solved indices: 86 : 86
+Solved batches: 87 of 256
+Solution was not successful.
+Solved indices: 87 : 87
+Solved batches: 88 of 256
+Solution was not successful.
+Solved indices: 88 : 88
+Solved batches: 89 of 256
+Solution was not successful.
+Solved indices: 89 : 89
+Solved batches: 90 of 256
+Solution was not successful.
+Solved indices: 90 : 90
+Solved batches: 91 of 256
+Solution was not successful.
+Solved indices: 91 : 91
+Solved batches: 92 of 256
+Solution was not successful.
+Solved indices: 92 : 92
+Solved batches: 93 of 256
+Solution was not successful.
+Solved indices: 93 : 93
+Solved batches: 94 of 256
+Solution was not successful.
+Solved indices: 94 : 94
+Solved batches: 95 of 256
+Solution was not successful.
+Solved indices: 95 : 95
+Solved batches: 96 of 256
+Solution was not successful.
+Solved indices: 96 : 96
+Solved batches: 97 of 256
+Solution was not successful.
+Solved indices: 97 : 97
+Solved batches: 98 of 256
+Solution was not successful.
+Solved indices: 98 : 98
+Solved batches: 99 of 256
+Solution was not successful.
+Solved indices: 99 : 99
+Solved batches: 100 of 256
+Solution was not successful.
+Solved indices: 100 : 100
+Solved batches: 101 of 256
+Solution was not successful.
+Solved indices: 101 : 101
+Solved batches: 102 of 256
+Solution was not successful.
+Solved indices: 102 : 102
+Solved batches: 103 of 256
+Solution was not successful.
+Solved indices: 103 : 103
+Solved batches: 104 of 256
+Solution was not successful.
+Solved indices: 104 : 104
+Solved batches: 105 of 256
+Solution was not successful.
+Solved indices: 105 : 105
+Solved batches: 106 of 256
+Solution was not successful.
+Solved indices: 106 : 106
+Solved batches: 107 of 256
+Solution was not successful.
+Solved indices: 107 : 107
+Solved batches: 108 of 256
+Solution was not successful.
+Solved indices: 108 : 108
+Solved batches: 109 of 256
+Solution was not successful.
+Solved indices: 109 : 109
+Solved batches: 110 of 256
+Solution was not successful.
+Solved indices: 110 : 110
+Solved batches: 111 of 256
+Solution was not successful.
+Solved indices: 111 : 111
+Solved batches: 112 of 256
+Solution was not successful.
+Solved indices: 112 : 112
+Solved batches: 113 of 256
+Solution was not successful.
+Solved indices: 113 : 113
+Solved batches: 114 of 256
+Solution was not successful.
+Solved indices: 114 : 114
+Solved batches: 115 of 256
+Solution was not successful.
+Solved indices: 115 : 115
+Solved batches: 116 of 256
+Solution was not successful.
+Solved indices: 116 : 116
+Solved batches: 117 of 256
+Solution was not successful.
+Solved indices: 117 : 117
+Solved batches: 118 of 256
+Solution was not successful.
+Solved indices: 118 : 118
+Solved batches: 119 of 256
+Solution was not successful.
+Solved indices: 119 : 119
+Solved batches: 120 of 256
+Solution was not successful.
+Solved indices: 120 : 120
+Solved batches: 121 of 256
+Solution was not successful.
+Solved indices: 121 : 121
+Solved batches: 122 of 256
+Solution was not successful.
+Solved indices: 122 : 122
+Solved batches: 123 of 256
+Solution was not successful.
+Solved indices: 123 : 123
+Solved batches: 124 of 256
+Solution was not successful.
+Solved indices: 124 : 124
+Solved batches: 125 of 256
+Solution was not successful.
+Solved indices: 125 : 125
+Solved batches: 126 of 256
+Solution was not successful.
+Solved indices: 126 : 126
+Solved batches: 127 of 256
+Solution was not successful.
+Solved indices: 127 : 127
+Solved batches: 128 of 256
+Solution was not successful.
+Solved indices: 128 : 128
+Solved batches: 129 of 256
+Solution was not successful.
+Solved indices: 129 : 129
+Solved batches: 130 of 256
+Solution was not successful.
+Solved indices: 130 : 130
+Solved batches: 131 of 256
+Solution was not successful.
+Solved indices: 131 : 131
+Solved batches: 132 of 256
+Solution was not successful.
+Solved indices: 132 : 132
+Solved batches: 133 of 256
+Solution was not successful.
+Solved indices: 133 : 133
+Solved batches: 134 of 256
+Solution was not successful.
+Solved indices: 134 : 134
+Solved batches: 135 of 256
+Solution was not successful.
+Solved indices: 135 : 135
+Solved batches: 136 of 256
+Solution was not successful.
+Solved indices: 136 : 136
+Solved batches: 137 of 256
+Solution was not successful.
+Solved indices: 137 : 137
+Solved batches: 138 of 256
+Solution was not successful.
+Solved indices: 138 : 138
+Solved batches: 139 of 256
+Solution was not successful.
+Solved indices: 139 : 139
+Solved batches: 140 of 256
+Solution was not successful.
+Solved indices: 140 : 140
+Solved batches: 141 of 256
+Solution was not successful.
+Solved indices: 141 : 141
+Solved batches: 142 of 256
+Solution was not successful.
+Solved indices: 142 : 142
+Solved batches: 143 of 256
+Solution was not successful.
+Solved indices: 143 : 143
+Solved batches: 144 of 256
+Solution was not successful.
+Solved indices: 144 : 144
+Solved batches: 145 of 256
+Solution was not successful.
+Solved indices: 145 : 145
+Solved batches: 146 of 256
+Solution was not successful.
+Solved indices: 146 : 146
+Solved batches: 147 of 256
+Solution was not successful.
+Solved indices: 147 : 147
+Solved batches: 148 of 256
+Solution was not successful.
+Solved indices: 148 : 148
+Solved batches: 149 of 256
+Solution was not successful.
+Solved indices: 149 : 149
+Solved batches: 150 of 256
+Solution was not successful.
+Solved indices: 150 : 150
+Solved batches: 151 of 256
+Solution was not successful.
+Solved indices: 151 : 151
+Solved batches: 152 of 256
+Solution was not successful.
+Solved indices: 152 : 152
+Solved batches: 153 of 256
+Solution was not successful.
+Solved indices: 153 : 153
+Solved batches: 154 of 256
+Solution was not successful.
+Solved indices: 154 : 154
+Solved batches: 155 of 256
+Solution was not successful.
+Solved indices: 155 : 155
+Solved batches: 156 of 256
+Solution was not successful.
+Solved indices: 156 : 156
+Solved batches: 157 of 256
+Solution was not successful.
+Solved indices: 157 : 157
+Solved batches: 158 of 256
+Solution was not successful.
+Solved indices: 158 : 158
+Solved batches: 159 of 256
+Solution was not successful.
+Solved indices: 159 : 159
+Solved batches: 160 of 256
+Solution was not successful.
+Solved indices: 160 : 160
+Solved batches: 161 of 256
+Solution was not successful.
+Solved indices: 161 : 161
+Solved batches: 162 of 256
+Solution was not successful.
+Solved indices: 162 : 162
+Solved batches: 163 of 256
+Solution was not successful.
+Solved indices: 163 : 163
+Solved batches: 164 of 256
+Solution was not successful.
+Solved indices: 164 : 164
+Solved batches: 165 of 256
+Solution was not successful.
+Solved indices: 165 : 165
+Solved batches: 166 of 256
+Solution was not successful.
+Solved indices: 166 : 166
+Solved batches: 167 of 256
+Solution was not successful.
+Solved indices: 167 : 167
+Solved batches: 168 of 256
+Solution was not successful.
+Solved indices: 168 : 168
+Solved batches: 169 of 256
+Solution was not successful.
+Solved indices: 169 : 169
+Solved batches: 170 of 256
+Solution was not successful.
+Solved indices: 170 : 170
+Solved batches: 171 of 256
+Solution was not successful.
+Solved indices: 171 : 171
+Solved batches: 172 of 256
+Solution was not successful.
+Solved indices: 172 : 172
+Solved batches: 173 of 256
+Solution was not successful.
+Solved indices: 173 : 173
+Solved batches: 174 of 256
+Solution was not successful.
+Solved indices: 174 : 174
+Solved batches: 175 of 256
+Solution was not successful.
+Solved indices: 175 : 175
+Solved batches: 176 of 256
+Solution was not successful.
+Solved indices: 176 : 176
+Solved batches: 177 of 256
+Solution was not successful.
+Solved indices: 177 : 177
+Solved batches: 178 of 256
+Solution was not successful.
+Solved indices: 178 : 178
+Solved batches: 179 of 256
+Solution was not successful.
+Solved indices: 179 : 179
+Solved batches: 180 of 256
+Solution was not successful.
+Solved indices: 180 : 180
+Solved batches: 181 of 256
+Solution was not successful.
+Solved indices: 181 : 181
+Solved batches: 182 of 256
+Solution was not successful.
+Solved indices: 182 : 182
+Solved batches: 183 of 256
+Solution was not successful.
+Solved indices: 183 : 183
+Solved batches: 184 of 256
+Solution was not successful.
+Solved indices: 184 : 184
+Solved batches: 185 of 256
+Solution was not successful.
+Solved indices: 185 : 185
+Solved batches: 186 of 256
+Solution was not successful.
+Solved indices: 186 : 186
+Solved batches: 187 of 256
+Solution was not successful.
+Solved indices: 187 : 187
+Solved batches: 188 of 256
+Solution was not successful.
+Solved indices: 188 : 188
+Solved batches: 189 of 256
+Solution was not successful.
+Solved indices: 189 : 189
+Solved batches: 190 of 256
+Solution was not successful.
+Solved indices: 190 : 190
+Solved batches: 191 of 256
+Solution was not successful.
+Solved indices: 191 : 191
+Solved batches: 192 of 256
+Solution was not successful.
+Solved indices: 192 : 192
+Solved batches: 193 of 256
+Solution was not successful.
+Solved indices: 193 : 193
+Solved batches: 194 of 256
+Solution was not successful.
+Solved indices: 194 : 194
+Solved batches: 195 of 256
+Solution was not successful.
+Solved indices: 195 : 195
+Solved batches: 196 of 256
+Solution was not successful.
+Solved indices: 196 : 196
+Solved batches: 197 of 256
+Solution was not successful.
+Solved indices: 197 : 197
+Solved batches: 198 of 256
+Solution was not successful.
+Solved indices: 198 : 198
+Solved batches: 199 of 256
+Solution was not successful.
+Solved indices: 199 : 199
+Solved batches: 200 of 256
+Solution was not successful.
+Solved indices: 200 : 200
+Solved batches: 201 of 256
+Solution was not successful.
+Solved indices: 201 : 201
+Solved batches: 202 of 256
+Solution was not successful.
+Solved indices: 202 : 202
+Solved batches: 203 of 256
+Solution was not successful.
+Solved indices: 203 : 203
+Solved batches: 204 of 256
+Solution was not successful.
+Solved indices: 204 : 204
+Solved batches: 205 of 256
+Solution was not successful.
+Solved indices: 205 : 205
+Solved batches: 206 of 256
+Solution was not successful.
+Solved indices: 206 : 206
+Solved batches: 207 of 256
+Solution was not successful.
+Solved indices: 207 : 207
+Solved batches: 208 of 256
+Solution was not successful.
+Solved indices: 208 : 208
+Solved batches: 209 of 256
+Solution was not successful.
+Solved indices: 209 : 209
+Solved batches: 210 of 256
+Solution was not successful.
+Solved indices: 210 : 210
+Solved batches: 211 of 256
+Solution was not successful.
+Solved indices: 211 : 211
+Solved batches: 212 of 256
+Solution was not successful.
+Solved indices: 212 : 212
+Solved batches: 213 of 256
+Solution was not successful.
+Solved indices: 213 : 213
+Solved batches: 214 of 256
+Solution was not successful.
+Solved indices: 214 : 214
+Solved batches: 215 of 256
+Solution was not successful.
+Solved indices: 215 : 215
+Solved batches: 216 of 256
+Solution was not successful.
+Solved indices: 216 : 216
+Solved batches: 217 of 256
+Solution was not successful.
+Solved indices: 217 : 217
+Solved batches: 218 of 256
+Solution was not successful.
+Solved indices: 218 : 218
+Solved batches: 219 of 256
+Solution was not successful.
+Solved indices: 219 : 219
+Solved batches: 220 of 256
+Solution was not successful.
+Solved indices: 220 : 220
+Solved batches: 221 of 256
+Solution was not successful.
+Solved indices: 221 : 221
+Solved batches: 222 of 256
+Solution was not successful.
+Solved indices: 222 : 222
+Solved batches: 223 of 256
+Solution was not successful.
+Solved indices: 223 : 223
+Solved batches: 224 of 256
+Solution was not successful.
+Solved indices: 224 : 224
+Solved batches: 225 of 256
+Solution was not successful.
+Solved indices: 225 : 225
+Solved batches: 226 of 256
+Solution was not successful.
+Solved indices: 226 : 226
+Solved batches: 227 of 256
+Solution was not successful.
+Solved indices: 227 : 227
+Solved batches: 228 of 256
+Solution was not successful.
+Solved indices: 228 : 228
+Solved batches: 229 of 256
+Solution was not successful.
+Solved indices: 229 : 229
+Solved batches: 230 of 256
+Solution was not successful.
+Solved indices: 230 : 230
+Solved batches: 231 of 256
+Solution was not successful.
+Solved indices: 231 : 231
+Solved batches: 232 of 256
+Solution was not successful.
+Solved indices: 232 : 232
+Solved batches: 233 of 256
+Solution was not successful.
+Solved indices: 233 : 233
+Solved batches: 234 of 256
+Solution was not successful.
+Solved indices: 234 : 234
+Solved batches: 235 of 256
+Solution was not successful.
+Solved indices: 235 : 235
+Solved batches: 236 of 256
+Solution was not successful.
+Solved indices: 236 : 236
+Solved batches: 237 of 256
+Solution was not successful.
+Solved indices: 237 : 237
+Solved batches: 238 of 256
+Solution was not successful.
+Solved indices: 238 : 238
+Solved batches: 239 of 256
+Solution was not successful.
+Solved indices: 239 : 239
+Solved batches: 240 of 256
+Solution was not successful.
+Solved indices: 240 : 240
+Solved batches: 241 of 256
+Solution was not successful.
+Solved indices: 241 : 241
+Solved batches: 242 of 256
+Solution was not successful.
+Solved indices: 242 : 242
+Solved batches: 243 of 256
+Solution was not successful.
+Solved indices: 243 : 243
+Solved batches: 244 of 256
+Solution was not successful.
+Solved indices: 244 : 244
+Solved batches: 245 of 256
+Solution was not successful.
+Solved indices: 245 : 245
+Solved batches: 246 of 256
+Solution was not successful.
+Solved indices: 246 : 246
+Solved batches: 247 of 256
+Solution was not successful.
+Solved indices: 247 : 247
+Solved batches: 248 of 256
+Solution was not successful.
+Solved indices: 248 : 248
+Solved batches: 249 of 256
+Solution was not successful.
+Solved indices: 249 : 249
+Solved batches: 250 of 256
+Solution was not successful.
+Solved indices: 250 : 250
+Solved batches: 251 of 256
+Solution was not successful.
+Solved indices: 251 : 251
+Solved batches: 252 of 256
+Solution was not successful.
+Solved indices: 252 : 252
+Solved batches: 253 of 256
+Solution was not successful.
+Solved indices: 253 : 253
+Solved batches: 254 of 256
+Solution was not successful.
+Solved indices: 254 : 254
+Solved batches: 255 of 256
+Solution was not successful.
+Solved indices: 255 : 255
+Solved batches: 256 of 256
+
+Data saved
+
+
+Equation: KS
+Mode: train
+Number of samples: 2048
+Solution was not successful.
+Solved indices: 0 : 0
+Solved batches: 1 of 2048
+Solution was not successful.
+Solved indices: 1 : 1
+Solved batches: 2 of 2048
+Solution was not successful.
+Solved indices: 2 : 2
+Solved batches: 3 of 2048
+Solution was not successful.
+Solved indices: 3 : 3
+Solved batches: 4 of 2048
+Solution was not successful.
+Solved indices: 4 : 4
+Solved batches: 5 of 2048
+Solution was not successful.
+Solved indices: 5 : 5
+Solved batches: 6 of 2048
+Solution was not successful.
+Solved indices: 6 : 6
+Solved batches: 7 of 2048
+Solution was not successful.
+Solved indices: 7 : 7
+Solved batches: 8 of 2048
+Solution was not successful.
+Solved indices: 8 : 8
+Solved batches: 9 of 2048
+Solution was not successful.
+Solved indices: 9 : 9
+Solved batches: 10 of 2048
+Solution was not successful.
+Solved indices: 10 : 10
+Solved batches: 11 of 2048
+Solution was not successful.
+Solved indices: 11 : 11
+Solved batches: 12 of 2048
+Solution was not successful.
+Solved indices: 12 : 12
+Solved batches: 13 of 2048
+Solution was not successful.
+Solved indices: 13 : 13
+Solved batches: 14 of 2048
+Solution was not successful.
+Solved indices: 14 : 14
+Solved batches: 15 of 2048
+Solution was not successful.
+Solved indices: 15 : 15
+Solved batches: 16 of 2048
+Solution was not successful.
+Solved indices: 16 : 16
+Solved batches: 17 of 2048
+Solution was not successful.
+Solved indices: 17 : 17
+Solved batches: 18 of 2048
+Solution was not successful.
+Solved indices: 18 : 18
+Solved batches: 19 of 2048
+Solution was not successful.
+Solved indices: 19 : 19
+Solved batches: 20 of 2048
+Solution was not successful.
+Solved indices: 20 : 20
+Solved batches: 21 of 2048
+Solution was not successful.
+Solved indices: 21 : 21
+Solved batches: 22 of 2048
+Solution was not successful.
+Solved indices: 22 : 22
+Solved batches: 23 of 2048
+Solution was not successful.
+Solved indices: 23 : 23
+Solved batches: 24 of 2048
+Solution was not successful.
+Solved indices: 24 : 24
+Solved batches: 25 of 2048
+Solution was not successful.
+Solved indices: 25 : 25
+Solved batches: 26 of 2048
+Solution was not successful.
+Solved indices: 26 : 26
+Solved batches: 27 of 2048
+Solution was not successful.
+Solved indices: 27 : 27
+Solved batches: 28 of 2048
+Solution was not successful.
+Solved indices: 28 : 28
+Solved batches: 29 of 2048
+Solution was not successful.
+Solved indices: 29 : 29
+Solved batches: 30 of 2048
+Solution was not successful.
+Solved indices: 30 : 30
+Solved batches: 31 of 2048
+Solution was not successful.
+Solved indices: 31 : 31
+Solved batches: 32 of 2048
+Solution was not successful.
+Solved indices: 32 : 32
+Solved batches: 33 of 2048
+Solution was not successful.
+Solved indices: 33 : 33
+Solved batches: 34 of 2048
+Solution was not successful.
+Solved indices: 34 : 34
+Solved batches: 35 of 2048
+Solution was not successful.
+Solved indices: 35 : 35
+Solved batches: 36 of 2048
+Solution was not successful.
+Solved indices: 36 : 36
+Solved batches: 37 of 2048
+Solution was not successful.
+Solved indices: 37 : 37
+Solved batches: 38 of 2048
+Solution was not successful.
+Solved indices: 38 : 38
+Solved batches: 39 of 2048
+Solution was not successful.
+Solved indices: 39 : 39
+Solved batches: 40 of 2048
+Solution was not successful.
+Solved indices: 40 : 40
+Solved batches: 41 of 2048
+Solution was not successful.
+Solved indices: 41 : 41
+Solved batches: 42 of 2048
+Solution was not successful.
+Solved indices: 42 : 42
+Solved batches: 43 of 2048
+Solution was not successful.
+Solved indices: 43 : 43
+Solved batches: 44 of 2048
+Solution was not successful.
+Solved indices: 44 : 44
+Solved batches: 45 of 2048
+Solution was not successful.
+Solved indices: 45 : 45
+Solved batches: 46 of 2048
+Solution was not successful.
+Solved indices: 46 : 46
+Solved batches: 47 of 2048
+Solution was not successful.
+Solved indices: 47 : 47
+Solved batches: 48 of 2048
+Solution was not successful.
+Solved indices: 48 : 48
+Solved batches: 49 of 2048
+Solution was not successful.
+Solved indices: 49 : 49
+Solved batches: 50 of 2048
+Solution was not successful.
+Solved indices: 50 : 50
+Solved batches: 51 of 2048
+Solution was not successful.
+Solved indices: 51 : 51
+Solved batches: 52 of 2048
+Solution was not successful.
+Solved indices: 52 : 52
+Solved batches: 53 of 2048
+Solution was not successful.
+Solved indices: 53 : 53
+Solved batches: 54 of 2048
+Solution was not successful.
+Solved indices: 54 : 54
+Solved batches: 55 of 2048
+Solution was not successful.
+Solved indices: 55 : 55
+Solved batches: 56 of 2048
+Solution was not successful.
+Solved indices: 56 : 56
+Solved batches: 57 of 2048
+Solution was not successful.
+Solved indices: 57 : 57
+Solved batches: 58 of 2048
+Solution was not successful.
+Solved indices: 58 : 58
+Solved batches: 59 of 2048
+Solution was not successful.
+Solved indices: 59 : 59
+Solved batches: 60 of 2048
+Solution was not successful.
+Solved indices: 60 : 60
+Solved batches: 61 of 2048
+Solution was not successful.
+Solved indices: 61 : 61
+Solved batches: 62 of 2048
+Solution was not successful.
+Solved indices: 62 : 62
+Solved batches: 63 of 2048
+Solution was not successful.
+Solved indices: 63 : 63
+Solved batches: 64 of 2048
+Solution was not successful.
+Solved indices: 64 : 64
+Solved batches: 65 of 2048
+Solution was not successful.
+Solved indices: 65 : 65
+Solved batches: 66 of 2048
+Solution was not successful.
+Solved indices: 66 : 66
+Solved batches: 67 of 2048
+Solution was not successful.
+Solved indices: 67 : 67
+Solved batches: 68 of 2048
+Solution was not successful.
+Solved indices: 68 : 68
+Solved batches: 69 of 2048
+Solution was not successful.
+Solved indices: 69 : 69
+Solved batches: 70 of 2048
+Solution was not successful.
+Solved indices: 70 : 70
+Solved batches: 71 of 2048
+Solution was not successful.
+Solved indices: 71 : 71
+Solved batches: 72 of 2048
+Solution was not successful.
+Solved indices: 72 : 72
+Solved batches: 73 of 2048
+Solution was not successful.
+Solved indices: 73 : 73
+Solved batches: 74 of 2048
+Solution was not successful.
+Solved indices: 74 : 74
+Solved batches: 75 of 2048
+Solution was not successful.
+Solved indices: 75 : 75
+Solved batches: 76 of 2048
+Solution was not successful.
+Solved indices: 76 : 76
+Solved batches: 77 of 2048
+Solution was not successful.
+Solved indices: 77 : 77
+Solved batches: 78 of 2048
+Solution was not successful.
+Solved indices: 78 : 78
+Solved batches: 79 of 2048
+Solution was not successful.
+Solved indices: 79 : 79
+Solved batches: 80 of 2048
+Solution was not successful.
+Solved indices: 80 : 80
+Solved batches: 81 of 2048
+Solution was not successful.
+Solved indices: 81 : 81
+Solved batches: 82 of 2048
+Solution was not successful.
+Solved indices: 82 : 82
+Solved batches: 83 of 2048
+Solution was not successful.
+Solved indices: 83 : 83
+Solved batches: 84 of 2048
+Solution was not successful.
+Solved indices: 84 : 84
+Solved batches: 85 of 2048
+Solution was not successful.
+Solved indices: 85 : 85
+Solved batches: 86 of 2048
+Solution was not successful.
+Solved indices: 86 : 86
+Solved batches: 87 of 2048
+Solution was not successful.
+Solved indices: 87 : 87
+Solved batches: 88 of 2048
+Solution was not successful.
+Solved indices: 88 : 88
+Solved batches: 89 of 2048
+Solution was not successful.
+Solved indices: 89 : 89
+Solved batches: 90 of 2048
+Solution was not successful.
+Solved indices: 90 : 90
+Solved batches: 91 of 2048
+Solution was not successful.
+Solved indices: 91 : 91
+Solved batches: 92 of 2048
+Solution was not successful.
+Solved indices: 92 : 92
+Solved batches: 93 of 2048
+Solution was not successful.
+Solved indices: 93 : 93
+Solved batches: 94 of 2048
+Solution was not successful.
+Solved indices: 94 : 94
+Solved batches: 95 of 2048
+Solution was not successful.
+Solved indices: 95 : 95
+Solved batches: 96 of 2048
+Solution was not successful.
+Solved indices: 96 : 96
+Solved batches: 97 of 2048
+Solution was not successful.
+Solved indices: 97 : 97
+Solved batches: 98 of 2048
+Solution was not successful.
+Solved indices: 98 : 98
+Solved batches: 99 of 2048
+Solution was not successful.
+Solved indices: 99 : 99
+Solved batches: 100 of 2048
+Solution was not successful.
+Solved indices: 100 : 100
+Solved batches: 101 of 2048
+Solution was not successful.
+Solved indices: 101 : 101
+Solved batches: 102 of 2048
+Solution was not successful.
+Solved indices: 102 : 102
+Solved batches: 103 of 2048
+Solution was not successful.
+Solved indices: 103 : 103
+Solved batches: 104 of 2048
+Solution was not successful.
+Solved indices: 104 : 104
+Solved batches: 105 of 2048
+Solution was not successful.
+Solved indices: 105 : 105
+Solved batches: 106 of 2048
+Solution was not successful.
+Solved indices: 106 : 106
+Solved batches: 107 of 2048
+Solution was not successful.
+Solved indices: 107 : 107
+Solved batches: 108 of 2048
+Solution was not successful.
+Solved indices: 108 : 108
+Solved batches: 109 of 2048
+Solution was not successful.
+Solved indices: 109 : 109
+Solved batches: 110 of 2048
+Solution was not successful.
+Solved indices: 110 : 110
+Solved batches: 111 of 2048
+Solution was not successful.
+Solved indices: 111 : 111
+Solved batches: 112 of 2048
+Solution was not successful.
+Solved indices: 112 : 112
+Solved batches: 113 of 2048
+Solution was not successful.
+Solved indices: 113 : 113
+Solved batches: 114 of 2048
+Solution was not successful.
+Solved indices: 114 : 114
+Solved batches: 115 of 2048
+Solution was not successful.
+Solved indices: 115 : 115
+Solved batches: 116 of 2048
+Solution was not successful.
+Solved indices: 116 : 116
+Solved batches: 117 of 2048
+Solution was not successful.
+Solved indices: 117 : 117
+Solved batches: 118 of 2048
+Solution was not successful.
+Solved indices: 118 : 118
+Solved batches: 119 of 2048
+Solution was not successful.
+Solved indices: 119 : 119
+Solved batches: 120 of 2048
+Solution was not successful.
+Solved indices: 120 : 120
+Solved batches: 121 of 2048
+Solution was not successful.
+Solved indices: 121 : 121
+Solved batches: 122 of 2048
+Solution was not successful.
+Solved indices: 122 : 122
+Solved batches: 123 of 2048
+Solution was not successful.
+Solved indices: 123 : 123
+Solved batches: 124 of 2048
+Solution was not successful.
+Solved indices: 124 : 124
+Solved batches: 125 of 2048
+Solution was not successful.
+Solved indices: 125 : 125
+Solved batches: 126 of 2048
+Solution was not successful.
+Solved indices: 126 : 126
+Solved batches: 127 of 2048
+Solution was not successful.
+Solved indices: 127 : 127
+Solved batches: 128 of 2048
+Solution was not successful.
+Solved indices: 128 : 128
+Solved batches: 129 of 2048
+Solution was not successful.
+Solved indices: 129 : 129
+Solved batches: 130 of 2048
+Solution was not successful.
+Solved indices: 130 : 130
+Solved batches: 131 of 2048
+Solution was not successful.
+Solved indices: 131 : 131
+Solved batches: 132 of 2048
+Solution was not successful.
+Solved indices: 132 : 132
+Solved batches: 133 of 2048
+Solution was not successful.
+Solved indices: 133 : 133
+Solved batches: 134 of 2048
+Solution was not successful.
+Solved indices: 134 : 134
+Solved batches: 135 of 2048
+Solution was not successful.
+Solved indices: 135 : 135
+Solved batches: 136 of 2048
+Solution was not successful.
+Solved indices: 136 : 136
+Solved batches: 137 of 2048
+Solution was not successful.
+Solved indices: 137 : 137
+Solved batches: 138 of 2048
+Solution was not successful.
+Solved indices: 138 : 138
+Solved batches: 139 of 2048
+Solution was not successful.
+Solved indices: 139 : 139
+Solved batches: 140 of 2048
+Solution was not successful.
+Solved indices: 140 : 140
+Solved batches: 141 of 2048
+Solution was not successful.
+Solved indices: 141 : 141
+Solved batches: 142 of 2048
+Solution was not successful.
+Solved indices: 142 : 142
+Solved batches: 143 of 2048
+Solution was not successful.
+Solved indices: 143 : 143
+Solved batches: 144 of 2048
+Solution was not successful.
+Solved indices: 144 : 144
+Solved batches: 145 of 2048
+Solution was not successful.
+Solved indices: 145 : 145
+Solved batches: 146 of 2048
+Solution was not successful.
+Solved indices: 146 : 146
+Solved batches: 147 of 2048
+Solution was not successful.
+Solved indices: 147 : 147
+Solved batches: 148 of 2048
+Solution was not successful.
+Solved indices: 148 : 148
+Solved batches: 149 of 2048
+Solution was not successful.
+Solved indices: 149 : 149
+Solved batches: 150 of 2048
+Solution was not successful.
+Solved indices: 150 : 150
+Solved batches: 151 of 2048
+Solution was not successful.
+Solved indices: 151 : 151
+Solved batches: 152 of 2048
+Solution was not successful.
+Solved indices: 152 : 152
+Solved batches: 153 of 2048
+Solution was not successful.
+Solved indices: 153 : 153
+Solved batches: 154 of 2048
+Solution was not successful.
+Solved indices: 154 : 154
+Solved batches: 155 of 2048
+Solution was not successful.
+Solved indices: 155 : 155
+Solved batches: 156 of 2048
+Solution was not successful.
+Solved indices: 156 : 156
+Solved batches: 157 of 2048
+Solution was not successful.
+Solved indices: 157 : 157
+Solved batches: 158 of 2048
+Solution was not successful.
+Solved indices: 158 : 158
+Solved batches: 159 of 2048
+Solution was not successful.
+Solved indices: 159 : 159
+Solved batches: 160 of 2048
+Solution was not successful.
+Solved indices: 160 : 160
+Solved batches: 161 of 2048
+Solution was not successful.
+Solved indices: 161 : 161
+Solved batches: 162 of 2048
+Solution was not successful.
+Solved indices: 162 : 162
+Solved batches: 163 of 2048
+Solution was not successful.
+Solved indices: 163 : 163
+Solved batches: 164 of 2048
+Solution was not successful.
+Solved indices: 164 : 164
+Solved batches: 165 of 2048
+Solution was not successful.
+Solved indices: 165 : 165
+Solved batches: 166 of 2048
+Solution was not successful.
+Solved indices: 166 : 166
+Solved batches: 167 of 2048
+Solution was not successful.
+Solved indices: 167 : 167
+Solved batches: 168 of 2048
+Solution was not successful.
+Solved indices: 168 : 168
+Solved batches: 169 of 2048
+Solution was not successful.
+Solved indices: 169 : 169
+Solved batches: 170 of 2048
+Solution was not successful.
+Solved indices: 170 : 170
+Solved batches: 171 of 2048
+Solution was not successful.
+Solved indices: 171 : 171
+Solved batches: 172 of 2048
+Solution was not successful.
+Solved indices: 172 : 172
+Solved batches: 173 of 2048
+Solution was not successful.
+Solved indices: 173 : 173
+Solved batches: 174 of 2048
+Solution was not successful.
+Solved indices: 174 : 174
+Solved batches: 175 of 2048
+Solution was not successful.
+Solved indices: 175 : 175
+Solved batches: 176 of 2048
+Solution was not successful.
+Solved indices: 176 : 176
+Solved batches: 177 of 2048
+Solution was not successful.
+Solved indices: 177 : 177
+Solved batches: 178 of 2048
+Solution was not successful.
+Solved indices: 178 : 178
+Solved batches: 179 of 2048
+Solution was not successful.
+Solved indices: 179 : 179
+Solved batches: 180 of 2048
+Solution was not successful.
+Solved indices: 180 : 180
+Solved batches: 181 of 2048
+Solution was not successful.
+Solved indices: 181 : 181
+Solved batches: 182 of 2048
+Solution was not successful.
+Solved indices: 182 : 182
+Solved batches: 183 of 2048
+Solution was not successful.
+Solved indices: 183 : 183
+Solved batches: 184 of 2048
+Solution was not successful.
+Solved indices: 184 : 184
+Solved batches: 185 of 2048
+Solution was not successful.
+Solved indices: 185 : 185
+Solved batches: 186 of 2048
+Solution was not successful.
+Solved indices: 186 : 186
+Solved batches: 187 of 2048
+Solution was not successful.
+Solved indices: 187 : 187
+Solved batches: 188 of 2048
+Solution was not successful.
+Solved indices: 188 : 188
+Solved batches: 189 of 2048
+Solution was not successful.
+Solved indices: 189 : 189
+Solved batches: 190 of 2048
+Solution was not successful.
+Solved indices: 190 : 190
+Solved batches: 191 of 2048
+Solution was not successful.
+Solved indices: 191 : 191
+Solved batches: 192 of 2048
+Solution was not successful.
+Solved indices: 192 : 192
+Solved batches: 193 of 2048
+Solution was not successful.
+Solved indices: 193 : 193
+Solved batches: 194 of 2048
+Solution was not successful.
+Solved indices: 194 : 194
+Solved batches: 195 of 2048
+Solution was not successful.
+Solved indices: 195 : 195
+Solved batches: 196 of 2048
+Solution was not successful.
+Solved indices: 196 : 196
+Solved batches: 197 of 2048
+Solution was not successful.
+Solved indices: 197 : 197
+Solved batches: 198 of 2048
+Solution was not successful.
+Solved indices: 198 : 198
+Solved batches: 199 of 2048
+Solution was not successful.
+Solved indices: 199 : 199
+Solved batches: 200 of 2048
+Solution was not successful.
+Solved indices: 200 : 200
+Solved batches: 201 of 2048
+Solution was not successful.
+Solved indices: 201 : 201
+Solved batches: 202 of 2048
+Solution was not successful.
+Solved indices: 202 : 202
+Solved batches: 203 of 2048
+Solution was not successful.
+Solved indices: 203 : 203
+Solved batches: 204 of 2048
+Solution was not successful.
+Solved indices: 204 : 204
+Solved batches: 205 of 2048
+Solution was not successful.
+Solved indices: 205 : 205
+Solved batches: 206 of 2048
+Solution was not successful.
+Solved indices: 206 : 206
+Solved batches: 207 of 2048
+Solution was not successful.
+Solved indices: 207 : 207
+Solved batches: 208 of 2048
+Solution was not successful.
+Solved indices: 208 : 208
+Solved batches: 209 of 2048
+Solution was not successful.
+Solved indices: 209 : 209
+Solved batches: 210 of 2048
+Solution was not successful.
+Solved indices: 210 : 210
+Solved batches: 211 of 2048
+Solution was not successful.
+Solved indices: 211 : 211
+Solved batches: 212 of 2048
+Solution was not successful.
+Solved indices: 212 : 212
+Solved batches: 213 of 2048
+Solution was not successful.
+Solved indices: 213 : 213
+Solved batches: 214 of 2048
+Solution was not successful.
+Solved indices: 214 : 214
+Solved batches: 215 of 2048
+Solution was not successful.
+Solved indices: 215 : 215
+Solved batches: 216 of 2048
+Solution was not successful.
+Solved indices: 216 : 216
+Solved batches: 217 of 2048
+Solution was not successful.
+Solved indices: 217 : 217
+Solved batches: 218 of 2048
+Solution was not successful.
+Solved indices: 218 : 218
+Solved batches: 219 of 2048
+Solution was not successful.
+Solved indices: 219 : 219
+Solved batches: 220 of 2048
+Solution was not successful.
+Solved indices: 220 : 220
+Solved batches: 221 of 2048
+Solution was not successful.
+Solved indices: 221 : 221
+Solved batches: 222 of 2048
+Solution was not successful.
+Solved indices: 222 : 222
+Solved batches: 223 of 2048
+Solution was not successful.
+Solved indices: 223 : 223
+Solved batches: 224 of 2048
+Solution was not successful.
+Solved indices: 224 : 224
+Solved batches: 225 of 2048
+Solution was not successful.
+Solved indices: 225 : 225
+Solved batches: 226 of 2048
+Solution was not successful.
+Solved indices: 226 : 226
+Solved batches: 227 of 2048
+Solution was not successful.
+Solved indices: 227 : 227
+Solved batches: 228 of 2048
+Solution was not successful.
+Solved indices: 228 : 228
+Solved batches: 229 of 2048
+Solution was not successful.
+Solved indices: 229 : 229
+Solved batches: 230 of 2048
+Solution was not successful.
+Solved indices: 230 : 230
+Solved batches: 231 of 2048
+Solution was not successful.
+Solved indices: 231 : 231
+Solved batches: 232 of 2048
+Solution was not successful.
+Solved indices: 232 : 232
+Solved batches: 233 of 2048
+Solution was not successful.
+Solved indices: 233 : 233
+Solved batches: 234 of 2048
+Solution was not successful.
+Solved indices: 234 : 234
+Solved batches: 235 of 2048
+Solution was not successful.
+Solved indices: 235 : 235
+Solved batches: 236 of 2048
+Solution was not successful.
+Solved indices: 236 : 236
+Solved batches: 237 of 2048
+Solution was not successful.
+Solved indices: 237 : 237
+Solved batches: 238 of 2048
+Solution was not successful.
+Solved indices: 238 : 238
+Solved batches: 239 of 2048
+Solution was not successful.
+Solved indices: 239 : 239
+Solved batches: 240 of 2048
+Solution was not successful.
+Solved indices: 240 : 240
+Solved batches: 241 of 2048
+Solution was not successful.
+Solved indices: 241 : 241
+Solved batches: 242 of 2048
+Solution was not successful.
+Solved indices: 242 : 242
+Solved batches: 243 of 2048
+Solution was not successful.
+Solved indices: 243 : 243
+Solved batches: 244 of 2048
+Solution was not successful.
+Solved indices: 244 : 244
+Solved batches: 245 of 2048
+Solution was not successful.
+Solved indices: 245 : 245
+Solved batches: 246 of 2048
+Solution was not successful.
+Solved indices: 246 : 246
+Solved batches: 247 of 2048
+Solution was not successful.
+Solved indices: 247 : 247
+Solved batches: 248 of 2048
+Solution was not successful.
+Solved indices: 248 : 248
+Solved batches: 249 of 2048
+Solution was not successful.
+Solved indices: 249 : 249
+Solved batches: 250 of 2048
+Solution was not successful.
+Solved indices: 250 : 250
+Solved batches: 251 of 2048
+Solution was not successful.
+Solved indices: 251 : 251
+Solved batches: 252 of 2048
+Solution was not successful.
+Solved indices: 252 : 252
+Solved batches: 253 of 2048
+Solution was not successful.
+Solved indices: 253 : 253
+Solved batches: 254 of 2048
+Solution was not successful.
+Solved indices: 254 : 254
+Solved batches: 255 of 2048
+Solution was not successful.
+Solved indices: 255 : 255
+Solved batches: 256 of 2048
+Solution was not successful.
+Solved indices: 256 : 256
+Solved batches: 257 of 2048
+Solution was not successful.
+Solved indices: 257 : 257
+Solved batches: 258 of 2048
+Solution was not successful.
+Solved indices: 258 : 258
+Solved batches: 259 of 2048
+Solution was not successful.
+Solved indices: 259 : 259
+Solved batches: 260 of 2048
+Solution was not successful.
+Solved indices: 260 : 260
+Solved batches: 261 of 2048
+Solution was not successful.
+Solved indices: 261 : 261
+Solved batches: 262 of 2048
+Solution was not successful.
+Solved indices: 262 : 262
+Solved batches: 263 of 2048
+Solution was not successful.
+Solved indices: 263 : 263
+Solved batches: 264 of 2048
+Solution was not successful.
+Solved indices: 264 : 264
+Solved batches: 265 of 2048
+Solution was not successful.
+Solved indices: 265 : 265
+Solved batches: 266 of 2048
+Solution was not successful.
+Solved indices: 266 : 266
+Solved batches: 267 of 2048
+Solution was not successful.
+Solved indices: 267 : 267
+Solved batches: 268 of 2048
+Solution was not successful.
+Solved indices: 268 : 268
+Solved batches: 269 of 2048
+Solution was not successful.
+Solved indices: 269 : 269
+Solved batches: 270 of 2048
+Solution was not successful.
+Solved indices: 270 : 270
+Solved batches: 271 of 2048
+Solution was not successful.
+Solved indices: 271 : 271
+Solved batches: 272 of 2048
+Solution was not successful.
+Solved indices: 272 : 272
+Solved batches: 273 of 2048
+Solution was not successful.
+Solved indices: 273 : 273
+Solved batches: 274 of 2048
+Solution was not successful.
+Solved indices: 274 : 274
+Solved batches: 275 of 2048
+Solution was not successful.
+Solved indices: 275 : 275
+Solved batches: 276 of 2048
+Solution was not successful.
+Solved indices: 276 : 276
+Solved batches: 277 of 2048
+Solution was not successful.
+Solved indices: 277 : 277
+Solved batches: 278 of 2048
+Solution was not successful.
+Solved indices: 278 : 278
+Solved batches: 279 of 2048
+Solution was not successful.
+Solved indices: 279 : 279
+Solved batches: 280 of 2048
+Solution was not successful.
+Solved indices: 280 : 280
+Solved batches: 281 of 2048
+Solution was not successful.
+Solved indices: 281 : 281
+Solved batches: 282 of 2048
+Solution was not successful.
+Solved indices: 282 : 282
+Solved batches: 283 of 2048
+Solution was not successful.
+Solved indices: 283 : 283
+Solved batches: 284 of 2048
+Solution was not successful.
+Solved indices: 284 : 284
+Solved batches: 285 of 2048
+Solution was not successful.
+Solved indices: 285 : 285
+Solved batches: 286 of 2048
+Solution was not successful.
+Solved indices: 286 : 286
+Solved batches: 287 of 2048
+Solution was not successful.
+Solved indices: 287 : 287
+Solved batches: 288 of 2048
+Solution was not successful.
+Solved indices: 288 : 288
+Solved batches: 289 of 2048
+Solution was not successful.
+Solved indices: 289 : 289
+Solved batches: 290 of 2048
+Solution was not successful.
+Solved indices: 290 : 290
+Solved batches: 291 of 2048
+Solution was not successful.
+Solved indices: 291 : 291
+Solved batches: 292 of 2048
+Solution was not successful.
+Solved indices: 292 : 292
+Solved batches: 293 of 2048
+Solution was not successful.
+Solved indices: 293 : 293
+Solved batches: 294 of 2048
+Solution was not successful.
+Solved indices: 294 : 294
+Solved batches: 295 of 2048
+Solution was not successful.
+Solved indices: 295 : 295
+Solved batches: 296 of 2048
+Solution was not successful.
+Solved indices: 296 : 296
+Solved batches: 297 of 2048
+Solution was not successful.
+Solved indices: 297 : 297
+Solved batches: 298 of 2048
+Solution was not successful.
+Solved indices: 298 : 298
+Solved batches: 299 of 2048
+Solution was not successful.
+Solved indices: 299 : 299
+Solved batches: 300 of 2048
+Solution was not successful.
+Solved indices: 300 : 300
+Solved batches: 301 of 2048
+Solution was not successful.
+Solved indices: 301 : 301
+Solved batches: 302 of 2048
+Solution was not successful.
+Solved indices: 302 : 302
+Solved batches: 303 of 2048
+Solution was not successful.
+Solved indices: 303 : 303
+Solved batches: 304 of 2048
+Solution was not successful.
+Solved indices: 304 : 304
+Solved batches: 305 of 2048
+Solution was not successful.
+Solved indices: 305 : 305
+Solved batches: 306 of 2048
+Solution was not successful.
+Solved indices: 306 : 306
+Solved batches: 307 of 2048
+Solution was not successful.
+Solved indices: 307 : 307
+Solved batches: 308 of 2048
+Solution was not successful.
+Solved indices: 308 : 308
+Solved batches: 309 of 2048
+Solution was not successful.
+Solved indices: 309 : 309
+Solved batches: 310 of 2048
+Solution was not successful.
+Solved indices: 310 : 310
+Solved batches: 311 of 2048
+Solution was not successful.
+Solved indices: 311 : 311
+Solved batches: 312 of 2048
+Solution was not successful.
+Solved indices: 312 : 312
+Solved batches: 313 of 2048
+Solution was not successful.
+Solved indices: 313 : 313
+Solved batches: 314 of 2048
+Solution was not successful.
+Solved indices: 314 : 314
+Solved batches: 315 of 2048
+Solution was not successful.
+Solved indices: 315 : 315
+Solved batches: 316 of 2048
+Solution was not successful.
+Solved indices: 316 : 316
+Solved batches: 317 of 2048
+Solution was not successful.
+Solved indices: 317 : 317
+Solved batches: 318 of 2048
+Solution was not successful.
+Solved indices: 318 : 318
+Solved batches: 319 of 2048
+Solution was not successful.
+Solved indices: 319 : 319
+Solved batches: 320 of 2048
+Solution was not successful.
+Solved indices: 320 : 320
+Solved batches: 321 of 2048
+Solution was not successful.
+Solved indices: 321 : 321
+Solved batches: 322 of 2048
+Solution was not successful.
+Solved indices: 322 : 322
+Solved batches: 323 of 2048
+Solution was not successful.
+Solved indices: 323 : 323
+Solved batches: 324 of 2048
+Solution was not successful.
+Solved indices: 324 : 324
+Solved batches: 325 of 2048
+Solution was not successful.
+Solved indices: 325 : 325
+Solved batches: 326 of 2048
+Solution was not successful.
+Solved indices: 326 : 326
+Solved batches: 327 of 2048
+Solution was not successful.
+Solved indices: 327 : 327
+Solved batches: 328 of 2048
+Solution was not successful.
+Solved indices: 328 : 328
+Solved batches: 329 of 2048
+Solution was not successful.
+Solved indices: 329 : 329
+Solved batches: 330 of 2048
+Solution was not successful.
+Solved indices: 330 : 330
+Solved batches: 331 of 2048
+Solution was not successful.
+Solved indices: 331 : 331
+Solved batches: 332 of 2048
+Solution was not successful.
+Solved indices: 332 : 332
+Solved batches: 333 of 2048
+Solution was not successful.
+Solved indices: 333 : 333
+Solved batches: 334 of 2048
+Solution was not successful.
+Solved indices: 334 : 334
+Solved batches: 335 of 2048
+Solution was not successful.
+Solved indices: 335 : 335
+Solved batches: 336 of 2048
+Solution was not successful.
+Solved indices: 336 : 336
+Solved batches: 337 of 2048
+Solution was not successful.
+Solved indices: 337 : 337
+Solved batches: 338 of 2048
+Solution was not successful.
+Solved indices: 338 : 338
+Solved batches: 339 of 2048
+Solution was not successful.
+Solved indices: 339 : 339
+Solved batches: 340 of 2048
+Solution was not successful.
+Solved indices: 340 : 340
+Solved batches: 341 of 2048
+Solution was not successful.
+Solved indices: 341 : 341
+Solved batches: 342 of 2048
+Solution was not successful.
+Solved indices: 342 : 342
+Solved batches: 343 of 2048
+Solution was not successful.
+Solved indices: 343 : 343
+Solved batches: 344 of 2048
+Solution was not successful.
+Solved indices: 344 : 344
+Solved batches: 345 of 2048
+Solution was not successful.
+Solved indices: 345 : 345
+Solved batches: 346 of 2048
+Solution was not successful.
+Solved indices: 346 : 346
+Solved batches: 347 of 2048
+Solution was not successful.
+Solved indices: 347 : 347
+Solved batches: 348 of 2048
+Solution was not successful.
+Solved indices: 348 : 348
+Solved batches: 349 of 2048
+Solution was not successful.
+Solved indices: 349 : 349
+Solved batches: 350 of 2048
+Solution was not successful.
+Solved indices: 350 : 350
+Solved batches: 351 of 2048
+Solution was not successful.
+Solved indices: 351 : 351
+Solved batches: 352 of 2048
+Solution was not successful.
+Solved indices: 352 : 352
+Solved batches: 353 of 2048
+Solution was not successful.
+Solved indices: 353 : 353
+Solved batches: 354 of 2048
+Solution was not successful.
+Solved indices: 354 : 354
+Solved batches: 355 of 2048
+Solution was not successful.
+Solved indices: 355 : 355
+Solved batches: 356 of 2048
+Solution was not successful.
+Solved indices: 356 : 356
+Solved batches: 357 of 2048
+Solution was not successful.
+Solved indices: 357 : 357
+Solved batches: 358 of 2048
+Solution was not successful.
+Solved indices: 358 : 358
+Solved batches: 359 of 2048
+Solution was not successful.
+Solved indices: 359 : 359
+Solved batches: 360 of 2048
+Solution was not successful.
+Solved indices: 360 : 360
+Solved batches: 361 of 2048
+Solution was not successful.
+Solved indices: 361 : 361
+Solved batches: 362 of 2048
+Solution was not successful.
+Solved indices: 362 : 362
+Solved batches: 363 of 2048
+Solution was not successful.
+Solved indices: 363 : 363
+Solved batches: 364 of 2048
+Solution was not successful.
+Solved indices: 364 : 364
+Solved batches: 365 of 2048
+Solution was not successful.
+Solved indices: 365 : 365
+Solved batches: 366 of 2048
+Solution was not successful.
+Solved indices: 366 : 366
+Solved batches: 367 of 2048
+Solution was not successful.
+Solved indices: 367 : 367
+Solved batches: 368 of 2048
+Solution was not successful.
+Solved indices: 368 : 368
+Solved batches: 369 of 2048
+Solution was not successful.
+Solved indices: 369 : 369
+Solved batches: 370 of 2048
+Solution was not successful.
+Solved indices: 370 : 370
+Solved batches: 371 of 2048
+Solution was not successful.
+Solved indices: 371 : 371
+Solved batches: 372 of 2048
+Solution was not successful.
+Solved indices: 372 : 372
+Solved batches: 373 of 2048
+Solution was not successful.
+Solved indices: 373 : 373
+Solved batches: 374 of 2048
+Solution was not successful.
+Solved indices: 374 : 374
+Solved batches: 375 of 2048
+Solution was not successful.
+Solved indices: 375 : 375
+Solved batches: 376 of 2048
+Solution was not successful.
+Solved indices: 376 : 376
+Solved batches: 377 of 2048
+Solution was not successful.
+Solved indices: 377 : 377
+Solved batches: 378 of 2048
+Solution was not successful.
+Solved indices: 378 : 378
+Solved batches: 379 of 2048
+Solution was not successful.
+Solved indices: 379 : 379
+Solved batches: 380 of 2048
+Solution was not successful.
+Solved indices: 380 : 380
+Solved batches: 381 of 2048
+Solution was not successful.
+Solved indices: 381 : 381
+Solved batches: 382 of 2048
+Solution was not successful.
+Solved indices: 382 : 382
+Solved batches: 383 of 2048
+Solution was not successful.
+Solved indices: 383 : 383
+Solved batches: 384 of 2048
+Solution was not successful.
+Solved indices: 384 : 384
+Solved batches: 385 of 2048
+Solution was not successful.
+Solved indices: 385 : 385
+Solved batches: 386 of 2048
+Solution was not successful.
+Solved indices: 386 : 386
+Solved batches: 387 of 2048
+Solution was not successful.
+Solved indices: 387 : 387
+Solved batches: 388 of 2048
+Solution was not successful.
+Solved indices: 388 : 388
+Solved batches: 389 of 2048
+Solution was not successful.
+Solved indices: 389 : 389
+Solved batches: 390 of 2048
+Solution was not successful.
+Solved indices: 390 : 390
+Solved batches: 391 of 2048
+Solution was not successful.
+Solved indices: 391 : 391
+Solved batches: 392 of 2048
+Solution was not successful.
+Solved indices: 392 : 392
+Solved batches: 393 of 2048
+Solution was not successful.
+Solved indices: 393 : 393
+Solved batches: 394 of 2048
+Solution was not successful.
+Solved indices: 394 : 394
+Solved batches: 395 of 2048
+Solution was not successful.
+Solved indices: 395 : 395
+Solved batches: 396 of 2048
+Solution was not successful.
+Solved indices: 396 : 396
+Solved batches: 397 of 2048
+Solution was not successful.
+Solved indices: 397 : 397
+Solved batches: 398 of 2048
+Solution was not successful.
+Solved indices: 398 : 398
+Solved batches: 399 of 2048
+Solution was not successful.
+Solved indices: 399 : 399
+Solved batches: 400 of 2048
+Solution was not successful.
+Solved indices: 400 : 400
+Solved batches: 401 of 2048
+Solution was not successful.
+Solved indices: 401 : 401
+Solved batches: 402 of 2048
+Solution was not successful.
+Solved indices: 402 : 402
+Solved batches: 403 of 2048
+Solution was not successful.
+Solved indices: 403 : 403
+Solved batches: 404 of 2048
+Solution was not successful.
+Solved indices: 404 : 404
+Solved batches: 405 of 2048
+Solution was not successful.
+Solved indices: 405 : 405
+Solved batches: 406 of 2048
+Solution was not successful.
+Solved indices: 406 : 406
+Solved batches: 407 of 2048
+Solution was not successful.
+Solved indices: 407 : 407
+Solved batches: 408 of 2048
+Solution was not successful.
+Solved indices: 408 : 408
+Solved batches: 409 of 2048
+Solution was not successful.
+Solved indices: 409 : 409
+Solved batches: 410 of 2048
+Solution was not successful.
+Solved indices: 410 : 410
+Solved batches: 411 of 2048
+Solution was not successful.
+Solved indices: 411 : 411
+Solved batches: 412 of 2048
+Solution was not successful.
+Solved indices: 412 : 412
+Solved batches: 413 of 2048
+Solution was not successful.
+Solved indices: 413 : 413
+Solved batches: 414 of 2048
+Solution was not successful.
+Solved indices: 414 : 414
+Solved batches: 415 of 2048
+Solution was not successful.
+Solved indices: 415 : 415
+Solved batches: 416 of 2048
+Solution was not successful.
+Solved indices: 416 : 416
+Solved batches: 417 of 2048
+Solution was not successful.
+Solved indices: 417 : 417
+Solved batches: 418 of 2048
+Solution was not successful.
+Solved indices: 418 : 418
+Solved batches: 419 of 2048
+Solution was not successful.
+Solved indices: 419 : 419
+Solved batches: 420 of 2048
+Solution was not successful.
+Solved indices: 420 : 420
+Solved batches: 421 of 2048
+Solution was not successful.
+Solved indices: 421 : 421
+Solved batches: 422 of 2048
+Solution was not successful.
+Solved indices: 422 : 422
+Solved batches: 423 of 2048
+Solution was not successful.
+Solved indices: 423 : 423
+Solved batches: 424 of 2048
+Solution was not successful.
+Solved indices: 424 : 424
+Solved batches: 425 of 2048
+Solution was not successful.
+Solved indices: 425 : 425
+Solved batches: 426 of 2048
+Solution was not successful.
+Solved indices: 426 : 426
+Solved batches: 427 of 2048
+Solution was not successful.
+Solved indices: 427 : 427
+Solved batches: 428 of 2048
+Solution was not successful.
+Solved indices: 428 : 428
+Solved batches: 429 of 2048
+Solution was not successful.
+Solved indices: 429 : 429
+Solved batches: 430 of 2048
+Solution was not successful.
+Solved indices: 430 : 430
+Solved batches: 431 of 2048
+Solution was not successful.
+Solved indices: 431 : 431
+Solved batches: 432 of 2048
+Solution was not successful.
+Solved indices: 432 : 432
+Solved batches: 433 of 2048
+Solution was not successful.
+Solved indices: 433 : 433
+Solved batches: 434 of 2048
+Solution was not successful.
+Solved indices: 434 : 434
+Solved batches: 435 of 2048
+Solution was not successful.
+Solved indices: 435 : 435
+Solved batches: 436 of 2048
+Solution was not successful.
+Solved indices: 436 : 436
+Solved batches: 437 of 2048
+Solution was not successful.
+Solved indices: 437 : 437
+Solved batches: 438 of 2048
+Solution was not successful.
+Solved indices: 438 : 438
+Solved batches: 439 of 2048
+Solution was not successful.
+Solved indices: 439 : 439
+Solved batches: 440 of 2048
+Solution was not successful.
+Solved indices: 440 : 440
+Solved batches: 441 of 2048
+Solution was not successful.
+Solved indices: 441 : 441
+Solved batches: 442 of 2048
+Solution was not successful.
+Solved indices: 442 : 442
+Solved batches: 443 of 2048
+Solution was not successful.
+Solved indices: 443 : 443
+Solved batches: 444 of 2048
+Solution was not successful.
+Solved indices: 444 : 444
+Solved batches: 445 of 2048
+Solution was not successful.
+Solved indices: 445 : 445
+Solved batches: 446 of 2048
+Solution was not successful.
+Solved indices: 446 : 446
+Solved batches: 447 of 2048
+Solution was not successful.
+Solved indices: 447 : 447
+Solved batches: 448 of 2048
+Solution was not successful.
+Solved indices: 448 : 448
+Solved batches: 449 of 2048
+Solution was not successful.
+Solved indices: 449 : 449
+Solved batches: 450 of 2048
+Solution was not successful.
+Solved indices: 450 : 450
+Solved batches: 451 of 2048
+Solution was not successful.
+Solved indices: 451 : 451
+Solved batches: 452 of 2048
+Solution was not successful.
+Solved indices: 452 : 452
+Solved batches: 453 of 2048
+Solution was not successful.
+Solved indices: 453 : 453
+Solved batches: 454 of 2048
+Solution was not successful.
+Solved indices: 454 : 454
+Solved batches: 455 of 2048
+Solution was not successful.
+Solved indices: 455 : 455
+Solved batches: 456 of 2048
+Solution was not successful.
+Solved indices: 456 : 456
+Solved batches: 457 of 2048
+Solution was not successful.
+Solved indices: 457 : 457
+Solved batches: 458 of 2048
+Solution was not successful.
+Solved indices: 458 : 458
+Solved batches: 459 of 2048
+Solution was not successful.
+Solved indices: 459 : 459
+Solved batches: 460 of 2048
+Solution was not successful.
+Solved indices: 460 : 460
+Solved batches: 461 of 2048
+Solution was not successful.
+Solved indices: 461 : 461
+Solved batches: 462 of 2048
+Solution was not successful.
+Solved indices: 462 : 462
+Solved batches: 463 of 2048
+Solution was not successful.
+Solved indices: 463 : 463
+Solved batches: 464 of 2048
+Solution was not successful.
+Solved indices: 464 : 464
+Solved batches: 465 of 2048
+Solution was not successful.
+Solved indices: 465 : 465
+Solved batches: 466 of 2048
+Solution was not successful.
+Solved indices: 466 : 466
+Solved batches: 467 of 2048
+Solution was not successful.
+Solved indices: 467 : 467
+Solved batches: 468 of 2048
+Solution was not successful.
+Solved indices: 468 : 468
+Solved batches: 469 of 2048
+Solution was not successful.
+Solved indices: 469 : 469
+Solved batches: 470 of 2048
+Solution was not successful.
+Solved indices: 470 : 470
+Solved batches: 471 of 2048
+Solution was not successful.
+Solved indices: 471 : 471
+Solved batches: 472 of 2048
+Solution was not successful.
+Solved indices: 472 : 472
+Solved batches: 473 of 2048
+Solution was not successful.
+Solved indices: 473 : 473
+Solved batches: 474 of 2048
+Solution was not successful.
+Solved indices: 474 : 474
+Solved batches: 475 of 2048
+Solution was not successful.
+Solved indices: 475 : 475
+Solved batches: 476 of 2048
+Solution was not successful.
+Solved indices: 476 : 476
+Solved batches: 477 of 2048
+Solution was not successful.
+Solved indices: 477 : 477
+Solved batches: 478 of 2048
+Solution was not successful.
+Solved indices: 478 : 478
+Solved batches: 479 of 2048
+Solution was not successful.
+Solved indices: 479 : 479
+Solved batches: 480 of 2048
+Solution was not successful.
+Solved indices: 480 : 480
+Solved batches: 481 of 2048
+Solution was not successful.
+Solved indices: 481 : 481
+Solved batches: 482 of 2048
+Solution was not successful.
+Solved indices: 482 : 482
+Solved batches: 483 of 2048
+Solution was not successful.
+Solved indices: 483 : 483
+Solved batches: 484 of 2048
+Solution was not successful.
+Solved indices: 484 : 484
+Solved batches: 485 of 2048
+Solution was not successful.
+Solved indices: 485 : 485
+Solved batches: 486 of 2048
+Solution was not successful.
+Solved indices: 486 : 486
+Solved batches: 487 of 2048
+Solution was not successful.
+Solved indices: 487 : 487
+Solved batches: 488 of 2048
+Solution was not successful.
+Solved indices: 488 : 488
+Solved batches: 489 of 2048
+Solution was not successful.
+Solved indices: 489 : 489
+Solved batches: 490 of 2048
+Solution was not successful.
+Solved indices: 490 : 490
+Solved batches: 491 of 2048
+Solution was not successful.
+Solved indices: 491 : 491
+Solved batches: 492 of 2048
+Solution was not successful.
+Solved indices: 492 : 492
+Solved batches: 493 of 2048
+Solution was not successful.
+Solved indices: 493 : 493
+Solved batches: 494 of 2048
+Solution was not successful.
+Solved indices: 494 : 494
+Solved batches: 495 of 2048
+Solution was not successful.
+Solved indices: 495 : 495
+Solved batches: 496 of 2048
+Solution was not successful.
+Solved indices: 496 : 496
+Solved batches: 497 of 2048
+Solution was not successful.
+Solved indices: 497 : 497
+Solved batches: 498 of 2048
+Solution was not successful.
+Solved indices: 498 : 498
+Solved batches: 499 of 2048
+Solution was not successful.
+Solved indices: 499 : 499
+Solved batches: 500 of 2048
+Solution was not successful.
+Solved indices: 500 : 500
+Solved batches: 501 of 2048
+Solution was not successful.
+Solved indices: 501 : 501
+Solved batches: 502 of 2048
+Solution was not successful.
+Solved indices: 502 : 502
+Solved batches: 503 of 2048
+Solution was not successful.
+Solved indices: 503 : 503
+Solved batches: 504 of 2048
+Solution was not successful.
+Solved indices: 504 : 504
+Solved batches: 505 of 2048
+Solution was not successful.
+Solved indices: 505 : 505
+Solved batches: 506 of 2048
+Solution was not successful.
+Solved indices: 506 : 506
+Solved batches: 507 of 2048
+Solution was not successful.
+Solved indices: 507 : 507
+Solved batches: 508 of 2048
+Solution was not successful.
+Solved indices: 508 : 508
+Solved batches: 509 of 2048
+Solution was not successful.
+Solved indices: 509 : 509
+Solved batches: 510 of 2048
+Solution was not successful.
+Solved indices: 510 : 510
+Solved batches: 511 of 2048
+Solution was not successful.
+Solved indices: 511 : 511
+Solved batches: 512 of 2048
+Solution was not successful.
+Solved indices: 512 : 512
+Solved batches: 513 of 2048
+Solution was not successful.
+Solved indices: 513 : 513
+Solved batches: 514 of 2048
+Solution was not successful.
+Solved indices: 514 : 514
+Solved batches: 515 of 2048
+Solution was not successful.
+Solved indices: 515 : 515
+Solved batches: 516 of 2048
+Solution was not successful.
+Solved indices: 516 : 516
+Solved batches: 517 of 2048
+Solution was not successful.
+Solved indices: 517 : 517
+Solved batches: 518 of 2048
+Solution was not successful.
+Solved indices: 518 : 518
+Solved batches: 519 of 2048
+Solution was not successful.
+Solved indices: 519 : 519
+Solved batches: 520 of 2048
+Solution was not successful.
+Solved indices: 520 : 520
+Solved batches: 521 of 2048
+Solution was not successful.
+Solved indices: 521 : 521
+Solved batches: 522 of 2048
+Solution was not successful.
+Solved indices: 522 : 522
+Solved batches: 523 of 2048
+Solution was not successful.
+Solved indices: 523 : 523
+Solved batches: 524 of 2048
+Solution was not successful.
+Solved indices: 524 : 524
+Solved batches: 525 of 2048
+Solution was not successful.
+Solved indices: 525 : 525
+Solved batches: 526 of 2048
+Solution was not successful.
+Solved indices: 526 : 526
+Solved batches: 527 of 2048
+Solution was not successful.
+Solved indices: 527 : 527
+Solved batches: 528 of 2048
+Solution was not successful.
+Solved indices: 528 : 528
+Solved batches: 529 of 2048
+Solution was not successful.
+Solved indices: 529 : 529
+Solved batches: 530 of 2048
+Solution was not successful.
+Solved indices: 530 : 530
+Solved batches: 531 of 2048
+Solution was not successful.
+Solved indices: 531 : 531
+Solved batches: 532 of 2048
+Solution was not successful.
+Solved indices: 532 : 532
+Solved batches: 533 of 2048
+Solution was not successful.
+Solved indices: 533 : 533
+Solved batches: 534 of 2048
+Solution was not successful.
+Solved indices: 534 : 534
+Solved batches: 535 of 2048
+Solution was not successful.
+Solved indices: 535 : 535
+Solved batches: 536 of 2048
+Solution was not successful.
+Solved indices: 536 : 536
+Solved batches: 537 of 2048
+Solution was not successful.
+Solved indices: 537 : 537
+Solved batches: 538 of 2048
+Solution was not successful.
+Solved indices: 538 : 538
+Solved batches: 539 of 2048
+Solution was not successful.
+Solved indices: 539 : 539
+Solved batches: 540 of 2048
+Solution was not successful.
+Solved indices: 540 : 540
+Solved batches: 541 of 2048
+Solution was not successful.
+Solved indices: 541 : 541
+Solved batches: 542 of 2048
+Solution was not successful.
+Solved indices: 542 : 542
+Solved batches: 543 of 2048
+Solution was not successful.
+Solved indices: 543 : 543
+Solved batches: 544 of 2048
+Solution was not successful.
+Solved indices: 544 : 544
+Solved batches: 545 of 2048
+Solution was not successful.
+Solved indices: 545 : 545
+Solved batches: 546 of 2048
+Solution was not successful.
+Solved indices: 546 : 546
+Solved batches: 547 of 2048
+Solution was not successful.
+Solved indices: 547 : 547
+Solved batches: 548 of 2048
+Solution was not successful.
+Solved indices: 548 : 548
+Solved batches: 549 of 2048
+Solution was not successful.
+Solved indices: 549 : 549
+Solved batches: 550 of 2048
+Solution was not successful.
+Solved indices: 550 : 550
+Solved batches: 551 of 2048
+Solution was not successful.
+Solved indices: 551 : 551
+Solved batches: 552 of 2048
+Solution was not successful.
+Solved indices: 552 : 552
+Solved batches: 553 of 2048
+Solution was not successful.
+Solved indices: 553 : 553
+Solved batches: 554 of 2048
+Solution was not successful.
+Solved indices: 554 : 554
+Solved batches: 555 of 2048

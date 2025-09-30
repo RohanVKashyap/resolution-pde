@@ -1,0 +1,90 @@
+Job started on babel-6-29 at Mon Jul  7 13:42:46 EDT 2025
+Job ID: 5196453
+GPU information:
+Mon Jul  7 13:42:46 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:57:00.0 Off |                    0 |
+| N/A   37C    P8             33W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:D1:00.0 Off |                    0 |
+| N/A   33C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-07-07 13:43:06,447][root][INFO] - model:
+  _target_: CNO.CNO2d_original_version.CNOModule.CNO
+  in_dim: 3
+  out_dim: 3
+  out_size: 1
+  N_layers: 3
+  N_res: 4
+  N_res_neck: 6
+  channel_multiplier: 32
+  conv_kernel: 3
+  cutoff_den: 2.0001
+  filter_size: 6
+  lrelu_upsampling: 2
+  half_width_mult: 0.8
+  radial: false
+  batch_norm: true
+  expand_input: false
+  latent_lift_proj_dim: 64
+  add_inv: true
+  activation: cno_lrelu
+dataset:
+  dataset_params:
+    _target_: dataloaders.active_matter_all_markov.multi_file_active_matter_markov_dataset
+    file_pattern: active_matter_*.hdf5
+    saved_folder: /data/user_data/rvk/well/datasets/active_matter/data/train/
+    reduced_batch: 1
+    reduced_resolution: 1
+    reduced_resolution_t: 1
+    s: 32
+    data_normalizer: true
+    num_samples_max: -1
+  window_size: 15
+  original_res: 256
+  multi_res:
+  - 1
+  - 16
+  train_mres: false
+  pde: navier_stokes_0
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_cno_2d/cno_2d_original
+Model name: CNO.CNO2d_original_version.CNOModule.CNO
+PDE Dataset: navier_stokes_0
+---------------------
+Found 45 files matching pattern: active_matter_*.hdf5
+  1: active_matter_L_10.0_zeta_1.0_alpha_-1.0.hdf5
+  2: active_matter_L_10.0_zeta_1.0_alpha_-2.0.hdf5
+  3: active_matter_L_10.0_zeta_1.0_alpha_-3.0.hdf5
+  4: active_matter_L_10.0_zeta_1.0_alpha_-4.0.hdf5
+  5: active_matter_L_10.0_zeta_1.0_alpha_-5.0.hdf5
+  ... and 40 more files
+Strain-Rate Tensor (D2) shape: (3, 81, 256, 256, 2, 2)
+Orientation Tensor (E2) shape: (3, 81, 256, 256, 2, 2)
+Job completed at Mon Jul  7 13:43:15 EDT 2025

@@ -11,13 +11,12 @@ import scipy
 
 import wandb  
 
-from utils.utils import plot_predictions
 from utils.loss import RelativeL2Loss
 
 # Check for GPU
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-def train(model, train_loader, val_loader, optimizer, scheduler, y_normalizer=None, use_normalizer=False, time=1, model_type=None, epochs=100, device='cuda'):
+def train(model, train_loader, val_loader, optimizer, scheduler, y_normalizer=None, use_normalizer=False, time=1, model_type='ffno', epochs=100, device='cuda'):
     model.train()
     loss_history = []
     val_loss_history = []
@@ -92,10 +91,10 @@ def denormalize_data(data, min_val, max_val):
     return data * (max_val - min_val) + min_val
 
 def evaluate(model, test_loader, 
-                 normalization_type='minmax',
-                 min_data=None, max_data=None, min_model=None, max_model=None,
-                 y_normalizer=None,
-                 pde=None, time=1, model_type='ffno2d', device='cuda'):
+             normalization_type='minmax',
+             min_data=None, max_data=None, min_model=None, max_model=None,
+             y_normalizer=None,
+             time=1, model_type='ffno', device='cuda'):
 
     model.eval()
     total_l2_loss = 0.0

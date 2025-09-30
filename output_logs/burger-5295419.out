@@ -1,0 +1,449 @@
+Job started on babel-2-17 at Sun Aug  3 21:23:44 EDT 2025
+Job ID: 5295419
+GPU information:
+Sun Aug  3 21:23:44 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:52:00.0 Off |                    0 |
+| N/A   26C    P8             30W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:56:00.0 Off |                    0 |
+| N/A   26C    P8             30W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-08-03 21:23:49,134][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  factor: 4
+  n_modes: 16
+  width: 64
+  n_layers: 8
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: true
+  dropout: 0.0
+  mode: full
+  activation: relu
+  use_grid: false
+dataset:
+  dataset_params:
+    _target_: dataloaders.ks.ks_markov_dataset
+    filename: KS_train_2048.h5
+    saved_folder: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200
+    val_filename: KS_valid.h5
+    test_filename: KS_test.h5
+    reduced_batch: 2
+    reduced_resolution: 1
+    reduced_resolution_t: 1
+    s: 32
+    data_normalizer: true
+    num_samples_max: -1
+  window_size: 15
+  original_res: 512
+  multi_res:
+  - 1
+  - 16
+  train_mres: false
+  pde: ks
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: ks_ffno_1d/ffno_1d
+Model name: models.ffno.FFNO1D
+PDE Dataset: ks
+---------------------
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (2048, 100, 32)
+Time data shape: (2048, 100)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (1024, 100, 32)
+Current Spatial Size: 32
+x shape: torch.Size([101376, 1, 32])
+y shape: torch.Size([101376, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+x shape: torch.Size([12672, 1, 32])
+y shape: torch.Size([12672, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+x shape: torch.Size([12672, 1, 32])
+y shape: torch.Size([12672, 1, 32])
+spatial coordinates shape: (32,)
+---------Computing min-max normalization statistics---------------
+Input data range: [-8.100020, 8.097110]
+Output data range: [-8.100020, 8.097110]
+Train dataset size: 101376
+Validation dataset size: 12672
+Test dataset size: 12672
+<dataloaders.ks.ks_markov_dataset.<locals>.MinMaxNormalizedDataset object at 0x14db9a784b90>
+<class 'torch.Tensor'> 0.5000898838043213 0.5000898838043213 0.1835910975933075 0.18392109870910645
+FFNO1D(
+  (in_proj): WNLinear(in_features=1, out_features=64, bias=True)
+  (fourier_layers): ModuleList(
+    (0-7): 8 x FSpectralConv1d(
+      (fourier_weight): ParameterList(  (0): Parameter containing: [torch.float32 of size 64x64x16x2 (cuda:0)])
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=64, out_features=256, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=256, out_features=64, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): Identity()
+            (3): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (out_proj): WNLinear(in_features=64, out_features=1, bias=True)
+)
+Total Model Parameters: 1.31M
+Trainable Parameters: 1.31M
+Epoch 0, Train Loss: 0.13723820, Val Loss: 0.03444139
+Epoch 10, Train Loss: 0.00464627, Val Loss: 0.00415287
+Epoch 20, Train Loss: 0.00212298, Val Loss: 0.00245657
+Epoch 30, Train Loss: 0.00086750, Val Loss: 0.00093053
+Epoch 40, Train Loss: 0.00082025, Val Loss: 0.00075905
+Epoch 50, Train Loss: 0.00039100, Val Loss: 0.00040417
+Epoch 60, Train Loss: 0.00038273, Val Loss: 0.00042408
+Epoch 70, Train Loss: 0.00037805, Val Loss: 0.00052891
+Epoch 80, Train Loss: 0.00018604, Val Loss: 0.00013961
+Epoch 90, Train Loss: 0.00018944, Val Loss: 0.00018264
+Test L2 Loss: 0.004487
+Model saved to checkpoints/ffno1d/ks_5295419.pt
+Created/verified figures directory: figures/5295419
+Evaluating KS model at multiple resolutions
+Using provided normalization statistics from training resolution 32:
+  Input range: [-8.100020, 8.097110]
+  Output range: [-8.100020, 8.097110]
+Testing resolutions: [32, 64, 128, 256, 512]
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (2048, 100, 32)
+Time data shape: (2048, 100)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (1024, 100, 32)
+Current Spatial Size: 32
+x shape: torch.Size([101376, 1, 32])
+y shape: torch.Size([101376, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+x shape: torch.Size([12672, 1, 32])
+y shape: torch.Size([12672, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+x shape: torch.Size([12672, 1, 32])
+y shape: torch.Size([12672, 1, 32])
+spatial coordinates shape: (32,)
+Train dataset size: 101376
+Validation dataset size: 12672
+Test dataset size: 12672
+Selected random indices for plotting: [527, 2348, 4546, 6032, 10418, 8350, 1911, 1039, 9278, 4804]
+Collected 10 examples for resolution 32
+Resolution 32 - Relative L2 Loss: 0.004487
+Memory cleaned after resolution 32
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (2048, 100, 32)
+Time data shape: (2048, 100)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (1024, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 64
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (1024, 100, 64)
+Updated spatial coordinates shape: (64,)
+x shape: torch.Size([101376, 1, 64])
+y shape: torch.Size([101376, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 64
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (128, 100, 64)
+Updated spatial coordinates shape: (64,)
+x shape: torch.Size([12672, 1, 64])
+y shape: torch.Size([12672, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 64
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (128, 100, 64)
+Updated spatial coordinates shape: (64,)
+x shape: torch.Size([12672, 1, 64])
+y shape: torch.Size([12672, 1, 64])
+spatial coordinates shape: (64,)
+Train dataset size: 101376
+Validation dataset size: 12672
+Test dataset size: 12672
+Collected 10 examples for resolution 64
+Resolution 64 - Relative L2 Loss: 0.004489
+Memory cleaned after resolution 64
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (2048, 100, 32)
+Time data shape: (2048, 100)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (1024, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 128
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (1024, 100, 128)
+Updated spatial coordinates shape: (128,)
+x shape: torch.Size([101376, 1, 128])
+y shape: torch.Size([101376, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 128
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (128, 100, 128)
+Updated spatial coordinates shape: (128,)
+x shape: torch.Size([12672, 1, 128])
+y shape: torch.Size([12672, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 128
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (128, 100, 128)
+Updated spatial coordinates shape: (128,)
+x shape: torch.Size([12672, 1, 128])
+y shape: torch.Size([12672, 1, 128])
+spatial coordinates shape: (128,)
+Train dataset size: 101376
+Validation dataset size: 12672
+Test dataset size: 12672
+Collected 10 examples for resolution 128
+Resolution 128 - Relative L2 Loss: 0.004489
+Memory cleaned after resolution 128
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (2048, 100, 32)
+Time data shape: (2048, 100)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (1024, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 256
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (1024, 100, 256)
+Updated spatial coordinates shape: (256,)
+x shape: torch.Size([101376, 1, 256])
+y shape: torch.Size([101376, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 256
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (128, 100, 256)
+Updated spatial coordinates shape: (256,)
+x shape: torch.Size([12672, 1, 256])
+y shape: torch.Size([12672, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 256
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (128, 100, 256)
+Updated spatial coordinates shape: (256,)
+x shape: torch.Size([12672, 1, 256])
+y shape: torch.Size([12672, 1, 256])
+spatial coordinates shape: (256,)
+Train dataset size: 101376
+Validation dataset size: 12672
+Test dataset size: 12672
+Collected 10 examples for resolution 256
+Resolution 256 - Relative L2 Loss: 0.004489
+Memory cleaned after resolution 256
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (2048, 100, 32)
+Time data shape: (2048, 100)
+Spatial coordinates shape: (32,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (1024, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 512
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (1024, 100, 512)
+Updated spatial coordinates shape: (512,)
+x shape: torch.Size([101376, 1, 512])
+y shape: torch.Size([101376, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 512
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (128, 100, 512)
+Updated spatial coordinates shape: (512,)
+x shape: torch.Size([12672, 1, 512])
+y shape: torch.Size([12672, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_32/visc_0.1_L4.0_lmax15_et8.0_nte100_nt200/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_100-32', 't', 'x']
+PDE data shape: (256, 100, 32)
+Time data shape: (256, 100)
+Spatial coordinates shape: (32,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (128, 100, 32)
+Current Spatial Size: 32
+Resizing from 32 to 512
+Upsampling using FFT-based resize_1d function
+Data shape after resizing: (128, 100, 512)
+Updated spatial coordinates shape: (512,)
+x shape: torch.Size([12672, 1, 512])
+y shape: torch.Size([12672, 1, 512])
+spatial coordinates shape: (512,)
+Train dataset size: 101376
+Validation dataset size: 12672
+Test dataset size: 12672
+Collected 10 examples for resolution 512
+Resolution 512 - Relative L2 Loss: 0.004489
+Memory cleaned after resolution 512
+Creating prediction vs target plots...
+Saved prediction plot: figures/5295419/prediction_plots/ks_predictions_vs_targets_10_examples.png
+Saved numerical results: figures/5295419/ks_1d_evaluation_results_20250803_215958.csv
+Saved summary: figures/5295419/ks_1d_evaluation_summary_20250803_215958.txt
+
+==================================================
+KS EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.004487
+Resolution  64: 0.004489
+Resolution 128: 0.004489
+Resolution 256: 0.004489
+Resolution 512: 0.004489
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 32: Relative L2 Loss = 0.004487
+Resolution factor 64: Relative L2 Loss = 0.004489
+Resolution factor 128: Relative L2 Loss = 0.004489
+Resolution factor 256: Relative L2 Loss = 0.004489
+Resolution factor 512: Relative L2 Loss = 0.004489
+
+Evaluation plots saved to: figures/5295419
+Wandb run: https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/i2iy7g8k
+Job completed at Sun Aug  3 22:00:02 EDT 2025

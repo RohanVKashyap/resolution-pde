@@ -1,0 +1,258 @@
+Job started on babel-1-31 at Wed Aug 20 14:38:42 EDT 2025
+Job ID: 5377566
+GPU information:
+Wed Aug 20 14:38:42 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:61:00.0 Off |                  Off |
+| 30%   39C    P8             19W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:E1:00.0 Off |                  Off |
+| 30%   40C    P8             19W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+/home/rvk
+Using device: cuda
+[2025-08-20 14:38:51,247][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  factor: 4
+  n_modes: 16
+  width: 128
+  n_layers: 4
+  ff_weight_norm: true
+  n_ff_layers: 3
+  layer_norm: true
+  dropout: 0.1
+  mode: full
+  activation: gelu
+  use_grid: true
+dataset:
+  dataset_params:
+    _target_: dataloaders.burger_naive_markov.burger_markov_dataset
+    filename: 1D_Burgers_Sols_Nu0.001.hdf5
+    saved_folder: /data/user_data/rvk/pdebench_gen/burgers_1024_0.001/
+    reduced_batch: 16
+    reduced_resolution_t: 1
+    reduced_resolution: 32
+    data_normalizer: true
+    num_samples_max: -1
+    normalization_type: simple
+  train_mres: false
+  window_size: 15
+  original_res: 1024
+  max_test_resolution: 1024
+  resize_to_train: false
+  evaluation_type: naive_downsample
+  pde: burger
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_ffno_1d/ffno_1d
+Model name: models.ffno.FFNO1D
+PDE Dataset: burger
+Loaded Data using naive downsampling
+---------------------
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.001/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (625, 201, 32)
+Total data shape: (625, 201, 32)
+x shape: (124375, 1, 32)
+y shape: (124375, 1, 32)
+grid shape: torch.Size([32, 1])
+---------Using simple global normalization---------------
+Global statistics: X(mean=-0.034290, std=0.630107), Y(mean=-0.034296, std=0.629016)
+Computed from 99500 samples
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+<dataloaders.burger_naive_markov.burger_markov_dataset.<locals>.SimpleNormalizedDataset object at 0x1495cea8ca50>
+<class 'torch.Tensor'> 0.06747069209814072 0.0669480636715889 0.9851500391960144 0.9836351275444031
+FFNO1D(
+  (in_proj): WNLinear(in_features=1, out_features=128, bias=True)
+  (fourier_layers): ModuleList(
+    (0-3): 4 x FSpectralConv1d(
+      (fourier_weight): ParameterList(  (0): Parameter containing: [torch.float32 of size 128x128x16x2 (cuda:0)])
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=128, out_features=512, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=512, out_features=512, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (2): Sequential(
+            (0): Linear(in_features=512, out_features=128, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): Identity()
+            (3): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (out_proj): WNLinear(in_features=128, out_features=1, bias=True)
+)
+Total Model Parameters: 3.68M
+Trainable Parameters: 3.68M
+Epoch 0, Train Loss: 0.11500206, Val Loss: 0.05228034
+Epoch 10, Train Loss: 0.02201087, Val Loss: 0.02088173
+Epoch 20, Train Loss: 0.01918822, Val Loss: 0.01929007
+Epoch 30, Train Loss: 0.01725954, Val Loss: 0.01784055
+Epoch 40, Train Loss: 0.01592728, Val Loss: 0.01626858
+Epoch 50, Train Loss: 0.01465251, Val Loss: 0.01442949
+Epoch 60, Train Loss: 0.01314647, Val Loss: 0.01351114
+Epoch 70, Train Loss: 0.01164720, Val Loss: 0.01295273
+Epoch 80, Train Loss: 0.01069312, Val Loss: 0.01157970
+Epoch 90, Train Loss: 0.00991071, Val Loss: 0.01113274
+Test L2 Loss: 0.010249
+Model saved to checkpoints/ffno1d/burger_5377566.pt
+Created/verified figures directory: figures/5377566
+Evaluating BURGER model at multiple resolutions
+Using normalizer from training resolution 32
+Testing resolutions: [32, 64, 128, 256, 512, 1024]
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.001/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (625, 201, 32)
+Total data shape: (625, 201, 32)
+x shape: (124375, 1, 32)
+y shape: (124375, 1, 32)
+grid shape: torch.Size([32, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Selected random indices for plotting: [845, 7243, 6467, 3139, 8637, 12271, 3978, 8242, 9435, 1921]
+Collected 10 examples for resolution 32
+Resolution 32 (downsample factor: 32) - Relative L2 Loss: 0.010249
+Memory cleaned after resolution 32
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.001/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (625, 201, 64)
+Total data shape: (625, 201, 64)
+x shape: (124375, 1, 64)
+y shape: (124375, 1, 64)
+grid shape: torch.Size([64, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Collected 10 examples for resolution 64
+Resolution 64 (downsample factor: 16) - Relative L2 Loss: 0.092186
+Memory cleaned after resolution 64
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.001/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (625, 201, 128)
+Total data shape: (625, 201, 128)
+x shape: (124375, 1, 128)
+y shape: (124375, 1, 128)
+grid shape: torch.Size([128, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Collected 10 examples for resolution 128
+Resolution 128 (downsample factor: 8) - Relative L2 Loss: 0.097402
+Memory cleaned after resolution 128
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.001/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (625, 201, 256)
+Total data shape: (625, 201, 256)
+x shape: (124375, 1, 256)
+y shape: (124375, 1, 256)
+grid shape: torch.Size([256, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Collected 10 examples for resolution 256
+Resolution 256 (downsample factor: 4) - Relative L2 Loss: 0.097642
+Memory cleaned after resolution 256
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.001/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (625, 201, 512)
+Total data shape: (625, 201, 512)
+x shape: (124375, 1, 512)
+y shape: (124375, 1, 512)
+grid shape: torch.Size([512, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Collected 10 examples for resolution 512
+Resolution 512 (downsample factor: 2) - Relative L2 Loss: 0.097592
+Memory cleaned after resolution 512
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.001/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (625, 201, 1024)
+Total data shape: (625, 201, 1024)
+x shape: (124375, 1, 1024)
+y shape: (124375, 1, 1024)
+grid shape: torch.Size([1024, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Collected 10 examples for resolution 1024
+Resolution 1024 (downsample factor: 1) - Relative L2 Loss: 0.097607
+Memory cleaned after resolution 1024
+
+
+Creating prediction vs target plots...
+Saved prediction plot: figures/5377566/prediction_plots/burger_predictions_vs_targets_10_examples.png
+Saved numerical results: figures/5377566/burger_1d_evaluation_results_20250820_150753.csv
+Saved summary: figures/5377566/burger_1d_evaluation_summary_20250820_150753.txt
+
+==================================================
+BURGER EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.010249
+Resolution  64: 0.092186
+Resolution 128: 0.097402
+Resolution 256: 0.097642
+Resolution 512: 0.097592
+Resolution 1024: 0.097607
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 32: Relative L2 Loss = 0.010249
+Resolution factor 64: Relative L2 Loss = 0.092186
+Resolution factor 128: Relative L2 Loss = 0.097402
+Resolution factor 256: Relative L2 Loss = 0.097642
+Resolution factor 512: Relative L2 Loss = 0.097592
+Resolution factor 1024: Relative L2 Loss = 0.097607
+
+Evaluation plots saved to: figures/5377566
+Wandb run: https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/ty1tffnj
+Job completed at Wed Aug 20 15:07:59 EDT 2025

@@ -1,0 +1,110 @@
+Job started on babel-0-37 at Tue Apr  8 20:36:36 EDT 2025
+Job ID: 4532648
+Using device: cuda
+[2025-04-08 20:36:40,200][root][INFO] - model:
+  _target_: models.s4_1d.S4Model
+  d_input: 10
+  d_output: 1
+  d_model: 64
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 4
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  window_size: 10
+  pde: burger_4.0
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu4.0.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_4.0_s4_1d/s4_1d
+Model name: models.s4_1d.S4Model
+PDE Dataset: burger_4.0
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu4.0.hdf5
+(10000, 201, 1024)
+Total data shape: (2500, 201, 1024)
+x shape: (477500, 10, 1024)
+y shape: (477500, 1, 1024)
+grid shape: torch.Size([1024, 1])
+---------Using data normalizer---------------
+Train dataset size: 382000
+Validation dataset size: 47750
+Test dataset size: 47750
+<class 'torch.Tensor'> 0.18344947695732117 0.18349947035312653 0.9472184181213379 0.9472225904464722
+Sample Input shape: torch.Size([64, 10, 1024])
+Sample Output shape: torch.Size([64, 1, 1024])
+S4Model(
+  (encoder): Linear(in_features=11, out_features=64, bias=True)
+  (s4_layers): ModuleList(
+    (0-3): 4 x S4D(
+      (kernel): S4DKernel()
+      (activation): GELU(approximate='none')
+      (dropout): DropoutNd()
+      (output_linear): Sequential(
+        (0): Conv1d(64, 128, kernel_size=(1,), stride=(1,))
+        (1): GLU(dim=-2)
+      )
+    )
+  )
+  (norms): ModuleList(
+    (0-3): 4 x LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0-3): 4 x Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=64, out_features=1, bias=True)
+)
+Epoch 0, Train Loss: 0.18327353, Val Loss: 0.07306315
+Epoch 10, Train Loss: 0.01101964, Val Loss: 0.02130938
+Epoch 20, Train Loss: 0.00978637, Val Loss: 0.00753711
+Epoch 30, Train Loss: 0.00725656, Val Loss: 0.00680891
+Epoch 40, Train Loss: 0.00625059, Val Loss: 0.02221721
+Epoch 50, Train Loss: 0.00480739, Val Loss: 0.00619255
+Epoch 60, Train Loss: 0.00341796, Val Loss: 0.00203375
+Epoch 70, Train Loss: 0.00215083, Val Loss: 0.00243228
+Epoch 80, Train Loss: 0.00117938, Val Loss: 0.00271746
+Epoch 90, Train Loss: 0.00058682, Val Loss: 0.00212162
+Test L2 Loss: 0.002156
+-----Visualizing Saved------
+Figure saved to output_logs/predictions/burger_4.0_fno_4532648_predictions.png
+Model saved to checkpoints/s4model/burger_4.0_4532648.pt
+Original test data shape: x=torch.Size([47750, 10, 1024]), y=torch.Size([47750, 1, 1024])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.002156
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([47750, 10, 512]), y=torch.Size([47750, 1, 512])
+Resolution factor 2 - Relative L2 Loss: 0.001914
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([47750, 10, 256]), y=torch.Size([47750, 1, 256])
+Resolution factor 4 - Relative L2 Loss: 0.001933
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([47750, 10, 128]), y=torch.Size([47750, 1, 128])
+Resolution factor 8 - Relative L2 Loss: 0.001917
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([47750, 10, 64]), y=torch.Size([47750, 1, 64])
+Resolution factor 16 - Relative L2 Loss: 0.001918
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([47750, 10, 32]), y=torch.Size([47750, 1, 32])
+Resolution factor 32 - Relative L2 Loss: 0.001899
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.002156
+Resolution factor 2: Relative L2 Loss = 0.001914
+Resolution factor 4: Relative L2 Loss = 0.001933
+Resolution factor 8: Relative L2 Loss = 0.001917
+Resolution factor 16: Relative L2 Loss = 0.001918
+Resolution factor 32: Relative L2 Loss = 0.001899
+Job completed at Wed Apr  9 00:37:21 EDT 2025

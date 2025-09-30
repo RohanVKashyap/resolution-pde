@@ -1,0 +1,113 @@
+Job started on babel-0-23 at Fri Mar 28 10:00:34 EDT 2025
+Job ID: 4468949
+Using device: cuda
+[2025-03-28 10:00:39,620][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  width: 32
+  n_modes: 32
+  factor: 4
+  n_layers: 4
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: false
+  grid: null
+  dropout: 0.0
+  mode: full
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 16
+  pde: burger_0.01
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.01.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_0.01_ffno_1d/ffno_1d
+Model name: models.ffno.FFNO1D
+PDE Dataset: burger_0.01
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu0.01.hdf5
+(10000, 201, 1024)
+Total data shape: (10000, 13, 1024)
+x shape: (110000, 1, 1024)
+y shape: (110000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+---------Using data normalizer---------------
+Train dataset size: 88000
+Validation dataset size: 11000
+Test dataset size: 11000
+<class 'torch.Tensor'> -0.08724543452262878 -0.08858335018157959 1.1826459169387817 1.1924684047698975
+Sample Input shape: torch.Size([64, 1, 1024])
+Sample Output shape: torch.Size([64, 1, 1024])
+FFNO1D(
+  (in_proj): WNLinear(in_features=2, out_features=32, bias=True)
+  (fourier_layers): ModuleList(
+    (0-3): 4 x FSpectralConv1d(
+      (fourier_weight): ParameterList(  (0): Parameter containing: [torch.float32 of size 32x32x32x2 (cuda:0)])
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=32, out_features=128, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=128, out_features=32, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): Identity()
+            (3): Identity()
+          )
+        )
+      )
+      (act): Identity()
+    )
+  )
+  (out_proj): WNLinear(in_features=32, out_features=1, bias=True)
+)
+Epoch 0, Train Loss: 0.07632472, Val Loss: 0.02043980
+Epoch 10, Train Loss: 0.00903975, Val Loss: 0.00599900
+Epoch 20, Train Loss: 0.00659662, Val Loss: 0.00830584
+Epoch 30, Train Loss: 0.00492516, Val Loss: 0.00449876
+Epoch 40, Train Loss: 0.00365736, Val Loss: 0.00266102
+Epoch 50, Train Loss: 0.00260168, Val Loss: 0.00311017
+Epoch 60, Train Loss: 0.00183225, Val Loss: 0.00217249
+Epoch 70, Train Loss: 0.00113821, Val Loss: 0.00092419
+Epoch 80, Train Loss: 0.00067025, Val Loss: 0.00059884
+Epoch 90, Train Loss: 0.00038639, Val Loss: 0.00043258
+Test L2 Loss: 0.000324
+-----Visualizing Saved------
+Figure saved to output_logs/predictions/burger_0.01_fno_4468949_predictions.png
+Original test data shape: x=torch.Size([11000, 1, 1024]), y=torch.Size([11000, 1, 1024])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.000324
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([11000, 1, 512]), y=torch.Size([11000, 1, 512])
+Resolution factor 2 - Relative L2 Loss: 0.007404
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([11000, 1, 256]), y=torch.Size([11000, 1, 256])
+Resolution factor 4 - Relative L2 Loss: 0.007402
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([11000, 1, 128]), y=torch.Size([11000, 1, 128])
+Resolution factor 8 - Relative L2 Loss: 0.007401
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([11000, 1, 64]), y=torch.Size([11000, 1, 64])
+Resolution factor 16 - Relative L2 Loss: 0.007509
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([11000, 1, 32]), y=torch.Size([11000, 1, 32])
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mvivid-serenity-33[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/glnw90yn[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250328_100059-glnw90yn/logs[0m
+Job completed at Fri Mar 28 10:25:44 EDT 2025

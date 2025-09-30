@@ -1,0 +1,43 @@
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.1.1
+    latest version: 25.7.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+CondaError: Run 'conda init' before 'conda activate'
+
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.1.1
+    latest version: 25.7.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.1.1
+    latest version: 25.7.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+WARNING: jax 0.7.1 does not provide the extra 'cuda12-pip'
+WARNING:2025-08-20 13:30:50,259:jax._src.xla_bridge:864: An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+Traceback (most recent call last):
+  File "/home/rvk/PDEBench/pdebench/data_gen/data_gen_NLE/BurgersEq/burgers_multi_solution_Hydra.py", line 164, in <module>
+    from utils import Courant, Courant_diff, bc, init_multi, limiting
+ModuleNotFoundError: No module named 'utils'
+srun: error: babel-0-31: task 0: Exited with exit code 1

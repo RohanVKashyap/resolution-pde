@@ -1,0 +1,974 @@
+Job started on shire-1-10 at Mon Sep 22 06:22:43 AM EDT 2025
+Job ID: 5563201
+GPU information:
+Mon Sep 22 06:22:43 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:81:00.0 Off |                  Off |
+| 30%   35C    P8             29W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:A1:00.0 Off |                  Off |
+| 30%   34C    P8             28W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-09-22 06:22:49,468][root][INFO] - model:
+  _target_: models.unet.UNet1d
+  in_channels: 1
+  out_channels: 1
+  width: 64
+dataset:
+  dataset_params:
+    _target_: dataloaders.burger_naive_true_multires.burger_true_multires_markov_dataset
+    filename_pattern: 1D_Burgers_Sols_Nu*.hdf5
+    saved_folder: /data/user_data/rvk/pdebench_gen/
+    viscosity: 0.0001
+    reduced_batch: 1
+    reduced_resolution_t: 1
+    data_mres_size:
+      1024: 100
+      512: 0
+      256: 0
+      128: 0
+    add_res:
+    - 32
+    - 64
+    add_res_samples:
+      64: 1900
+      32: 0
+    downsample_from_res: 128
+    data_normalizer: true
+    normalization_type: simple
+    num_samples_max: -1
+    eval_dataset_target: dataloaders.burger_naive_markov.burger_markov_dataset
+    eval_filename: 1D_Burgers_Sols_Nu0.0001.hdf5
+    eval_saved_folder: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/
+  resize_to_train: false
+  evaluation_type: naive_downsample
+  window_size: 15
+  original_res: 1024
+  max_test_resolution: 1024
+  train_mres: true
+  pde: burger
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_unet/unet_1d
+Model name: models.unet.UNet1d
+PDE Dataset: burger
+This is True Multi-Resolution Training. Train Resolution is the highest data resolution in the multi-resolution data
+---------------------
+Creating true multi-resolution dataset from /data/user_data/rvk/pdebench_gen/
+Viscosity: 0.0001
+Target samples per resolution (from files): {1024: 100, 512: 0, 256: 0, 128: 0}
+Additional downsampled resolutions: [32, 64]
+Target samples per downsampled resolution: {64: 1900, 32: 0}
+Will downsample from resolution: 128
+Loading multi-resolution data from /data/user_data/rvk/pdebench_gen/
+Viscosity: 0.0001
+Target samples per resolution (from files): {1024: 100, 512: 0, 256: 0, 128: 0}
+Additional downsampled resolutions: [32, 64]
+Target samples per downsampled resolution: {64: 1900, 32: 0}
+Will downsample from resolution: 128
+Loading resolution 1024 from /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  Original data shape for 1024: (10000, 201, 1024)
+  After time reduction: (10000, 201, 1024)
+  Split 'train' data shape: (8000, 201, 1024)
+  Subsampled to 80 samples for train split
+  Added 15920 sample pairs from resolution 1024
+Adding downsampled resolutions: [32, 64]
+Adding downsampled data from /data/user_data/rvk/pdebench_gen/burgers_128_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  No downsampled samples allocated for train split at resolution 32
+  Added 302480 downsampled samples at resolution 64
+Total samples loaded: 318400
+Resolution distribution:
+  1024_file: 15920 samples
+  64_downsampled: 302480 samples
+Sample x shapes: [(1, 1024), (1, 1024), (1, 1024)]
+Sample y shapes: [(1, 1024), (1, 1024), (1, 1024)]
+Loading multi-resolution data from /data/user_data/rvk/pdebench_gen/
+Viscosity: 0.0001
+Target samples per resolution (from files): {1024: 100, 512: 0, 256: 0, 128: 0}
+Additional downsampled resolutions: [32, 64]
+Target samples per downsampled resolution: {64: 1900, 32: 0}
+Will downsample from resolution: 128
+Loading resolution 1024 from /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  Original data shape for 1024: (10000, 201, 1024)
+  After time reduction: (10000, 201, 1024)
+  Split 'val' data shape: (1000, 201, 1024)
+  Subsampled to 10 samples for val split
+  Added 1990 sample pairs from resolution 1024
+Adding downsampled resolutions: [32, 64]
+Adding downsampled data from /data/user_data/rvk/pdebench_gen/burgers_128_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  No downsampled samples allocated for val split at resolution 32
+  Added 37810 downsampled samples at resolution 64
+Total samples loaded: 39800
+Resolution distribution:
+  1024_file: 1990 samples
+  64_downsampled: 37810 samples
+Sample x shapes: [(1, 1024), (1, 1024), (1, 1024)]
+Sample y shapes: [(1, 1024), (1, 1024), (1, 1024)]
+Loading multi-resolution data from /data/user_data/rvk/pdebench_gen/
+Viscosity: 0.0001
+Target samples per resolution (from files): {1024: 100, 512: 0, 256: 0, 128: 0}
+Additional downsampled resolutions: [32, 64]
+Target samples per downsampled resolution: {64: 1900, 32: 0}
+Will downsample from resolution: 128
+Loading resolution 1024 from /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  Original data shape for 1024: (10000, 201, 1024)
+  After time reduction: (10000, 201, 1024)
+  Split 'test' data shape: (1000, 201, 1024)
+  Subsampled to 10 samples for test split
+  Added 1990 sample pairs from resolution 1024
+Adding downsampled resolutions: [32, 64]
+Adding downsampled data from /data/user_data/rvk/pdebench_gen/burgers_128_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  No downsampled samples allocated for test split at resolution 32
+  Added 37810 downsampled samples at resolution 64
+Total samples loaded: 39800
+Resolution distribution:
+  1024_file: 1990 samples
+  64_downsampled: 37810 samples
+Sample x shapes: [(1, 1024), (1, 1024), (1, 1024)]
+Sample y shapes: [(1, 1024), (1, 1024), (1, 1024)]
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+Viscosity: 0.0001
+Loading trajectories from resolution 1024: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  Original data shape: (10000, 201, 1024)
+  After time reduction: (10000, 201, 1024)
+  Test split data shape: (1000, 201, 1024)
+  Subsampled to 10 test trajectories
+  Extracted 10 complete trajectories from resolution 1024
+
+Total extracted trajectories: 10
+Trajectory shapes: [torch.Size([201, 1024]), torch.Size([201, 1024]), torch.Size([201, 1024])]
+Resolution distribution:
+  Resolution 1024: 10 trajectories
+Rollout test dataset created with 10 trajectories
+---------Using simple global normalization---------------
+Global statistics: X(mean=-0.021395, std=0.629675), Y(mean=-0.021395, std=0.628608)
+
+Final dataset sizes:
+Train dataset size: 318400
+Validation dataset size: 39800
+Test dataset size: 39800
+Rollout test dataset size: 10
+<dataloaders.burger_naive_true_multires.burger_true_multires_markov_dataset.<locals>.SimpleNormalizedDataset object at 0x14945d6a82d0>
+Created resolution groups:
+  Resolution 1024: 15920 samples
+  Resolution 64: 302480 samples
+Created resolution groups:
+  Resolution 1024: 1990 samples
+  Resolution 64: 37810 samples
+Created resolution groups:
+  Resolution 1024: 1990 samples
+  Resolution 64: 37810 samples
+<class 'torch.Tensor'> -0.2598469853401184 -0.26055920124053955 1.141474723815918 1.143191933631897
+UNet1d(
+  (encoder1): Sequential(
+    (enc1conv1): Conv1d(1, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh1): Tanh()
+    (enc1conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh2): Tanh()
+  )
+  (pool1): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder2): Sequential(
+    (enc2conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh1): Tanh()
+    (enc2conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh2): Tanh()
+  )
+  (pool2): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder3): Sequential(
+    (enc3conv1): Conv1d(128, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh1): Tanh()
+    (enc3conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh2): Tanh()
+  )
+  (pool3): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder4): Sequential(
+    (enc4conv1): Conv1d(256, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh1): Tanh()
+    (enc4conv2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh2): Tanh()
+  )
+  (pool4): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (bottleneck): Sequential(
+    (bottleneckconv1): Conv1d(512, 1024, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh1): Tanh()
+    (bottleneckconv2): Conv1d(1024, 1024, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm2): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh2): Tanh()
+  )
+  (upconv4): ConvTranspose1d(1024, 512, kernel_size=(2,), stride=(2,))
+  (decoder4): Sequential(
+    (dec4conv1): Conv1d(1024, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh1): Tanh()
+    (dec4conv2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh2): Tanh()
+  )
+  (upconv3): ConvTranspose1d(512, 256, kernel_size=(2,), stride=(2,))
+  (decoder3): Sequential(
+    (dec3conv1): Conv1d(512, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh1): Tanh()
+    (dec3conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh2): Tanh()
+  )
+  (upconv2): ConvTranspose1d(256, 128, kernel_size=(2,), stride=(2,))
+  (decoder2): Sequential(
+    (dec2conv1): Conv1d(256, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh1): Tanh()
+    (dec2conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh2): Tanh()
+  )
+  (upconv1): ConvTranspose1d(128, 64, kernel_size=(2,), stride=(2,))
+  (decoder1): Sequential(
+    (dec1conv1): Conv1d(128, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh1): Tanh()
+    (dec1conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh2): Tanh()
+  )
+  (conv): Conv1d(64, 1, kernel_size=(1,), stride=(1,))
+)
+Total Model Parameters: 10.82M
+Trainable Parameters: 10.82M
+Epoch 0, Train Loss: 0.31339512, Val Loss: 0.11751862
+Epoch 10, Train Loss: 0.12123567, Val Loss: 0.05978332
+Epoch 20, Train Loss: 0.09589101, Val Loss: 0.08268184
+Epoch 30, Train Loss: 0.08493443, Val Loss: 0.05651549
+Epoch 40, Train Loss: 0.07911487, Val Loss: 0.04049290
+Epoch 50, Train Loss: 0.07364306, Val Loss: 0.09804509
+Epoch 60, Train Loss: 0.06834075, Val Loss: 0.05515556
+Epoch 70, Train Loss: 0.06240045, Val Loss: 0.05540477
+Epoch 80, Train Loss: 0.05973273, Val Loss: 0.08027061
+Epoch 90, Train Loss: 0.05693741, Val Loss: 0.06595444
+Test L2 Loss: 0.061870
+Model saved to checkpoints/unet1d/burger_5563201.pt
+Created/verified figures directory: figures/5563201
+Evaluating BURGER model at multiple resolutions
+Using normalizer from training resolution 1024
+Testing resolutions: [32, 64, 128, 256, 512, 1024]
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 32)
+Total data shape: (10000, 201, 32)
+x shape: (1990000, 1, 32)
+y shape: (1990000, 1, 32)
+grid shape: torch.Size([32, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 32)
+Total data shape after sampling: (10000, 201, 32)
+Test split data shape: (1000, 201, 32)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 32]), torch.Size([201, 32]), torch.Size([201, 32])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Selected random indices for plotting: [42572, 88673, 161546, 91609, 144133, 140360, 18773, 156250, 57462, 143112]
+Collected 10 examples for resolution 32
+Resolution 32 (downsample factor: 32) - Relative L2 Loss: 0.094362
+Memory cleaned after resolution 32
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 64)
+Total data shape: (10000, 201, 64)
+x shape: (1990000, 1, 64)
+y shape: (1990000, 1, 64)
+grid shape: torch.Size([64, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 64)
+Total data shape after sampling: (10000, 201, 64)
+Test split data shape: (1000, 201, 64)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 64]), torch.Size([201, 64]), torch.Size([201, 64])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Collected 10 examples for resolution 64
+Resolution 64 (downsample factor: 16) - Relative L2 Loss: 0.081197
+Memory cleaned after resolution 64
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 128)
+Total data shape: (10000, 201, 128)
+x shape: (1990000, 1, 128)
+y shape: (1990000, 1, 128)
+grid shape: torch.Size([128, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 128)
+Total data shape after sampling: (10000, 201, 128)
+Test split data shape: (1000, 201, 128)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 128]), torch.Size([201, 128]), torch.Size([201, 128])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Collected 10 examples for resolution 128
+Resolution 128 (downsample factor: 8) - Relative L2 Loss: 0.085996
+Memory cleaned after resolution 128
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 256)
+Total data shape: (10000, 201, 256)
+x shape: (1990000, 1, 256)
+y shape: (1990000, 1, 256)
+grid shape: torch.Size([256, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 256)
+Total data shape after sampling: (10000, 201, 256)
+Test split data shape: (1000, 201, 256)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 256]), torch.Size([201, 256]), torch.Size([201, 256])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Collected 10 examples for resolution 256
+Resolution 256 (downsample factor: 4) - Relative L2 Loss: 0.095965
+Memory cleaned after resolution 256
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 512)
+Total data shape: (10000, 201, 512)
+x shape: (1990000, 1, 512)
+y shape: (1990000, 1, 512)
+grid shape: torch.Size([512, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 512)
+Total data shape after sampling: (10000, 201, 512)
+Test split data shape: (1000, 201, 512)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 512]), torch.Size([201, 512]), torch.Size([201, 512])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Collected 10 examples for resolution 512
+Resolution 512 (downsample factor: 2) - Relative L2 Loss: 0.101809
+Memory cleaned after resolution 512
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 1024)
+Total data shape: (10000, 201, 1024)
+x shape: (1990000, 1, 1024)
+y shape: (1990000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 1024)
+Total data shape after sampling: (10000, 201, 1024)
+Test split data shape: (1000, 201, 1024)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 1024]), torch.Size([201, 1024]), torch.Size([201, 1024])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Collected 10 examples for resolution 1024
+Resolution 1024 (downsample factor: 1) - Relative L2 Loss: 0.104550
+Memory cleaned after resolution 1024
+
+
+Creating prediction vs target plots...
+Saved prediction plot: figures/5563201/prediction_plots/burger_predictions_vs_targets_10_examples.png
+Saved numerical results: figures/5563201/burger_1d_evaluation_results_20250922_110941.csv
+Saved summary: figures/5563201/burger_1d_evaluation_summary_20250922_110941.txt
+
+==================================================
+BURGER EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.094362
+Resolution  64: 0.081197
+Resolution 128: 0.085996
+Resolution 256: 0.095965
+Resolution 512: 0.101809
+Resolution 1024: 0.104550
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mdeft-yogurt-84[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/unet1d/runs/0p8zsbvy[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250922_062322-0p8zsbvy/logs[0m
+Using device: cuda
+[2025-09-22 11:09:48,578][root][INFO] - model:
+  _target_: models.unet.UNet1d
+  in_channels: 1
+  out_channels: 1
+  width: 64
+dataset:
+  dataset_params:
+    _target_: dataloaders.burger_naive_true_multires.burger_true_multires_markov_dataset
+    filename_pattern: 1D_Burgers_Sols_Nu*.hdf5
+    saved_folder: /data/user_data/rvk/pdebench_gen/
+    viscosity: 0.0001
+    reduced_batch: 1
+    reduced_resolution_t: 1
+    data_mres_size:
+      1024: 200
+      512: 0
+      256: 0
+      128: 0
+    add_res:
+    - 32
+    - 64
+    add_res_samples:
+      64: 1800
+      32: 0
+    downsample_from_res: 128
+    data_normalizer: true
+    normalization_type: simple
+    num_samples_max: -1
+    eval_dataset_target: dataloaders.burger_naive_markov.burger_markov_dataset
+    eval_filename: 1D_Burgers_Sols_Nu0.0001.hdf5
+    eval_saved_folder: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/
+  resize_to_train: false
+  evaluation_type: naive_downsample
+  window_size: 15
+  original_res: 1024
+  max_test_resolution: 1024
+  train_mres: true
+  pde: burger
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_unet/unet_1d
+Model name: models.unet.UNet1d
+PDE Dataset: burger
+This is True Multi-Resolution Training. Train Resolution is the highest data resolution in the multi-resolution data
+---------------------
+Creating true multi-resolution dataset from /data/user_data/rvk/pdebench_gen/
+Viscosity: 0.0001
+Target samples per resolution (from files): {1024: 200, 512: 0, 256: 0, 128: 0}
+Additional downsampled resolutions: [32, 64]
+Target samples per downsampled resolution: {64: 1800, 32: 0}
+Will downsample from resolution: 128
+Loading multi-resolution data from /data/user_data/rvk/pdebench_gen/
+Viscosity: 0.0001
+Target samples per resolution (from files): {1024: 200, 512: 0, 256: 0, 128: 0}
+Additional downsampled resolutions: [32, 64]
+Target samples per downsampled resolution: {64: 1800, 32: 0}
+Will downsample from resolution: 128
+Loading resolution 1024 from /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  Original data shape for 1024: (10000, 201, 1024)
+  After time reduction: (10000, 201, 1024)
+  Split 'train' data shape: (8000, 201, 1024)
+  Subsampled to 160 samples for train split
+  Added 31840 sample pairs from resolution 1024
+Adding downsampled resolutions: [32, 64]
+Adding downsampled data from /data/user_data/rvk/pdebench_gen/burgers_128_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  No downsampled samples allocated for train split at resolution 32
+  Added 286560 downsampled samples at resolution 64
+Total samples loaded: 318400
+Resolution distribution:
+  1024_file: 31840 samples
+  64_downsampled: 286560 samples
+Sample x shapes: [(1, 1024), (1, 1024), (1, 1024)]
+Sample y shapes: [(1, 1024), (1, 1024), (1, 1024)]
+Loading multi-resolution data from /data/user_data/rvk/pdebench_gen/
+Viscosity: 0.0001
+Target samples per resolution (from files): {1024: 200, 512: 0, 256: 0, 128: 0}
+Additional downsampled resolutions: [32, 64]
+Target samples per downsampled resolution: {64: 1800, 32: 0}
+Will downsample from resolution: 128
+Loading resolution 1024 from /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  Original data shape for 1024: (10000, 201, 1024)
+  After time reduction: (10000, 201, 1024)
+  Split 'val' data shape: (1000, 201, 1024)
+  Subsampled to 20 samples for val split
+  Added 3980 sample pairs from resolution 1024
+Adding downsampled resolutions: [32, 64]
+Adding downsampled data from /data/user_data/rvk/pdebench_gen/burgers_128_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  No downsampled samples allocated for val split at resolution 32
+  Added 35820 downsampled samples at resolution 64
+Total samples loaded: 39800
+Resolution distribution:
+  1024_file: 3980 samples
+  64_downsampled: 35820 samples
+Sample x shapes: [(1, 1024), (1, 1024), (1, 1024)]
+Sample y shapes: [(1, 1024), (1, 1024), (1, 1024)]
+Loading multi-resolution data from /data/user_data/rvk/pdebench_gen/
+Viscosity: 0.0001
+Target samples per resolution (from files): {1024: 200, 512: 0, 256: 0, 128: 0}
+Additional downsampled resolutions: [32, 64]
+Target samples per downsampled resolution: {64: 1800, 32: 0}
+Will downsample from resolution: 128
+Loading resolution 1024 from /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  Original data shape for 1024: (10000, 201, 1024)
+  After time reduction: (10000, 201, 1024)
+  Split 'test' data shape: (1000, 201, 1024)
+  Subsampled to 20 samples for test split
+  Added 3980 sample pairs from resolution 1024
+Adding downsampled resolutions: [32, 64]
+Adding downsampled data from /data/user_data/rvk/pdebench_gen/burgers_128_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  No downsampled samples allocated for test split at resolution 32
+  Added 35820 downsampled samples at resolution 64
+Total samples loaded: 39800
+Resolution distribution:
+  1024_file: 3980 samples
+  64_downsampled: 35820 samples
+Sample x shapes: [(1, 1024), (1, 1024), (1, 1024)]
+Sample y shapes: [(1, 1024), (1, 1024), (1, 1024)]
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+Viscosity: 0.0001
+Loading trajectories from resolution 1024: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+  Original data shape: (10000, 201, 1024)
+  After time reduction: (10000, 201, 1024)
+  Test split data shape: (1000, 201, 1024)
+  Subsampled to 20 test trajectories
+  Extracted 20 complete trajectories from resolution 1024
+
+Total extracted trajectories: 20
+Trajectory shapes: [torch.Size([201, 1024]), torch.Size([201, 1024]), torch.Size([201, 1024])]
+Resolution distribution:
+  Resolution 1024: 20 trajectories
+Rollout test dataset created with 20 trajectories
+---------Using simple global normalization---------------
+Global statistics: X(mean=-0.031273, std=0.624492), Y(mean=-0.031273, std=0.623469)
+
+Final dataset sizes:
+Train dataset size: 318400
+Validation dataset size: 39800
+Test dataset size: 39800
+Rollout test dataset size: 20
+<dataloaders.burger_naive_true_multires.burger_true_multires_markov_dataset.<locals>.SimpleNormalizedDataset object at 0x147a8c9702d0>
+Created resolution groups:
+  Resolution 1024: 31840 samples
+  Resolution 64: 286560 samples
+Created resolution groups:
+  Resolution 1024: 3980 samples
+  Resolution 64: 35820 samples
+Created resolution groups:
+  Resolution 1024: 3980 samples
+  Resolution 64: 35820 samples
+<class 'torch.Tensor'> 0.019561588764190674 0.01974494569003582 1.2196998596191406 1.2207932472229004
+UNet1d(
+  (encoder1): Sequential(
+    (enc1conv1): Conv1d(1, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh1): Tanh()
+    (enc1conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh2): Tanh()
+  )
+  (pool1): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder2): Sequential(
+    (enc2conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh1): Tanh()
+    (enc2conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh2): Tanh()
+  )
+  (pool2): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder3): Sequential(
+    (enc3conv1): Conv1d(128, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh1): Tanh()
+    (enc3conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh2): Tanh()
+  )
+  (pool3): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder4): Sequential(
+    (enc4conv1): Conv1d(256, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh1): Tanh()
+    (enc4conv2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh2): Tanh()
+  )
+  (pool4): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (bottleneck): Sequential(
+    (bottleneckconv1): Conv1d(512, 1024, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh1): Tanh()
+    (bottleneckconv2): Conv1d(1024, 1024, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm2): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh2): Tanh()
+  )
+  (upconv4): ConvTranspose1d(1024, 512, kernel_size=(2,), stride=(2,))
+  (decoder4): Sequential(
+    (dec4conv1): Conv1d(1024, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh1): Tanh()
+    (dec4conv2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh2): Tanh()
+  )
+  (upconv3): ConvTranspose1d(512, 256, kernel_size=(2,), stride=(2,))
+  (decoder3): Sequential(
+    (dec3conv1): Conv1d(512, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh1): Tanh()
+    (dec3conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh2): Tanh()
+  )
+  (upconv2): ConvTranspose1d(256, 128, kernel_size=(2,), stride=(2,))
+  (decoder2): Sequential(
+    (dec2conv1): Conv1d(256, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh1): Tanh()
+    (dec2conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh2): Tanh()
+  )
+  (upconv1): ConvTranspose1d(128, 64, kernel_size=(2,), stride=(2,))
+  (decoder1): Sequential(
+    (dec1conv1): Conv1d(128, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh1): Tanh()
+    (dec1conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh2): Tanh()
+  )
+  (conv): Conv1d(64, 1, kernel_size=(1,), stride=(1,))
+)
+Total Model Parameters: 10.82M
+Trainable Parameters: 10.82M
+Epoch 0, Train Loss: 0.30069070, Val Loss: 0.14410599
+Epoch 10, Train Loss: 0.14871326, Val Loss: 0.13176040
+Epoch 20, Train Loss: 0.13202252, Val Loss: 0.05599579
+Epoch 30, Train Loss: 0.12564139, Val Loss: 0.07669656
+Epoch 40, Train Loss: 0.10891341, Val Loss: 0.09439514
+Epoch 50, Train Loss: 0.10280328, Val Loss: 0.04120037
+Epoch 60, Train Loss: 0.09267490, Val Loss: 0.06567534
+Epoch 70, Train Loss: 0.08480854, Val Loss: 0.05022280
+Epoch 80, Train Loss: 0.07838477, Val Loss: 0.07582540
+Epoch 90, Train Loss: 0.07519575, Val Loss: 0.05838928
+Test L2 Loss: 0.083595
+Model saved to checkpoints/unet1d/burger_5563201.pt
+Created/verified figures directory: figures/5563201
+Evaluating BURGER model at multiple resolutions
+Using normalizer from training resolution 1024
+Testing resolutions: [32, 64, 128, 256, 512, 1024]
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 32)
+Total data shape: (10000, 201, 32)
+x shape: (1990000, 1, 32)
+y shape: (1990000, 1, 32)
+grid shape: torch.Size([32, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 32)
+Total data shape after sampling: (10000, 201, 32)
+Test split data shape: (1000, 201, 32)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 32]), torch.Size([201, 32]), torch.Size([201, 32])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Selected random indices for plotting: [97700, 36285, 129030, 73587, 182667, 135190, 40146, 110186, 19372, 26927]
+Collected 10 examples for resolution 32
+Resolution 32 (downsample factor: 32) - Relative L2 Loss: 0.112242
+Memory cleaned after resolution 32
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 64)
+Total data shape: (10000, 201, 64)
+x shape: (1990000, 1, 64)
+y shape: (1990000, 1, 64)
+grid shape: torch.Size([64, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 64)
+Total data shape after sampling: (10000, 201, 64)
+Test split data shape: (1000, 201, 64)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 64]), torch.Size([201, 64]), torch.Size([201, 64])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Collected 10 examples for resolution 64
+Resolution 64 (downsample factor: 16) - Relative L2 Loss: 0.097783
+Memory cleaned after resolution 64
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 128)
+Total data shape: (10000, 201, 128)
+x shape: (1990000, 1, 128)
+y shape: (1990000, 1, 128)
+grid shape: torch.Size([128, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 128)
+Total data shape after sampling: (10000, 201, 128)
+Test split data shape: (1000, 201, 128)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 128]), torch.Size([201, 128]), torch.Size([201, 128])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Collected 10 examples for resolution 128
+Resolution 128 (downsample factor: 8) - Relative L2 Loss: 0.093894
+Memory cleaned after resolution 128
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 256)
+Total data shape: (10000, 201, 256)
+x shape: (1990000, 1, 256)
+y shape: (1990000, 1, 256)
+grid shape: torch.Size([256, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 256)
+Total data shape after sampling: (10000, 201, 256)
+Test split data shape: (1000, 201, 256)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 256]), torch.Size([201, 256]), torch.Size([201, 256])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Collected 10 examples for resolution 256
+Resolution 256 (downsample factor: 4) - Relative L2 Loss: 0.099791
+Memory cleaned after resolution 256
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 512)
+Total data shape: (10000, 201, 512)
+x shape: (1990000, 1, 512)
+y shape: (1990000, 1, 512)
+grid shape: torch.Size([512, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 512)
+Total data shape after sampling: (10000, 201, 512)
+Test split data shape: (1000, 201, 512)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 512]), torch.Size([201, 512]), torch.Size([201, 512])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Collected 10 examples for resolution 512
+Resolution 512 (downsample factor: 2) - Relative L2 Loss: 0.105023
+Memory cleaned after resolution 512
+
+
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+(10000, 201, 1024)
+After downsampling data shape: (10000, 201, 1024)
+Total data shape: (10000, 201, 1024)
+x shape: (1990000, 1, 1024)
+y shape: (1990000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting Burgers test trajectories for rollout evaluation
+File: 1D_Burgers_Sols_Nu0.0001.hdf5
+Loading from file: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/1D_Burgers_Sols_Nu0.0001.hdf5
+Original data shape: (10000, 201, 1024)
+After downsampling data shape: (10000, 201, 1024)
+Total data shape after sampling: (10000, 201, 1024)
+Test split data shape: (1000, 201, 1024)
+Extracted 1000 complete trajectories
+Trajectory shapes: [torch.Size([201, 1024]), torch.Size([201, 1024]), torch.Size([201, 1024])]
+Rollout test dataset created with 1000 trajectories
+
+Final dataset sizes:
+Train dataset size: 1592000
+Validation dataset size: 199000
+Test dataset size: 199000
+Rollout test dataset size: 1000
+Collected 10 examples for resolution 1024
+Resolution 1024 (downsample factor: 1) - Relative L2 Loss: 0.107545
+Memory cleaned after resolution 1024
+
+
+Creating prediction vs target plots...
+Saved prediction plot: figures/5563201/prediction_plots/burger_predictions_vs_targets_10_examples.png
+Saved numerical results: figures/5563201/burger_1d_evaluation_results_20250922_160500.csv
+Saved summary: figures/5563201/burger_1d_evaluation_summary_20250922_160500.txt
+
+==================================================
+BURGER EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.112242
+Resolution  64: 0.097783
+Resolution 128: 0.093894
+Resolution 256: 0.099791
+Resolution 512: 0.105023
+Resolution 1024: 0.107545
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mupbeat-violet-88[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/unet1d/runs/388xi23f[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250922_111024-388xi23f/logs[0m
+Job completed at Mon Sep 22 04:05:04 PM EDT 2025

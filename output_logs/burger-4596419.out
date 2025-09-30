@@ -1,0 +1,168 @@
+Job started on babel-1-23 at Sat Apr 19 23:58:57 EDT 2025
+Job ID: 4596419
+Using device: cuda
+[2025-04-19 23:59:00,462][root][INFO] - model:
+  _target_: models.s4_1d.S4Model
+  d_input: 15
+  d_output: 1
+  d_model: 64
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 4
+  reduced_resolution: 8
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 1024
+  pde: burger_2.0
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu2.0.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_2.0_s4_1d/s4_1d
+Model name: models.s4_1d.S4Model
+PDE Dataset: burger_2.0
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu2.0.hdf5
+(10000, 201, 1024)
+Total data shape: (2500, 201, 128)
+x shape: (465000, 15, 128)
+y shape: (465000, 1, 128)
+grid shape: torch.Size([128, 1])
+---------Using data normalizer---------------
+Train dataset size: 372000
+Validation dataset size: 46500
+Test dataset size: 46500
+<class 'torch.Tensor'> -0.004562783055007458 -0.00456657912582159 1.0138094425201416 1.0140544176101685
+Sample Input shape: torch.Size([64, 15, 128])
+Sample Output shape: torch.Size([64, 1, 128])
+[2025-04-19 23:59:22,166][models.s4][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-04-19 23:59:22,166][models.s4][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+[2025-04-19 23:59:22,309][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-19 23:59:22,488][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-19 23:59:22,624][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-19 23:59:22,743][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+S4Model(
+  (encoder): Linear(in_features=16, out_features=64, bias=True)
+  (s4_layers): ModuleList(
+    (0-3): 4 x S4Block(
+      (layer): FFTConv(
+        (activation): GELU(approximate='none')
+        (kernel): SSMKernelDPLR()
+        (drop): Dropout(p=0.2, inplace=False)
+        (drop_kernel): Identity()
+      )
+      (mult_activation): Identity()
+      (drop): Dropout(p=0.2, inplace=False)
+      (output_linear): Sequential(
+        (0): Linear(in_features=64, out_features=128, bias=True)
+        (1): GLU(dim=-1)
+      )
+      (residual_layer): ZeroLayer()
+    )
+  )
+  (norms): ModuleList(
+    (0-3): 4 x LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0-3): 4 x Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=64, out_features=1, bias=True)
+)
+[2025-04-19 23:59:31,299][models.s4][INFO] - S4: Initializing kernel to length 128
+[2025-04-19 23:59:31,397][models.s4][INFO] - S4: Initializing kernel to length 128
+[2025-04-19 23:59:31,401][models.s4][INFO] - S4: Initializing kernel to length 128
+[2025-04-19 23:59:31,405][models.s4][INFO] - S4: Initializing kernel to length 128
+Epoch 0, Train Loss: 0.02629925, Val Loss: 0.02030287
+Epoch 10, Train Loss: 0.00523276, Val Loss: 0.00296811
+Epoch 20, Train Loss: 0.00417148, Val Loss: 0.00141646
+Epoch 30, Train Loss: 0.00354350, Val Loss: 0.00248009
+Epoch 40, Train Loss: 0.00263197, Val Loss: 0.00159407
+Epoch 50, Train Loss: 0.00222765, Val Loss: 0.00039908
+Epoch 60, Train Loss: 0.00139184, Val Loss: 0.00559827
+Epoch 70, Train Loss: 0.00098126, Val Loss: 0.00050975
+Epoch 80, Train Loss: 0.00043842, Val Loss: 0.00130077
+Epoch 90, Train Loss: 0.00014967, Val Loss: 0.00015139
+Test L2 Loss: 0.000044
+-----Visualizing Saved------
+Figure saved to output_logs/predictions/burger_2.0_fno_4596419_predictions.png
+Model saved to checkpoints/s4model/burger_2.0_4596419.pt
+Original test data shape: x=torch.Size([46500, 15, 128]), y=torch.Size([46500, 1, 128])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.000044
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([46500, 15, 64]), y=torch.Size([46500, 1, 64])
+Resolution factor 2 - Relative L2 Loss: 0.000237
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([46500, 15, 32]), y=torch.Size([46500, 1, 32])
+Resolution factor 4 - Relative L2 Loss: 0.000267
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([46500, 15, 16]), y=torch.Size([46500, 1, 16])
+Resolution factor 8 - Relative L2 Loss: 0.000280
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([46500, 15, 8]), y=torch.Size([46500, 1, 8])
+Resolution factor 16 - Relative L2 Loss: 0.000289
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([46500, 15, 4]), y=torch.Size([46500, 1, 4])
+Resolution factor 32 - Relative L2 Loss: 0.000290
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu2.0.hdf5
+(10000, 201, 1024)
+Total data shape: (2500, 201, 1024)
+x shape: (465000, 15, 1024)
+y shape: (465000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+---------Using data normalizer---------------
+Train dataset size: 372000
+Validation dataset size: 46500
+Test dataset size: 46500
+Original test data shape: x=torch.Size([46500, 15, 1024]), y=torch.Size([46500, 1, 1024])
+Testing resolutions: [256, 512, 1024]
+
+Evaluating at resolution: 256
+Downsampled shapes: x=torch.Size([46500, 15, 256]), y=torch.Size([46500, 1, 256])
+[2025-04-20 02:38:19,252][models.s4][INFO] - S4: Doubling length from L = 128 to 256
+[2025-04-20 02:38:19,265][models.s4][INFO] - S4: Doubling length from L = 128 to 256
+[2025-04-20 02:38:19,268][models.s4][INFO] - S4: Doubling length from L = 128 to 256
+[2025-04-20 02:38:19,272][models.s4][INFO] - S4: Doubling length from L = 128 to 256
+Resolution 256 - Relative L2 Loss: 0.001046
+
+Evaluating at resolution: 512
+Downsampled shapes: x=torch.Size([46500, 15, 512]), y=torch.Size([46500, 1, 512])
+[2025-04-20 02:38:25,977][models.s4][INFO] - S4: Doubling length from L = 256 to 512
+[2025-04-20 02:38:25,988][models.s4][INFO] - S4: Doubling length from L = 256 to 512
+[2025-04-20 02:38:25,992][models.s4][INFO] - S4: Doubling length from L = 256 to 512
+[2025-04-20 02:38:25,996][models.s4][INFO] - S4: Doubling length from L = 256 to 512
+Resolution 512 - Relative L2 Loss: 0.267207
+
+Evaluating at resolution: 1024
+Downsampled shapes: x=torch.Size([46500, 15, 1024]), y=torch.Size([46500, 1, 1024])
+[2025-04-20 02:38:33,843][models.s4][INFO] - S4: Doubling length from L = 512 to 1024
+[2025-04-20 02:38:33,855][models.s4][INFO] - S4: Doubling length from L = 512 to 1024
+[2025-04-20 02:38:33,860][models.s4][INFO] - S4: Doubling length from L = 512 to 1024
+[2025-04-20 02:38:33,865][models.s4][INFO] - S4: Doubling length from L = 512 to 1024
+Resolution 1024 - Relative L2 Loss: 2.603942
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.000044
+Resolution factor 2: Relative L2 Loss = 0.000237
+Resolution factor 4: Relative L2 Loss = 0.000267
+Resolution factor 8: Relative L2 Loss = 0.000280
+Resolution factor 16: Relative L2 Loss = 0.000289
+Resolution factor 32: Relative L2 Loss = 0.000290
+
+Summary of Higher-Resolution Evaluation:
+Resolution 256: Relative L2 Loss = 0.001046
+Resolution 512: Relative L2 Loss = 0.267207
+Resolution 1024: Relative L2 Loss = 2.603942
+Job completed at Sun Apr 20 02:38:52 EDT 2025

@@ -1,0 +1,15 @@
+/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250610_133621-h96mn93t
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run honest-bird-95
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/h96mn93t
+  0%|          | 0/150 [00:00<?, ?it/s]  1%|          | 1/150 [01:49<4:31:57, 109.51s/it]  1%|▏         | 2/150 [03:32<4:20:00, 105.41s/it]  2%|▏         | 3/150 [05:13<4:13:35, 103.51s/it]  3%|▎         | 4/150 [06:52<4:07:24, 101.68s/it]  3%|▎         | 5/150 [08:30<4:02:55, 100.52s/it]  4%|▍         | 6/150 [10:10<4:00:57, 100.40s/it]  5%|▍         | 7/150 [11:49<3:57:47, 99.77s/it]   5%|▌         | 8/150 [13:28<3:55:50, 99.65s/it]  6%|▌         | 9/150 [15:01<3:48:57, 97.43s/it]  7%|▋         | 10/150 [16:33<3:43:16, 95.69s/it]  7%|▋         | 11/150 [18:08<3:41:15, 95.51s/it]  8%|▊         | 12/150 [19:41<3:38:31, 95.01s/it]  9%|▊         | 13/150 [21:16<3:36:42, 94.91s/it]  9%|▉         | 14/150 [22:51<3:35:17, 94.98s/it] 10%|█         | 15/150 [24:25<3:32:51, 94.60s/it] 11%|█         | 16/150 [25:58<3:30:03, 94.05s/it] 11%|█▏        | 17/150 [27:33<3:28:59, 94.28s/it] 12%|█▏        | 18/150 [29:08<3:27:53, 94.50s/it] 13%|█▎        | 19/150 [srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+30:43<3:26:57, 94.79s/it] 13%|█▎        | 20/150 [32:19<3:26:12, 95.17s/it] 14%|█▍        | 21/150 [33:56<3:25:52, 95.76s/it] 15%|█▍        | 22/150 [35:32<3:23:58, 95.61s/it] 15%|█▌        | 23/150 [37:07<3:22:04, 95.47s/it]slurmstepd: error: *** STEP 5046761.0 ON babel-0-19 CANCELLED AT 2025-06-10T14:14:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 5046761 ON babel-0-19 CANCELLED AT 2025-06-10T14:14:28 DUE TO TIME LIMIT ***
+srun: got SIGCONT
+srun: forcing job termination

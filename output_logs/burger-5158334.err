@@ -1,0 +1,33 @@
+/home/rvk/miniconda3/envs/pos/lib/python3.11/site-packages/huggingface_hub/file_download.py:943: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of ScOT were not initialized from the model checkpoint at camlab-ethz/Poseidon-B and are newly initialized because the shapes did not match:
+- embeddings.patch_embeddings.projection.weight: found shape torch.Size([96, 4, 4, 4]) in the checkpoint and torch.Size([96, 3, 4, 4]) in the model instantiated
+- patch_recovery.mixup.weight: found shape torch.Size([4, 4, 5, 5]) in the checkpoint and torch.Size([3, 3, 5, 5]) in the model instantiated
+- patch_recovery.projection.bias: found shape torch.Size([4]) in the checkpoint and torch.Size([3]) in the model instantiated
+- patch_recovery.projection.weight: found shape torch.Size([96, 4, 4, 4]) in the checkpoint and torch.Size([96, 3, 4, 4]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.20.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.2
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250624_184832-1lg7gzfl
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run lilac-cloud-13
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/pos
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/pos/runs/1lg7gzfl
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:57<00:00, 57.55s/it]100%|██████████| 1/1 [00:57<00:00, 57.55s/it]
+wandb: Waiting for W&B process to finish... (success).
+wandb: - 0.005 MB of 0.005 MB uploaded (0.000 MB deduped)wandb: \ 0.005 MB of 0.005 MB uploaded (0.000 MB deduped)wandb: | 0.005 MB of 0.005 MB uploaded (0.000 MB deduped)wandb: / 0.005 MB of 0.005 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:      epoch ▁
+wandb: train_loss ▁
+wandb:   val_loss ▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 0
+wandb: train_loss 0.47123
+wandb:   val_loss 0.12716
+wandb: 
+wandb: 🚀 View run lilac-cloud-13 at: https://wandb.ai/rohanvk-carnegie-mellon-university/pos/runs/1lg7gzfl
+wandb: Synced 6 W&B file(s), 1 media file(s), 1 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250624_184832-1lg7gzfl/logs

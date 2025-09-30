@@ -1,0 +1,33 @@
+Job started on babel-15-32 at Sat Aug  2 16:24:55 EDT 2025
+Job ID: 5294103
+GPU information:
+Sat Aug  2 16:24:55 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:B2:00.0 Off |                  Off |
+| 30%   36C    P8             17W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:DA:00.0 Off |                  Off |
+| 30%   35C    P8             23W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Data directory /data/user_data/rvk/ks/res_65/visc_1.0_L64.0_lmax3_et100.0_nte140_nt500 exists and will be written to.
+Generating data
+Writing to log file /data/user_data/rvk/ks/res_65/visc_1.0_L64.0_lmax3_et100.0_nte140_nt500/log/KS_time821624.csv
+Job completed at Sat Aug  2 16:27:42 EDT 2025

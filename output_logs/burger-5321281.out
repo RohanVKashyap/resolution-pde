@@ -1,0 +1,288 @@
+Job started on babel-14-13 at Wed Aug 13 22:40:29 EDT 2025
+Job ID: 5321281
+GPU information:
+Wed Aug 13 22:40:29 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:01:00.0 Off |                    0 |
+| N/A   35C    P8             33W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:41:00.0 Off |                    0 |
+| N/A   37C    P8             35W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-08-13 22:40:36,727][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  factor: 4
+  n_modes: 16
+  width: 128
+  n_layers: 4
+  ff_weight_norm: true
+  n_ff_layers: 3
+  layer_norm: true
+  dropout: 0.1
+  mode: full
+  activation: gelu
+  use_grid: true
+dataset:
+  dataset_params:
+    _target_: dataloaders.ks_pino_markov.ks_pino_markov_dataset
+    filename: T=20,niu=0.01,N=1024,dt=0.001,6pi,dtsave=0.1,sample=600_ut.pt
+    saved_folder: /data/user_data/rvk/pino/ks/
+    reduced_batch: 1
+    reduced_resolution: 1
+    reduced_resolution_t: 1
+    s: 1024
+    data_normalizer: true
+    num_samples_max: -1
+  window_size: 15
+  original_res: 1024
+  max_test_resolution: 1024
+  multi_res:
+  - 1
+  - 16
+  train_mres: false
+  pde: ks
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: ks_ffno_1d/ffno_1d
+Model name: models.ffno.FFNO1D
+PDE Dataset: ks
+---------------------
+Loading from file: /data/user_data/rvk/pino/ks/T=20,niu=0.01,N=1024,dt=0.001,6pi,dtsave=0.1,sample=600_ut.pt
+Original data shape: (600, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (600, 201, 1024)
+Current Spatial Size: 1024
+x shape: (120000, 1, 1024)
+y shape: (120000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+Time step between input-output pairs: dt_save from your simulation
+Dataset splits - Train: 96000, Val: 12000, Test: 12000
+---------Computing min-max normalization statistics---------------
+Input data range: [-36.585651, 37.958023]
+Output data range: [-36.585651, 37.958023]
+Train dataset size: 96000
+Validation dataset size: 12000
+Test dataset size: 12000
+<dataloaders.ks_pino_markov.ks_pino_markov_dataset.<locals>.MinMaxNormalizedDataset object at 0x14d085118f50>
+<class 'torch.Tensor'> 0.490794837474823 0.4907948970794678 0.17550629377365112 0.1765337735414505
+FFNO1D(
+  (in_proj): WNLinear(in_features=1, out_features=128, bias=True)
+  (fourier_layers): ModuleList(
+    (0-3): 4 x FSpectralConv1d(
+      (fourier_weight): ParameterList(  (0): Parameter containing: [torch.float32 of size 128x128x16x2 (cuda:0)])
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=128, out_features=512, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=512, out_features=512, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (2): Sequential(
+            (0): Linear(in_features=512, out_features=128, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): Identity()
+            (3): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (out_proj): WNLinear(in_features=128, out_features=1, bias=True)
+)
+Total Model Parameters: 3.68M
+Trainable Parameters: 3.68M
+Epoch 0, Train Loss: 0.35964238, Val Loss: 0.32390786
+Epoch 10, Train Loss: 0.30211830, Val Loss: 0.30581356
+Epoch 20, Train Loss: 0.27893663, Val Loss: 0.31844955
+Epoch 30, Train Loss: 0.25116056, Val Loss: 0.33597233
+Epoch 40, Train Loss: 0.23131092, Val Loss: 0.34947007
+Epoch 50, Train Loss: 0.21637580, Val Loss: 0.35854008
+Epoch 60, Train Loss: 0.20459198, Val Loss: 0.36565712
+Epoch 70, Train Loss: 0.19555591, Val Loss: 0.37149217
+Epoch 80, Train Loss: 0.18919831, Val Loss: 0.37382850
+Epoch 90, Train Loss: 0.18572246, Val Loss: 0.37563645
+Test L2 Loss: 1.123223
+Model saved to checkpoints/ffno1d/ks_5321281.pt
+Created/verified figures directory: figures/5321281
+Evaluating KS model at multiple resolutions
+Using provided normalization statistics from training resolution 1024:
+  Input range: [-36.585651, 37.958023]
+  Output range: [-36.585651, 37.958023]
+Testing resolutions: [32, 64, 128, 256, 512, 1024]
+Loading from file: /data/user_data/rvk/pino/ks/T=20,niu=0.01,N=1024,dt=0.001,6pi,dtsave=0.1,sample=600_ut.pt
+Original data shape: (600, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (600, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 32
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (600, 201, 32)
+Updated grid shape: torch.Size([32, 1])
+x shape: (120000, 1, 32)
+y shape: (120000, 1, 32)
+grid shape: torch.Size([32, 1])
+Time step between input-output pairs: dt_save from your simulation
+Dataset splits - Train: 96000, Val: 12000, Test: 12000
+Train dataset size: 96000
+Validation dataset size: 12000
+Test dataset size: 12000
+Selected random indices for plotting: [2729, 1529, 1502, 10341, 9803, 9488, 4538, 6224, 6393, 3672]
+Collected 10 examples for resolution 32
+Resolution 32 - Relative L2 Loss: 1.055663
+Memory cleaned after resolution 32
+Loading from file: /data/user_data/rvk/pino/ks/T=20,niu=0.01,N=1024,dt=0.001,6pi,dtsave=0.1,sample=600_ut.pt
+Original data shape: (600, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (600, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 64
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (600, 201, 64)
+Updated grid shape: torch.Size([64, 1])
+x shape: (120000, 1, 64)
+y shape: (120000, 1, 64)
+grid shape: torch.Size([64, 1])
+Time step between input-output pairs: dt_save from your simulation
+Dataset splits - Train: 96000, Val: 12000, Test: 12000
+Train dataset size: 96000
+Validation dataset size: 12000
+Test dataset size: 12000
+Collected 10 examples for resolution 64
+Resolution 64 - Relative L2 Loss: 1.112424
+Memory cleaned after resolution 64
+Loading from file: /data/user_data/rvk/pino/ks/T=20,niu=0.01,N=1024,dt=0.001,6pi,dtsave=0.1,sample=600_ut.pt
+Original data shape: (600, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (600, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 128
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (600, 201, 128)
+Updated grid shape: torch.Size([128, 1])
+x shape: (120000, 1, 128)
+y shape: (120000, 1, 128)
+grid shape: torch.Size([128, 1])
+Time step between input-output pairs: dt_save from your simulation
+Dataset splits - Train: 96000, Val: 12000, Test: 12000
+Train dataset size: 96000
+Validation dataset size: 12000
+Test dataset size: 12000
+Collected 10 examples for resolution 128
+Resolution 128 - Relative L2 Loss: 1.122255
+Memory cleaned after resolution 128
+Loading from file: /data/user_data/rvk/pino/ks/T=20,niu=0.01,N=1024,dt=0.001,6pi,dtsave=0.1,sample=600_ut.pt
+Original data shape: (600, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (600, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 256
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (600, 201, 256)
+Updated grid shape: torch.Size([256, 1])
+x shape: (120000, 1, 256)
+y shape: (120000, 1, 256)
+grid shape: torch.Size([256, 1])
+Time step between input-output pairs: dt_save from your simulation
+Dataset splits - Train: 96000, Val: 12000, Test: 12000
+Train dataset size: 96000
+Validation dataset size: 12000
+Test dataset size: 12000
+Collected 10 examples for resolution 256
+Resolution 256 - Relative L2 Loss: 1.123157
+Memory cleaned after resolution 256
+Loading from file: /data/user_data/rvk/pino/ks/T=20,niu=0.01,N=1024,dt=0.001,6pi,dtsave=0.1,sample=600_ut.pt
+Original data shape: (600, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (600, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 512
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (600, 201, 512)
+Updated grid shape: torch.Size([512, 1])
+x shape: (120000, 1, 512)
+y shape: (120000, 1, 512)
+grid shape: torch.Size([512, 1])
+Time step between input-output pairs: dt_save from your simulation
+Dataset splits - Train: 96000, Val: 12000, Test: 12000
+Train dataset size: 96000
+Validation dataset size: 12000
+Test dataset size: 12000
+Collected 10 examples for resolution 512
+Resolution 512 - Relative L2 Loss: 1.123197
+Memory cleaned after resolution 512
+Loading from file: /data/user_data/rvk/pino/ks/T=20,niu=0.01,N=1024,dt=0.001,6pi,dtsave=0.1,sample=600_ut.pt
+Original data shape: (600, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (600, 201, 1024)
+Current Spatial Size: 1024
+x shape: (120000, 1, 1024)
+y shape: (120000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+Time step between input-output pairs: dt_save from your simulation
+Dataset splits - Train: 96000, Val: 12000, Test: 12000
+Train dataset size: 96000
+Validation dataset size: 12000
+Test dataset size: 12000
+Collected 10 examples for resolution 1024
+Resolution 1024 - Relative L2 Loss: 1.123223
+Memory cleaned after resolution 1024
+Creating prediction vs target plots...
+Saved prediction plot: figures/5321281/prediction_plots/ks_predictions_vs_targets_10_examples.png
+Saved numerical results: figures/5321281/ks_1d_evaluation_results_20250814_004437.csv
+Saved summary: figures/5321281/ks_1d_evaluation_summary_20250814_004437.txt
+
+==================================================
+KS EVALUATION SUMMARY
+==================================================
+Resolution  32: 1.055663
+Resolution  64: 1.112424
+Resolution 128: 1.122255
+Resolution 256: 1.123157
+Resolution 512: 1.123197
+Resolution 1024: 1.123223
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 32: Relative L2 Loss = 1.055663
+Resolution factor 64: Relative L2 Loss = 1.112424
+Resolution factor 128: Relative L2 Loss = 1.122255
+Resolution factor 256: Relative L2 Loss = 1.123157
+Resolution factor 512: Relative L2 Loss = 1.123197
+Resolution factor 1024: Relative L2 Loss = 1.123223
+
+Evaluation plots saved to: figures/5321281
+Wandb run: https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/85nbe00e
+Job completed at Thu Aug 14 00:44:41 EDT 2025

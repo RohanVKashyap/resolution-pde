@@ -1,0 +1,108 @@
+Job started on babel-11-21 at Wed Apr 16 23:44:32 EDT 2025
+Job ID: 4583722
+GPU information:
+Wed Apr 16 23:44:32 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:1B:00.0 Off |                  Off |
+| 30%   43C    P8             32W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:B1:00.0 Off |                  Off |
+| 30%   38C    P8             29W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-04-16 23:44:37,203][root][INFO] - model:
+  _target_: models.s4_1d.S4Model
+  d_input: 15
+  d_output: 1
+  d_model: 64
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 4
+  reduced_resolution: 2
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 1024
+  pde: burger_0.001
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.001.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_0.001_s4_1d/s4_1d
+Model name: models.s4_1d.S4Model
+PDE Dataset: burger_0.001
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+Total data shape: (2500, 201, 512)
+x shape: (465000, 15, 512)
+y shape: (465000, 1, 512)
+grid shape: torch.Size([512, 1])
+---------Using data normalizer---------------
+Train dataset size: 372000
+Validation dataset size: 46500
+Test dataset size: 46500
+<class 'torch.Tensor'> -0.08589228242635727 -0.08689413219690323 0.962795078754425 0.9544298052787781
+Sample Input shape: torch.Size([64, 15, 512])
+Sample Output shape: torch.Size([64, 1, 512])
+[2025-04-16 23:45:24,098][models.s4][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-04-16 23:45:24,099][models.s4][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+[2025-04-16 23:45:24,363][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-16 23:45:24,496][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-16 23:45:24,620][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-16 23:45:24,835][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+S4Model(
+  (encoder): Linear(in_features=16, out_features=64, bias=True)
+  (s4_layers): ModuleList(
+    (0-3): 4 x S4Block(
+      (layer): FFTConv(
+        (activation): GELU(approximate='none')
+        (kernel): SSMKernelDPLR()
+        (drop): Dropout(p=0.2, inplace=False)
+        (drop_kernel): Identity()
+      )
+      (mult_activation): Identity()
+      (drop): Dropout(p=0.2, inplace=False)
+      (output_linear): Sequential(
+        (0): Linear(in_features=64, out_features=128, bias=True)
+        (1): GLU(dim=-1)
+      )
+      (residual_layer): ZeroLayer()
+    )
+  )
+  (norms): ModuleList(
+    (0-3): 4 x LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0-3): 4 x Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=64, out_features=1, bias=True)
+)
+[2025-04-16 23:45:34,146][models.s4][INFO] - S4: Initializing kernel to length 512
+[2025-04-16 23:45:34,437][models.s4][INFO] - S4: Initializing kernel to length 512
+[2025-04-16 23:45:34,442][models.s4][INFO] - S4: Initializing kernel to length 512
+[2025-04-16 23:45:34,447][models.s4][INFO] - S4: Initializing kernel to length 512
+Job completed at Thu Apr 17 03:44:01 EDT 2025

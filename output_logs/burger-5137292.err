@@ -1,0 +1,19 @@
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250620_142903-14337p5l
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run major-sponge-2
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d/runs/14337p5l
+Error executing job with overrides: ['model=cno_2d/cno_2d', 'dataset=navier_stokes/ns_512_0']
+Traceback (most recent call last):
+  File "/home/rvk/cno_main.py", line 119, in main
+    loss_history, val_loss_history = train(
+                                     ~~~~~^
+            model, train_loader, val_loader, data_resolution, train_resolution, optimizer, scheduler, y_normalizer=None, use_normalizer=use_normalizer, epochs=epochs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: train() got multiple values for argument 'y_normalizer'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-6-25: task 0: Exited with exit code 1

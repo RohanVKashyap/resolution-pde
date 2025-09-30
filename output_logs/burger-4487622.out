@@ -1,0 +1,171 @@
+Job started on babel-10-5 at Tue Apr  1 16:24:38 EDT 2025
+Job ID: 4487622
+Using device: cuda
+[2025-04-01 16:24:43,464][root][INFO] - model:
+  _target_: models.unet.UNet1d
+  in_channels: 1
+  out_channels: 1
+  width: 32
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 4
+  pde: burger_2.0
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu2.0.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_2.0_unet/unet_1d
+Model name: models.unet.UNet1d
+PDE Dataset: burger_2.0
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu2.0.hdf5
+(10000, 201, 1024)
+Total data shape: (10000, 51, 1024)
+x shape: (490000, 1, 1024)
+y shape: (490000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+---------Using data normalizer---------------
+Train dataset size: 392000
+Validation dataset size: 49000
+Test dataset size: 49000
+<class 'torch.Tensor'> -0.05487282946705818 -0.054889384657144547 0.9630700945854187 0.9631273150444031
+Sample Input shape: torch.Size([64, 1, 1024])
+Sample Output shape: torch.Size([64, 1, 1024])
+UNet1d(
+  (encoder1): Sequential(
+    (enc1conv1): Conv1d(1, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh1): Tanh()
+    (enc1conv2): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm2): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh2): Tanh()
+  )
+  (pool1): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder2): Sequential(
+    (enc2conv1): Conv1d(32, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh1): Tanh()
+    (enc2conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh2): Tanh()
+  )
+  (pool2): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder3): Sequential(
+    (enc3conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh1): Tanh()
+    (enc3conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh2): Tanh()
+  )
+  (pool3): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder4): Sequential(
+    (enc4conv1): Conv1d(128, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh1): Tanh()
+    (enc4conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh2): Tanh()
+  )
+  (pool4): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (bottleneck): Sequential(
+    (bottleneckconv1): Conv1d(256, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh1): Tanh()
+    (bottleneckconv2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh2): Tanh()
+  )
+  (upconv4): ConvTranspose1d(512, 256, kernel_size=(2,), stride=(2,))
+  (decoder4): Sequential(
+    (dec4conv1): Conv1d(512, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh1): Tanh()
+    (dec4conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh2): Tanh()
+  )
+  (upconv3): ConvTranspose1d(256, 128, kernel_size=(2,), stride=(2,))
+  (decoder3): Sequential(
+    (dec3conv1): Conv1d(256, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh1): Tanh()
+    (dec3conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh2): Tanh()
+  )
+  (upconv2): ConvTranspose1d(128, 64, kernel_size=(2,), stride=(2,))
+  (decoder2): Sequential(
+    (dec2conv1): Conv1d(128, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh1): Tanh()
+    (dec2conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh2): Tanh()
+  )
+  (upconv1): ConvTranspose1d(64, 32, kernel_size=(2,), stride=(2,))
+  (decoder1): Sequential(
+    (dec1conv1): Conv1d(64, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh1): Tanh()
+    (dec1conv2): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm2): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh2): Tanh()
+  )
+  (conv): Conv1d(32, 1, kernel_size=(1,), stride=(1,))
+)
+Epoch 0, Train Loss: 0.66922271, Val Loss: 0.37987647
+Epoch 10, Train Loss: 0.45049167, Val Loss: 0.38749737
+Epoch 20, Train Loss: 0.44187647, Val Loss: 0.27214328
+Epoch 30, Train Loss: 0.42752577, Val Loss: 0.25792753
+Epoch 40, Train Loss: 0.42193655, Val Loss: 0.26659796
+Epoch 50, Train Loss: 0.41191503, Val Loss: 0.29334587
+Epoch 60, Train Loss: 0.27113874, Val Loss: 0.30275703
+Epoch 70, Train Loss: 0.15381548, Val Loss: 0.16425340
+Epoch 80, Train Loss: 0.11495855, Val Loss: 0.06870181
+Epoch 90, Train Loss: 0.09950153, Val Loss: 0.07514588
+Test L2 Loss: 0.128575
+-----Visualizing Saved------
+Figure saved to output_logs/predictions/burger_2.0_fno_4487622_predictions.png
+Original test data shape: x=torch.Size([49000, 1, 1024]), y=torch.Size([49000, 1, 1024])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.128575
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([49000, 1, 512]), y=torch.Size([49000, 1, 512])
+Resolution factor 2 - Relative L2 Loss: 0.112964
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([49000, 1, 256]), y=torch.Size([49000, 1, 256])
+Resolution factor 4 - Relative L2 Loss: 0.111816
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([49000, 1, 128]), y=torch.Size([49000, 1, 128])
+Resolution factor 8 - Relative L2 Loss: 0.108041
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([49000, 1, 64]), y=torch.Size([49000, 1, 64])
+Resolution factor 16 - Relative L2 Loss: 0.178335
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([49000, 1, 32]), y=torch.Size([49000, 1, 32])
+Resolution factor 32 - Relative L2 Loss: 0.228395
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.128575
+Resolution factor 2: Relative L2 Loss = 0.112964
+Resolution factor 4: Relative L2 Loss = 0.111816
+Resolution factor 8: Relative L2 Loss = 0.108041
+Resolution factor 16: Relative L2 Loss = 0.178335
+Resolution factor 32: Relative L2 Loss = 0.228395
+Model saved to checkpoints/unet1d/burger_2.0_4487622.pt
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mworthy-firefly-6[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/unet1d/runs/4ee6gyx5[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250401_162532-4ee6gyx5/logs[0m
+Job completed at Tue Apr  1 17:59:50 EDT 2025

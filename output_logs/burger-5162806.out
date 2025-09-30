@@ -1,0 +1,39 @@
+Job started on babel-8-5 at Fri Jun 27 15:24:09 EDT 2025
+Job ID: 5162806
+GPU information:
+Fri Jun 27 15:24:09 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:57:00.0 Off |                    0 |
+| N/A   27C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:D2:00.0 Off |                    0 |
+| N/A   24C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Data Resolution: 512
+Number of Solutions: 20
+Setup 2d GRF successful!
+Number of Steps: 200
+Batch Size: 20
+Generating Data at Viscosity: 0.0001
+0 20 1597.2519608549774
+Batch 1/1 | Samples: 20/20 | Time: 26m 37.3s
+✅ Data Generation Successful!
+Job completed at Fri Jun 27 15:59:37 EDT 2025

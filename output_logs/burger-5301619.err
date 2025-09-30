@@ -1,0 +1,34 @@
+/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+Error executing job with overrides: ['model=ffno_1d/ffno_1d', 'dataset=burger/burger_512']
+Traceback (most recent call last):
+  File "/home/rvk/cno_original_main_1d.py", line 103, in main
+    _recursive_=False).to(device)
+                       ~~^^^^^^^^
+  File "/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+    ~~~~~~~~~~~~~^^^^
+  File "/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+  File "/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ~~~~^
+        device,
+        ^^^^^^^
+        dtype if t.is_floating_point() or t.is_complex() else None,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        non_blocking,
+        ^^^^^^^^^^^^^
+    )
+    ^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-15-36: task 0: Exited with exit code 1

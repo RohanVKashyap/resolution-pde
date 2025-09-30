@@ -1,0 +1,612 @@
+Job started on babel-2-25 at Wed Sep  3 01:24:14 EDT 2025
+Job ID: 5430817
+GPU information:
+Wed Sep  3 01:24:14 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:4F:00.0 Off |                    0 |
+| N/A   35C    P8             32W /  280W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:52:00.0 Off |                    0 |
+| N/A   36C    P8             32W /  280W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+============================================================
+ARGUMENTS:
+============================================================
+experiment          : KS
+device              : cpu
+end_time            : 5.0
+nt                  : 51
+nt_effective        : 51
+nx                  : 512
+L                   : 64.0
+train_samples       : 0
+valid_samples       : 256
+test_samples        : 0
+batch_size          : 1
+suffix              : 
+log                 : False
+viscosity           : 0.05
+lmax                : 8
+create_plots        : True
+num_plots           : 10
+plot_resolutions    : [32, 64, 128, 256, 512]
+============================================================
+Data directory /data/user_data/rvk/ks/res_512/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51 exists and will be written to.
+Generating data
+No file /data/user_data/rvk/ks/res_512/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5 exists yet.
+No file /data/user_data/rvk/ks/res_512/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/KS_train_0.h5 exists yet.
+File /data/user_data/rvk/ks/res_512/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5 is kept.
+Equation: KS
+Mode: valid
+Number of samples: 256
+Solved indices: 0 : 0
+Solved batches: 1 of 256
+Solved indices: 1 : 1
+Solved batches: 2 of 256
+Solved indices: 2 : 2
+Solved batches: 3 of 256
+Solved indices: 3 : 3
+Solved batches: 4 of 256
+Solved indices: 4 : 4
+Solved batches: 5 of 256
+Solved indices: 5 : 5
+Solved batches: 6 of 256
+Solved indices: 6 : 6
+Solved batches: 7 of 256
+Solved indices: 7 : 7
+Solved batches: 8 of 256
+Solved indices: 8 : 8
+Solved batches: 9 of 256
+Solved indices: 9 : 9
+Solved batches: 10 of 256
+Solved indices: 10 : 10
+Solved batches: 11 of 256
+Solved indices: 11 : 11
+Solved batches: 12 of 256
+Solved indices: 12 : 12
+Solved batches: 13 of 256
+Solved indices: 13 : 13
+Solved batches: 14 of 256
+Solved indices: 14 : 14
+Solved batches: 15 of 256
+Solved indices: 15 : 15
+Solved batches: 16 of 256
+Solved indices: 16 : 16
+Solved batches: 17 of 256
+Solved indices: 17 : 17
+Solved batches: 18 of 256
+Solved indices: 18 : 18
+Solved batches: 19 of 256
+Solved indices: 19 : 19
+Solved batches: 20 of 256
+Solved indices: 20 : 20
+Solved batches: 21 of 256
+Solved indices: 21 : 21
+Solved batches: 22 of 256
+Solved indices: 22 : 22
+Solved batches: 23 of 256
+Solved indices: 23 : 23
+Solved batches: 24 of 256
+Solved indices: 24 : 24
+Solved batches: 25 of 256
+Solved indices: 25 : 25
+Solved batches: 26 of 256
+Solved indices: 26 : 26
+Solved batches: 27 of 256
+Solved indices: 27 : 27
+Solved batches: 28 of 256
+Solved indices: 28 : 28
+Solved batches: 29 of 256
+Solved indices: 29 : 29
+Solved batches: 30 of 256
+Solved indices: 30 : 30
+Solved batches: 31 of 256
+Solved indices: 31 : 31
+Solved batches: 32 of 256
+Solved indices: 32 : 32
+Solved batches: 33 of 256
+Solved indices: 33 : 33
+Solved batches: 34 of 256
+Solved indices: 34 : 34
+Solved batches: 35 of 256
+Solved indices: 35 : 35
+Solved batches: 36 of 256
+Solved indices: 36 : 36
+Solved batches: 37 of 256
+Solved indices: 37 : 37
+Solved batches: 38 of 256
+Solved indices: 38 : 38
+Solved batches: 39 of 256
+Solved indices: 39 : 39
+Solved batches: 40 of 256
+Solved indices: 40 : 40
+Solved batches: 41 of 256
+Solved indices: 41 : 41
+Solved batches: 42 of 256
+Solved indices: 42 : 42
+Solved batches: 43 of 256
+Solved indices: 43 : 43
+Solved batches: 44 of 256
+Solved indices: 44 : 44
+Solved batches: 45 of 256
+Solved indices: 45 : 45
+Solved batches: 46 of 256
+Solved indices: 46 : 46
+Solved batches: 47 of 256
+Solved indices: 47 : 47
+Solved batches: 48 of 256
+Solved indices: 48 : 48
+Solved batches: 49 of 256
+Solved indices: 49 : 49
+Solved batches: 50 of 256
+Solved indices: 50 : 50
+Solved batches: 51 of 256
+Solved indices: 51 : 51
+Solved batches: 52 of 256
+Solved indices: 52 : 52
+Solved batches: 53 of 256
+Solved indices: 53 : 53
+Solved batches: 54 of 256
+Solved indices: 54 : 54
+Solved batches: 55 of 256
+Solved indices: 55 : 55
+Solved batches: 56 of 256
+Solved indices: 56 : 56
+Solved batches: 57 of 256
+Solved indices: 57 : 57
+Solved batches: 58 of 256
+Solved indices: 58 : 58
+Solved batches: 59 of 256
+Solved indices: 59 : 59
+Solved batches: 60 of 256
+Solved indices: 60 : 60
+Solved batches: 61 of 256
+Solved indices: 61 : 61
+Solved batches: 62 of 256
+Solved indices: 62 : 62
+Solved batches: 63 of 256
+Solved indices: 63 : 63
+Solved batches: 64 of 256
+Solved indices: 64 : 64
+Solved batches: 65 of 256
+Solved indices: 65 : 65
+Solved batches: 66 of 256
+Solved indices: 66 : 66
+Solved batches: 67 of 256
+Solved indices: 67 : 67
+Solved batches: 68 of 256
+Solved indices: 68 : 68
+Solved batches: 69 of 256
+Solved indices: 69 : 69
+Solved batches: 70 of 256
+Solved indices: 70 : 70
+Solved batches: 71 of 256
+Solved indices: 71 : 71
+Solved batches: 72 of 256
+Solved indices: 72 : 72
+Solved batches: 73 of 256
+Solved indices: 73 : 73
+Solved batches: 74 of 256
+Solved indices: 74 : 74
+Solved batches: 75 of 256
+Solved indices: 75 : 75
+Solved batches: 76 of 256
+Solved indices: 76 : 76
+Solved batches: 77 of 256
+Solved indices: 77 : 77
+Solved batches: 78 of 256
+Solved indices: 78 : 78
+Solved batches: 79 of 256
+Solved indices: 79 : 79
+Solved batches: 80 of 256
+Solved indices: 80 : 80
+Solved batches: 81 of 256
+Solved indices: 81 : 81
+Solved batches: 82 of 256
+Solved indices: 82 : 82
+Solved batches: 83 of 256
+Solved indices: 83 : 83
+Solved batches: 84 of 256
+Solved indices: 84 : 84
+Solved batches: 85 of 256
+Solved indices: 85 : 85
+Solved batches: 86 of 256
+Solved indices: 86 : 86
+Solved batches: 87 of 256
+Solved indices: 87 : 87
+Solved batches: 88 of 256
+Solved indices: 88 : 88
+Solved batches: 89 of 256
+Solved indices: 89 : 89
+Solved batches: 90 of 256
+Solved indices: 90 : 90
+Solved batches: 91 of 256
+Solved indices: 91 : 91
+Solved batches: 92 of 256
+Solved indices: 92 : 92
+Solved batches: 93 of 256
+Solved indices: 93 : 93
+Solved batches: 94 of 256
+Solved indices: 94 : 94
+Solved batches: 95 of 256
+Solved indices: 95 : 95
+Solved batches: 96 of 256
+Solved indices: 96 : 96
+Solved batches: 97 of 256
+Solved indices: 97 : 97
+Solved batches: 98 of 256
+Solved indices: 98 : 98
+Solved batches: 99 of 256
+Solved indices: 99 : 99
+Solved batches: 100 of 256
+Solved indices: 100 : 100
+Solved batches: 101 of 256
+Solved indices: 101 : 101
+Solved batches: 102 of 256
+Solved indices: 102 : 102
+Solved batches: 103 of 256
+Solved indices: 103 : 103
+Solved batches: 104 of 256
+Solved indices: 104 : 104
+Solved batches: 105 of 256
+Solved indices: 105 : 105
+Solved batches: 106 of 256
+Solved indices: 106 : 106
+Solved batches: 107 of 256
+Solved indices: 107 : 107
+Solved batches: 108 of 256
+Solved indices: 108 : 108
+Solved batches: 109 of 256
+Solved indices: 109 : 109
+Solved batches: 110 of 256
+Solved indices: 110 : 110
+Solved batches: 111 of 256
+Solved indices: 111 : 111
+Solved batches: 112 of 256
+Solved indices: 112 : 112
+Solved batches: 113 of 256
+Solved indices: 113 : 113
+Solved batches: 114 of 256
+Solved indices: 114 : 114
+Solved batches: 115 of 256
+Solved indices: 115 : 115
+Solved batches: 116 of 256
+Solved indices: 116 : 116
+Solved batches: 117 of 256
+Solved indices: 117 : 117
+Solved batches: 118 of 256
+Solved indices: 118 : 118
+Solved batches: 119 of 256
+Solved indices: 119 : 119
+Solved batches: 120 of 256
+Solved indices: 120 : 120
+Solved batches: 121 of 256
+Solved indices: 121 : 121
+Solved batches: 122 of 256
+Solved indices: 122 : 122
+Solved batches: 123 of 256
+Solved indices: 123 : 123
+Solved batches: 124 of 256
+Solved indices: 124 : 124
+Solved batches: 125 of 256
+Solved indices: 125 : 125
+Solved batches: 126 of 256
+Solved indices: 126 : 126
+Solved batches: 127 of 256
+Solved indices: 127 : 127
+Solved batches: 128 of 256
+Solved indices: 128 : 128
+Solved batches: 129 of 256
+Solved indices: 129 : 129
+Solved batches: 130 of 256
+Solved indices: 130 : 130
+Solved batches: 131 of 256
+Solved indices: 131 : 131
+Solved batches: 132 of 256
+Solved indices: 132 : 132
+Solved batches: 133 of 256
+Solved indices: 133 : 133
+Solved batches: 134 of 256
+Solved indices: 134 : 134
+Solved batches: 135 of 256
+Solved indices: 135 : 135
+Solved batches: 136 of 256
+Solved indices: 136 : 136
+Solved batches: 137 of 256
+Solved indices: 137 : 137
+Solved batches: 138 of 256
+Solved indices: 138 : 138
+Solved batches: 139 of 256
+Solved indices: 139 : 139
+Solved batches: 140 of 256
+Solved indices: 140 : 140
+Solved batches: 141 of 256
+Solved indices: 141 : 141
+Solved batches: 142 of 256
+Solved indices: 142 : 142
+Solved batches: 143 of 256
+Solved indices: 143 : 143
+Solved batches: 144 of 256
+Solved indices: 144 : 144
+Solved batches: 145 of 256
+Solved indices: 145 : 145
+Solved batches: 146 of 256
+Solved indices: 146 : 146
+Solved batches: 147 of 256
+Solved indices: 147 : 147
+Solved batches: 148 of 256
+Solved indices: 148 : 148
+Solved batches: 149 of 256
+Solved indices: 149 : 149
+Solved batches: 150 of 256
+Solved indices: 150 : 150
+Solved batches: 151 of 256
+Solved indices: 151 : 151
+Solved batches: 152 of 256
+Solved indices: 152 : 152
+Solved batches: 153 of 256
+Solved indices: 153 : 153
+Solved batches: 154 of 256
+Solved indices: 154 : 154
+Solved batches: 155 of 256
+Solved indices: 155 : 155
+Solved batches: 156 of 256
+Solved indices: 156 : 156
+Solved batches: 157 of 256
+Solved indices: 157 : 157
+Solved batches: 158 of 256
+Solved indices: 158 : 158
+Solved batches: 159 of 256
+Solved indices: 159 : 159
+Solved batches: 160 of 256
+Solved indices: 160 : 160
+Solved batches: 161 of 256
+Solved indices: 161 : 161
+Solved batches: 162 of 256
+Solved indices: 162 : 162
+Solved batches: 163 of 256
+Solved indices: 163 : 163
+Solved batches: 164 of 256
+Solved indices: 164 : 164
+Solved batches: 165 of 256
+Solved indices: 165 : 165
+Solved batches: 166 of 256
+Solved indices: 166 : 166
+Solved batches: 167 of 256
+Solved indices: 167 : 167
+Solved batches: 168 of 256
+Solved indices: 168 : 168
+Solved batches: 169 of 256
+Solved indices: 169 : 169
+Solved batches: 170 of 256
+Solved indices: 170 : 170
+Solved batches: 171 of 256
+Solved indices: 171 : 171
+Solved batches: 172 of 256
+Solved indices: 172 : 172
+Solved batches: 173 of 256
+Solved indices: 173 : 173
+Solved batches: 174 of 256
+Solved indices: 174 : 174
+Solved batches: 175 of 256
+Solved indices: 175 : 175
+Solved batches: 176 of 256
+Solved indices: 176 : 176
+Solved batches: 177 of 256
+Solved indices: 177 : 177
+Solved batches: 178 of 256
+Solved indices: 178 : 178
+Solved batches: 179 of 256
+Solved indices: 179 : 179
+Solved batches: 180 of 256
+Solved indices: 180 : 180
+Solved batches: 181 of 256
+Solved indices: 181 : 181
+Solved batches: 182 of 256
+Solved indices: 182 : 182
+Solved batches: 183 of 256
+Solved indices: 183 : 183
+Solved batches: 184 of 256
+Solved indices: 184 : 184
+Solved batches: 185 of 256
+Solved indices: 185 : 185
+Solved batches: 186 of 256
+Solved indices: 186 : 186
+Solved batches: 187 of 256
+Solved indices: 187 : 187
+Solved batches: 188 of 256
+Solved indices: 188 : 188
+Solved batches: 189 of 256
+Solved indices: 189 : 189
+Solved batches: 190 of 256
+Solved indices: 190 : 190
+Solved batches: 191 of 256
+Solved indices: 191 : 191
+Solved batches: 192 of 256
+Solved indices: 192 : 192
+Solved batches: 193 of 256
+Solved indices: 193 : 193
+Solved batches: 194 of 256
+Solved indices: 194 : 194
+Solved batches: 195 of 256
+Solved indices: 195 : 195
+Solved batches: 196 of 256
+Solved indices: 196 : 196
+Solved batches: 197 of 256
+Solved indices: 197 : 197
+Solved batches: 198 of 256
+Solved indices: 198 : 198
+Solved batches: 199 of 256
+Solved indices: 199 : 199
+Solved batches: 200 of 256
+Solved indices: 200 : 200
+Solved batches: 201 of 256
+Solved indices: 201 : 201
+Solved batches: 202 of 256
+Solved indices: 202 : 202
+Solved batches: 203 of 256
+Solved indices: 203 : 203
+Solved batches: 204 of 256
+Solved indices: 204 : 204
+Solved batches: 205 of 256
+Solved indices: 205 : 205
+Solved batches: 206 of 256
+Solved indices: 206 : 206
+Solved batches: 207 of 256
+Solved indices: 207 : 207
+Solved batches: 208 of 256
+Solved indices: 208 : 208
+Solved batches: 209 of 256
+Solved indices: 209 : 209
+Solved batches: 210 of 256
+Solved indices: 210 : 210
+Solved batches: 211 of 256
+Solved indices: 211 : 211
+Solved batches: 212 of 256
+Solved indices: 212 : 212
+Solved batches: 213 of 256
+Solved indices: 213 : 213
+Solved batches: 214 of 256
+Solved indices: 214 : 214
+Solved batches: 215 of 256
+Solved indices: 215 : 215
+Solved batches: 216 of 256
+Solved indices: 216 : 216
+Solved batches: 217 of 256
+Solved indices: 217 : 217
+Solved batches: 218 of 256
+Solved indices: 218 : 218
+Solved batches: 219 of 256
+Solved indices: 219 : 219
+Solved batches: 220 of 256
+Solved indices: 220 : 220
+Solved batches: 221 of 256
+Solved indices: 221 : 221
+Solved batches: 222 of 256
+Solved indices: 222 : 222
+Solved batches: 223 of 256
+Solved indices: 223 : 223
+Solved batches: 224 of 256
+Solved indices: 224 : 224
+Solved batches: 225 of 256
+Solved indices: 225 : 225
+Solved batches: 226 of 256
+Solved indices: 226 : 226
+Solved batches: 227 of 256
+Solved indices: 227 : 227
+Solved batches: 228 of 256
+Solved indices: 228 : 228
+Solved batches: 229 of 256
+Solved indices: 229 : 229
+Solved batches: 230 of 256
+Solved indices: 230 : 230
+Solved batches: 231 of 256
+Solved indices: 231 : 231
+Solved batches: 232 of 256
+Solved indices: 232 : 232
+Solved batches: 233 of 256
+Solved indices: 233 : 233
+Solved batches: 234 of 256
+Solved indices: 234 : 234
+Solved batches: 235 of 256
+Solved indices: 235 : 235
+Solved batches: 236 of 256
+Solved indices: 236 : 236
+Solved batches: 237 of 256
+Solved indices: 237 : 237
+Solved batches: 238 of 256
+Solved indices: 238 : 238
+Solved batches: 239 of 256
+Solved indices: 239 : 239
+Solved batches: 240 of 256
+Solved indices: 240 : 240
+Solved batches: 241 of 256
+Solved indices: 241 : 241
+Solved batches: 242 of 256
+Solved indices: 242 : 242
+Solved batches: 243 of 256
+Solved indices: 243 : 243
+Solved batches: 244 of 256
+Solved indices: 244 : 244
+Solved batches: 245 of 256
+Solved indices: 245 : 245
+Solved batches: 246 of 256
+Solved indices: 246 : 246
+Solved batches: 247 of 256
+Solved indices: 247 : 247
+Solved batches: 248 of 256
+Solved indices: 248 : 248
+Solved batches: 249 of 256
+Solved indices: 249 : 249
+Solved batches: 250 of 256
+Solved indices: 250 : 250
+Solved batches: 251 of 256
+Solved indices: 251 : 251
+Solved batches: 252 of 256
+Solved indices: 252 : 252
+Solved batches: 253 of 256
+Solved indices: 253 : 253
+Solved batches: 254 of 256
+Solved indices: 254 : 254
+Solved batches: 255 of 256
+Solved indices: 255 : 255
+Solved batches: 256 of 256
+
+Data saved
+
+
+Operation took 3088.70 seconds
+
+Generating validation plots...
+Auto-generated job_id: job_5430817_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51
+Created figure directory: ./figures/job_5430817_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51
+Loaded valid data with shape: (256, 51, 512)
+Selected random sample indices: [12, 16, 44, 52, 57, 71, 114, 125, 140, 216]
+Selected time indices: [0, 3, 7, 11, 15, 19, 23, 26, 30, 34, 38, 42, 46, 50]
+Calculating temporal distances...
+Distance plot saved to: ./figures/job_5430817_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/temporal_distances_valid_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51.png
+
+Generating plots for resolution 32...
+
+Generating plots for resolution 64...
+
+Generating plots for resolution 128...
+
+Generating plots for resolution 256...
+
+Generating plots for resolution 512...
+
+Visualization Summary:
+  - Dataset: valid
+  - Random samples plotted: [12, 16, 44, 52, 57, 71, 114, 125, 140, 216]
+  - Time points per sample: 14
+  - Original resolution: 512
+  - Plot resolutions: [32, 64, 128, 256, 512]
+  - Distance analysis: Calculated 50 temporal transitions
+  - Total plots saved: 6
+  - Output directory: ./figures/job_5430817_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51
+    1. temporal_distances_valid_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51.png
+    2. ks_evolution_samples_12-16-44-52-57-71-114-125-140-216_res_32_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_valid_20250903_021602.png
+    3. ks_evolution_samples_12-16-44-52-57-71-114-125-140-216_res_64_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_valid_20250903_021618.png
+    4. ks_evolution_samples_12-16-44-52-57-71-114-125-140-216_res_128_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_valid_20250903_021634.png
+    5. ks_evolution_samples_12-16-44-52-57-71-114-125-140-216_res_256_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_valid_20250903_021651.png
+    6. ks_evolution_samples_12-16-44-52-57-71-114-125-140-216_res_512_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_valid_20250903_021708.png
+Job completed at Wed Sep  3 02:17:21 EDT 2025

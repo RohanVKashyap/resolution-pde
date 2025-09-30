@@ -1,0 +1,45 @@
+Job started on babel-5-31 at Sun Mar 23 13:53:33 EDT 2025
+Job ID: 4429414
+Using device: cuda
+[2025-03-23 13:53:36,744][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  width: 32
+  n_blocks: 12
+  modes: 12
+  dropout: 0.0
+  layer_norm: false
+  factor: 4
+  ff_weight_norm: true
+  n_ff_layers: 2
+  grid: null
+  mode: full
+  name: ffno_1d
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 4
+  pde: burger_0.01
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.01.hdf5
+training:
+  batch_size: 64
+  epochs: 500
+  learning_rate: 0.001
+  use_normalizer: false
+model_type: fno
+project_name: ${dataset.pde}_${model.name}$
+checkpoint_dir: checkpoints
+
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu0.01.hdf5
+(10000, 201, 1024)
+Total data shape: (10000, 51, 1024)
+Input shape: (490000, 1024, 1, 1)
+Output shape: (490000, 1024, 1, 1)
+Grid shape: torch.Size([1024, 1])
+Train dataset size: 392000
+Validation dataset size: 49000
+Test dataset size: 49000
+Input shape: torch.Size([64, 1024, 1, 1])
+Output shape: torch.Size([64, 1024, 1, 1])
+Job completed at Sun Mar 23 13:53:54 EDT 2025

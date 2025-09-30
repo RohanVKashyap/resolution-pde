@@ -1,0 +1,8 @@
+/home/rvk/PDEBench/pdebench/data_gen/data_gen_NLE/BurgersEq/burgers_multi_solution_Hydra.py:174: UserWarning: 
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path="config")
+/home/rvk/.local/lib/python3.9/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(

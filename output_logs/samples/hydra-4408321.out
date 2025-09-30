@@ -1,0 +1,5 @@
+Job started on babel-5-19 at Wed Mar 19 18:44:48 EDT 2025
+Job ID: 4408321
+.HDF5 file extension is assumed hereafter
+torch.Size([32, 1024, 201, 1]) torch.Size([32, 1024, 1]) torch.Size([1024, 201, 1])
+Job completed at Wed Mar 19 18:47:38 EDT 2025

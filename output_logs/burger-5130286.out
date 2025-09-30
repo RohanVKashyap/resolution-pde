@@ -1,0 +1,185 @@
+Job started on babel-0-23 at Wed Jun 18 15:13:31 EDT 2025
+Job ID: 5130286
+GPU information:
+Wed Jun 18 15:13:31 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:C1:00.0 Off |                  Off |
+| 30%   40C    P8             19W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:E1:00.0 Off |                  Off |
+| 30%   39C    P8             27W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-06-18 15:13:38,610][root][INFO] - model:
+  image_size: 64
+  patch_size: 4
+  num_channels: 3
+  num_out_channels: 3
+  embed_dim: 96
+  depths:
+  - 8
+  - 8
+  - 8
+  - 8
+  num_heads:
+  - 3
+  - 6
+  - 12
+  - 24
+  skip_connections:
+  - 2
+  - 2
+  - 2
+  - 0
+  window_size: 16
+  mlp_ratio: 4.0
+  qkv_bias: true
+  hidden_dropout_prob: 0.0
+  attention_probs_dropout_prob: 0.0
+  drop_path_rate: 0.0
+  hidden_act: gelu
+  use_absolute_embeddings: false
+  initializer_range: 0.02
+  layer_norm_eps: 1.0e-05
+  p: 1
+  channel_slice_list_normalized_loss:
+  - 0
+  - 1
+  - 2
+  - 3
+  residual_model: convnext
+  use_conditioning: true
+  learn_residual: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 16
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  multi_res:
+  - 4
+  - 8
+  train_mres: false
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_pos/pos
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 1000, 32, 32, 3)
+x shape: torch.Size([3992, 3, 32, 32])
+y shape: torch.Size([3992, 3, 32, 32])
+---------Using data normalizer---------------
+Train dataset size: 3193
+Validation dataset size: 399
+Test dataset size: 400
+<class 'torch.Tensor'> 0.004247303586453199 0.004224739503115416 0.9181650876998901 0.920891523361206
+Sample Input shape: torch.Size([16, 3, 32, 32])
+Sample Output shape: torch.Size([16, 3, 32, 32])
+Total Parameters: 157726740
+Epoch 0, Train Loss: 0.42664868, Val Loss: 0.16965205
+Epoch 10, Train Loss: 0.05298509, Val Loss: 0.05430429
+Epoch 20, Train Loss: 0.04793188, Val Loss: 0.05154699
+Epoch 30, Train Loss: 0.04397826, Val Loss: 0.04552036
+Epoch 40, Train Loss: 0.04086485, Val Loss: 0.04590030
+Epoch 50, Train Loss: 0.03914550, Val Loss: 0.04457008
+Epoch 60, Train Loss: 0.03654388, Val Loss: 0.04450897
+Epoch 70, Train Loss: 0.03392534, Val Loss: 0.04404020
+Epoch 80, Train Loss: 0.02915329, Val Loss: 0.04442426
+Epoch 90, Train Loss: 0.02332443, Val Loss: 0.04611312
+Test L2 Loss: 0.005796
+Original test data shape: x=torch.Size([400, 3, 32, 32]), y=torch.Size([400, 3, 32, 32])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.005717
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([400, 3, 16, 16]), y=torch.Size([400, 3, 16, 16])
+Resolution factor 2 - Relative L2 Loss: 0.095239
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([400, 3, 8, 8]), y=torch.Size([400, 3, 8, 8])
+Resolution factor 4 - Relative L2 Loss: 0.182830
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([400, 3, 4, 4]), y=torch.Size([400, 3, 4, 4])
+Resolution factor 8 - Relative L2 Loss: 0.338801
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([400, 3, 2, 2]), y=torch.Size([400, 3, 2, 2])
+Resolution factor 16 - Relative L2 Loss: 0.538877
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([400, 3, 1, 1]), y=torch.Size([400, 3, 1, 1])
+Skipping Resolution factor 32 because not enough modes
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 1000, 512, 512, 3)
+x shape: torch.Size([3992, 3, 512, 512])
+y shape: torch.Size([3992, 3, 512, 512])
+---------Using data normalizer---------------
+Train dataset size: 3193
+Validation dataset size: 399
+Test dataset size: 400
+Original test data shape: x=torch.Size([400, 3, 512, 512]), y=torch.Size([400, 3, 512, 512])
+Testing resolutions: [64, 128, 256, 512]
+
+Evaluating at resolution: 64
+Downsampled shapes: x=torch.Size([400, 3, 64, 64]), y=torch.Size([400, 3, 64, 64])
+Resolution 64 - Relative L2 Loss: 0.395245
+
+Evaluating at resolution: 128
+Downsampled shapes: x=torch.Size([400, 3, 128, 128]), y=torch.Size([400, 3, 128, 128])
+Resolution 128 - Relative L2 Loss: 0.381375
+
+Evaluating at resolution: 256
+Downsampled shapes: x=torch.Size([400, 3, 256, 256]), y=torch.Size([400, 3, 256, 256])
+Resolution 256 - Relative L2 Loss: 0.384018
+
+Evaluating at resolution: 512
+Downsampled shapes: x=torch.Size([400, 3, 512, 512]), y=torch.Size([400, 3, 512, 512])
+Resolution 512 - Relative L2 Loss: 0.385382
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.005717
+Resolution factor 2: Relative L2 Loss = 0.095239
+Resolution factor 4: Relative L2 Loss = 0.182830
+Resolution factor 8: Relative L2 Loss = 0.338801
+Resolution factor 16: Relative L2 Loss = 0.538877
+
+Summary of Higher-Resolution Evaluation:
+Resolution 64: Relative L2 Loss = 0.395245
+Resolution 128: Relative L2 Loss = 0.381375
+Resolution 256: Relative L2 Loss = 0.384018
+Resolution 512: Relative L2 Loss = 0.385382
+Job completed at Wed Jun 18 16:49:24 EDT 2025

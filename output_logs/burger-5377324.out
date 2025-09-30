@@ -1,0 +1,47 @@
+Job started on babel-3-13 at Wed Aug 20 13:26:32 EDT 2025
+Job ID: 5377324
+GPU information:
+Wed Aug 20 13:26:32 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:56:00.0 Off |                    0 |
+| N/A   25C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:57:00.0 Off |                    0 |
+| N/A   27C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Defaulting to user installation because normal site-packages is not writeable
+Collecting hydra-core
+  Downloading hydra_core-1.3.2-py3-none-any.whl (154 kB)
+Collecting omegaconf
+  Downloading omegaconf-2.3.0-py3-none-any.whl (79 kB)
+Collecting einops
+  Downloading einops-0.8.1-py3-none-any.whl (64 kB)
+Collecting h5py
+  Downloading h5py-3.14.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.6 MB)
+Requirement already satisfied: packaging in /usr/lib/python3.9/site-packages (from hydra-core) (20.9)
+Collecting antlr4-python3-runtime==4.9.*
+  Using cached antlr4_python3_runtime-4.9.3-py3-none-any.whl
+Requirement already satisfied: PyYAML>=5.1.0 in /usr/lib64/python3.9/site-packages (from omegaconf) (5.4.1)
+Requirement already satisfied: numpy>=1.19.3 in /usr/lib64/python3.9/site-packages (from h5py) (1.20.1)
+Requirement already satisfied: pyparsing>=2.0.2 in /usr/lib/python3.9/site-packages (from packaging->hydra-core) (2.4.7)
+Installing collected packages: antlr4-python3-runtime, omegaconf, hydra-core, h5py, einops
+Successfully installed antlr4-python3-runtime-4.9.3 einops-0.8.1 h5py-3.14.0 hydra-core-1.3.2 omegaconf-2.3.0
+Job completed at Wed Aug 20 13:26:36 EDT 2025

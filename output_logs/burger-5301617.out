@@ -1,0 +1,271 @@
+Job started on babel-12-5 at Tue Aug  5 23:39:11 EDT 2025
+Job ID: 5301617
+GPU information:
+Tue Aug  5 23:39:11 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:21:00.0 Off |                    0 |
+| N/A   31C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:E1:00.0 Off |                    0 |
+| N/A   35C    P8             50W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-08-05 23:39:19,025][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  factor: 4
+  n_modes: 16
+  width: 64
+  n_layers: 8
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: true
+  dropout: 0.1
+  mode: full
+  activation: relu
+  use_grid: false
+dataset:
+  dataset_params:
+    _target_: dataloaders.cno_burger_markov.burger_markov_dataset
+    filename: 1D_Burgers_Sols_Nu0.1.hdf5
+    saved_folder: /data/user_data/rvk/data/pdebench/
+    reduced_batch: 16
+    reduced_resolution: 1
+    reduced_resolution_t: 1
+    s: 128
+    data_normalizer: true
+    num_samples_max: -1
+  window_size: 15
+  original_res: 1024
+  multi_res:
+  - 1
+  - 16
+  train_mres: false
+  pde: ks
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: ks_ffno_1d/ffno_1d
+Model name: models.ffno.FFNO1D
+PDE Dataset: ks
+---------------------
+Loading from file: /data/user_data/rvk/data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+Original data shape: (10000, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (625, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 128
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (625, 201, 128)
+Updated grid shape: torch.Size([128, 1])
+x shape: (124375, 1, 128)
+y shape: (124375, 1, 128)
+grid shape: torch.Size([128, 1])
+---------Computing min-max normalization statistics---------------
+Input data range: [-2.764059, 2.676787]
+Output data range: [-2.701652, 2.563432]
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+<dataloaders.cno_burger_markov.burger_markov_dataset.<locals>.MinMaxNormalizedDataset object at 0x152609c08e10>
+<class 'torch.Tensor'> 0.4803226590156555 0.48450419306755066 0.09070085734128952 0.09365610778331757
+FFNO1D(
+  (in_proj): WNLinear(in_features=1, out_features=64, bias=True)
+  (fourier_layers): ModuleList(
+    (0-7): 8 x FSpectralConv1d(
+      (fourier_weight): ParameterList(  (0): Parameter containing: [torch.float32 of size 64x64x16x2 (cuda:0)])
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=64, out_features=256, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=256, out_features=64, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): Identity()
+            (3): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (out_proj): WNLinear(in_features=64, out_features=1, bias=True)
+)
+Total Model Parameters: 1.31M
+Trainable Parameters: 1.31M
+Epoch 0, Train Loss: 0.10180696, Val Loss: 0.02793557
+Epoch 10, Train Loss: 0.00230339, Val Loss: 0.00314149
+Epoch 20, Train Loss: 0.00199943, Val Loss: 0.00110541
+Epoch 30, Train Loss: 0.00093679, Val Loss: 0.00081140
+Epoch 40, Train Loss: 0.00085034, Val Loss: 0.00179143
+Epoch 50, Train Loss: 0.00033703, Val Loss: 0.00021259
+Epoch 60, Train Loss: 0.00041922, Val Loss: 0.00022758
+Epoch 70, Train Loss: 0.00041184, Val Loss: 0.00033836
+Epoch 80, Train Loss: 0.00020019, Val Loss: 0.00022421
+Epoch 90, Train Loss: 0.00019199, Val Loss: 0.00020383
+Test L2 Loss: 0.000760
+Model saved to checkpoints/ffno1d/ks_5301617.pt
+Created/verified figures directory: figures/5301617
+Evaluating KS model at multiple resolutions
+Using provided normalization statistics from training resolution 128:
+  Input range: [-2.764059, 2.676787]
+  Output range: [-2.701652, 2.563432]
+Testing resolutions: [32, 64, 128, 256, 512, 1024]
+Loading from file: /data/user_data/rvk/data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+Original data shape: (10000, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (625, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 32
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (625, 201, 32)
+Updated grid shape: torch.Size([32, 1])
+x shape: (124375, 1, 32)
+y shape: (124375, 1, 32)
+grid shape: torch.Size([32, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Selected random indices for plotting: [3138, 11029, 7070, 5386, 1805, 2375, 7235, 3958, 7099, 9761]
+Collected 10 examples for resolution 32
+Resolution 32 - Relative L2 Loss: 0.000752
+Memory cleaned after resolution 32
+Loading from file: /data/user_data/rvk/data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+Original data shape: (10000, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (625, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 64
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (625, 201, 64)
+Updated grid shape: torch.Size([64, 1])
+x shape: (124375, 1, 64)
+y shape: (124375, 1, 64)
+grid shape: torch.Size([64, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Collected 10 examples for resolution 64
+Resolution 64 - Relative L2 Loss: 0.000757
+Memory cleaned after resolution 64
+Loading from file: /data/user_data/rvk/data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+Original data shape: (10000, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (625, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 128
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (625, 201, 128)
+Updated grid shape: torch.Size([128, 1])
+x shape: (124375, 1, 128)
+y shape: (124375, 1, 128)
+grid shape: torch.Size([128, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Collected 10 examples for resolution 128
+Resolution 128 - Relative L2 Loss: 0.000760
+Memory cleaned after resolution 128
+Loading from file: /data/user_data/rvk/data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+Original data shape: (10000, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (625, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 256
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (625, 201, 256)
+Updated grid shape: torch.Size([256, 1])
+x shape: (124375, 1, 256)
+y shape: (124375, 1, 256)
+grid shape: torch.Size([256, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Collected 10 examples for resolution 256
+Resolution 256 - Relative L2 Loss: 0.000760
+Memory cleaned after resolution 256
+Loading from file: /data/user_data/rvk/data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+Original data shape: (10000, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (625, 201, 1024)
+Current Spatial Size: 1024
+Resizing from 1024 to 512
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (625, 201, 512)
+Updated grid shape: torch.Size([512, 1])
+x shape: (124375, 1, 512)
+y shape: (124375, 1, 512)
+grid shape: torch.Size([512, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Collected 10 examples for resolution 512
+Resolution 512 - Relative L2 Loss: 0.000760
+Memory cleaned after resolution 512
+Loading from file: /data/user_data/rvk/data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+Original data shape: (10000, 201, 1024)
+Original grid shape: torch.Size([1024, 1])
+Data shape after batch/time reduction: (625, 201, 1024)
+Current Spatial Size: 1024
+x shape: (124375, 1, 1024)
+y shape: (124375, 1, 1024)
+grid shape: torch.Size([1024, 1])
+Train dataset size: 99500
+Validation dataset size: 12437
+Test dataset size: 12438
+Collected 10 examples for resolution 1024
+Resolution 1024 - Relative L2 Loss: 0.000760
+Memory cleaned after resolution 1024
+Creating prediction vs target plots...
+Saved prediction plot: figures/5301617/prediction_plots/ks_predictions_vs_targets_10_examples.png
+Saved numerical results: figures/5301617/ks_1d_evaluation_results_20250806_000450.csv
+Saved summary: figures/5301617/ks_1d_evaluation_summary_20250806_000450.txt
+
+==================================================
+KS EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.000752
+Resolution  64: 0.000757
+Resolution 128: 0.000760
+Resolution 256: 0.000760
+Resolution 512: 0.000760
+Resolution 1024: 0.000760
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 32: Relative L2 Loss = 0.000752
+Resolution factor 64: Relative L2 Loss = 0.000757
+Resolution factor 128: Relative L2 Loss = 0.000760
+Resolution factor 256: Relative L2 Loss = 0.000760
+Resolution factor 512: Relative L2 Loss = 0.000760
+Resolution factor 1024: Relative L2 Loss = 0.000760
+
+Evaluation plots saved to: figures/5301617
+Wandb run: https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/jab1ddg2
+Job completed at Wed Aug  6 00:05:12 EDT 2025

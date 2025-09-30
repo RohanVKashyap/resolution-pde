@@ -1,0 +1,81 @@
+Job started on babel-0-31 at Mon Apr 14 23:33:22 EDT 2025
+Job ID: 4565342
+Using device: cuda
+[2025-04-14 23:33:28,314][root][INFO] - model:
+  _target_: models.s4_1d.S4Model
+  d_input: 15
+  d_output: 1
+  d_model: 64
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 4
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 1024
+  pde: burger_4.0
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu4.0.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_4.0_s4_1d/s4_1d
+Model name: models.s4_1d.S4Model
+PDE Dataset: burger_4.0
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu4.0.hdf5
+(10000, 201, 1024)
+Total data shape: (2500, 201, 1024)
+x shape: (465000, 15, 1024)
+y shape: (465000, 1, 1024)
+grid shape: torch.Size([1024, 1])
+---------Using data normalizer---------------
+Train dataset size: 372000
+Validation dataset size: 46500
+Test dataset size: 46500
+<class 'torch.Tensor'> -0.047816019505262375 -0.047824934124946594 1.1596243381500244 1.1598496437072754
+Sample Input shape: torch.Size([64, 15, 1024])
+Sample Output shape: torch.Size([64, 1, 1024])
+[2025-04-14 23:34:08,315][models.s4][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-04-14 23:34:08,316][models.s4][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+[2025-04-14 23:34:08,469][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-14 23:34:08,615][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-14 23:34:08,801][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+[2025-04-14 23:34:08,953][models.s4][INFO] - Constructing S4 (H, N, L) = (64, 32, None)
+S4Model(
+  (encoder): Linear(in_features=16, out_features=64, bias=True)
+  (s4_layers): ModuleList(
+    (0-3): 4 x S4Block(
+      (layer): FFTConv(
+        (activation): GELU(approximate='none')
+        (kernel): SSMKernelDPLR()
+        (drop): Dropout(p=0.2, inplace=False)
+        (drop_kernel): Identity()
+      )
+      (mult_activation): Identity()
+      (drop): Dropout(p=0.2, inplace=False)
+      (output_linear): Sequential(
+        (0): Linear(in_features=64, out_features=128, bias=True)
+        (1): GLU(dim=-1)
+      )
+      (residual_layer): ZeroLayer()
+    )
+  )
+  (norms): ModuleList(
+    (0-3): 4 x LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0-3): 4 x Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=64, out_features=1, bias=True)
+)
+[2025-04-14 23:34:17,645][models.s4][INFO] - S4: Initializing kernel to length 1024
+[2025-04-14 23:34:17,986][models.s4][INFO] - S4: Initializing kernel to length 1024
+[2025-04-14 23:34:17,992][models.s4][INFO] - S4: Initializing kernel to length 1024
+[2025-04-14 23:34:17,997][models.s4][INFO] - S4: Initializing kernel to length 1024
+Job completed at Tue Apr 15 06:50:06 EDT 2025

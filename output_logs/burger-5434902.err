@@ -1,0 +1,27 @@
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.1.1
+    latest version: 25.7.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.1.1
+    latest version: 25.7.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+slurmstepd: error: *** JOB 5434902 ON babel-10-5 CANCELLED AT 2025-09-05T07:43:39 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 5434902.0 ON babel-10-5 CANCELLED AT 2025-09-05T07:43:39 DUE TO TIME LIMIT ***
+srun: got SIGCONT
+srun: forcing job termination

@@ -1,0 +1,55 @@
+/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250701_155529-keuj5016
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run deft-cosmos-66
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/keuj5016
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:13<00:00, 13.74s/it]100%|██████████| 1/1 [00:13<00:00, 13.74s/it]
+Traceback (most recent call last):
+  File "/home/rvk/utils/cno_utils.py", line 494, in evaluate_cno_original_all_resolution
+    batch_pred_normalized_resized = resize(batch_pred_normalized, (target_res, target_res))
+  File "/home/rvk/utils/res_utils.py", line 46, in resize
+    f_z[..., :top_freqs1, :top_freqs2] = f[..., :top_freqs1, :top_freqs2]
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The expanded size of the tensor (17) must match the existing size (33) at non-singleton dimension 3.  Target sizes: [16, 1, 32, 17].  Tensor sizes: [16, 1, 32, 33]
+Traceback (most recent call last):
+  File "/home/rvk/utils/cno_utils.py", line 485, in evaluate_cno_original_all_resolution
+    batch_x_normalized = resize(batch_x_normalized, (current_res, current_res))  # Train Resolution
+  File "/home/rvk/utils/res_utils.py", line 46, in resize
+    f_z[..., :top_freqs1, :top_freqs2] = f[..., :top_freqs1, :top_freqs2]
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The expanded size of the tensor (33) must match the existing size (65) at non-singleton dimension 3.  Target sizes: [16, 1, 64, 33].  Tensor sizes: [16, 1, 64, 65]
+Traceback (most recent call last):
+  File "/home/rvk/utils/cno_utils.py", line 485, in evaluate_cno_original_all_resolution
+    batch_x_normalized = resize(batch_x_normalized, (current_res, current_res))  # Train Resolution
+  File "/home/rvk/utils/res_utils.py", line 46, in resize
+    f_z[..., :top_freqs1, :top_freqs2] = f[..., :top_freqs1, :top_freqs2]
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The expanded size of the tensor (33) must match the existing size (129) at non-singleton dimension 3.  Target sizes: [16, 1, 64, 33].  Tensor sizes: [16, 1, 128, 129]
+Traceback (most recent call last):
+  File "/home/rvk/utils/cno_utils.py", line 485, in evaluate_cno_original_all_resolution
+    batch_x_normalized = resize(batch_x_normalized, (current_res, current_res))  # Train Resolution
+  File "/home/rvk/utils/res_utils.py", line 46, in resize
+    f_z[..., :top_freqs1, :top_freqs2] = f[..., :top_freqs1, :top_freqs2]
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The expanded size of the tensor (33) must match the existing size (257) at non-singleton dimension 3.  Target sizes: [16, 1, 64, 33].  Tensor sizes: [16, 1, 256, 257]
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁
+wandb: train_loss ▁
+wandb:   val_loss ▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 0
+wandb: train_loss 0.34764
+wandb:   val_loss 0.05884
+wandb: 
+wandb: 🚀 View run deft-cosmos-66 at: https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/keuj5016
+wandb: ⭐️ View project at: https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d
+wandb: Synced 5 W&B file(s), 1 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250701_155529-keuj5016/logs

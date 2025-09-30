@@ -1,0 +1,12 @@
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.1.1
+    latest version: 25.5.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+/var/spool/slurmd/job5184821/slurm_script: line 63: the-well-download: command not found

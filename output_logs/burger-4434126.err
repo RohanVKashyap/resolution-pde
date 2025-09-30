@@ -1,0 +1,35 @@
+/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250324_101136-u2d4tm22
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run crisp-mountain-6
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/u2d4tm22
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [01:26<27:14, 86.02s/it] 10%|█         | 2/20 [02:52<25:49, 86.06s/it] 15%|█▌        | 3/20 [04:17<24:21, 85.97s/it] 20%|██        | 4/20 [05:43<22:52, 85.79s/it] 25%|██▌       | 5/20 [07:09<21:25, 85.73s/it] 30%|███       | 6/20 [08:34<19:58, 85.63s/it] 35%|███▌      | 7/20 [10:00<18:34, 85.71s/it] 40%|████      | 8/20 [11:26<17:10, 85.90s/it] 45%|████▌     | 9/20 [12:51<15:42, 85.69s/it] 50%|█████     | 10/20 [14:17<14:16, 85.64s/it] 55%|█████▌    | 11/20 [15:43<12:51, 85.77s/it] 60%|██████    | 12/20 [17:09<11:25, 85.71s/it] 65%|██████▌   | 13/20 [18:34<09:58, 85.49s/it] 70%|███████   | 14/20 [19:59<08:33, 85.51s/it] 75%|███████▌  | 15/20 [21:25<07:07, 85.52s/it] 80%|████████  | 16/20 [22:50<05:42, 85.59s/it] 85%|████████▌ | 17/20 [24:16<04:16, 85.62s/it] 90%|█████████ | 18/20 [25:42<02:51, 85.62s/it] 95%|█████████▌| 19/20 [27:07<01:25, 85.53s/it]100%|██████████| 20/20 [28:32<00:00, 85.48s/it]100%|██████████| 20/20 [28:32<00:00, 85.65s/it]
+Error executing job with overrides: ['model=ffno_1d/ffno_1d', 'dataset=burger/burger_0.01']
+Traceback (most recent call last):
+  File "/home/rvk/new_main.py", line 143, in main
+    torch.save({
+    ~~~~~~~~~~^^
+        'model_state_dict': model.state_dict(),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        'l2_loss': avg_l2_loss,
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    }, checkpoint_path)
+    ^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/serialization.py", line 943, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+         ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/serialization.py", line 810, in _open_zipfile_writer
+    return container(name_or_buffer)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/serialization.py", line 781, in __init__
+    super().__init__(torch._C.PyTorchFileWriter(self.name, _compute_crc32))
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Parent directory checkpoints/burger_0.01_ffno_1d/ffno_1d/burger_0.01_ffno_1d does not exist.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-2-29: task 0: Exited with exit code 1

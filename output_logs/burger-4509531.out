@@ -1,0 +1,119 @@
+Job started on babel-5-11 at Fri Apr  4 20:38:04 EDT 2025
+Job ID: 4509531
+Using device: cuda
+[2025-04-04 20:38:07,681][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  width: 32
+  n_modes: 16
+  factor: 4
+  n_layers: 4
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: false
+  grid: null
+  dropout: 0.0
+  mode: full
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 16
+  reduced_resolution_t: 4
+  pde: burger_0.01
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.01.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_0.01_ffno_1d/ffno_1d
+Model name: models.ffno.FFNO1D
+PDE Dataset: burger_0.01
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu0.01.hdf5
+(10000, 201, 1024)
+Total data shape: (10000, 51, 64)
+x shape: (490000, 1, 64)
+y shape: (490000, 1, 64)
+grid shape: torch.Size([64, 1])
+---------Using data normalizer---------------
+Train dataset size: 392000
+Validation dataset size: 49000
+Test dataset size: 49000
+<class 'torch.Tensor'> -0.28188425302505493 -0.2836079001426697 0.8995705246925354 0.9013839960098267
+Sample Input shape: torch.Size([64, 1, 64])
+Sample Output shape: torch.Size([64, 1, 64])
+FFNO1D(
+  (in_proj): WNLinear(in_features=2, out_features=32, bias=True)
+  (fourier_layers): ModuleList(
+    (0-3): 4 x FSpectralConv1d(
+      (fourier_weight): ParameterList(  (0): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)])
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=32, out_features=128, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=128, out_features=32, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): Identity()
+            (3): Identity()
+          )
+        )
+      )
+      (act): Identity()
+    )
+  )
+  (out_proj): WNLinear(in_features=32, out_features=1, bias=True)
+)
+Epoch 0, Train Loss: 0.02183216, Val Loss: 0.00952168
+Epoch 10, Train Loss: 0.00355169, Val Loss: 0.00283850
+Epoch 20, Train Loss: 0.00257435, Val Loss: 0.00407074
+Epoch 30, Train Loss: 0.00206981, Val Loss: 0.00115458
+Epoch 40, Train Loss: 0.00160154, Val Loss: 0.00149004
+Epoch 50, Train Loss: 0.00123214, Val Loss: 0.00143651
+Epoch 60, Train Loss: 0.00085110, Val Loss: 0.00112226
+Epoch 70, Train Loss: 0.00055330, Val Loss: 0.00061718
+Epoch 80, Train Loss: 0.00033457, Val Loss: 0.00024704
+Epoch 90, Train Loss: 0.00019748, Val Loss: 0.00020781
+Test L2 Loss: 0.000169
+-----Visualizing Saved------
+Figure saved to output_logs/predictions/burger_0.01_fno_4509531_predictions.png
+Model saved to checkpoints/ffno1d/burger_0.01_4509531.pt
+Original test data shape: x=torch.Size([49000, 1, 64]), y=torch.Size([49000, 1, 64])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.000169
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([49000, 1, 32]), y=torch.Size([49000, 1, 32])
+Resolution factor 2 - Relative L2 Loss: 0.007575
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([49000, 1, 16]), y=torch.Size([49000, 1, 16])
+Skipping Resolution factor 4 because not enough modes
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([49000, 1, 8]), y=torch.Size([49000, 1, 8])
+Skipping Resolution factor 8 because not enough modes
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([49000, 1, 4]), y=torch.Size([49000, 1, 4])
+Skipping Resolution factor 16 because not enough modes
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([49000, 1, 2]), y=torch.Size([49000, 1, 2])
+Skipping Resolution factor 32 because not enough modes
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.000169
+Resolution factor 2: Relative L2 Loss = 0.007575
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mensign-queen-62[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/3gf59bl5[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250404_203828-3gf59bl5/logs[0m
+Job completed at Fri Apr  4 21:37:50 EDT 2025

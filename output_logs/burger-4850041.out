@@ -1,0 +1,142 @@
+Job started on babel-9-11 at Mon May 12 13:27:27 EDT 2025
+Job ID: 4850041
+GPU information:
+Mon May 12 13:27:27 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40                     On  |   00000000:A1:00.0 Off |                    0 |
+| N/A   27C    P8             34W /  300W |       1MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40                     On  |   00000000:C1:00.0 Off |                    0 |
+| N/A   29C    P8             36W /  300W |       1MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-05-12 13:27:35,516][root][INFO] - model:
+  _target_: models.s4_2d.S4NDModel
+  d_input: 15
+  d_output: 3
+  d_model: 16
+  n_layers: 1
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 4
+  window_size: 15
+  original_res: 512
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_s4_2d/s4_2d
+Model name: models.s4_2d.S4NDModel
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Time data shape: (4, 250)
+Combined data shape: (4, 250, 512, 512, 3)
+x shape: torch.Size([940, 45, 512, 512])
+y shape: torch.Size([940, 3, 512, 512])
+---------Using data normalizer---------------
+Train dataset size: 752
+Validation dataset size: 94
+Test dataset size: 94
+<class 'torch.Tensor'> 0.008878775872290134 0.010766063816845417 0.8825607299804688 0.9150367975234985
+Sample Input shape: torch.Size([16, 45, 512, 512])
+Sample Output shape: torch.Size([16, 3, 512, 512])
+[2025-05-12 13:28:30,267][models.s4][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-05-12 13:28:30,267][models.s4][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+[2025-05-12 13:28:30,271][models.s4nd][WARNING] - CUDA extension for structured kernels (Cauchy and Vandermonde multiplication) not found. Install by going to extensions/kernels/ and running `python setup.py install`, for improved speed and memory efficiency. Note that the kernel changed for state-spaces 4.0 and must be recompiled.
+[2025-05-12 13:28:30,271][models.s4nd][WARNING] - Falling back on slow Cauchy and Vandermonde kernel. Install at least one of pykeops or the CUDA extension for better speed and memory efficiency.
+S4NDModel(
+  (encoder): Linear(in_features=47, out_features=16, bias=True)
+  (s4_layers): ModuleList(
+    (0): S4ND(
+      (kernel): ModuleList(
+        (0-1): 2 x SSMKernelDPLR()
+      )
+    )
+  )
+  (norms): ModuleList(
+    (0): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0): Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=16, out_features=3, bias=True)
+)
+1: torch.Size([16, 45, 512, 512])
+2: torch.Size([16, 512, 512, 47])
+3: torch.Size([16, 512, 512, 16])
+-----Hi------ torch.Size([16, 3, 512, 512])
+1: torch.Size([16, 45, 512, 512])
+2: torch.Size([16, 512, 512, 47])
+3: torch.Size([16, 512, 512, 16])
+torch.Size([16, 45, 512, 512]) torch.Size([16, 3, 512, 512]) torch.Size([16, 3, 512, 512])
+----loss------, tensor(1.0016, device='cuda:0')
+1: torch.Size([16, 45, 512, 512])
+2: torch.Size([16, 512, 512, 47])
+3: torch.Size([16, 512, 512, 16])
+1: torch.Size([16, 45, 512, 512])
+2: torch.Size([16, 512, 512, 47])
+3: torch.Size([16, 512, 512, 16])
+1: torch.Size([16, 45, 512, 512])
+2: torch.Size([16, 512, 512, 47])
+3: torch.Size([16, 512, 512, 16])
+1: torch.Size([16, 45, 512, 512])
+2: torch.Size([16, 512, 512, 47])
+3: torch.Size([16, 512, 512, 16])
+1: torch.Size([16, 45, 512, 512])
+2: torch.Size([16, 512, 512, 47])
+3: torch.Size([16, 512, 512, 16])
+1: torch.Size([14, 45, 512, 512])
+2: torch.Size([14, 512, 512, 47])
+3: torch.Size([14, 512, 512, 16])
+Test L2 Loss: 0.624693
+average loss: 0.6246929367383321
+1: torch.Size([16, 45, 512, 512])
+2: torch.Size([16, 512, 512, 47])
+3: torch.Size([16, 512, 512, 16])
+Sample Output: torch.Size([16, 3, 512, 512])
+Loss: tensor(1.8185, device='cuda:0')
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Time data shape: (4, 250)
+Combined data shape: (4, 250, 512, 512, 3)
+x shape: torch.Size([940, 45, 512, 512])
+y shape: torch.Size([940, 3, 512, 512])
+---------Using data normalizer---------------
+Train dataset size: 752
+Validation dataset size: 94
+Test dataset size: 94
+Original test data shape: x=torch.Size([94, 45, 512, 512]), y=torch.Size([94, 3, 512, 512])
+Testing resolutions: []
+Job completed at Mon May 12 13:29:27 EDT 2025

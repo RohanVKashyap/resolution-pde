@@ -1,0 +1,27 @@
+/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/functional.py:539: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:3637.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Traceback (most recent call last):
+  File "/home/rvk/data_generation/ns1_2d.py", line 176, in <module>
+    w0 = GRF.sample(bsize)
+  File "/home/rvk/data_generation/random_fields.py", line 59, in sample
+    u = torch.ifft(coeff, self.dim, normalized=False)
+        ^^^^^^^^^^
+  File "/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/__init__.py", line 2681, in __getattr__
+    raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
+AttributeError: module 'torch' has no attribute 'ifft'
+srun: error: babel-15-32: task 0: Exited with exit code 1
+/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250909_153745-l22eqe4u
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run skilled-pond-326
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/l22eqe4u
+srun: got SIGCONT
+slurmstepd: error: *** JOB 5444235 ON babel-15-32 CANCELLED AT 2025-09-09T19:01:47 ***
+srun: forcing job termination
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [18:35<30:41:06, 1115.82s/it]  2%|▏         | 2/100 [36:57<30:08:36, 1107.31s/it]  3%|▎         | 3/100 [55:00<29:32:24, 1096.34s/it]  4%|▍         | 4/100 [1:12:59<29:03:05, 1089.43s/it]  5%|▌         | 5/100 [1:30:54<28:36:38, 1084.19s/it]  6%|▌         | 6/100 [1:48:49<28:13:53, 1081.20s/it]  7%|▋         | 7/100 [2:06:44<27:52:48, 1079.23s/it]  8%|▊         | 8/100 [2:24:43<27:34:36, 1079.09s/it]  9%|▉         | 9/100 [2:42:39<27:15:04, 1078.07s/it] 10%|█         | 10/100 [3:00:38<26:57:45, 1078.50s/it] 11%|█         | 11/100 [3:18:35<26:39:08, 1078.07s/it]slurmstepd: error: *** STEP 5444235.1 ON babel-15-32 CANCELLED AT 2025-09-09T19:01:47 ***
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.

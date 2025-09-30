@@ -1,0 +1,4 @@
+/home/rvk/pino-closure-models/ks/solver/KS_solver.py:27: SyntaxWarning: invalid escape sequence '\m'
+  '''
+/home/rvk/pino-closure-models/ks/solver/ParaCtrl.py:42: SyntaxWarning: invalid escape sequence '\i'
+  '''Solve the equation on t\in [0,tmax]. Save num_plot snapshots in total.'''

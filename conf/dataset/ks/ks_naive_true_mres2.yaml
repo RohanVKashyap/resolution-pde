@@ -1,0 +1,39 @@
+dataset_params:
+  _target_: dataloaders.ks_naive_true_multires.ks_true_multires_markov_dataset       # dataloaders.ks.ks_markov_dataset
+  saved_folder: "/data/user_data/rvk/ks/"
+  viscosity: 0.075
+  L: 64.0
+  lmax: 8
+  et: 5.0
+  nte: 51
+  nt: 51
+  train_s: 2048     # NEW: Training data suffix (e.g., 2048)
+  reduced_batch: 1
+  reduced_resolution_t: 1 # 4
+  data_mres_size: {512: 400}
+  add_res: [32, 64, 128]                # Additional higher resolution for training: [32, 64] 
+  add_res_samples: {256: 0, 128: 1600, 64: 0, 32: 0}
+  downsample_from_res: 512
+  data_normalizer: true
+  normalization_type: simple
+  num_samples_max: -1
+
+  eval_dataset_target: dataloaders.ks_naive_markov.ks_markov_dataset
+  eval_filename: "KS_train_2048.h5"  # File for evaluation (This is default: val_filename="KS_valid.h5", test_filename="KS_test.h5")
+  eval_saved_folder: "/data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51"  # Full path to highest res
+
+
+# checkpoint_path: "/home/rvk/checkpoints/ffno1d/ks_5545151.pt" 
+# log_to_wandb: true
+
+resize_to_train: false    # if we want to resize test data to train resolution during testing
+evaluation_type: naive_downsample
+
+window_size: 15        # Use this for S4
+rollout_steps: 16
+original_res: 512
+max_test_resolution: 512   # The resolution till where we want to test [32, 64, 128, 256, 512]
+
+train_mres: true
+
+pde: ks

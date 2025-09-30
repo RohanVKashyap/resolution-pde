@@ -1,0 +1,206 @@
+Job started on babel-11-21 at Tue Sep  2 16:50:15 EDT 2025
+Job ID: 5430016
+GPU information:
+Tue Sep  2 16:50:15 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:1B:00.0 Off |                  Off |
+| 34%   53C    P8             31W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:B2:00.0 Off |                  Off |
+| 30%   36C    P8             27W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+============================================================
+ARGUMENTS:
+============================================================
+experiment          : KS
+device              : cpu
+end_time            : 5.0
+nt                  : 51
+nt_effective        : 51
+nx                  : 1024
+L                   : 64.0
+train_samples       : 1024
+valid_samples       : 128
+test_samples        : 128
+batch_size          : 1
+suffix              : 
+log                 : False
+viscosity           : 0.05
+lmax                : 8
+create_plots        : True
+num_plots           : 10
+plot_resolutions    : [32, 64, 128, 256, 512]
+============================================================
+Data directory /data/user_data/rvk/ks/res_1024/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51 created.
+Log directory /data/user_data/rvk/ks/res_1024/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/log created.
+Generating data
+No file /data/user_data/rvk/ks/res_1024/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/KS_train_1024.h5 exists yet.
+No file /data/user_data/rvk/ks/res_1024/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5 exists yet.
+No file /data/user_data/rvk/ks/res_1024/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5 exists yet.
+Equation: KS
+Mode: train
+Number of samples: 1024
+Solved indices: 0 : 0
+Solved batches: 1 of 1024
+Solved indices: 1 : 1
+Solved batches: 2 of 1024
+Solved indices: 2 : 2
+Solved batches: 3 of 1024
+Solved indices: 3 : 3
+Solved batches: 4 of 1024
+Solved indices: 4 : 4
+Solved batches: 5 of 1024
+Solved indices: 5 : 5
+Solved batches: 6 of 1024
+Solved indices: 6 : 6
+Solved batches: 7 of 1024
+Solved indices: 7 : 7
+Solved batches: 8 of 1024
+Solved indices: 8 : 8
+Solved batches: 9 of 1024
+Solved indices: 9 : 9
+Solved batches: 10 of 1024
+Solved indices: 10 : 10
+Solved batches: 11 of 1024
+Solved indices: 11 : 11
+Solved batches: 12 of 1024
+Solved indices: 12 : 12
+Solved batches: 13 of 1024
+Solved indices: 13 : 13
+Solved batches: 14 of 1024
+Solved indices: 14 : 14
+Solved batches: 15 of 1024
+Solved indices: 15 : 15
+Solved batches: 16 of 1024
+Solved indices: 16 : 16
+Solved batches: 17 of 1024
+Solved indices: 17 : 17
+Solved batches: 18 of 1024
+Solved indices: 18 : 18
+Solved batches: 19 of 1024
+Solved indices: 19 : 19
+Solved batches: 20 of 1024
+Solved indices: 20 : 20
+Solved batches: 21 of 1024
+Solved indices: 21 : 21
+Solved batches: 22 of 1024
+Solved indices: 22 : 22
+Solved batches: 23 of 1024
+Solved indices: 23 : 23
+Solved batches: 24 of 1024
+Solved indices: 24 : 24
+Solved batches: 25 of 1024
+Solved indices: 25 : 25
+Solved batches: 26 of 1024
+Solved indices: 26 : 26
+Solved batches: 27 of 1024
+Solved indices: 27 : 27
+Solved batches: 28 of 1024
+Solved indices: 28 : 28
+Solved batches: 29 of 1024
+Solved indices: 29 : 29
+Solved batches: 30 of 1024
+Solved indices: 30 : 30
+Solved batches: 31 of 1024
+Solved indices: 31 : 31
+Solved batches: 32 of 1024
+Solved indices: 32 : 32
+Solved batches: 33 of 1024
+Solved indices: 33 : 33
+Solved batches: 34 of 1024
+Solved indices: 34 : 34
+Solved batches: 35 of 1024
+Solved indices: 35 : 35
+Solved batches: 36 of 1024
+Solved indices: 36 : 36
+Solved batches: 37 of 1024
+Solved indices: 37 : 37
+Solved batches: 38 of 1024
+Solved indices: 38 : 38
+Solved batches: 39 of 1024
+Solved indices: 39 : 39
+Solved batches: 40 of 1024
+Solved indices: 40 : 40
+Solved batches: 41 of 1024
+Solved indices: 41 : 41
+Solved batches: 42 of 1024
+Solved indices: 42 : 42
+Solved batches: 43 of 1024
+Solved indices: 43 : 43
+Solved batches: 44 of 1024
+Solved indices: 44 : 44
+Solved batches: 45 of 1024
+Solved indices: 45 : 45
+Solved batches: 46 of 1024
+Solved indices: 46 : 46
+Solved batches: 47 of 1024
+Solved indices: 47 : 47
+Solved batches: 48 of 1024
+Solved indices: 48 : 48
+Solved batches: 49 of 1024
+Solved indices: 49 : 49
+Solved batches: 50 of 1024
+Solved indices: 50 : 50
+Solved batches: 51 of 1024
+Solved indices: 51 : 51
+Solved batches: 52 of 1024
+Solved indices: 52 : 52
+Solved batches: 53 of 1024
+Solved indices: 53 : 53
+Solved batches: 54 of 1024
+Solved indices: 54 : 54
+Solved batches: 55 of 1024
+Solved indices: 55 : 55
+Solved batches: 56 of 1024
+Solved indices: 56 : 56
+Solved batches: 57 of 1024
+Solved indices: 57 : 57
+Solved batches: 58 of 1024
+Solved indices: 58 : 58
+Solved batches: 59 of 1024
+Solved indices: 59 : 59
+Solved batches: 60 of 1024
+Solved indices: 60 : 60
+Solved batches: 61 of 1024
+Solved indices: 61 : 61
+Solved batches: 62 of 1024
+Solved indices: 62 : 62
+Solved batches: 63 of 1024
+Solved indices: 63 : 63
+Solved batches: 64 of 1024
+Solved indices: 64 : 64
+Solved batches: 65 of 1024
+Solved indices: 65 : 65
+Solved batches: 66 of 1024
+Solved indices: 66 : 66
+Solved batches: 67 of 1024
+Solved indices: 67 : 67
+Solved batches: 68 of 1024
+Solved indices: 68 : 68
+Solved batches: 69 of 1024
+Solved indices: 69 : 69
+Solved batches: 70 of 1024
+Solved indices: 70 : 70
+Solved batches: 71 of 1024
+Solved indices: 71 : 71
+Solved batches: 72 of 1024
+Solved indices: 72 : 72
+Solved batches: 73 of 1024

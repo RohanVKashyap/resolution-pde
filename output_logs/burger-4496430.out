@@ -1,0 +1,112 @@
+Job started on babel-11-25 at Wed Apr  2 18:52:19 EDT 2025
+Job ID: 4496430
+Using device: cuda
+[2025-04-02 18:52:24,719][root][INFO] - model:
+  _target_: models.ffno.FFNO1D
+  in_channels: 1
+  out_channels: 1
+  width: 32
+  n_modes: 16
+  factor: 4
+  n_layers: 4
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: false
+  grid: null
+  dropout: 0.0
+  mode: full
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 4
+  reduced_resolution_t: 4
+  pde: burger_0.001
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.001.hdf5
+training:
+  batch_size: 64
+  epochs: 10
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_0.001_ffno_1d/ffno_1d
+Model name: models.ffno.FFNO1D
+PDE Dataset: burger_0.001
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu0.001.hdf5
+(10000, 201, 1024)
+Total data shape: (10000, 51, 256)
+x shape: (490000, 1, 256)
+y shape: (490000, 1, 256)
+grid shape: torch.Size([256, 1])
+---------Using data normalizer---------------
+Train dataset size: 392000
+Validation dataset size: 49000
+Test dataset size: 49000
+<class 'torch.Tensor'> -0.16716818511486053 -0.168382465839386 0.9991918206214905 0.9944160580635071
+Sample Input shape: torch.Size([64, 1, 256])
+Sample Output shape: torch.Size([64, 1, 256])
+FFNO1D(
+  (in_proj): WNLinear(in_features=2, out_features=32, bias=True)
+  (fourier_layers): ModuleList(
+    (0-3): 4 x FSpectralConv1d(
+      (fourier_weight): ParameterList(  (0): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)])
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=32, out_features=128, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=128, out_features=32, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): Identity()
+            (3): Identity()
+          )
+        )
+      )
+      (act): Identity()
+    )
+  )
+  (out_proj): WNLinear(in_features=32, out_features=1, bias=True)
+)
+Epoch 0, Train Loss: 0.03037196, Val Loss: 0.01571731
+Test L2 Loss: 0.005062
+-----Visualizing Saved------
+Figure saved to output_logs/predictions/burger_0.001_fno_4496430_predictions.png
+Model saved to checkpoints/ffno1d/burger_0.001_4496430.pt
+Original test data shape: x=torch.Size([49000, 1, 256]), y=torch.Size([49000, 1, 256])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.005062
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([49000, 1, 128]), y=torch.Size([49000, 1, 128])
+Resolution factor 2 - Relative L2 Loss: 0.014080
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([49000, 1, 64]), y=torch.Size([49000, 1, 64])
+Resolution factor 4 - Relative L2 Loss: 0.035968
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([49000, 1, 32]), y=torch.Size([49000, 1, 32])
+Resolution factor 8 - Relative L2 Loss: 0.081638
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([49000, 1, 16]), y=torch.Size([49000, 1, 16])
+Skipping Resolution factor 16 because not enough modes
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([49000, 1, 8]), y=torch.Size([49000, 1, 8])
+Skipping Resolution factor 32 because not enough modes
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.005062
+Resolution factor 2: Relative L2 Loss = 0.014080
+Resolution factor 4: Relative L2 Loss = 0.035968
+Resolution factor 8: Relative L2 Loss = 0.081638
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mhappy-darkness-48[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/no3kp381[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250402_185248-no3kp381/logs[0m
+Job completed at Wed Apr  2 19:02:20 EDT 2025

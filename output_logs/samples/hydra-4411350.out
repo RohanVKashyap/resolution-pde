@@ -1,0 +1,131 @@
+Job started on babel-0-31 at Thu Mar 20 12:15:22 EDT 2025
+Job ID: 4411350
+Using device: cuda:0
+Target features are normalized using pointwise unit normalizer
+Input features are normalized using unit transformer
+Target features are normalized using pointwise unit normalizer
+Input features are normalized using unit transformer
+Graph g: 25600 nodes, 0 edges
+Node features shape: torch.Size([25600, 1])
+Node targets shape: torch.Size([25600, 1])
+Parameters u_p shape: torch.Size([25, 1])
+Trunk size: 2, Branch size: 1
+Using Linear Attention
+Using Linear Attention
+Using Linear Attention
+
+Model: MoEGPTNO	 Number of params: 1135693
+Original x shape: torch.Size([25, 1024, 1])
+u_p shape after expansion: torch.Size([25, 1024, 1])
+x shape after concatenation: torch.Size([25, 1024, 2])
+Final x shape before MLP: torch.Size([25, 1024, 2])
+Expected trunk size: 2
+Original x shape: torch.Size([7, 1024, 1])
+u_p shape after expansion: torch.Size([7, 1024, 1])
+x shape after concatenation: torch.Size([7, 1024, 2])
+Final x shape before MLP: torch.Size([7, 1024, 2])
+Expected trunk size: 2
+| loss 0: 1.079e+00| val metric 0: 1.102235 | best val: 1.102235 at epoch 1 | current lr: 1.000e-03
+Original x shape: torch.Size([25, 1024, 1])
+u_p shape after expansion: torch.Size([25, 1024, 1])
+x shape after concatenation: torch.Size([25, 1024, 2])
+Final x shape before MLP: torch.Size([25, 1024, 2])
+Expected trunk size: 2
+Original x shape: torch.Size([7, 1024, 1])
+u_p shape after expansion: torch.Size([7, 1024, 1])
+x shape after concatenation: torch.Size([7, 1024, 2])
+Final x shape before MLP: torch.Size([7, 1024, 2])
+Expected trunk size: 2
+| loss 0: 1.079e+00| val metric 0: 1.699388 | best val: 1.102235 at epoch 1 | current lr: 9.619e-04
+Original x shape: torch.Size([25, 1024, 1])
+u_p shape after expansion: torch.Size([25, 1024, 1])
+x shape after concatenation: torch.Size([25, 1024, 2])
+Final x shape before MLP: torch.Size([25, 1024, 2])
+Expected trunk size: 2
+Original x shape: torch.Size([7, 1024, 1])
+u_p shape after expansion: torch.Size([7, 1024, 1])
+x shape after concatenation: torch.Size([7, 1024, 2])
+Final x shape before MLP: torch.Size([7, 1024, 2])
+Expected trunk size: 2
+| loss 0: 1.736e+00| val metric 0: 2.039376 | best val: 1.102235 at epoch 1 | current lr: 8.536e-04
+Original x shape: torch.Size([25, 1024, 1])
+u_p shape after expansion: torch.Size([25, 1024, 1])
+x shape after concatenation: torch.Size([25, 1024, 2])
+Final x shape before MLP: torch.Size([25, 1024, 2])
+Expected trunk size: 2
+Original x shape: torch.Size([7, 1024, 1])
+u_p shape after expansion: torch.Size([7, 1024, 1])
+x shape after concatenation: torch.Size([7, 1024, 2])
+Final x shape before MLP: torch.Size([7, 1024, 2])
+Expected trunk size: 2
+| loss 0: 2.064e+00| val metric 0: 1.115707 | best val: 1.102235 at epoch 1 | current lr: 6.913e-04
+Original x shape: torch.Size([25, 1024, 1])
+u_p shape after expansion: torch.Size([25, 1024, 1])
+x shape after concatenation: torch.Size([25, 1024, 2])
+Final x shape before MLP: torch.Size([25, 1024, 2])
+Expected trunk size: 2
+epoch: [5/10] | loss 0: 1.097087 | loss 1: 0.000000 | current lr: 5.000e-04
+Original x shape: torch.Size([7, 1024, 1])
+u_p shape after expansion: torch.Size([7, 1024, 1])
+x shape after concatenation: torch.Size([7, 1024, 2])
+Final x shape before MLP: torch.Size([7, 1024, 2])
+Expected trunk size: 2
+| loss 0: 1.097e+00| val metric 0: 1.385440 | best val: 1.102235 at epoch 1 | current lr: 5.000e-04
+Original x shape: torch.Size([25, 1024, 1])
+u_p shape after expansion: torch.Size([25, 1024, 1])
+x shape after concatenation: torch.Size([25, 1024, 2])
+Final x shape before MLP: torch.Size([25, 1024, 2])
+Expected trunk size: 2
+Original x shape: torch.Size([7, 1024, 1])
+u_p shape after expansion: torch.Size([7, 1024, 1])
+x shape after concatenation: torch.Size([7, 1024, 2])
+Final x shape before MLP: torch.Size([7, 1024, 2])
+Expected trunk size: 2
+| loss 0: 1.406e+00| val metric 0: 1.443035 | best val: 1.102235 at epoch 1 | current lr: 3.087e-04
+Original x shape: torch.Size([25, 1024, 1])
+u_p shape after expansion: torch.Size([25, 1024, 1])
+x shape after concatenation: torch.Size([25, 1024, 2])
+Final x shape before MLP: torch.Size([25, 1024, 2])
+Expected trunk size: 2
+Original x shape: torch.Size([7, 1024, 1])
+u_p shape after expansion: torch.Size([7, 1024, 1])
+x shape after concatenation: torch.Size([7, 1024, 2])
+Final x shape before MLP: torch.Size([7, 1024, 2])
+Expected trunk size: 2
+| loss 0: 1.467e+00| val metric 0: 1.289927 | best val: 1.102235 at epoch 1 | current lr: 1.464e-04
+Original x shape: torch.Size([25, 1024, 1])
+u_p shape after expansion: torch.Size([25, 1024, 1])
+x shape after concatenation: torch.Size([25, 1024, 2])
+Final x shape before MLP: torch.Size([25, 1024, 2])
+Expected trunk size: 2
+Original x shape: torch.Size([7, 1024, 1])
+u_p shape after expansion: torch.Size([7, 1024, 1])
+x shape after concatenation: torch.Size([7, 1024, 2])
+Final x shape before MLP: torch.Size([7, 1024, 2])
+Expected trunk size: 2
+| loss 0: 1.303e+00| val metric 0: 1.177455 | best val: 1.102235 at epoch 1 | current lr: 3.806e-05
+Original x shape: torch.Size([25, 1024, 1])
+u_p shape after expansion: torch.Size([25, 1024, 1])
+x shape after concatenation: torch.Size([25, 1024, 2])
+Final x shape before MLP: torch.Size([25, 1024, 2])
+Expected trunk size: 2
+Original x shape: torch.Size([7, 1024, 1])
+u_p shape after expansion: torch.Size([7, 1024, 1])
+x shape after concatenation: torch.Size([7, 1024, 2])
+Final x shape before MLP: torch.Size([7, 1024, 2])
+Expected trunk size: 2
+| loss 0: 1.180e+00| val metric 0: 1.143606 | best val: 1.102235 at epoch 1 | current lr: 1.000e-11
+Original x shape: torch.Size([25, 1024, 1])
+u_p shape after expansion: torch.Size([25, 1024, 1])
+x shape after concatenation: torch.Size([25, 1024, 2])
+Final x shape before MLP: torch.Size([25, 1024, 2])
+Expected trunk size: 2
+epoch: [10/10] | loss 0: 1.143093 | loss 1: 0.000000 | current lr: 3.806e-05
+Original x shape: torch.Size([7, 1024, 1])
+u_p shape after expansion: torch.Size([7, 1024, 1])
+x shape after concatenation: torch.Size([7, 1024, 2])
+Final x shape before MLP: torch.Size([7, 1024, 2])
+Expected trunk size: 2
+| loss 0: 1.143e+00| val metric 0: 1.143606 | best val: 1.102235 at epoch 1 | current lr: 3.806e-05
+Training takes 2.643745183944702 seconds.
+Job completed at Thu Mar 20 12:15:34 EDT 2025

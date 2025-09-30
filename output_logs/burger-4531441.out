@@ -1,0 +1,110 @@
+Job started on babel-4-17 at Tue Apr  8 10:10:54 EDT 2025
+Job ID: 4531441
+Using device: cuda
+[2025-04-08 10:10:57,550][root][INFO] - model:
+  _target_: models.s4_1d.S4Model
+  d_input: 10
+  d_output: 1
+  d_model: 64
+  n_layers: 4
+  dropout: 0.2
+  prenorm: false
+dataset:
+  reduced_batch: 4
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  window_size: 10
+  pde: burger_0.01
+  data_path1: data/pdebench/1D_Burgers_Sols_Nu0.01.hdf5
+training:
+  batch_size: 64
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: burger_0.01_s4_1d/s4_1d
+Model name: models.s4_1d.S4Model
+PDE Dataset: burger_0.01
+Loading from file: /home/rvk/data/pdebench/1D_Burgers_Sols_Nu0.01.hdf5
+(10000, 201, 1024)
+Total data shape: (2500, 201, 1024)
+x shape: (477500, 10, 1024)
+y shape: (477500, 1, 1024)
+grid shape: torch.Size([1024, 1])
+---------Using data normalizer---------------
+Train dataset size: 382000
+Validation dataset size: 47750
+Test dataset size: 47750
+<class 'torch.Tensor'> -0.09619859606027603 -0.09697403013706207 0.9838630557060242 0.9870968461036682
+Sample Input shape: torch.Size([64, 10, 1024])
+Sample Output shape: torch.Size([64, 1, 1024])
+S4Model(
+  (encoder): Linear(in_features=11, out_features=64, bias=True)
+  (s4_layers): ModuleList(
+    (0-3): 4 x S4D(
+      (kernel): S4DKernel()
+      (activation): GELU(approximate='none')
+      (dropout): DropoutNd()
+      (output_linear): Sequential(
+        (0): Conv1d(64, 128, kernel_size=(1,), stride=(1,))
+        (1): GLU(dim=-2)
+      )
+    )
+  )
+  (norms): ModuleList(
+    (0-3): 4 x LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0-3): 4 x Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=64, out_features=1, bias=True)
+)
+Epoch 0, Train Loss: 0.03726341, Val Loss: 0.00622352
+Epoch 10, Train Loss: 0.00485319, Val Loss: 0.00499070
+Epoch 20, Train Loss: 0.00330458, Val Loss: 0.00304405
+Epoch 30, Train Loss: 0.00284490, Val Loss: 0.00267929
+Epoch 40, Train Loss: 0.00234250, Val Loss: 0.00222843
+Epoch 50, Train Loss: 0.00193861, Val Loss: 0.00313648
+Epoch 60, Train Loss: 0.00154206, Val Loss: 0.00200327
+Epoch 70, Train Loss: 0.00124711, Val Loss: 0.00167564
+Epoch 80, Train Loss: 0.00103443, Val Loss: 0.00114974
+Epoch 90, Train Loss: 0.00092843, Val Loss: 0.00108575
+Test L2 Loss: 0.001079
+-----Visualizing Saved------
+Figure saved to output_logs/predictions/burger_0.01_fno_4531441_predictions.png
+Model saved to checkpoints/s4model/burger_0.01_4531441.pt
+Original test data shape: x=torch.Size([47750, 10, 1024]), y=torch.Size([47750, 1, 1024])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.001079
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([47750, 10, 512]), y=torch.Size([47750, 1, 512])
+Resolution factor 2 - Relative L2 Loss: 0.005065
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([47750, 10, 256]), y=torch.Size([47750, 1, 256])
+Resolution factor 4 - Relative L2 Loss: 0.015200
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([47750, 10, 128]), y=torch.Size([47750, 1, 128])
+Resolution factor 8 - Relative L2 Loss: 0.027296
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([47750, 10, 64]), y=torch.Size([47750, 1, 64])
+Resolution factor 16 - Relative L2 Loss: 0.030930
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([47750, 10, 32]), y=torch.Size([47750, 1, 32])
+Resolution factor 32 - Relative L2 Loss: 0.024246
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.001079
+Resolution factor 2: Relative L2 Loss = 0.005065
+Resolution factor 4: Relative L2 Loss = 0.015200
+Resolution factor 8: Relative L2 Loss = 0.027296
+Resolution factor 16: Relative L2 Loss = 0.030930
+Resolution factor 32: Relative L2 Loss = 0.024246
+Job completed at Tue Apr  8 12:15:17 EDT 2025

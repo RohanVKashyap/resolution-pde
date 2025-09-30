@@ -1,0 +1,33 @@
+Job started on babel-0-27 at Sun Mar 16 13:34:28 EDT 2025
+Job ID: 4382705
+2.2.0+cu121
+12.1
+cuda
+S4Model(
+  (encoder): Linear(in_features=2, out_features=256, bias=True)
+  (s4_layers): ModuleList(
+    (0-3): 4 x S4Block(
+      (layer): FFTConv(
+        (activation): GELU(approximate='none')
+        (kernel): SSMKernelDPLR()
+        (drop): Dropout(p=0.2, inplace=False)
+        (drop_kernel): Identity()
+      )
+      (mult_activation): Identity()
+      (drop): Dropout(p=0.2, inplace=False)
+      (output_linear): Sequential(
+        (0): Linear(in_features=256, out_features=512, bias=True)
+        (1): GLU(dim=-1)
+      )
+      (residual_layer): ZeroLayer()
+    )
+  )
+  (norms): ModuleList(
+    (0-3): 4 x LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (dropouts): ModuleList(
+    (0-3): 4 x Dropout(p=0.2, inplace=False)
+  )
+  (decoder): Linear(in_features=256, out_features=1, bias=True)
+)
+Job completed at Sun Mar 16 13:34:37 EDT 2025

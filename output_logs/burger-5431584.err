@@ -1,0 +1,5 @@
+slurmstepd: error: *** STEP 5431584.0 ON shire-1-6 CANCELLED AT 2025-09-04T00:47:52 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 5431584 ON shire-1-6 CANCELLED AT 2025-09-04T00:47:52 DUE TO TIME LIMIT ***
+srun: got SIGCONT
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: forcing job termination

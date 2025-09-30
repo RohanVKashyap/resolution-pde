@@ -1,0 +1,155 @@
+Job started on babel-4-5 at Mon May 12 17:59:05 EDT 2025
+Job ID: 4860542
+Using device: cuda
+[2025-05-12 17:59:08,125][root][INFO] - model:
+  _target_: models.ffno.FFNO2D
+  in_channels: 3
+  out_channels: 3
+  width: 32
+  factor: 4
+  n_modes: 16
+  n_layers: 4
+  dropout: 0.0
+  mode: full
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: true
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 16
+  reduced_resolution_t: 4
+  window_size: 15
+  original_res: 512
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-100.hdf5
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_ffno_2d/ns_ffno_2d
+Model name: models.ffno.FFNO2D
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-100.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 32, 32, 3)
+x shape: torch.Size([992, 3, 32, 32])
+y shape: torch.Size([992, 3, 32, 32])
+---------Using data normalizer---------------
+Train dataset size: 793
+Validation dataset size: 99
+Test dataset size: 100
+<class 'torch.Tensor'> -0.004766257479786873 -0.0045812493190169334 1.017391324043274 1.0197856426239014
+Sample Input shape: torch.Size([16, 3, 32, 32])
+Sample Output shape: torch.Size([16, 3, 32, 32])
+FFNO2D(
+  (in_proj): WNLinear(in_features=5, out_features=32, bias=True)
+  (fourier_layers): ModuleList(
+    (0-3): 4 x FSpectralConv2d(
+      (fourier_weight): ParameterList(
+          (0): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)]
+          (1): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)]
+      )
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=32, out_features=128, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=128, out_features=32, bias=True)
+            (1): Dropout(p=0.0, inplace=False)
+            (2): Identity()
+            (3): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (out_proj): WNLinear(in_features=32, out_features=3, bias=True)
+)
+Epoch 0, Train Loss: 0.32830119, Val Loss: 0.11592822
+Epoch 10, Train Loss: 0.07277259, Val Loss: 0.07191398
+Epoch 20, Train Loss: 0.06243769, Val Loss: 0.05796500
+Epoch 30, Train Loss: 0.05927211, Val Loss: 0.05879402
+Epoch 40, Train Loss: 0.05577505, Val Loss: 0.05511500
+Epoch 50, Train Loss: 0.05379012, Val Loss: 0.05496406
+Epoch 60, Train Loss: 0.05087110, Val Loss: 0.05528386
+Epoch 70, Train Loss: 0.04883572, Val Loss: 0.05514061
+Epoch 80, Train Loss: 0.04695464, Val Loss: 0.05523518
+Epoch 90, Train Loss: 0.04580918, Val Loss: 0.05536803
+Test L2 Loss: 0.027711
+Model saved to checkpoints/ffno2d/navier_stokes_0_4860542.pt
+Original test data shape: x=torch.Size([100, 3, 32, 32]), y=torch.Size([100, 3, 32, 32])
+
+Evaluating at resolution factor: 1
+Resolution factor 1 - Relative L2 Loss: 0.026538
+
+Evaluating at resolution factor: 2
+Downsampled shapes: x=torch.Size([100, 3, 16, 16]), y=torch.Size([100, 3, 16, 16])
+Skipping Resolution factor 2 because not enough modes
+
+Evaluating at resolution factor: 4
+Downsampled shapes: x=torch.Size([100, 3, 8, 8]), y=torch.Size([100, 3, 8, 8])
+Skipping Resolution factor 4 because not enough modes
+
+Evaluating at resolution factor: 8
+Downsampled shapes: x=torch.Size([100, 3, 4, 4]), y=torch.Size([100, 3, 4, 4])
+Skipping Resolution factor 8 because not enough modes
+
+Evaluating at resolution factor: 16
+Downsampled shapes: x=torch.Size([100, 3, 2, 2]), y=torch.Size([100, 3, 2, 2])
+Skipping Resolution factor 16 because not enough modes
+
+Evaluating at resolution factor: 32
+Downsampled shapes: x=torch.Size([100, 3, 1, 1]), y=torch.Size([100, 3, 1, 1])
+Skipping Resolution factor 32 because not enough modes
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-100.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 512, 512, 3)
+x shape: torch.Size([992, 3, 512, 512])
+y shape: torch.Size([992, 3, 512, 512])
+---------Using data normalizer---------------
+Train dataset size: 793
+Validation dataset size: 99
+Test dataset size: 100
+Original test data shape: x=torch.Size([100, 3, 512, 512]), y=torch.Size([100, 3, 512, 512])
+Testing resolutions: [64, 128, 256, 512]
+
+Evaluating at resolution: 64
+Downsampled shapes: x=torch.Size([100, 3, 64, 64]), y=torch.Size([100, 3, 64, 64])
+Resolution 64 - Relative L2 Loss: 0.070573
+
+Evaluating at resolution: 128
+Downsampled shapes: x=torch.Size([100, 3, 128, 128]), y=torch.Size([100, 3, 128, 128])
+Resolution 128 - Relative L2 Loss: 0.218637
+
+Evaluating at resolution: 256
+Downsampled shapes: x=torch.Size([100, 3, 256, 256]), y=torch.Size([100, 3, 256, 256])
+Resolution 256 - Relative L2 Loss: 0.217696
+
+Evaluating at resolution: 512
+Downsampled shapes: x=torch.Size([100, 3, 512, 512]), y=torch.Size([100, 3, 512, 512])
+Resolution 512 - Relative L2 Loss: 0.059732
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 1: Relative L2 Loss = 0.026538
+
+Summary of Higher-Resolution Evaluation:
+Resolution 64: Relative L2 Loss = 0.070573
+Resolution 128: Relative L2 Loss = 0.218637
+Resolution 256: Relative L2 Loss = 0.217696
+Resolution 512: Relative L2 Loss = 0.059732
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mpious-jazz-11[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/i45pn915[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250512_175940-i45pn915/logs[0m
+Job completed at Mon May 12 18:00:51 EDT 2025

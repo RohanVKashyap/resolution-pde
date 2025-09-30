@@ -1,0 +1,157 @@
+Job started on babel-2-17 at Sat Jun 21 11:00:29 EDT 2025
+Job ID: 5139488
+GPU information:
+Sat Jun 21 11:00:29 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:52:00.0 Off |                    0 |
+| N/A   24C    P8             30W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:56:00.0 Off |                    0 |
+| N/A   23C    P8             30W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-06-21 11:00:34,043][root][INFO] - model:
+  _target_: models.CNO2d.CNO2d
+  in_dim: 3
+  out_dim: 3
+  N_layers: 4
+  N_res: 4
+  N_res_neck: 4
+  channel_multiplier: 16
+  use_bn: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 16
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  train_resolution: 32
+  multi_res:
+  - 4
+  - 8
+  s: 32
+  train_mres: false
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_cno_2d/cno_2d
+Model name: models.CNO2d.CNO2d
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 1000, 512, 512, 3)
+Current Spatial Size: 512
+Downsampling from 512x512 to 32x32
+Data shape after downsampling: (4, 1000, 32, 32, 3)
+x shape: torch.Size([3992, 3, 32, 32])
+y shape: torch.Size([3992, 3, 32, 32])
+---------Computing min-max normalization statistics---------------
+Input data range: [-2.729954, 2.476336]
+Output data range: [-2.729954, 2.436164]
+Train dataset size: 3193
+Validation dataset size: 399
+Test dataset size: 400
+<class 'torch.Tensor'> 0.5246096253395081 0.5286895632743835 0.1005149632692337 0.10122039169073105
+Total Model Parameters: 2.01M
+Trainable Parameters: 2.01M
+Epoch 0, Train Loss: 0.12568506, Val Loss: 0.05050184
+Epoch 10, Train Loss: 0.01566807, Val Loss: 0.01559517
+Epoch 20, Train Loss: 0.01132728, Val Loss: 0.00676785
+Epoch 30, Train Loss: 0.00532704, Val Loss: 0.00457841
+Epoch 40, Train Loss: 0.00546525, Val Loss: 0.00500271
+Epoch 50, Train Loss: 0.00267478, Val Loss: 0.00273037
+Epoch 60, Train Loss: 0.00298607, Val Loss: 0.00307672
+Epoch 70, Train Loss: 0.00287608, Val Loss: 0.00303742
+Epoch 80, Train Loss: 0.00214168, Val Loss: 0.00230904
+Epoch 90, Train Loss: 0.00209860, Val Loss: 0.00194667
+Test L2 Loss: 0.010736
+Model saved to checkpoints/cno2d/navier_stokes_0_5139488.pt
+Using provided normalization statistics from training resolution 32:
+  Input range: [-2.729954, 2.476336]
+  Output range: [-2.729954, 2.436164]
+Loading original resolution (512) test data...
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 1000, 512, 512, 3)
+Current Spatial Size: 512
+x shape: torch.Size([3992, 3, 512, 512])
+y shape: torch.Size([3992, 3, 512, 512])
+Train dataset size: 3193
+Validation dataset size: 399
+Test dataset size: 400
+Original test data shape: x=torch.Size([400, 3, 512, 512]), y=torch.Size([400, 3, 512, 512])
+Testing resolutions: [32, 64, 128, 256, 512]
+
+Evaluating at resolution: 32
+Resizing data...
+Resized shapes: x=torch.Size([400, 3, 32, 32]), y=torch.Size([400, 3, 32, 32])
+Resolution 32 - Relative L2 Loss: 0.010927
+
+Evaluating at resolution: 64
+Resizing data...
+Resized shapes: x=torch.Size([400, 3, 64, 64]), y=torch.Size([400, 3, 64, 64])
+Resolution 64 - Relative L2 Loss: 0.264817
+
+Evaluating at resolution: 128
+Resizing data...
+Resized shapes: x=torch.Size([400, 3, 128, 128]), y=torch.Size([400, 3, 128, 128])
+Resolution 128 - Relative L2 Loss: 0.368963
+
+Evaluating at resolution: 256
+Resizing data...
+Resized shapes: x=torch.Size([400, 3, 256, 256]), y=torch.Size([400, 3, 256, 256])
+Resolution 256 - Relative L2 Loss: 0.419166
+
+Evaluating at resolution: 512
+Resizing data...
+Resized shapes: x=torch.Size([400, 3, 512, 512]), y=torch.Size([400, 3, 512, 512])
+Resolution 512 - Relative L2 Loss: 0.442319
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.010927
+Resolution  64: 0.264817
+Resolution 128: 0.368963
+Resolution 256: 0.419166
+Resolution 512: 0.442319
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 32: Relative L2 Loss = 0.010927
+Resolution factor 64: Relative L2 Loss = 0.264817
+Resolution factor 128: Relative L2 Loss = 0.368963
+Resolution factor 256: Relative L2 Loss = 0.419166
+Resolution factor 512: Relative L2 Loss = 0.442319
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mfluent-lion-15[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/cno2d/runs/ubbws658[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250621_110154-ubbws658/logs[0m
+Job completed at Sat Jun 21 11:07:15 EDT 2025

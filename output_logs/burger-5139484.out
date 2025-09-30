@@ -1,0 +1,83 @@
+Job started on babel-3-21 at Sat Jun 21 10:56:18 EDT 2025
+Job ID: 5139484
+GPU information:
+Sat Jun 21 10:56:18 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:01:00.0 Off |                  Off |
+| 30%   37C    P8             30W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:41:00.0 Off |                  Off |
+| 30%   31C    P8             26W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-06-21 10:56:23,721][root][INFO] - model:
+  _target_: models.CNO2d.CNO2d
+  in_dim: 3
+  out_dim: 3
+  N_layers: 4
+  N_res: 4
+  N_res_neck: 4
+  channel_multiplier: 16
+  use_bn: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 16
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  train_resolution: 32
+  multi_res:
+  - 4
+  - 8
+  s: 32
+  train_mres: false
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_cno_2d/cno_2d
+Model name: models.CNO2d.CNO2d
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 1000, 512, 512, 3)
+Current Spatial Size: 512
+Downsampling from 512x512 to 32x32
+Data shape after downsampling: (4, 1000, 32, 32, 3)
+x shape: torch.Size([3992, 3, 32, 32])
+y shape: torch.Size([3992, 3, 32, 32])
+---------Computing min-max normalization statistics---------------
+Input data range: [-2.729954, 2.476336]
+Output data range: [-2.729954, 2.436164]
+Train dataset size: 3193
+Validation dataset size: 399
+Test dataset size: 400
+<class 'torch.Tensor'> 0.5247730612754822 0.5288546085357666 0.10240130126476288 0.10311730951070786
+Total Model Parameters: 2.01M
+Trainable Parameters: 2.01M

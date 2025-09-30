@@ -1,0 +1,15 @@
+/data/user_data/rvk/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250731_172003-bn788fat
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run good-eon-121
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/bn788fat
+srun: got SIGCONT
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:15<25:26, 15.42s/it]  2%|▏         | 2/100 [00:18<13:05,  8.02s/it]  3%|▎         | 3/100 [00:21<09:06,  5.63s/it]  4%|▍         | 4/100 [00:23<07:12,  4.50s/it]  5%|▌         | 5/100 [00:26<06:09,  3.89s/it]  6%|▌         | 6/100 [00:29<05:31,  3.52s/it]  7%|▋         | 7/100 [00:32<05:05,  3.29s/it]  8%|▊         | 8/100 [00:35<04:47,  3.12s/it]  9%|▉         | 9/100 [00:37<04:35,  3.03s/it] 10%|█         | 10/100 [00:40<04:25,  2.95s/it] 11%|█         | 11/100 [00:43<04:17,  2.90s/it] 12%|█▏        | 12/100 [00:46<04:11,  2.86s/it] 13%|█▎        | 13/100 [00:48<04:07,  2.84s/it] 14%|█▍        | 14/100 [00:51<04:04,  2.84s/it] 15%|█▌        | 15/100 [00:54<04:01,  2.84s/it] 16%|█▌        | 16/100 [00:57<03:57,  2.82s/it] 17%|█▋        | 17/100 [01:00<03:54,  2.82s/it]slurmstepd: error: *** STEP 5289082.0 ON babel-2-25 CANCELLED AT 2025-07-31T17:21:17 ***
+slurmstepd: error: *** JOB 5289082 ON babel-2-25 CANCELLED AT 2025-07-31T17:21:17 ***
+srun: forcing job termination

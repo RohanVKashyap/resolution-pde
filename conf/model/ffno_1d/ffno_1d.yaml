@@ -2,14 +2,14 @@ defaults:
   - base_model
 _target_: models.ffno.FFNO1D
 factor: 4
-n_modes: 16
+n_modes: 64
 width: 128      # 64
 n_layers: 4    # 8
 ff_weight_norm: true
 n_ff_layers: 3    # 2
 layer_norm: true
 # grid: null
-dropout: 0.1   # 0.0 
+dropout: 0.2   # 0.0 
 mode: "full"
 activation: "gelu"   # relu
 

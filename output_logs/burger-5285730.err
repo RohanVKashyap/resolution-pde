@@ -1,0 +1,5 @@
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+srun: got SIGCONT
+slurmstepd: error: *** JOB 5285730 ON babel-15-36 CANCELLED AT 2025-07-30T15:06:05 ***
+srun: forcing job termination
+slurmstepd: error: *** STEP 5285730.0 ON babel-15-36 CANCELLED AT 2025-07-30T15:06:05 ***

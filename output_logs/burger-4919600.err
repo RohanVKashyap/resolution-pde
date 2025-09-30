@@ -1,0 +1,2 @@
+slurmstepd: error: Detected 1 oom_kill event in StepId=4919600.0. Some of the step tasks have been OOM Killed.
+srun: error: babel-1-27: task 0: Out Of Memory

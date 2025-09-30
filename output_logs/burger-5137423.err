@@ -1,0 +1,215 @@
+Traceback (most recent call last):
+  File "/home/rvk/utils/cno_utils.py", line 233, in evaluate_cno_all_resolution
+    batch_pred_normalized = model(batch_x_normalized)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 337, in forward
+    x = self.project(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 114, in forward
+    x = self.inter_CNOBlock(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 86, in forward
+    return self.act(x)
+           ~~~~~~~~^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 44, in forward
+    x = self.act(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/activation.py", line 828, in forward
+    return F.leaky_relu(input, self.negative_slope, self.inplace)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/functional.py", line 1902, in leaky_relu
+    result = torch._C._nn.leaky_relu(input, negative_slope)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 47.37 GiB of which 14.88 GiB is free. Including non-PyTorch memory, this process has 32.49 GiB memory in use. Of the allocated memory 21.50 GiB is allocated by PyTorch, and 10.50 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/rvk/utils/cno_utils.py", line 233, in evaluate_cno_all_resolution
+    batch_pred_normalized = model(batch_x_normalized)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 307, in forward
+    x = self.lift(x) #Execute Lift
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 114, in forward
+    x = self.inter_CNOBlock(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 86, in forward
+    return self.act(x)
+           ~~~~~~~~^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 44, in forward
+    x = self.act(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/activation.py", line 828, in forward
+    return F.leaky_relu(input, self.negative_slope, self.inplace)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/functional.py", line 1902, in leaky_relu
+    result = torch._C._nn.leaky_relu(input, negative_slope)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 47.37 GiB of which 14.88 GiB is free. Including non-PyTorch memory, this process has 32.49 GiB memory in use. Of the allocated memory 16.07 GiB is allocated by PyTorch, and 15.93 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/rvk/utils/cno_utils.py", line 233, in evaluate_cno_all_resolution
+    batch_pred_normalized = model(batch_x_normalized)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 307, in forward
+    x = self.lift(x) #Execute Lift
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 114, in forward
+    x = self.inter_CNOBlock(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 86, in forward
+    return self.act(x)
+           ~~~~~~~~^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 44, in forward
+    x = self.act(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/activation.py", line 828, in forward
+    return F.leaky_relu(input, self.negative_slope, self.inplace)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/functional.py", line 1902, in leaky_relu
+    result = torch._C._nn.leaky_relu(input, negative_slope)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 47.37 GiB of which 14.88 GiB is free. Including non-PyTorch memory, this process has 32.49 GiB memory in use. Of the allocated memory 16.27 GiB is allocated by PyTorch, and 15.73 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/rvk/utils/cno_utils.py", line 233, in evaluate_cno_all_resolution
+    batch_pred_normalized = model(batch_x_normalized)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 307, in forward
+    x = self.lift(x) #Execute Lift
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 114, in forward
+    x = self.inter_CNOBlock(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 86, in forward
+    return self.act(x)
+           ~~~~~~~~^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 44, in forward
+    x = self.act(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/activation.py", line 828, in forward
+    return F.leaky_relu(input, self.negative_slope, self.inplace)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/functional.py", line 1902, in leaky_relu
+    result = torch._C._nn.leaky_relu(input, negative_slope)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 47.37 GiB of which 14.88 GiB is free. Including non-PyTorch memory, this process has 32.49 GiB memory in use. Of the allocated memory 17.09 GiB is allocated by PyTorch, and 14.91 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/rvk/utils/cno_utils.py", line 233, in evaluate_cno_all_resolution
+    batch_pred_normalized = model(batch_x_normalized)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 307, in forward
+    x = self.lift(x) #Execute Lift
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 114, in forward
+    x = self.inter_CNOBlock(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 86, in forward
+    return self.act(x)
+           ~~~~~~~~^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/CNO2d.py", line 44, in forward
+    x = self.act(x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/activation.py", line 828, in forward
+    return F.leaky_relu(input, self.negative_slope, self.inplace)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/functional.py", line 1902, in leaky_relu
+    result = torch._C._nn.leaky_relu(input, negative_slope)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 47.37 GiB of which 14.88 GiB is free. Including non-PyTorch memory, this process has 32.49 GiB memory in use. Of the allocated memory 20.38 GiB is allocated by PyTorch, and 11.63 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

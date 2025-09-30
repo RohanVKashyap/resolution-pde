@@ -1,0 +1,273 @@
+Job started on babel-15-32 at Sun Jul  6 16:20:30 EDT 2025
+Job ID: 5191278
+GPU information:
+Sun Jul  6 16:20:30 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:1A:00.0 Off |                  Off |
+| 30%   40C    P8             29W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:3D:00.0 Off |                  Off |
+| 30%   29C    P8             33W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+/home/rvk
+Using device: cuda
+[2025-07-06 16:23:05,138][root][INFO] - model:
+  _target_: models.ffno.FFNO2D
+  in_channels: 3
+  out_channels: 3
+  width: 64
+  factor: 4
+  n_modes: 16
+  n_layers: 8
+  dropout: 0.1
+  mode: full
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: true
+  use_grid: false
+dataset:
+  dataset_params:
+    _target_: dataloaders.active_matter_markov.active_matter_markov_dataset
+    filename: /data/user_data/rvk/well/datasets/active_matter/data/train/active_matter_L_10.0_zeta_17.0_alpha_-5.0.hdf5
+    saved_folder: .
+    reduced_batch: 1
+    reduced_resolution: 1
+    reduced_resolution_t: 1
+    s: 256
+    data_normalizer: true
+    num_samples_max: -1
+  window_size: 15
+  original_res: 256
+  multi_res:
+  - 1
+  - 16
+  train_mres: false
+  pde: navier_stokes_0
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_ffno_2d/ns_ffno_2d
+Model name: models.ffno.FFNO2D
+PDE Dataset: navier_stokes_0
+---------------------
+Loading from file: /data/user_data/rvk/well/datasets/active_matter/data/train/active_matter_L_10.0_zeta_17.0_alpha_-5.0.hdf5
+Available keys: ['boundary_conditions', 'dimensions', 'scalars', 't0_fields', 't1_fields', 't2_fields']
+Concentration data shape: (5, 81, 256, 256)
+Velocity data shape: (5, 81, 256, 256, 2)
+Alpha: -5.0
+Zeta: 17.0
+Concentration data shape after expanding: (5, 81, 256, 256, 1)
+Combined data shape: (5, 81, 256, 256, 3)
+Channels: [concentration, vx, vy]
+Grid shape: torch.Size([256, 256, 2])
+Current Spatial Size: 256
+x shape: torch.Size([400, 3, 256, 256])
+y shape: torch.Size([400, 3, 256, 256])
+grid shape: torch.Size([256, 256, 2])
+---------Computing min-max normalization statistics---------------
+Input data range: [-3.325016, 3.197398]
+Output data range: [-3.325016, 3.197398]
+Train dataset size: 320
+Validation dataset size: 40
+Test dataset size: 40
+<dataloaders.active_matter_markov.active_matter_markov_dataset.<locals>.MinMaxNormalizedDataset object at 0x148bd326d1d0>
+<class 'torch.Tensor'> 0.5608888864517212 0.5608888864517212 0.1085708811879158 0.10756233334541321
+FFNO2D(
+  (in_proj): WNLinear(in_features=3, out_features=64, bias=True)
+  (fourier_layers): ModuleList(
+    (0-7): 8 x FSpectralConv2d(
+      (fourier_weight): ParameterList(
+          (0): Parameter containing: [torch.float32 of size 64x64x16x2 (cuda:0)]
+          (1): Parameter containing: [torch.float32 of size 64x64x16x2 (cuda:0)]
+      )
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=64, out_features=256, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=256, out_features=64, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): Identity()
+            (3): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (out_proj): WNLinear(in_features=64, out_features=3, bias=True)
+)
+Total Model Parameters: 2.36M
+Trainable Parameters: 2.36M
+Epoch 0, Train Loss: 1.86162043, Val Loss: 0.40535052
+Epoch 10, Train Loss: 0.14725136, Val Loss: 0.09551701
+Epoch 20, Train Loss: 0.08166837, Val Loss: 0.04888055
+Epoch 30, Train Loss: 0.06411889, Val Loss: 0.04915059
+Epoch 40, Train Loss: 0.05873246, Val Loss: 0.04564840
+Epoch 50, Train Loss: 0.05464795, Val Loss: 0.04376100
+Epoch 60, Train Loss: 0.05282037, Val Loss: 0.04216179
+Epoch 70, Train Loss: 0.05105363, Val Loss: 0.04094506
+Epoch 80, Train Loss: 0.04972613, Val Loss: 0.03977708
+Epoch 90, Train Loss: 0.04886487, Val Loss: 0.03942621
+Test L2 Loss: 0.179225
+Model saved to checkpoints/ffno2d/navier_stokes_0_5191278.pt
+Created/verified figures directory: figures/5191278
+Using provided normalization statistics from training resolution 256:
+  Input range: [-3.325016, 3.197398]
+  Output range: [-3.325016, 3.197398]
+Testing resolutions: [32, 64, 128, 256]
+Loading from file: /data/user_data/rvk/well/datasets/active_matter/data/train/active_matter_L_10.0_zeta_17.0_alpha_-5.0.hdf5
+Available keys: ['boundary_conditions', 'dimensions', 'scalars', 't0_fields', 't1_fields', 't2_fields']
+Concentration data shape: (5, 81, 256, 256)
+Velocity data shape: (5, 81, 256, 256, 2)
+Alpha: -5.0
+Zeta: 17.0
+Concentration data shape after expanding: (5, 81, 256, 256, 1)
+Combined data shape: (5, 81, 256, 256, 3)
+Channels: [concentration, vx, vy]
+Grid shape: torch.Size([256, 256, 2])
+Current Spatial Size: 256
+Resizing from 256x256 to 32x32
+Downsampling using downsample function
+Data shape after resizing: (5, 81, 32, 32, 3)
+x shape: torch.Size([400, 3, 32, 32])
+y shape: torch.Size([400, 3, 32, 32])
+grid shape: torch.Size([32, 32, 2])
+Train dataset size: 320
+Validation dataset size: 40
+Test dataset size: 40
+Resolution 32 - Relative L2 Loss: 0.176671
+Memory cleaned after resolution 32
+Loading from file: /data/user_data/rvk/well/datasets/active_matter/data/train/active_matter_L_10.0_zeta_17.0_alpha_-5.0.hdf5
+Available keys: ['boundary_conditions', 'dimensions', 'scalars', 't0_fields', 't1_fields', 't2_fields']
+Concentration data shape: (5, 81, 256, 256)
+Velocity data shape: (5, 81, 256, 256, 2)
+Alpha: -5.0
+Zeta: 17.0
+Concentration data shape after expanding: (5, 81, 256, 256, 1)
+Combined data shape: (5, 81, 256, 256, 3)
+Channels: [concentration, vx, vy]
+Grid shape: torch.Size([256, 256, 2])
+Current Spatial Size: 256
+Resizing from 256x256 to 64x64
+Downsampling using downsample function
+Data shape after resizing: (5, 81, 64, 64, 3)
+x shape: torch.Size([400, 3, 64, 64])
+y shape: torch.Size([400, 3, 64, 64])
+grid shape: torch.Size([64, 64, 2])
+Train dataset size: 320
+Validation dataset size: 40
+Test dataset size: 40
+Resolution 64 - Relative L2 Loss: 0.178895
+Memory cleaned after resolution 64
+Loading from file: /data/user_data/rvk/well/datasets/active_matter/data/train/active_matter_L_10.0_zeta_17.0_alpha_-5.0.hdf5
+Available keys: ['boundary_conditions', 'dimensions', 'scalars', 't0_fields', 't1_fields', 't2_fields']
+Concentration data shape: (5, 81, 256, 256)
+Velocity data shape: (5, 81, 256, 256, 2)
+Alpha: -5.0
+Zeta: 17.0
+Concentration data shape after expanding: (5, 81, 256, 256, 1)
+Combined data shape: (5, 81, 256, 256, 3)
+Channels: [concentration, vx, vy]
+Grid shape: torch.Size([256, 256, 2])
+Current Spatial Size: 256
+Resizing from 256x256 to 128x128
+Downsampling using downsample function
+Data shape after resizing: (5, 81, 128, 128, 3)
+x shape: torch.Size([400, 3, 128, 128])
+y shape: torch.Size([400, 3, 128, 128])
+grid shape: torch.Size([128, 128, 2])
+Train dataset size: 320
+Validation dataset size: 40
+Test dataset size: 40
+Resolution 128 - Relative L2 Loss: 0.178973
+Memory cleaned after resolution 128
+Loading from file: /data/user_data/rvk/well/datasets/active_matter/data/train/active_matter_L_10.0_zeta_17.0_alpha_-5.0.hdf5
+Available keys: ['boundary_conditions', 'dimensions', 'scalars', 't0_fields', 't1_fields', 't2_fields']
+Concentration data shape: (5, 81, 256, 256)
+Velocity data shape: (5, 81, 256, 256, 2)
+Alpha: -5.0
+Zeta: 17.0
+Concentration data shape after expanding: (5, 81, 256, 256, 1)
+Combined data shape: (5, 81, 256, 256, 3)
+Channels: [concentration, vx, vy]
+Grid shape: torch.Size([256, 256, 2])
+Current Spatial Size: 256
+x shape: torch.Size([400, 3, 256, 256])
+y shape: torch.Size([400, 3, 256, 256])
+grid shape: torch.Size([256, 256, 2])
+Train dataset size: 320
+Validation dataset size: 40
+Test dataset size: 40
+Resolution 256 - Relative L2 Loss: 0.179225
+Memory cleaned after resolution 256
+Creating prediction vs target plots...
+Detected 3 channel(s) in the data
+Plotting Channel 0...
+Saved main comparison plot to: figures/5191278/prediction_plots/navier_stokes_comparison_20250706_165242.png
+Saved error plot to: figures/5191278/prediction_plots/navier_stokes_error_20250706_165242.png
+Saved individual plot for resolution 32 to: figures/5191278/prediction_plots/navier_stokes_res_32_20250706_165242.png
+Saved individual plot for resolution 64 to: figures/5191278/prediction_plots/navier_stokes_res_64_20250706_165242.png
+Saved individual plot for resolution 128 to: figures/5191278/prediction_plots/navier_stokes_res_128_20250706_165242.png
+Saved individual plot for resolution 256 to: figures/5191278/prediction_plots/navier_stokes_res_256_20250706_165242.png
+Plotting Channel 1...
+Saved main comparison plot to: figures/5191278/prediction_plots/navier_stokes_comparison_ch1_20250706_165242.png
+Saved error plot to: figures/5191278/prediction_plots/navier_stokes_error_ch1_20250706_165242.png
+Saved individual plot for resolution 32 to: figures/5191278/prediction_plots/navier_stokes_res_32_ch1_20250706_165242.png
+Saved individual plot for resolution 64 to: figures/5191278/prediction_plots/navier_stokes_res_64_ch1_20250706_165242.png
+Saved individual plot for resolution 128 to: figures/5191278/prediction_plots/navier_stokes_res_128_ch1_20250706_165242.png
+Saved individual plot for resolution 256 to: figures/5191278/prediction_plots/navier_stokes_res_256_ch1_20250706_165242.png
+Plotting Channel 2...
+Saved main comparison plot to: figures/5191278/prediction_plots/navier_stokes_comparison_ch2_20250706_165242.png
+Saved error plot to: figures/5191278/prediction_plots/navier_stokes_error_ch2_20250706_165242.png
+Saved individual plot for resolution 32 to: figures/5191278/prediction_plots/navier_stokes_res_32_ch2_20250706_165242.png
+Saved individual plot for resolution 64 to: figures/5191278/prediction_plots/navier_stokes_res_64_ch2_20250706_165242.png
+Saved individual plot for resolution 128 to: figures/5191278/prediction_plots/navier_stokes_res_128_ch2_20250706_165242.png
+Saved individual plot for resolution 256 to: figures/5191278/prediction_plots/navier_stokes_res_256_ch2_20250706_165242.png
+Saved all channels comparison plot to: figures/5191278/prediction_plots/navier_stokes_all_channels_20250706_165242.png
+Saved numerical results: figures/5191278/evaluation_results_20250706_165314.csv
+Saved summary: figures/5191278/evaluation_summary_20250706_165314.txt
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.176671
+Resolution  64: 0.178895
+Resolution 128: 0.178973
+Resolution 256: 0.179225
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 32: Relative L2 Loss = 0.176671
+Resolution factor 64: Relative L2 Loss = 0.178895
+Resolution factor 128: Relative L2 Loss = 0.178973
+Resolution factor 256: Relative L2 Loss = 0.179225
+
+Evaluation plots saved to: figures/5191278
+Wandb run: https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/gnhqm3j1
+Job completed at Sun Jul  6 16:53:20 EDT 2025

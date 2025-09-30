@@ -21,7 +21,7 @@ from dataloaders.burger_s4 import burger_window_dataset
 from dataloaders.ns_s4 import ns_window_dataset
 from train.training import train, evaluate
 from models.custom_layer import UnitGaussianNormalizer
-from utils.utils import plot_predictions, RelativeL2Loss, evaluate_super_resolution, evaluate_s4_higher_resolution
+from utils.resize_utils import plot_predictions, RelativeL2Loss, evaluate_super_resolution, evaluate_s4_higher_resolution
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")

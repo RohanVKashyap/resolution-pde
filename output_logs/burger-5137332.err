@@ -1,0 +1,47 @@
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250620_143528-byg3jwnl
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run eager-armadillo-4
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/cno2d/runs/byg3jwnl
+  0%|          | 0/2 [00:00<?, ?it/s]  0%|          | 0/2 [00:01<?, ?it/s]
+Error executing job with overrides: ['model=cno_2d/cno_2d', 'dataset=navier_stokes/ns_512_0']
+Traceback (most recent call last):
+  File "/home/rvk/cno_main.py", line 119, in main
+    loss_history, val_loss_history = train(
+                                     ~~~~~^
+            model, train_loader, val_loader, optimizer, scheduler, y_normalizer=None, use_normalizer=use_normalizer, epochs=epochs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/train/training.py", line 40, in train
+    loss.backward()
+    ~~~~~~~~~~~~~^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, gradient, retain_graph, create_graph, inputs=inputs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+    ~~~~~~~~~~~~~~~~~~~~^
+        tensors,
+        ^^^^^^^^
+    ...<5 lines>...
+        accumulate_grad=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.00 GiB. GPU 0 has a total capacity of 47.40 GiB of which 6.40 GiB is free. Including non-PyTorch memory, this process has 41.00 GiB memory in use. Of the allocated memory 40.03 GiB is allocated by PyTorch, and 673.80 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-6-25: task 0: Exited with exit code 1

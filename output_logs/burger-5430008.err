@@ -1,0 +1,5 @@
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+slurmstepd: error: *** STEP 5430008.0 ON babel-3-5 CANCELLED AT 2025-09-03T04:45:00 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 5430008 ON babel-3-5 CANCELLED AT 2025-09-03T04:45:00 DUE TO TIME LIMIT ***
+srun: got SIGCONT
+srun: forcing job termination

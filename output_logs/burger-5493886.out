@@ -1,0 +1,55 @@
+Job started on shire-1-10 at Wed Sep 17 15:43:25 EDT 2025
+Job ID: 5493886
+GPU information:
+Wed Sep 17 15:43:25 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:41:00.0 Off |                  Off |
+| 30%   51C    P8             33W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:81:00.0 Off |                  Off |
+| 30%   51C    P8             34W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+/home/rvk
+[2025-09-17 15:43:27,936][__main__][INFO] - Starting Burgers equation simulation...
+[2025-09-17 15:43:27,936][__main__][INFO] - Configuration: nx=1024, epsilon=0.0001, numbers=10000
+[2025-09-17 15:43:29,408][jax._src.xla_bridge][INFO] - Unable to initialize backend 'rocm': module 'jaxlib.xla_extension' has no attribute 'GpuAllocatorConfig'
+[2025-09-17 15:43:29,409][jax._src.xla_bridge][INFO] - Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+[2025-09-17 15:43:29,670][__main__][INFO] - epsilon: 0.000100
+[2025-09-17 15:43:29,716][__main__][INFO] - Setup completed in 1.78 seconds
+[2025-09-17 15:43:29,717][__main__][INFO] - Initializing simulation data...
+[2025-09-17 15:43:31,445][__main__][INFO] - Initialization completed in 1.73 seconds
+[2025-09-17 15:43:31,445][__main__][INFO] - Starting numerical simulation...
+[2025-09-17 15:44:29,930][__main__][INFO] - Numerical simulation completed in 58.48 seconds (0.97 minutes)
+[2025-09-17 15:44:30,232][__main__][INFO] - Starting data saving...
+[2025-09-17 15:45:29,866][__main__][INFO] - Saving reshaped data...
+[2025-09-17 15:47:02,859][__main__][INFO] - ============================================================
+[2025-09-17 15:47:02,859][__main__][INFO] - TIMING SUMMARY
+[2025-09-17 15:47:02,859][__main__][INFO] - ============================================================
+[2025-09-17 15:47:02,859][__main__][INFO] - Setup time:               1.78 seconds
+[2025-09-17 15:47:02,859][__main__][INFO] - Initialization time:      1.73 seconds
+[2025-09-17 15:47:02,859][__main__][INFO] - Simulation time:         58.48 seconds (  0.97 minutes)
+[2025-09-17 15:47:02,859][__main__][INFO] - I/O time:               152.63 seconds
+[2025-09-17 15:47:02,859][__main__][INFO] - Total time:             214.92 seconds (  3.58 minutes)
+[2025-09-17 15:47:02,859][__main__][INFO] - ============================================================
+[2025-09-17 15:47:02,859][__main__][INFO] - Data saved to: /data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/
+[2025-09-17 15:47:02,859][__main__][INFO] - Simulation parameters: nx=1024, epsilon=0.0001, numbers=10000
+[2025-09-17 15:47:02,859][__main__][INFO] - Simulation completed successfully!
+Job completed at Wed Sep 17 15:48:17 EDT 2025

@@ -8,3 +8,7 @@ original_res: 1024
 
 pde: burger_0.1
 data_path1: data/pdebench/1D_Burgers_Sols_Nu0.1.hdf5
+
+
+# pde: burger_R10
+# data_path1: /home/rvk/data/burger_data_mat/burgers_data_R10.mat

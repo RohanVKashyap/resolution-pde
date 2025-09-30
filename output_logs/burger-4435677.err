@@ -1,0 +1,11 @@
+/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250324_132427-8v0shwhx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run kind-universe-7
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno1d/runs/8v0shwhx
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:39<12:29, 39.47s/it] 10%|█         | 2/20 [01:18<11:47, 39.32s/it] 15%|█▌        | 3/20 [01:57<11:06, 39.19s/it] 20%|██        | 4/20 [02:36<10:27, 39.21s/it] 25%|██▌       | 5/20 [03:16<09:48, 39.26s/it] 30%|███       | 6/20 [03:55<09:11, 39.39s/it] 35%|███▌      | 7/20 [04:35<08:30, 39.29s/it] 40%|████      | 8/20 [05:14<07:52, 39.37s/it] 45%|████▌     | 9/20 [05:54<07:15, 39.56s/it] 50%|█████     | 10/20 [06:34<06:35, 39.60s/it] 55%|█████▌    | 11/20 [07:13<05:55, 39.47s/it] 60%|██████    | 12/20 [07:52<05:15, 39.38s/it] 65%|██████▌   | 13/20 [08:31<04:34, 39.27s/it] 70%|███████   | 14/20 [09:10<03:55, 39.26s/it] 75%|███████▌  | 15/20 [09:50<03:16, 39.28s/it] 80%|████████  | 16/20 [10:29<02:37, 39.36s/it] 85%|████████▌ | 17/20 [11:09<01:58, 39.51s/it] 90%|█████████ | 18/20 [11:49<01:19, 39.62s/it] 95%|█████████▌| 19/20 [12:29<00:39, 39.69s/it]100%|██████████| 20/20 [13:09<00:00, 39.71s/it]100%|██████████| 20/20 [13:09<00:00, 39.45s/it]

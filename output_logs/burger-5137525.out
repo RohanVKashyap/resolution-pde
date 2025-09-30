@@ -1,0 +1,129 @@
+Job started on babel-4-33 at Fri Jun 20 15:06:48 EDT 2025
+Job ID: 5137525
+GPU information:
+Fri Jun 20 15:06:48 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:01:00.0 Off |                  Off |
+| 30%   40C    P8             19W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:E1:00.0 Off |                  Off |
+| 30%   38C    P8             28W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-06-20 15:06:52,612][root][INFO] - model:
+  _target_: models.CNO2d.CNO2d
+  in_dim: 3
+  out_dim: 3
+  N_layers: 1
+  N_res: 4
+  N_res_neck: 4
+  channel_multiplier: 16
+  use_bn: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  train_resolution: 512
+  multi_res:
+  - 1
+  - 4
+  s: 512
+  train_mres: false
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 2
+  epochs: 1
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_cno_2d/cno_2d
+Model name: models.CNO2d.CNO2d
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 1000, 512, 512, 3)
+Current Spatial Size: 512
+x shape: torch.Size([3992, 3, 512, 512])
+y shape: torch.Size([3992, 3, 512, 512])
+---------Computing min-max normalization statistics---------------
+Input data range: [-2.759037, 2.506686]
+Output data range: [-2.752234, 2.492671]
+Train dataset size: 3193
+Validation dataset size: 399
+Test dataset size: 400
+<class 'torch.Tensor'> 0.5245835185050964 0.5253693461418152 0.09143359214067459 0.09176536649465561
+Sample Input shape: torch.Size([2, 3, 512, 512])
+Sample Output shape: torch.Size([2, 3, 512, 512])
+Using provided normalization statistics from training resolution 512:
+  Input range: [-2.759037, 2.506686]
+  Output range: [-2.752234, 2.492671]
+Loading original resolution (512) test data...
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 1000, 512, 512, 3)
+Current Spatial Size: 512
+x shape: torch.Size([3992, 3, 512, 512])
+y shape: torch.Size([3992, 3, 512, 512])
+Train dataset size: 3193
+Validation dataset size: 399
+Test dataset size: 400
+Original test data shape: x=torch.Size([400, 3, 512, 512]), y=torch.Size([400, 3, 512, 512])
+Testing resolutions: [32, 64, 128, 256, 512]
+
+Evaluating at resolution: 32
+Resizing data...
+Resized shapes: x=torch.Size([400, 3, 32, 32]), y=torch.Size([400, 3, 32, 32])
+Error evaluating resolution 32: The size of tensor a (786432) must match the size of tensor b (3072) at non-singleton dimension 1
+
+Evaluating at resolution: 64
+Resizing data...
+Resized shapes: x=torch.Size([400, 3, 64, 64]), y=torch.Size([400, 3, 64, 64])
+Error evaluating resolution 64: The size of tensor a (786432) must match the size of tensor b (12288) at non-singleton dimension 1
+
+Evaluating at resolution: 128
+Resizing data...
+Resized shapes: x=torch.Size([400, 3, 128, 128]), y=torch.Size([400, 3, 128, 128])
+Error evaluating resolution 128: The size of tensor a (786432) must match the size of tensor b (49152) at non-singleton dimension 1
+
+Evaluating at resolution: 256
+Resizing data...
+Resized shapes: x=torch.Size([400, 3, 256, 256]), y=torch.Size([400, 3, 256, 256])
+Error evaluating resolution 256: The size of tensor a (786432) must match the size of tensor b (196608) at non-singleton dimension 1
+
+Evaluating at resolution: 512
+Resizing data...
+Resized shapes: x=torch.Size([400, 3, 512, 512]), y=torch.Size([400, 3, 512, 512])
+Resolution 512 - Relative L2 Loss: 5.673675
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Resolution 512: 5.673675
+Job completed at Fri Jun 20 15:08:36 EDT 2025

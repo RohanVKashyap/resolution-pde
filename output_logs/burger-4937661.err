@@ -1,0 +1,24 @@
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.19.11 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.4
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250526_032121-maw190hz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cool-violet-35
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/s4ndmodel
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/s4ndmodel/runs/maw190hz
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:25<07:56, 25.10s/it] 10%|█         | 2/20 [00:49<07:22, 24.58s/it] 15%|█▌        | 3/20 [01:14<06:58, 24.63s/it] 20%|██        | 4/20 [01:38<06:34, 24.66s/it] 25%|██▌       | 5/20 [02:03<06:09, 24.64s/it] 30%|███       | 6/20 [02:27<05:44, 24.63s/it] 35%|███▌      | 7/20 [02:52<05:19, 24.56s/it] 40%|████      | 8/20 [03:17<04:55, 24.64s/it] 45%|████▌     | 9/20 [03:41<04:31, 24.67s/it] 50%|█████     | 10/20 [04:06<04:07, 24.71s/it] 55%|█████▌    | 11/20 [04:31<03:42, 24.72s/it] 60%|██████    | 12/20 [04:55<03:16, 24.61s/it] 65%|██████▌   | 13/20 [05:20<02:52, 24.61s/it] 70%|███████   | 14/20 [05:45<02:27, 24.61s/it] 75%|███████▌  | 15/20 [06:09<02:03, 24.63s/it] 80%|████████  | 16/20 [06:34<01:38, 24.63s/it] 85%|████████▌ | 17/20 [06:58<01:13, 24.53s/it] 90%|█████████ | 18/20 [07:23<00:49, 24.58s/it] 95%|█████████▌| 19/20 [07:47<00:24, 24.60s/it]100%|██████████| 20/20 [08:12<00:00, 24.62s/it]100%|██████████| 20/20 [08:12<00:00, 24.63s/it]
+wandb: - 0.015 MB of 0.015 MB uploadedwandb: \ 0.015 MB of 0.015 MB uploadedwandb: | 0.015 MB of 0.015 MB uploadedwandb: / 0.015 MB of 0.015 MB uploadedwandb: - 0.015 MB of 0.028 MB uploadedwandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▂▂▂▃▃▄▄▄▅▅▅▆▆▇▇▇██
+wandb: train_loss █▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:   val_loss ▇██▆▅▄▃▂▂▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 19
+wandb: train_loss 0.05125
+wandb:   val_loss 0.11948
+wandb: 
+wandb: 🚀 View run cool-violet-35 at: https://wandb.ai/rohanvk-carnegie-mellon-university/s4ndmodel/runs/maw190hz
+wandb: Synced 6 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250526_032121-maw190hz/logs

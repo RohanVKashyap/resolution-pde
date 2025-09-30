@@ -1,0 +1,45 @@
+/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+wandb: Currently logged in as: rohanvk (rohanvk-carnegie-mellon-university) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.6
+wandb: Run data is saved locally in /home/rvk/wandb/run-20250625_005438-2qea1pqt
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run royal-darkness-34
+wandb: ⭐️ View project at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d
+wandb: 🚀 View run at https://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/2qea1pqt
+  0%|          | 0/100 [00:00<?, ?it/s]  0%|          | 0/100 [00:00<?, ?it/s]
+Error executing job with overrides: ['model=ffno_2d/ns_ffno_2d', 'dataset=navier_stokes/ns_512_0']
+Traceback (most recent call last):
+  File "/home/rvk/cno_original_main.py", line 145, in main
+    loss_history, val_loss_history = train(
+                                     ~~~~~^
+                        model, train_loader, val_loader,
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        optimizer, scheduler, y_normalizer=None, use_normalizer=use_normalizer,
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        time=1, model_type=model_type, epochs=epochs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/train/training.py", line 36, in train
+    pred_y = model(batch_x)
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/ffno.py", line 229, in forward
+    x_new, _ = layer(x)
+               ~~~~~^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rvk/miniconda3/envs/pde/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/rvk/models/spectral_convolution.py", line 235, in forward
+    x = self.forward_fourier(x)
+  File "/home/rvk/models/spectral_convolution.py", line 249, in forward_fourier
+    x_fty = torch.fft.rfft(x, dim=-1, norm='ortho')  # FFT along y dimension
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 862.69 MiB is free. Including non-PyTorch memory, this process has 46.55 GiB memory in use. Of the allocated memory 46.03 GiB is allocated by PyTorch, and 212.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-6-21: task 0: Exited with exit code 1

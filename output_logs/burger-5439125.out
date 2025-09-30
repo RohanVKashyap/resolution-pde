@@ -1,0 +1,160 @@
+Job started on babel-11-9 at Sat Sep  6 16:53:19 EDT 2025
+Job ID: 5439125
+GPU information:
+Sat Sep  6 16:53:19 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:1C:00.0 Off |                  Off |
+| 30%   32C    P8             25W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:1E:00.0 Off |                  Off |
+| 30%   34C    P8             33W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+/home/rvk
+Data Resolution: 128
+Viscosity: 0.001
+Number of Solutions: 1000
+Setup 2d GRF successful!
+Number of Steps: 32
+Batch Size: 25
+Generating Data at Viscosity: 0.001
+0 25 149.5573593180161
+Batch 1/40 | Samples: 25/1000 | Time: 2m 29.6s
+Generating Data at Viscosity: 0.001
+1 50 298.8945955799427
+Batch 2/40 | Samples: 50/1000 | Time: 4m 58.9s
+Generating Data at Viscosity: 0.001
+2 75 448.57790916599333
+Batch 3/40 | Samples: 75/1000 | Time: 7m 28.6s
+Generating Data at Viscosity: 0.001
+3 100 598.1040947579313
+Batch 4/40 | Samples: 100/1000 | Time: 9m 58.1s
+Generating Data at Viscosity: 0.001
+4 125 748.2665316569619
+Batch 5/40 | Samples: 125/1000 | Time: 12m 28.3s
+Generating Data at Viscosity: 0.001
+5 150 897.9362145720515
+Batch 6/40 | Samples: 150/1000 | Time: 14m 57.9s
+Generating Data at Viscosity: 0.001
+6 175 1047.5550544890575
+Batch 7/40 | Samples: 175/1000 | Time: 17m 27.6s
+Generating Data at Viscosity: 0.001
+7 200 1197.301050126087
+Batch 8/40 | Samples: 200/1000 | Time: 19m 57.3s
+Generating Data at Viscosity: 0.001
+8 225 1347.0532743749209
+Batch 9/40 | Samples: 225/1000 | Time: 22m 27.1s
+Generating Data at Viscosity: 0.001
+9 250 1496.0847024710383
+Batch 10/40 | Samples: 250/1000 | Time: 24m 56.1s
+Generating Data at Viscosity: 0.001
+10 275 1645.020287235966
+Batch 11/40 | Samples: 275/1000 | Time: 27m 25.0s
+Generating Data at Viscosity: 0.001
+11 300 1794.0417063350324
+Batch 12/40 | Samples: 300/1000 | Time: 29m 54.0s
+Generating Data at Viscosity: 0.001
+12 325 1942.710600049002
+Batch 13/40 | Samples: 325/1000 | Time: 32m 22.7s
+Generating Data at Viscosity: 0.001
+13 350 2091.2396692680195
+Batch 14/40 | Samples: 350/1000 | Time: 34m 51.2s
+Generating Data at Viscosity: 0.001
+14 375 2239.5914345779456
+Batch 15/40 | Samples: 375/1000 | Time: 37m 19.6s
+Generating Data at Viscosity: 0.001
+15 400 2387.91018675291
+Batch 16/40 | Samples: 400/1000 | Time: 39m 47.9s
+Generating Data at Viscosity: 0.001
+16 425 2536.241200973047
+Batch 17/40 | Samples: 425/1000 | Time: 42m 16.2s
+Generating Data at Viscosity: 0.001
+17 450 2684.5997394919395
+Batch 18/40 | Samples: 450/1000 | Time: 44m 44.6s
+Generating Data at Viscosity: 0.001
+18 475 2833.021102502942
+Batch 19/40 | Samples: 475/1000 | Time: 47m 13.0s
+Generating Data at Viscosity: 0.001
+19 500 2981.3942123730667
+Batch 20/40 | Samples: 500/1000 | Time: 49m 41.4s
+Generating Data at Viscosity: 0.001
+20 525 3129.6101671890356
+Batch 21/40 | Samples: 525/1000 | Time: 52m 9.6s
+Generating Data at Viscosity: 0.001
+21 550 3277.3572709809523
+Batch 22/40 | Samples: 550/1000 | Time: 54m 37.4s
+Generating Data at Viscosity: 0.001
+22 575 3425.3082116479054
+Batch 23/40 | Samples: 575/1000 | Time: 57m 5.3s
+Generating Data at Viscosity: 0.001
+23 600 3573.483867411036
+Batch 24/40 | Samples: 600/1000 | Time: 59m 33.5s
+Generating Data at Viscosity: 0.001
+24 625 3721.759966031881
+Batch 25/40 | Samples: 625/1000 | Time: 62m 1.8s
+Generating Data at Viscosity: 0.001
+25 650 3869.809384440072
+Batch 26/40 | Samples: 650/1000 | Time: 64m 29.8s
+Generating Data at Viscosity: 0.001
+26 675 4018.125068747904
+Batch 27/40 | Samples: 675/1000 | Time: 66m 58.1s
+Generating Data at Viscosity: 0.001
+27 700 4166.078526679892
+Batch 28/40 | Samples: 700/1000 | Time: 69m 26.1s
+Generating Data at Viscosity: 0.001
+28 725 4314.166260540951
+Batch 29/40 | Samples: 725/1000 | Time: 71m 54.2s
+Generating Data at Viscosity: 0.001
+29 750 4462.174432802945
+Batch 30/40 | Samples: 750/1000 | Time: 74m 22.2s
+Generating Data at Viscosity: 0.001
+30 775 4610.331879504956
+Batch 31/40 | Samples: 775/1000 | Time: 76m 50.3s
+Generating Data at Viscosity: 0.001
+31 800 4758.377919350984
+Batch 32/40 | Samples: 800/1000 | Time: 79m 18.4s
+Generating Data at Viscosity: 0.001
+32 825 4906.419118383899
+Batch 33/40 | Samples: 825/1000 | Time: 81m 46.4s
+Generating Data at Viscosity: 0.001
+33 850 5054.445342544932
+Batch 34/40 | Samples: 850/1000 | Time: 84m 14.4s
+Generating Data at Viscosity: 0.001
+34 875 5202.5397704979405
+Batch 35/40 | Samples: 875/1000 | Time: 86m 42.5s
+Generating Data at Viscosity: 0.001
+35 900 5350.556209400995
+Batch 36/40 | Samples: 900/1000 | Time: 89m 10.6s
+Generating Data at Viscosity: 0.001
+36 925 5498.582204428036
+Batch 37/40 | Samples: 925/1000 | Time: 91m 38.6s
+Generating Data at Viscosity: 0.001
+37 950 5646.654710815055
+Batch 38/40 | Samples: 950/1000 | Time: 94m 6.7s
+Generating Data at Viscosity: 0.001
+38 975 5794.786583194975
+Batch 39/40 | Samples: 975/1000 | Time: 96m 34.8s
+Generating Data at Viscosity: 0.001
+39 1000 5942.853649527999
+Batch 40/40 | Samples: 1000/1000 | Time: 99m 2.9s
+Saved as MATLAB format: /data/user_data/rvk/ns_128_1e-03.mat
+Save path: /data/user_data/rvk/ns_128_1e-03
+✅ Data Generation Successful!
+Job completed at Sat Sep  6 18:32:56 EDT 2025

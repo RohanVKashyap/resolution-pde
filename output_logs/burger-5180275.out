@@ -1,0 +1,258 @@
+Job started on babel-11-25 at Tue Jul  1 23:44:41 EDT 2025
+Job ID: 5180275
+GPU information:
+Tue Jul  1 23:44:42 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:D1:00.0 Off |                    0 |
+| N/A   31C    P8             33W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:D2:00.0 Off |                    0 |
+| N/A   35C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-07-01 23:45:03,028][root][INFO] - model:
+  _target_: models.ffno.FFNO2D
+  in_channels: 3
+  out_channels: 3
+  width: 32
+  factor: 4
+  n_modes: 16
+  n_layers: 4
+  dropout: 0.1
+  mode: full
+  ff_weight_norm: true
+  n_ff_layers: 2
+  layer_norm: true
+  use_grid: false
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 4
+  window_size: 15
+  original_res: 512
+  train_resolution: 64
+  multi_res:
+  - 1
+  - 16
+  s: 64
+  train_mres: false
+  pde: navier_stokes_0
+  data_path1: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_ffno_2d/ns_ffno_2d
+Model name: models.ffno.FFNO2D
+PDE Dataset: navier_stokes_0
+Model: ffno2d
+Loading from file: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 512, 512, 3)
+Current Spatial Size: 512
+Resizing from 512x512 to 64x64
+Downsampling using downsample function
+Data shape after resizing: (4, 250, 64, 64, 3)
+x shape: torch.Size([996, 3, 64, 64])
+y shape: torch.Size([996, 3, 64, 64])
+---------Computing min-max normalization statistics---------------
+Input data range: [-2.709771, 3.398998]
+Output data range: [-2.709771, 2.458885]
+Train dataset size: 796
+Validation dataset size: 99
+Test dataset size: 101
+<class 'torch.Tensor'> 0.4437609612941742 0.5244776606559753 0.08332793414592743 0.09833189100027084
+FFNO2D(
+  (in_proj): WNLinear(in_features=3, out_features=32, bias=True)
+  (fourier_layers): ModuleList(
+    (0-3): 4 x FSpectralConv2d(
+      (fourier_weight): ParameterList(
+          (0): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)]
+          (1): Parameter containing: [torch.float32 of size 32x32x16x2 (cuda:0)]
+      )
+      (backcast_ff): FeedForward(
+        (layers): ModuleList(
+          (0): Sequential(
+            (0): Linear(in_features=32, out_features=128, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): GELU(approximate='none')
+            (3): Identity()
+          )
+          (1): Sequential(
+            (0): Linear(in_features=128, out_features=32, bias=True)
+            (1): Dropout(p=0.1, inplace=False)
+            (2): Identity()
+            (3): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (out_proj): WNLinear(in_features=32, out_features=3, bias=True)
+)
+Total Model Parameters: 0.30M
+Trainable Parameters: 0.30M
+Epoch 0, Train Loss: 0.70199755, Val Loss: 0.09460144
+Epoch 10, Train Loss: 0.04181972, Val Loss: 0.02267098
+Epoch 20, Train Loss: 0.02530192, Val Loss: 0.02212434
+Epoch 30, Train Loss: 0.01921622, Val Loss: 0.01269274
+Epoch 40, Train Loss: 0.01678730, Val Loss: 0.01199486
+Epoch 50, Train Loss: 0.01457009, Val Loss: 0.01087309
+Epoch 60, Train Loss: 0.01361318, Val Loss: 0.01020392
+Epoch 70, Train Loss: 0.01272256, Val Loss: 0.00994517
+Epoch 80, Train Loss: 0.01206999, Val Loss: 0.00967307
+Epoch 90, Train Loss: 0.01162970, Val Loss: 0.00920725
+Test L2 Loss: 0.041155
+Model saved to checkpoints/ffno2d/navier_stokes_0_5180275.pt
+Created/verified figures directory: figures/5180275
+Using provided normalization statistics from training resolution 64:
+  Input range: [-2.709771, 3.398998]
+  Output range: [-2.709771, 2.458885]
+Testing resolutions: [32, 64, 128, 256, 512]
+Loading from file: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 512, 512, 3)
+Current Spatial Size: 512
+Resizing from 512x512 to 32x32
+Downsampling using downsample function
+Data shape after resizing: (4, 250, 32, 32, 3)
+x shape: torch.Size([996, 3, 32, 32])
+y shape: torch.Size([996, 3, 32, 32])
+Train dataset size: 796
+Validation dataset size: 99
+Test dataset size: 101
+Resolution 32 - Relative L2 Loss: 0.039335
+Loading from file: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 512, 512, 3)
+Current Spatial Size: 512
+Resizing from 512x512 to 64x64
+Downsampling using downsample function
+Data shape after resizing: (4, 250, 64, 64, 3)
+x shape: torch.Size([996, 3, 64, 64])
+y shape: torch.Size([996, 3, 64, 64])
+Train dataset size: 796
+Validation dataset size: 99
+Test dataset size: 101
+Resolution 64 - Relative L2 Loss: 0.041155
+Loading from file: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 512, 512, 3)
+Current Spatial Size: 512
+Resizing from 512x512 to 128x128
+Downsampling using downsample function
+Data shape after resizing: (4, 250, 128, 128, 3)
+x shape: torch.Size([996, 3, 128, 128])
+y shape: torch.Size([996, 3, 128, 128])
+Train dataset size: 796
+Validation dataset size: 99
+Test dataset size: 101
+Resolution 128 - Relative L2 Loss: 0.068087
+Loading from file: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 512, 512, 3)
+Current Spatial Size: 512
+Resizing from 512x512 to 256x256
+Downsampling using downsample function
+Data shape after resizing: (4, 250, 256, 256, 3)
+x shape: torch.Size([996, 3, 256, 256])
+y shape: torch.Size([996, 3, 256, 256])
+Train dataset size: 796
+Validation dataset size: 99
+Test dataset size: 101
+Resolution 256 - Relative L2 Loss: 0.071332
+Loading from file: /data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 250, 512, 512, 3)
+Current Spatial Size: 512
+x shape: torch.Size([996, 3, 512, 512])
+y shape: torch.Size([996, 3, 512, 512])
+Train dataset size: 796
+Validation dataset size: 99
+Test dataset size: 101
+Resolution 512 - Relative L2 Loss: 0.071648
+Creating prediction vs target plots...
+Detected 3 channel(s) in the data
+Plotting Channel 0...
+Saved main comparison plot to: figures/5180275/prediction_plots/navier_stokes_comparison_20250701_235113.png
+Saved error plot to: figures/5180275/prediction_plots/navier_stokes_error_20250701_235113.png
+Saved individual plot for resolution 32 to: figures/5180275/prediction_plots/navier_stokes_res_32_20250701_235113.png
+Saved individual plot for resolution 64 to: figures/5180275/prediction_plots/navier_stokes_res_64_20250701_235113.png
+Saved individual plot for resolution 128 to: figures/5180275/prediction_plots/navier_stokes_res_128_20250701_235113.png
+Saved individual plot for resolution 256 to: figures/5180275/prediction_plots/navier_stokes_res_256_20250701_235113.png
+Saved individual plot for resolution 512 to: figures/5180275/prediction_plots/navier_stokes_res_512_20250701_235113.png
+Plotting Channel 1...
+Saved main comparison plot to: figures/5180275/prediction_plots/navier_stokes_comparison_ch1_20250701_235113.png
+Saved error plot to: figures/5180275/prediction_plots/navier_stokes_error_ch1_20250701_235113.png
+Saved individual plot for resolution 32 to: figures/5180275/prediction_plots/navier_stokes_res_32_ch1_20250701_235113.png
+Saved individual plot for resolution 64 to: figures/5180275/prediction_plots/navier_stokes_res_64_ch1_20250701_235113.png
+Saved individual plot for resolution 128 to: figures/5180275/prediction_plots/navier_stokes_res_128_ch1_20250701_235113.png
+Saved individual plot for resolution 256 to: figures/5180275/prediction_plots/navier_stokes_res_256_ch1_20250701_235113.png
+Saved individual plot for resolution 512 to: figures/5180275/prediction_plots/navier_stokes_res_512_ch1_20250701_235113.png
+Plotting Channel 2...
+Saved main comparison plot to: figures/5180275/prediction_plots/navier_stokes_comparison_ch2_20250701_235113.png
+Saved error plot to: figures/5180275/prediction_plots/navier_stokes_error_ch2_20250701_235113.png
+Saved individual plot for resolution 32 to: figures/5180275/prediction_plots/navier_stokes_res_32_ch2_20250701_235113.png
+Saved individual plot for resolution 64 to: figures/5180275/prediction_plots/navier_stokes_res_64_ch2_20250701_235113.png
+Saved individual plot for resolution 128 to: figures/5180275/prediction_plots/navier_stokes_res_128_ch2_20250701_235113.png
+Saved individual plot for resolution 256 to: figures/5180275/prediction_plots/navier_stokes_res_256_ch2_20250701_235113.png
+Saved individual plot for resolution 512 to: figures/5180275/prediction_plots/navier_stokes_res_512_ch2_20250701_235113.png
+Saved all channels comparison plot to: figures/5180275/prediction_plots/navier_stokes_all_channels_20250701_235113.png
+Performing frequency analysis...
+Analyzing frequency distributions...
+Training resolution: 64
+Test resolutions: [32, 64, 128, 256, 512]
+
+Analyzing 32→64 frequency distribution...
+Saved frequency analysis: figures/5180275/frequency_analysis/frequency_analysis_32_to_64_20250701_235152.png
+
+Analyzing 64→64 frequency distribution...
+Saved frequency analysis: figures/5180275/frequency_analysis/frequency_analysis_64_to_64_20250701_235152.png
+
+Analyzing 128→64 frequency distribution...
+Saved frequency analysis: figures/5180275/frequency_analysis/frequency_analysis_128_to_64_20250701_235152.png
+
+Analyzing 256→64 frequency distribution...
+Saved frequency analysis: figures/5180275/frequency_analysis/frequency_analysis_256_to_64_20250701_235152.png
+
+Analyzing 512→64 frequency distribution...
+Saved frequency analysis: figures/5180275/frequency_analysis/frequency_analysis_512_to_64_20250701_235152.png
+Creating multi-resolution frequency comparison...
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33msplendid-planet-78[0m at: [34mhttps://wandb.ai/rohanvk-carnegie-mellon-university/ffno2d/runs/g6uclno5[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250701_234607-g6uclno5/logs[0m
+Job completed at Tue Jul  1 23:54:19 EDT 2025

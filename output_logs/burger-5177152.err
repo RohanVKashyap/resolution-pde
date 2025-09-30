@@ -1,0 +1,31 @@
+Error executing job with overrides: ['model=ffno_2d/ns_ffno_2d', 'dataset=navier_stokes/ns_512_0_t16']
+Traceback (most recent call last):
+  File "/home/rvk/cno_original_main.py", line 55, in main
+    train_dataset, val_dataset, test_dataset, min_data, max_data, min_model, max_model = cno_ns_markov_dataset(
+                                                                                         ~~~~~~~~~~~~~~~~~~~~~^
+                                                        filename=args.dataset.data_path1,
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                                                        data_normalizer=True,
+                                                        ^^^^^^^^^^^^^^^^^^^^^
+                                                        num_samples_max=-1)
+                                                        ^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/dataloaders/cno_ns_markov.py", line 293, in cno_ns_markov_dataset
+    full_dataset = NavierStokesMarkovDataset(filename, saved_folder, s=s, **kwargs)
+  File "/home/rvk/dataloaders/cno_ns_markov.py", line 70, in __init__
+    self._load_hdf5_data(root_path, reduced_batch, reduced_resolution, reduced_resolution_t, num_samples_max)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rvk/dataloaders/cno_ns_markov.py", line 150, in _load_hdf5_data
+    with h5py.File(root_path, 'r') as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/data/user_data/rvk/pde/lib/python3.13/site-packages/h5py/_hl/files.py", line 564, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+  File "/data/user_data/rvk/pde/lib/python3.13/site-packages/h5py/_hl/files.py", line 238, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 102, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = '/home/rvk/data/user_data/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-3-13: task 0: Exited with exit code 1

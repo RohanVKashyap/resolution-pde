@@ -1,0 +1,1863 @@
+Job started on babel-1-27 at Mon Sep 22 00:52:26 EDT 2025
+Job ID: 5562957
+GPU information:
+Mon Sep 22 00:52:26 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:81:00.0 Off |                  Off |
+| 39%   56C    P8             25W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:C1:00.0 Off |                  Off |
+| 30%   41C    P8             21W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+/home/rvk
+Using device: cuda
+[2025-09-22 00:52:33,807][root][INFO] - model:
+  _target_: models.unet.UNet1d
+  in_channels: 1
+  out_channels: 1
+  width: 64
+dataset:
+  dataset_params:
+    _target_: dataloaders.ks_naive_true_multires.ks_true_multires_markov_dataset
+    saved_folder: /data/user_data/rvk/ks/
+    viscosity: 0.075
+    L: 64.0
+    lmax: 8
+    et: 5.0
+    nte: 51
+    nt: 51
+    train_s: 2048
+    reduced_batch: 1
+    reduced_resolution_t: 1
+    data_mres_size:
+      512: 400
+    add_res:
+    - 32
+    - 64
+    - 128
+    add_res_samples:
+      256: 0
+      128: 1600
+      64: 0
+      32: 0
+    downsample_from_res: 512
+    data_normalizer: true
+    normalization_type: simple
+    num_samples_max: -1
+    eval_dataset_target: dataloaders.ks_naive_markov.ks_markov_dataset
+    eval_filename: KS_train_2048.h5
+    eval_saved_folder: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+  resize_to_train: false
+  evaluation_type: naive_downsample
+  window_size: 15
+  rollout_steps: 16
+  original_res: 512
+  max_test_resolution: 512
+  train_mres: true
+  pde: ks
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: ks_unet/unet_1d
+Model name: models.unet.UNet1d
+PDE Dataset: ks
+This is True Multi-Resolution Training. Train Resolution is the highest data resolution in the multi-resolution data
+---------------------
+Creating true multi-resolution KS dataset from /data/user_data/rvk/ks/
+Parameters: visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+Using filename pattern: KS_train_2048.h5
+Target samples per resolution (from files): {512: 400}
+Additional downsampled resolutions: [32, 64, 128]
+Target samples per downsampled resolution: {256: 0, 128: 1600, 64: 0, 32: 0}
+Will downsample from resolution: 512
+Loading KS multi-resolution data from /data/user_data/rvk/ks/
+Parameters: visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+Target samples per resolution (from files): {512: 400}
+Additional downsampled resolutions: [32, 64, 128]
+Target samples per downsampled resolution: {256: 0, 128: 1600, 64: 0, 32: 0}
+Will downsample from resolution: 512
+Loading resolution 512 from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+  Original data shape for 512: (2048, 51, 512)
+  After time reduction: (2048, 51, 512)
+  Split 'train' data shape: (1638, 51, 512)
+  Subsampled to 320 samples for train split
+  Added 16000 sample pairs from resolution 512
+Adding downsampled resolutions: [32, 64, 128]
+Adding downsampled data from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+  No downsampled samples allocated for train split at resolution 32
+  No downsampled samples allocated for train split at resolution 64
+  Added 64000 downsampled samples at resolution 128
+Total samples loaded: 80000
+Resolution distribution:
+  128_downsampled: 64000 samples
+  512_file: 16000 samples
+Sample x shapes: [(1, 512), (1, 512), (1, 512)]
+Sample y shapes: [(1, 512), (1, 512), (1, 512)]
+Loading KS multi-resolution data from /data/user_data/rvk/ks/
+Parameters: visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+Target samples per resolution (from files): {512: 400}
+Additional downsampled resolutions: [32, 64, 128]
+Target samples per downsampled resolution: {256: 0, 128: 1600, 64: 0, 32: 0}
+Will downsample from resolution: 512
+Loading resolution 512 from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+  Original data shape for 512: (2048, 51, 512)
+  After time reduction: (2048, 51, 512)
+  Split 'val' data shape: (204, 51, 512)
+  Using all 204 samples for val split
+  Added 10200 sample pairs from resolution 512
+Adding downsampled resolutions: [32, 64, 128]
+Adding downsampled data from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+  No downsampled samples allocated for val split at resolution 32
+  No downsampled samples allocated for val split at resolution 64
+  Added 8000 downsampled samples at resolution 128
+Total samples loaded: 18200
+Resolution distribution:
+  128_downsampled: 8000 samples
+  512_file: 10200 samples
+Sample x shapes: [(1, 512), (1, 512), (1, 512)]
+Sample y shapes: [(1, 512), (1, 512), (1, 512)]
+Loading KS multi-resolution data from /data/user_data/rvk/ks/
+Parameters: visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+Target samples per resolution (from files): {512: 400}
+Additional downsampled resolutions: [32, 64, 128]
+Target samples per downsampled resolution: {256: 0, 128: 1600, 64: 0, 32: 0}
+Will downsample from resolution: 512
+Loading resolution 512 from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+  Original data shape for 512: (2048, 51, 512)
+  After time reduction: (2048, 51, 512)
+  Split 'test' data shape: (206, 51, 512)
+  Using all 206 samples for test split
+  Added 10300 sample pairs from resolution 512
+Adding downsampled resolutions: [32, 64, 128]
+Adding downsampled data from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+  No downsampled samples allocated for test split at resolution 32
+  No downsampled samples allocated for test split at resolution 64
+  Added 8000 downsampled samples at resolution 128
+Total samples loaded: 18300
+Resolution distribution:
+  128_downsampled: 8000 samples
+  512_file: 10300 samples
+Sample x shapes: [(1, 512), (1, 512), (1, 512)]
+Sample y shapes: [(1, 512), (1, 512), (1, 512)]
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting KS test trajectories for rollout evaluation
+Parameters: visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+Loading trajectories from resolution 512: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+  Original data shape: (2048, 51, 512)
+  After time reduction: (2048, 51, 512)
+  Test split data shape: (206, 51, 512)
+  Using all 206 test trajectories
+  Extracted 206 complete trajectories from resolution 512
+
+Total extracted trajectories: 206
+Trajectory shapes: [torch.Size([51, 512]), torch.Size([51, 512]), torch.Size([51, 512])]
+Resolution distribution:
+  Resolution 512: 206 trajectories
+Rollout test dataset created with 206 trajectories
+---------Using simple global normalization---------------
+Global statistics: X(mean=0.000002, std=3.343848), Y(mean=0.000002, std=3.410485)
+
+Final dataset sizes:
+Train dataset size: 80000
+Validation dataset size: 18200
+Test dataset size: 18300
+Rollout test dataset size: 206
+<dataloaders.ks_naive_true_multires.ks_true_multires_markov_dataset.<locals>.SimpleNormalizedDataset object at 0x14590ae20190>
+Created resolution groups:
+  Resolution 512: 16000 samples
+  Resolution 128: 64000 samples
+Created resolution groups:
+  Resolution 512: 10200 samples
+  Resolution 128: 8000 samples
+Created resolution groups:
+  Resolution 512: 10300 samples
+  Resolution 128: 8000 samples
+<class 'torch.Tensor'> -9.287148714065552e-06 -3.7883874028921127e-06 0.8482744693756104 0.8504133224487305
+UNet1d(
+  (encoder1): Sequential(
+    (enc1conv1): Conv1d(1, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh1): Tanh()
+    (enc1conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh2): Tanh()
+  )
+  (pool1): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder2): Sequential(
+    (enc2conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh1): Tanh()
+    (enc2conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh2): Tanh()
+  )
+  (pool2): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder3): Sequential(
+    (enc3conv1): Conv1d(128, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh1): Tanh()
+    (enc3conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh2): Tanh()
+  )
+  (pool3): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder4): Sequential(
+    (enc4conv1): Conv1d(256, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh1): Tanh()
+    (enc4conv2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh2): Tanh()
+  )
+  (pool4): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (bottleneck): Sequential(
+    (bottleneckconv1): Conv1d(512, 1024, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh1): Tanh()
+    (bottleneckconv2): Conv1d(1024, 1024, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm2): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh2): Tanh()
+  )
+  (upconv4): ConvTranspose1d(1024, 512, kernel_size=(2,), stride=(2,))
+  (decoder4): Sequential(
+    (dec4conv1): Conv1d(1024, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh1): Tanh()
+    (dec4conv2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh2): Tanh()
+  )
+  (upconv3): ConvTranspose1d(512, 256, kernel_size=(2,), stride=(2,))
+  (decoder3): Sequential(
+    (dec3conv1): Conv1d(512, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh1): Tanh()
+    (dec3conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh2): Tanh()
+  )
+  (upconv2): ConvTranspose1d(256, 128, kernel_size=(2,), stride=(2,))
+  (decoder2): Sequential(
+    (dec2conv1): Conv1d(256, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh1): Tanh()
+    (dec2conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh2): Tanh()
+  )
+  (upconv1): ConvTranspose1d(128, 64, kernel_size=(2,), stride=(2,))
+  (decoder1): Sequential(
+    (dec1conv1): Conv1d(128, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh1): Tanh()
+    (dec1conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh2): Tanh()
+  )
+  (conv): Conv1d(64, 1, kernel_size=(1,), stride=(1,))
+)
+Total Model Parameters: 10.82M
+Trainable Parameters: 10.82M
+Epoch 0, Train Loss: 0.14077199, Val Loss: 0.18382729
+Epoch 10, Train Loss: 0.03447923, Val Loss: 0.18038633
+Epoch 20, Train Loss: 0.02629764, Val Loss: 0.18944126
+Epoch 30, Train Loss: 0.02221848, Val Loss: 0.19508596
+Epoch 40, Train Loss: 0.01829287, Val Loss: 0.19257635
+Epoch 50, Train Loss: 0.01581085, Val Loss: 0.19515147
+Epoch 60, Train Loss: 0.01353921, Val Loss: 0.18648128
+Epoch 70, Train Loss: 0.01162433, Val Loss: 0.18940360
+Epoch 80, Train Loss: 0.01033182, Val Loss: 0.19242265
+Epoch 90, Train Loss: 0.00940113, Val Loss: 0.17901218
+Test L2 Loss: 0.192457
+Model saved to checkpoints/unet1d/ks_5562957.pt
+Created/verified figures directory: figures/5562957
+Evaluating KS model at multiple resolutions
+Using normalizer from training resolution 512
+Testing resolutions: [32, 64, 128, 256, 512]
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 32)
+Final data shape: (2048, 51, 32)
+x shape: torch.Size([102400, 1, 32])
+y shape: torch.Size([102400, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+x shape: torch.Size([12800, 1, 32])
+y shape: torch.Size([12800, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+x shape: torch.Size([12800, 1, 32])
+y shape: torch.Size([12800, 1, 32])
+spatial coordinates shape: (32,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 32])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Selected random indices for plotting: [9644, 9182, 3420, 5377, 5294, 8044, 1504, 1045, 1418, 985]
+Collected 10 examples for resolution 32
+Resolution 32 (downsample factor: 16) - Relative L2 Loss: 0.501750
+Memory cleaned after resolution 32
+
+
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 64)
+Final data shape: (2048, 51, 64)
+x shape: torch.Size([102400, 1, 64])
+y shape: torch.Size([102400, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+x shape: torch.Size([12800, 1, 64])
+y shape: torch.Size([12800, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+x shape: torch.Size([12800, 1, 64])
+y shape: torch.Size([12800, 1, 64])
+spatial coordinates shape: (64,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 64])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Collected 10 examples for resolution 64
+Resolution 64 (downsample factor: 8) - Relative L2 Loss: 0.566592
+Memory cleaned after resolution 64
+
+
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 128)
+Final data shape: (2048, 51, 128)
+x shape: torch.Size([102400, 1, 128])
+y shape: torch.Size([102400, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+x shape: torch.Size([12800, 1, 128])
+y shape: torch.Size([12800, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+x shape: torch.Size([12800, 1, 128])
+y shape: torch.Size([12800, 1, 128])
+spatial coordinates shape: (128,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 128])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Collected 10 examples for resolution 128
+Resolution 128 (downsample factor: 4) - Relative L2 Loss: 0.083942
+Memory cleaned after resolution 128
+
+
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 256)
+Final data shape: (2048, 51, 256)
+x shape: torch.Size([102400, 1, 256])
+y shape: torch.Size([102400, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+x shape: torch.Size([12800, 1, 256])
+y shape: torch.Size([12800, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+x shape: torch.Size([12800, 1, 256])
+y shape: torch.Size([12800, 1, 256])
+spatial coordinates shape: (256,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 256])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Collected 10 examples for resolution 256
+Resolution 256 (downsample factor: 2) - Relative L2 Loss: 0.319414
+Memory cleaned after resolution 256
+
+
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 512)
+Final data shape: (2048, 51, 512)
+x shape: torch.Size([102400, 1, 512])
+y shape: torch.Size([102400, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+x shape: torch.Size([12800, 1, 512])
+y shape: torch.Size([12800, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+x shape: torch.Size([12800, 1, 512])
+y shape: torch.Size([12800, 1, 512])
+spatial coordinates shape: (512,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 512])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Collected 10 examples for resolution 512
+Resolution 512 (downsample factor: 1) - Relative L2 Loss: 0.282183
+Memory cleaned after resolution 512
+
+
+Creating prediction vs target plots...
+Saved prediction plot: figures/5562957/prediction_plots/ks_predictions_vs_targets_10_examples.png
+Saved numerical results: figures/5562957/ks_1d_evaluation_results_20250922_021305.csv
+Saved summary: figures/5562957/ks_1d_evaluation_summary_20250922_021305.txt
+
+==================================================
+KS EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.501750
+Resolution  64: 0.566592
+Resolution 128: 0.083942
+Resolution 256: 0.319414
+Resolution 512: 0.282183
+Evaluating KS model rollout at multiple resolutions
+Using normalizer from training resolution 512
+Rollout steps: 16
+Testing resolutions: [32, 64, 128, 256, 512]
+
+--- Evaluating Rollout at Resolution 32 (downsample factor: 16) ---
+Loading dataset with config: dataloaders.ks_naive_markov.ks_markov_dataset
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 32)
+Final data shape: (2048, 51, 32)
+x shape: torch.Size([102400, 1, 32])
+y shape: torch.Size([102400, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+x shape: torch.Size([12800, 1, 32])
+y shape: torch.Size([12800, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+x shape: torch.Size([12800, 1, 32])
+y shape: torch.Size([12800, 1, 32])
+spatial coordinates shape: (32,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 32])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Using rollout test dataset with 256 trajectories
+Selected random indices for plotting: [14, 17, 25, 1, 37]
+Collected 5 rollout examples for resolution 32
+Resolution 32 (downsample factor: 16) - Rollout Loss (16 steps): 2.719297
+Memory cleaned after resolution 32
+
+--- Evaluating Rollout at Resolution 64 (downsample factor: 8) ---
+Loading dataset with config: dataloaders.ks_naive_markov.ks_markov_dataset
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 64)
+Final data shape: (2048, 51, 64)
+x shape: torch.Size([102400, 1, 64])
+y shape: torch.Size([102400, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+x shape: torch.Size([12800, 1, 64])
+y shape: torch.Size([12800, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+x shape: torch.Size([12800, 1, 64])
+y shape: torch.Size([12800, 1, 64])
+spatial coordinates shape: (64,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 64])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Using rollout test dataset with 256 trajectories
+Collected 5 rollout examples for resolution 64
+Resolution 64 (downsample factor: 8) - Rollout Loss (16 steps): 1.320966
+Memory cleaned after resolution 64
+
+--- Evaluating Rollout at Resolution 128 (downsample factor: 4) ---
+Loading dataset with config: dataloaders.ks_naive_markov.ks_markov_dataset
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 128)
+Final data shape: (2048, 51, 128)
+x shape: torch.Size([102400, 1, 128])
+y shape: torch.Size([102400, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+x shape: torch.Size([12800, 1, 128])
+y shape: torch.Size([12800, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+x shape: torch.Size([12800, 1, 128])
+y shape: torch.Size([12800, 1, 128])
+spatial coordinates shape: (128,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 128])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Using rollout test dataset with 256 trajectories
+Collected 5 rollout examples for resolution 128
+Resolution 128 (downsample factor: 4) - Rollout Loss (16 steps): 0.875843
+Memory cleaned after resolution 128
+
+--- Evaluating Rollout at Resolution 256 (downsample factor: 2) ---
+Loading dataset with config: dataloaders.ks_naive_markov.ks_markov_dataset
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 256)
+Final data shape: (2048, 51, 256)
+x shape: torch.Size([102400, 1, 256])
+y shape: torch.Size([102400, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+x shape: torch.Size([12800, 1, 256])
+y shape: torch.Size([12800, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+x shape: torch.Size([12800, 1, 256])
+y shape: torch.Size([12800, 1, 256])
+spatial coordinates shape: (256,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 256])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Using rollout test dataset with 256 trajectories
+Collected 5 rollout examples for resolution 256
+Resolution 256 (downsample factor: 2) - Rollout Loss (16 steps): 0.830828
+Memory cleaned after resolution 256
+
+--- Evaluating Rollout at Resolution 512 (downsample factor: 1) ---
+Loading dataset with config: dataloaders.ks_naive_markov.ks_markov_dataset
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 512)
+Final data shape: (2048, 51, 512)
+x shape: torch.Size([102400, 1, 512])
+y shape: torch.Size([102400, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+x shape: torch.Size([12800, 1, 512])
+y shape: torch.Size([12800, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+x shape: torch.Size([12800, 1, 512])
+y shape: torch.Size([12800, 1, 512])
+spatial coordinates shape: (512,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 512])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Using rollout test dataset with 256 trajectories
+Collected 5 rollout examples for resolution 512
+Resolution 512 (downsample factor: 1) - Rollout Loss (16 steps): 0.783735
+Memory cleaned after resolution 512
+Creating rollout prediction plots...
+Rollout plots saved to: figures/5562957/rollout_plots/ks_rollout_examples.png
+Rollout results saved to: figures/5562957/ks_rollout_results_trained_res_512_steps_16.csv
+
+============================================================
+KS ROLLOUT EVALUATION SUMMARY (16 steps)
+============================================================
+Resolution  32: 2.719297
+Resolution  64: 1.320966
+Resolution 128: 0.875843
+Resolution 256: 0.830828
+Resolution 512: 0.783735
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 32: Relative L2 Loss = 0.501750
+Resolution factor 64: Relative L2 Loss = 0.566592
+Resolution factor 128: Relative L2 Loss = 0.083942
+Resolution factor 256: Relative L2 Loss = 0.319414
+Resolution factor 512: Relative L2 Loss = 0.282183
+
+Evaluation plots saved to: figures/5562957
+Wandb run: https://wandb.ai/rohanvk-carnegie-mellon-university/unet1d/runs/6e5i318d
+Using device: cuda
+[2025-09-22 02:13:24,242][root][INFO] - model:
+  _target_: models.unet.UNet1d
+  in_channels: 1
+  out_channels: 1
+  width: 64
+dataset:
+  dataset_params:
+    _target_: dataloaders.ks_naive_true_multires.ks_true_multires_markov_dataset
+    saved_folder: /data/user_data/rvk/ks/
+    viscosity: 0.075
+    L: 64.0
+    lmax: 8
+    et: 5.0
+    nte: 51
+    nt: 51
+    train_s: 2048
+    reduced_batch: 1
+    reduced_resolution_t: 1
+    data_mres_size:
+      512: 800
+    add_res:
+    - 32
+    - 64
+    - 128
+    add_res_samples:
+      256: 0
+      128: 1200
+      64: 0
+      32: 0
+    downsample_from_res: 512
+    data_normalizer: true
+    normalization_type: simple
+    num_samples_max: -1
+    eval_dataset_target: dataloaders.ks_naive_markov.ks_markov_dataset
+    eval_filename: KS_train_2048.h5
+    eval_saved_folder: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+  resize_to_train: false
+  evaluation_type: naive_downsample
+  window_size: 15
+  rollout_steps: 16
+  original_res: 512
+  max_test_resolution: 512
+  train_mres: true
+  pde: ks
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: ks_unet/unet_1d
+Model name: models.unet.UNet1d
+PDE Dataset: ks
+This is True Multi-Resolution Training. Train Resolution is the highest data resolution in the multi-resolution data
+---------------------
+Creating true multi-resolution KS dataset from /data/user_data/rvk/ks/
+Parameters: visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+Using filename pattern: KS_train_2048.h5
+Target samples per resolution (from files): {512: 800}
+Additional downsampled resolutions: [32, 64, 128]
+Target samples per downsampled resolution: {256: 0, 128: 1200, 64: 0, 32: 0}
+Will downsample from resolution: 512
+Loading KS multi-resolution data from /data/user_data/rvk/ks/
+Parameters: visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+Target samples per resolution (from files): {512: 800}
+Additional downsampled resolutions: [32, 64, 128]
+Target samples per downsampled resolution: {256: 0, 128: 1200, 64: 0, 32: 0}
+Will downsample from resolution: 512
+Loading resolution 512 from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+  Original data shape for 512: (2048, 51, 512)
+  After time reduction: (2048, 51, 512)
+  Split 'train' data shape: (1638, 51, 512)
+  Subsampled to 640 samples for train split
+  Added 32000 sample pairs from resolution 512
+Adding downsampled resolutions: [32, 64, 128]
+Adding downsampled data from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+  No downsampled samples allocated for train split at resolution 32
+  No downsampled samples allocated for train split at resolution 64
+  Added 48000 downsampled samples at resolution 128
+Total samples loaded: 80000
+Resolution distribution:
+  128_downsampled: 48000 samples
+  512_file: 32000 samples
+Sample x shapes: [(1, 512), (1, 512), (1, 512)]
+Sample y shapes: [(1, 512), (1, 512), (1, 512)]
+Loading KS multi-resolution data from /data/user_data/rvk/ks/
+Parameters: visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+Target samples per resolution (from files): {512: 800}
+Additional downsampled resolutions: [32, 64, 128]
+Target samples per downsampled resolution: {256: 0, 128: 1200, 64: 0, 32: 0}
+Will downsample from resolution: 512
+Loading resolution 512 from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+  Original data shape for 512: (2048, 51, 512)
+  After time reduction: (2048, 51, 512)
+  Split 'val' data shape: (204, 51, 512)
+  Using all 204 samples for val split
+  Added 10200 sample pairs from resolution 512
+Adding downsampled resolutions: [32, 64, 128]
+Adding downsampled data from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+  No downsampled samples allocated for val split at resolution 32
+  No downsampled samples allocated for val split at resolution 64
+  Added 6000 downsampled samples at resolution 128
+Total samples loaded: 16200
+Resolution distribution:
+  128_downsampled: 6000 samples
+  512_file: 10200 samples
+Sample x shapes: [(1, 512), (1, 512), (1, 512)]
+Sample y shapes: [(1, 512), (1, 512), (1, 512)]
+Loading KS multi-resolution data from /data/user_data/rvk/ks/
+Parameters: visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+Target samples per resolution (from files): {512: 800}
+Additional downsampled resolutions: [32, 64, 128]
+Target samples per downsampled resolution: {256: 0, 128: 1200, 64: 0, 32: 0}
+Will downsample from resolution: 512
+Loading resolution 512 from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+  Original data shape for 512: (2048, 51, 512)
+  After time reduction: (2048, 51, 512)
+  Split 'test' data shape: (206, 51, 512)
+  Using all 206 samples for test split
+  Added 10300 sample pairs from resolution 512
+Adding downsampled resolutions: [32, 64, 128]
+Adding downsampled data from /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+  No downsampled samples allocated for test split at resolution 32
+  No downsampled samples allocated for test split at resolution 64
+  Added 6000 downsampled samples at resolution 128
+Total samples loaded: 16300
+Resolution distribution:
+  128_downsampled: 6000 samples
+  512_file: 10300 samples
+Sample x shapes: [(1, 512), (1, 512), (1, 512)]
+Sample y shapes: [(1, 512), (1, 512), (1, 512)]
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Extracting KS test trajectories for rollout evaluation
+Parameters: visc_0.075_L64.0_lmax8_et5.0_nte51_nt51
+Loading trajectories from resolution 512: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+  Original data shape: (2048, 51, 512)
+  After time reduction: (2048, 51, 512)
+  Test split data shape: (206, 51, 512)
+  Using all 206 test trajectories
+  Extracted 206 complete trajectories from resolution 512
+
+Total extracted trajectories: 206
+Trajectory shapes: [torch.Size([51, 512]), torch.Size([51, 512]), torch.Size([51, 512])]
+Resolution distribution:
+  Resolution 512: 206 trajectories
+Rollout test dataset created with 206 trajectories
+---------Using simple global normalization---------------
+Global statistics: X(mean=0.000001, std=3.344852), Y(mean=0.000001, std=3.411517)
+
+Final dataset sizes:
+Train dataset size: 80000
+Validation dataset size: 16200
+Test dataset size: 16300
+Rollout test dataset size: 206
+<dataloaders.ks_naive_true_multires.ks_true_multires_markov_dataset.<locals>.SimpleNormalizedDataset object at 0x14dde29ec190>
+Created resolution groups:
+  Resolution 512: 32000 samples
+  Resolution 128: 48000 samples
+Created resolution groups:
+  Resolution 512: 10200 samples
+  Resolution 128: 6000 samples
+Created resolution groups:
+  Resolution 512: 10300 samples
+  Resolution 128: 6000 samples
+<class 'torch.Tensor'> -1.092907041311264e-05 -3.5919249057769775e-05 0.871177077293396 0.8706840872764587
+UNet1d(
+  (encoder1): Sequential(
+    (enc1conv1): Conv1d(1, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh1): Tanh()
+    (enc1conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc1norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc1tanh2): Tanh()
+  )
+  (pool1): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder2): Sequential(
+    (enc2conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh1): Tanh()
+    (enc2conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc2norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc2tanh2): Tanh()
+  )
+  (pool2): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder3): Sequential(
+    (enc3conv1): Conv1d(128, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh1): Tanh()
+    (enc3conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc3norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc3tanh2): Tanh()
+  )
+  (pool3): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (encoder4): Sequential(
+    (enc4conv1): Conv1d(256, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh1): Tanh()
+    (enc4conv2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (enc4norm2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (enc4tanh2): Tanh()
+  )
+  (pool4): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (bottleneck): Sequential(
+    (bottleneckconv1): Conv1d(512, 1024, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh1): Tanh()
+    (bottleneckconv2): Conv1d(1024, 1024, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (bottlenecknorm2): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (bottlenecktanh2): Tanh()
+  )
+  (upconv4): ConvTranspose1d(1024, 512, kernel_size=(2,), stride=(2,))
+  (decoder4): Sequential(
+    (dec4conv1): Conv1d(1024, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh1): Tanh()
+    (dec4conv2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec4norm2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec4tanh2): Tanh()
+  )
+  (upconv3): ConvTranspose1d(512, 256, kernel_size=(2,), stride=(2,))
+  (decoder3): Sequential(
+    (dec3conv1): Conv1d(512, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh1): Tanh()
+    (dec3conv2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec3norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec3tanh2): Tanh()
+  )
+  (upconv2): ConvTranspose1d(256, 128, kernel_size=(2,), stride=(2,))
+  (decoder2): Sequential(
+    (dec2conv1): Conv1d(256, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh1): Tanh()
+    (dec2conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec2norm2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec2tanh2): Tanh()
+  )
+  (upconv1): ConvTranspose1d(128, 64, kernel_size=(2,), stride=(2,))
+  (decoder1): Sequential(
+    (dec1conv1): Conv1d(128, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh1): Tanh()
+    (dec1conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+    (dec1norm2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dec1tanh2): Tanh()
+  )
+  (conv): Conv1d(64, 1, kernel_size=(1,), stride=(1,))
+)
+Total Model Parameters: 10.82M
+Trainable Parameters: 10.82M
+Epoch 0, Train Loss: 0.15375200, Val Loss: 0.24880025
+Epoch 10, Train Loss: 0.03595675, Val Loss: 0.22711528
+Epoch 20, Train Loss: 0.02768644, Val Loss: 0.23183515
+Epoch 30, Train Loss: 0.02414379, Val Loss: 0.21704257
+Epoch 40, Train Loss: 0.02046629, Val Loss: 0.22135301
+Epoch 50, Train Loss: 0.01698731, Val Loss: 0.22275864
+Epoch 60, Train Loss: 0.01403065, Val Loss: 0.22143450
+Epoch 70, Train Loss: 0.01218789, Val Loss: 0.21832788
+Epoch 80, Train Loss: 0.01041757, Val Loss: 0.21840389
+Epoch 90, Train Loss: 0.00938868, Val Loss: 0.22185782
+Test L2 Loss: 0.215055
+Model saved to checkpoints/unet1d/ks_5562957.pt
+Created/verified figures directory: figures/5562957
+Evaluating KS model at multiple resolutions
+Using normalizer from training resolution 512
+Testing resolutions: [32, 64, 128, 256, 512]
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 32)
+Final data shape: (2048, 51, 32)
+x shape: torch.Size([102400, 1, 32])
+y shape: torch.Size([102400, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+x shape: torch.Size([12800, 1, 32])
+y shape: torch.Size([12800, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+x shape: torch.Size([12800, 1, 32])
+y shape: torch.Size([12800, 1, 32])
+spatial coordinates shape: (32,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 32])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Selected random indices for plotting: [3408, 6932, 4951, 4011, 4908, 8449, 4509, 12321, 9083, 2393]
+Collected 10 examples for resolution 32
+Resolution 32 (downsample factor: 16) - Relative L2 Loss: 0.481794
+Memory cleaned after resolution 32
+
+
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 64)
+Final data shape: (2048, 51, 64)
+x shape: torch.Size([102400, 1, 64])
+y shape: torch.Size([102400, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+x shape: torch.Size([12800, 1, 64])
+y shape: torch.Size([12800, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+x shape: torch.Size([12800, 1, 64])
+y shape: torch.Size([12800, 1, 64])
+spatial coordinates shape: (64,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 64])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Collected 10 examples for resolution 64
+Resolution 64 (downsample factor: 8) - Relative L2 Loss: 0.588933
+Memory cleaned after resolution 64
+
+
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 128)
+Final data shape: (2048, 51, 128)
+x shape: torch.Size([102400, 1, 128])
+y shape: torch.Size([102400, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+x shape: torch.Size([12800, 1, 128])
+y shape: torch.Size([12800, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+x shape: torch.Size([12800, 1, 128])
+y shape: torch.Size([12800, 1, 128])
+spatial coordinates shape: (128,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 128])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Collected 10 examples for resolution 128
+Resolution 128 (downsample factor: 4) - Relative L2 Loss: 0.123578
+Memory cleaned after resolution 128
+
+
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 256)
+Final data shape: (2048, 51, 256)
+x shape: torch.Size([102400, 1, 256])
+y shape: torch.Size([102400, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+x shape: torch.Size([12800, 1, 256])
+y shape: torch.Size([12800, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+x shape: torch.Size([12800, 1, 256])
+y shape: torch.Size([12800, 1, 256])
+spatial coordinates shape: (256,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 256])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Collected 10 examples for resolution 256
+Resolution 256 (downsample factor: 2) - Relative L2 Loss: 0.304037
+Memory cleaned after resolution 256
+
+
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 512)
+Final data shape: (2048, 51, 512)
+x shape: torch.Size([102400, 1, 512])
+y shape: torch.Size([102400, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+x shape: torch.Size([12800, 1, 512])
+y shape: torch.Size([12800, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+x shape: torch.Size([12800, 1, 512])
+y shape: torch.Size([12800, 1, 512])
+spatial coordinates shape: (512,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 512])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Collected 10 examples for resolution 512
+Resolution 512 (downsample factor: 1) - Relative L2 Loss: 0.272944
+Memory cleaned after resolution 512
+
+
+Creating prediction vs target plots...
+Saved prediction plot: figures/5562957/prediction_plots/ks_predictions_vs_targets_10_examples.png
+Saved numerical results: figures/5562957/ks_1d_evaluation_results_20250922_033233.csv
+Saved summary: figures/5562957/ks_1d_evaluation_summary_20250922_033233.txt
+
+==================================================
+KS EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.481794
+Resolution  64: 0.588933
+Resolution 128: 0.123578
+Resolution 256: 0.304037
+Resolution 512: 0.272944
+Evaluating KS model rollout at multiple resolutions
+Using normalizer from training resolution 512
+Rollout steps: 16
+Testing resolutions: [32, 64, 128, 256, 512]
+
+--- Evaluating Rollout at Resolution 32 (downsample factor: 16) ---
+Loading dataset with config: dataloaders.ks_naive_markov.ks_markov_dataset
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 32)
+Final data shape: (2048, 51, 32)
+x shape: torch.Size([102400, 1, 32])
+y shape: torch.Size([102400, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+x shape: torch.Size([12800, 1, 32])
+y shape: torch.Size([12800, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+x shape: torch.Size([12800, 1, 32])
+y shape: torch.Size([12800, 1, 32])
+spatial coordinates shape: (32,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 32)
+Final data shape: (256, 51, 32)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 32])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Using rollout test dataset with 256 trajectories
+Selected random indices for plotting: [17, 36, 41, 44, 7]
+Collected 5 rollout examples for resolution 32
+Resolution 32 (downsample factor: 16) - Rollout Loss (16 steps): 2.317759
+Memory cleaned after resolution 32
+
+--- Evaluating Rollout at Resolution 64 (downsample factor: 8) ---
+Loading dataset with config: dataloaders.ks_naive_markov.ks_markov_dataset
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 64)
+Final data shape: (2048, 51, 64)
+x shape: torch.Size([102400, 1, 64])
+y shape: torch.Size([102400, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+x shape: torch.Size([12800, 1, 64])
+y shape: torch.Size([12800, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+x shape: torch.Size([12800, 1, 64])
+y shape: torch.Size([12800, 1, 64])
+spatial coordinates shape: (64,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 64)
+Final data shape: (256, 51, 64)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 64])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Using rollout test dataset with 256 trajectories
+Collected 5 rollout examples for resolution 64
+Resolution 64 (downsample factor: 8) - Rollout Loss (16 steps): 1.216061
+Memory cleaned after resolution 64
+
+--- Evaluating Rollout at Resolution 128 (downsample factor: 4) ---
+Loading dataset with config: dataloaders.ks_naive_markov.ks_markov_dataset
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 128)
+Final data shape: (2048, 51, 128)
+x shape: torch.Size([102400, 1, 128])
+y shape: torch.Size([102400, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+x shape: torch.Size([12800, 1, 128])
+y shape: torch.Size([12800, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+x shape: torch.Size([12800, 1, 128])
+y shape: torch.Size([12800, 1, 128])
+spatial coordinates shape: (128,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 128)
+Final data shape: (256, 51, 128)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 128])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Using rollout test dataset with 256 trajectories
+Collected 5 rollout examples for resolution 128
+Resolution 128 (downsample factor: 4) - Rollout Loss (16 steps): 0.893417
+Memory cleaned after resolution 128
+
+--- Evaluating Rollout at Resolution 256 (downsample factor: 2) ---
+Loading dataset with config: dataloaders.ks_naive_markov.ks_markov_dataset
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 256)
+Final data shape: (2048, 51, 256)
+x shape: torch.Size([102400, 1, 256])
+y shape: torch.Size([102400, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+x shape: torch.Size([12800, 1, 256])
+y shape: torch.Size([12800, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+x shape: torch.Size([12800, 1, 256])
+y shape: torch.Size([12800, 1, 256])
+spatial coordinates shape: (256,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 256)
+Final data shape: (256, 51, 256)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 256])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Using rollout test dataset with 256 trajectories
+Collected 5 rollout examples for resolution 256
+Resolution 256 (downsample factor: 2) - Rollout Loss (16 steps): 0.844462
+Memory cleaned after resolution 256
+
+--- Evaluating Rollout at Resolution 512 (downsample factor: 1) ---
+Loading dataset with config: dataloaders.ks_naive_markov.ks_markov_dataset
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Data shape after downsampling: (2048, 51, 512)
+Final data shape: (2048, 51, 512)
+x shape: torch.Size([102400, 1, 512])
+y shape: torch.Size([102400, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+x shape: torch.Size([12800, 1, 512])
+y shape: torch.Size([12800, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Original spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+x shape: torch.Size([12800, 1, 512])
+y shape: torch.Size([12800, 1, 512])
+spatial coordinates shape: (512,)
+
+==================================================
+CREATING ROLLOUT TEST DATASET
+==================================================
+Loading trajectories from file: /data/user_data/rvk/ks/res_512/visc_0.075_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+Original PDE data shape: (256, 51, 512)
+Data shape after downsampling: (256, 51, 512)
+Final data shape: (256, 51, 512)
+Loaded 256 complete trajectories from test split
+Trajectory shape: torch.Size([51, 512])
+Rollout test dataset created with 256 trajectories
+
+Final dataset sizes:
+Train dataset size: 102400
+Validation dataset size: 12800
+Test dataset size: 12800
+Rollout test dataset size: 256
+Using rollout test dataset with 256 trajectories
+Collected 5 rollout examples for resolution 512
+Resolution 512 (downsample factor: 1) - Rollout Loss (16 steps): 0.812062
+Memory cleaned after resolution 512
+Creating rollout prediction plots...
+Rollout plots saved to: figures/5562957/rollout_plots/ks_rollout_examples.png
+Rollout results saved to: figures/5562957/ks_rollout_results_trained_res_512_steps_16.csv
+
+============================================================
+KS ROLLOUT EVALUATION SUMMARY (16 steps)
+============================================================
+Resolution  32: 2.317759
+Resolution  64: 1.216061
+Resolution 128: 0.893417
+Resolution 256: 0.844462
+Resolution 512: 0.812062
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 32: Relative L2 Loss = 0.481794
+Resolution factor 64: Relative L2 Loss = 0.588933
+Resolution factor 128: Relative L2 Loss = 0.123578
+Resolution factor 256: Relative L2 Loss = 0.304037
+Resolution factor 512: Relative L2 Loss = 0.272944
+
+Evaluation plots saved to: figures/5562957
+Wandb run: https://wandb.ai/rohanvk-carnegie-mellon-university/unet1d/runs/srcq4mzv
+Job completed at Mon Sep 22 03:32:47 EDT 2025

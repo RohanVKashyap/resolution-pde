@@ -1,0 +1,271 @@
+Job started on babel-3-13 at Wed Sep  3 11:47:12 AM EDT 2025
+Job ID: 5431417
+GPU information:
+Wed Sep  3 11:47:12 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:52:00.0 Off |                    0 |
+| N/A   27C    P8             31W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:D2:00.0 Off |                    0 |
+| N/A   30C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+/home/rvk
+============================================================
+ARGUMENTS:
+============================================================
+experiment          : KS
+device              : cpu
+end_time            : 5.0
+nt                  : 51
+nt_effective        : 51
+nx                  : 800
+L                   : 64.0
+train_samples       : 0
+valid_samples       : 32
+test_samples        : 32
+batch_size          : 1
+suffix              : 
+log                 : False
+viscosity           : 0.05
+lmax                : 8
+create_plots        : True
+num_plots           : 10
+plot_resolutions    : [32, 64, 128, 256, 512]
+============================================================
+Data directory /data/user_data/rvk/ks/res_800/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51 exists and will be written to.
+Generating data
+No file /data/user_data/rvk/ks/res_800/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5 exists yet.
+No file /data/user_data/rvk/ks/res_800/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5 exists yet.
+No file /data/user_data/rvk/ks/res_800/visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/KS_train_0.h5 exists yet.
+Equation: KS
+Mode: valid
+Number of samples: 32
+Solved indices: 0 : 0
+Solved batches: 1 of 32
+Solved indices: 1 : 1
+Solved batches: 2 of 32
+Solved indices: 2 : 2
+Solved batches: 3 of 32
+Solved indices: 3 : 3
+Solved batches: 4 of 32
+Solved indices: 4 : 4
+Solved batches: 5 of 32
+Solved indices: 5 : 5
+Solved batches: 6 of 32
+Solved indices: 6 : 6
+Solved batches: 7 of 32
+Solved indices: 7 : 7
+Solved batches: 8 of 32
+Solved indices: 8 : 8
+Solved batches: 9 of 32
+Solved indices: 9 : 9
+Solved batches: 10 of 32
+Solved indices: 10 : 10
+Solved batches: 11 of 32
+Solved indices: 11 : 11
+Solved batches: 12 of 32
+Solved indices: 12 : 12
+Solved batches: 13 of 32
+Solved indices: 13 : 13
+Solved batches: 14 of 32
+Solved indices: 14 : 14
+Solved batches: 15 of 32
+Solved indices: 15 : 15
+Solved batches: 16 of 32
+Solved indices: 16 : 16
+Solved batches: 17 of 32
+Solved indices: 17 : 17
+Solved batches: 18 of 32
+Solved indices: 18 : 18
+Solved batches: 19 of 32
+Solved indices: 19 : 19
+Solved batches: 20 of 32
+Solved indices: 20 : 20
+Solved batches: 21 of 32
+Solved indices: 21 : 21
+Solved batches: 22 of 32
+Solved indices: 22 : 22
+Solved batches: 23 of 32
+Solved indices: 23 : 23
+Solved batches: 24 of 32
+Solved indices: 24 : 24
+Solved batches: 25 of 32
+Solved indices: 25 : 25
+Solved batches: 26 of 32
+Solved indices: 26 : 26
+Solved batches: 27 of 32
+Solved indices: 27 : 27
+Solved batches: 28 of 32
+Solved indices: 28 : 28
+Solved batches: 29 of 32
+Solved indices: 29 : 29
+Solved batches: 30 of 32
+Solved indices: 30 : 30
+Solved batches: 31 of 32
+Solved indices: 31 : 31
+Solved batches: 32 of 32
+
+Data saved
+
+
+Equation: KS
+Mode: test
+Number of samples: 32
+Solved indices: 0 : 0
+Solved batches: 1 of 32
+Solved indices: 1 : 1
+Solved batches: 2 of 32
+Solved indices: 2 : 2
+Solved batches: 3 of 32
+Solved indices: 3 : 3
+Solved batches: 4 of 32
+Solved indices: 4 : 4
+Solved batches: 5 of 32
+Solved indices: 5 : 5
+Solved batches: 6 of 32
+Solved indices: 6 : 6
+Solved batches: 7 of 32
+Solved indices: 7 : 7
+Solved batches: 8 of 32
+Solved indices: 8 : 8
+Solved batches: 9 of 32
+Solved indices: 9 : 9
+Solved batches: 10 of 32
+Solved indices: 10 : 10
+Solved batches: 11 of 32
+Solved indices: 11 : 11
+Solved batches: 12 of 32
+Solved indices: 12 : 12
+Solved batches: 13 of 32
+Solved indices: 13 : 13
+Solved batches: 14 of 32
+Solved indices: 14 : 14
+Solved batches: 15 of 32
+Solved indices: 15 : 15
+Solved batches: 16 of 32
+Solved indices: 16 : 16
+Solved batches: 17 of 32
+Solved indices: 17 : 17
+Solved batches: 18 of 32
+Solved indices: 18 : 18
+Solved batches: 19 of 32
+Solved indices: 19 : 19
+Solved batches: 20 of 32
+Solved indices: 20 : 20
+Solved batches: 21 of 32
+Solved indices: 21 : 21
+Solved batches: 22 of 32
+Solved indices: 22 : 22
+Solved batches: 23 of 32
+Solved indices: 23 : 23
+Solved batches: 24 of 32
+Solved indices: 24 : 24
+Solved batches: 25 of 32
+Solved indices: 25 : 25
+Solved batches: 26 of 32
+Solved indices: 26 : 26
+Solved batches: 27 of 32
+Solved indices: 27 : 27
+Solved batches: 28 of 32
+Solved indices: 28 : 28
+Solved batches: 29 of 32
+Solved indices: 29 : 29
+Solved batches: 30 of 32
+Solved indices: 30 : 30
+Solved batches: 31 of 32
+Solved indices: 31 : 31
+Solved batches: 32 of 32
+
+Data saved
+
+
+Operation took 6284.44 seconds
+
+Generating validation plots...
+Auto-generated job_id: job_5431417_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51
+Created figure directory: ./figures/job_5431417_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51
+Loaded valid data with shape: (32, 51, 800)
+Selected random sample indices: [0, 3, 4, 7, 8, 21, 23, 27, 29, 31]
+Selected time indices: [0, 3, 7, 11, 15, 19, 23, 26, 30, 34, 38, 42, 46, 50]
+Calculating temporal distances...
+Distance plot saved to: ./figures/job_5431417_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/temporal_distances_valid_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51.png
+
+Generating plots for resolution 32...
+
+Generating plots for resolution 64...
+
+Generating plots for resolution 128...
+
+Generating plots for resolution 256...
+
+Generating plots for resolution 512...
+
+Visualization Summary:
+  - Dataset: valid
+  - Random samples plotted: [0, 3, 4, 7, 8, 21, 23, 27, 29, 31]
+  - Time points per sample: 14
+  - Original resolution: 800
+  - Plot resolutions: [32, 64, 128, 256, 512]
+  - Distance analysis: Calculated 50 temporal transitions
+  - Total plots saved: 6
+  - Output directory: ./figures/job_5431417_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51
+    1. temporal_distances_valid_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51.png
+    2. ks_evolution_samples_0-3-4-7-8-21-23-27-29-31_res_32_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_valid_20250903_133248.png
+    3. ks_evolution_samples_0-3-4-7-8-21-23-27-29-31_res_64_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_valid_20250903_133304.png
+    4. ks_evolution_samples_0-3-4-7-8-21-23-27-29-31_res_128_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_valid_20250903_133321.png
+    5. ks_evolution_samples_0-3-4-7-8-21-23-27-29-31_res_256_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_valid_20250903_133338.png
+    6. ks_evolution_samples_0-3-4-7-8-21-23-27-29-31_res_512_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_valid_20250903_133356.png
+
+Generating test plots...
+Auto-generated job_id: job_5431417_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51
+Created figure directory: ./figures/job_5431417_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51
+Loaded test data with shape: (32, 51, 800)
+Selected random sample indices: [0, 3, 4, 7, 8, 21, 23, 27, 29, 31]
+Selected time indices: [0, 3, 7, 11, 15, 19, 23, 26, 30, 34, 38, 42, 46, 50]
+Calculating temporal distances...
+Distance plot saved to: ./figures/job_5431417_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51/temporal_distances_test_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51.png
+
+Generating plots for resolution 32...
+
+Generating plots for resolution 64...
+
+Generating plots for resolution 128...
+
+Generating plots for resolution 256...
+
+Generating plots for resolution 512...
+
+Visualization Summary:
+  - Dataset: test
+  - Random samples plotted: [0, 3, 4, 7, 8, 21, 23, 27, 29, 31]
+  - Time points per sample: 14
+  - Original resolution: 800
+  - Plot resolutions: [32, 64, 128, 256, 512]
+  - Distance analysis: Calculated 50 temporal transitions
+  - Total plots saved: 6
+  - Output directory: ./figures/job_5431417_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51
+    1. temporal_distances_test_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51.png
+    2. ks_evolution_samples_0-3-4-7-8-21-23-27-29-31_res_32_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_test_20250903_133413.png
+    3. ks_evolution_samples_0-3-4-7-8-21-23-27-29-31_res_64_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_test_20250903_133429.png
+    4. ks_evolution_samples_0-3-4-7-8-21-23-27-29-31_res_128_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_test_20250903_133445.png
+    5. ks_evolution_samples_0-3-4-7-8-21-23-27-29-31_res_256_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_test_20250903_133502.png
+    6. ks_evolution_samples_0-3-4-7-8-21-23-27-29-31_res_512_visc_0.05_L64.0_lmax8_et5.0_nte51_nt51_test_20250903_133520.png
+Job completed at Wed Sep  3 01:35:32 PM EDT 2025

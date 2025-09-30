@@ -1,0 +1,91 @@
+Job started on shire-1-6 at Fri Sep  5 01:27:37 EDT 2025
+Job ID: 5435840
+GPU information:
+Fri Sep  5 01:27:37 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce GTX 1080 Ti     On  |   00000000:01:00.0 Off |                  N/A |
+| 23%   27C    P8              8W /  250W |       3MiB /  11264MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA GeForce GTX 1080 Ti     On  |   00000000:04:00.0 Off |                  N/A |
+| 23%   34C    P8              8W /  250W |       3MiB /  11264MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+/home/rvk
+============================================================
+ARGUMENTS:
+============================================================
+experiment          : KS
+device              : cpu
+end_time            : 5.0
+nt                  : 51
+nt_effective        : 51
+nx                  : 128
+L                   : 64.0
+train_samples       : 2048
+valid_samples       : 256
+test_samples        : 256
+batch_size          : 1
+suffix              : 
+log                 : False
+viscosity           : 0.1
+lmax                : 8
+create_plots        : True
+num_plots           : 10
+plot_resolutions    : [32, 64, 128, 256, 512]
+============================================================
+Data directory /data/user_data/rvk/ks/res_128/visc_0.1_L64.0_lmax8_et5.0_nte51_nt51 created.
+Log directory /data/user_data/rvk/ks/res_128/visc_0.1_L64.0_lmax8_et5.0_nte51_nt51/log created.
+Generating data
+No file /data/user_data/rvk/ks/res_128/visc_0.1_L64.0_lmax8_et5.0_nte51_nt51/KS_train_2048.h5 exists yet.
+No file /data/user_data/rvk/ks/res_128/visc_0.1_L64.0_lmax8_et5.0_nte51_nt51/KS_valid.h5 exists yet.
+No file /data/user_data/rvk/ks/res_128/visc_0.1_L64.0_lmax8_et5.0_nte51_nt51/KS_test.h5 exists yet.
+Equation: KS
+Mode: train
+Number of samples: 2048
+Solution was not successful.
+Solved indices: 0 : 0
+Solved batches: 1 of 2048
+Solution was not successful.
+Solved indices: 1 : 1
+Solved batches: 2 of 2048
+Solution was not successful.
+Solved indices: 2 : 2
+Solved batches: 3 of 2048
+Solution was not successful.
+Solved indices: 3 : 3
+Solved batches: 4 of 2048
+Solution was not successful.
+Solved indices: 4 : 4
+Solved batches: 5 of 2048
+Solution was not successful.
+Solved indices: 5 : 5
+Solved batches: 6 of 2048
+Solution was not successful.
+Solved indices: 6 : 6
+Solved batches: 7 of 2048
+Solution was not successful.
+Solved indices: 7 : 7
+Solved batches: 8 of 2048
+Solution was not successful.
+Solved indices: 8 : 8
+Solved batches: 9 of 2048
+Solution was not successful.
+Solved indices: 9 : 9
+Solved batches: 10 of 2048

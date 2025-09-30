@@ -1,0 +1,424 @@
+Job started on babel-10-17 at Tue Jul 29 02:20:06 EDT 2025
+Job ID: 5275780
+GPU information:
+Tue Jul 29 02:20:06 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX 6000 Ada Gene...    On  |   00000000:01:00.0 Off |                  Off |
+| 30%   34C    P8             20W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX 6000 Ada Gene...    On  |   00000000:41:00.0 Off |                  Off |
+| 30%   30C    P8             29W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+Using device: cuda
+[2025-07-29 02:20:12,134][root][INFO] - model:
+  _target_: models.CNO1d.CNO1d
+  in_dim: 1
+  out_dim: 1
+  N_layers: 4
+  N_res: 4
+  N_res_neck: 4
+  channel_multiplier: 32
+  use_bn: true
+dataset:
+  dataset_params:
+    _target_: dataloaders.ks.ks_markov_dataset
+    filename: KS_train_2048.h5
+    saved_folder: /data/user_data/rvk/ks/visc_0.1/
+    val_filename: KS_valid.h5
+    test_filename: KS_test.h5
+    reduced_batch: 4
+    reduced_resolution: 1
+    reduced_resolution_t: 1
+    s: 32
+    data_normalizer: true
+    num_samples_max: -1
+  window_size: 15
+  original_res: 512
+  multi_res:
+  - 1
+  - 16
+  train_mres: false
+  pde: ks
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: ks_cno_1d/cno_1d
+Model name: models.CNO1d.CNO1d
+PDE Dataset: ks
+---------------------
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (512, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 32
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (512, 51, 32)
+Updated spatial coordinates shape: (32,)
+x shape: torch.Size([25600, 1, 32])
+y shape: torch.Size([25600, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 32
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (64, 51, 32)
+Updated spatial coordinates shape: (32,)
+x shape: torch.Size([3200, 1, 32])
+y shape: torch.Size([3200, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 32
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (64, 51, 32)
+Updated spatial coordinates shape: (32,)
+x shape: torch.Size([3200, 1, 32])
+y shape: torch.Size([3200, 1, 32])
+spatial coordinates shape: (32,)
+---------Computing min-max normalization statistics---------------
+Input data range: [-6.734893, 7.144865]
+Output data range: [-6.734893, 7.144865]
+Train dataset size: 25600
+Validation dataset size: 3200
+Test dataset size: 3200
+<dataloaders.ks.ks_markov_dataset.<locals>.MinMaxNormalizedDataset object at 0x1526c39dc050>
+<class 'torch.Tensor'> 0.48523128032684326 0.48523131012916565 0.06641064584255219 0.0698651671409607
+Total Model Parameters: 2.68M
+Trainable Parameters: 2.68M
+Epoch 0, Train Loss: 0.03419805, Val Loss: 0.02998857
+Epoch 10, Train Loss: 0.02038414, Val Loss: 0.03020769
+Epoch 20, Train Loss: 0.01789755, Val Loss: 0.02057080
+Epoch 30, Train Loss: 0.01482481, Val Loss: 0.01991298
+Epoch 40, Train Loss: 0.01363164, Val Loss: 0.02037625
+Epoch 50, Train Loss: 0.01216991, Val Loss: 0.02026517
+Epoch 60, Train Loss: 0.01158134, Val Loss: 0.02042321
+Epoch 70, Train Loss: 0.01112605, Val Loss: 0.02114128
+Epoch 80, Train Loss: 0.01042732, Val Loss: 0.02070827
+Epoch 90, Train Loss: 0.01019219, Val Loss: 0.02067758
+Test L2 Loss: 0.118712
+Model saved to checkpoints/cno1d/ks_5275780.pt
+Created/verified figures directory: figures/5275780
+Evaluating KS model at multiple resolutions
+Using provided normalization statistics from training resolution 32:
+  Input range: [-6.734893, 7.144865]
+  Output range: [-6.734893, 7.144865]
+Testing resolutions: [32, 64, 128, 256, 512]
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (512, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 32
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (512, 51, 32)
+Updated spatial coordinates shape: (32,)
+x shape: torch.Size([25600, 1, 32])
+y shape: torch.Size([25600, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 32
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (64, 51, 32)
+Updated spatial coordinates shape: (32,)
+x shape: torch.Size([3200, 1, 32])
+y shape: torch.Size([3200, 1, 32])
+spatial coordinates shape: (32,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 32
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (64, 51, 32)
+Updated spatial coordinates shape: (32,)
+x shape: torch.Size([3200, 1, 32])
+y shape: torch.Size([3200, 1, 32])
+spatial coordinates shape: (32,)
+Train dataset size: 25600
+Validation dataset size: 3200
+Test dataset size: 3200
+Resolution 32 - Relative L2 Loss: 0.118711
+Memory cleaned after resolution 32
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (512, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 64
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (512, 51, 64)
+Updated spatial coordinates shape: (64,)
+x shape: torch.Size([25600, 1, 64])
+y shape: torch.Size([25600, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 64
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (64, 51, 64)
+Updated spatial coordinates shape: (64,)
+x shape: torch.Size([3200, 1, 64])
+y shape: torch.Size([3200, 1, 64])
+spatial coordinates shape: (64,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 64
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (64, 51, 64)
+Updated spatial coordinates shape: (64,)
+x shape: torch.Size([3200, 1, 64])
+y shape: torch.Size([3200, 1, 64])
+spatial coordinates shape: (64,)
+Train dataset size: 25600
+Validation dataset size: 3200
+Test dataset size: 3200
+Resolution 64 - Relative L2 Loss: 0.658241
+Memory cleaned after resolution 64
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (512, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 128
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (512, 51, 128)
+Updated spatial coordinates shape: (128,)
+x shape: torch.Size([25600, 1, 128])
+y shape: torch.Size([25600, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 128
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (64, 51, 128)
+Updated spatial coordinates shape: (128,)
+x shape: torch.Size([3200, 1, 128])
+y shape: torch.Size([3200, 1, 128])
+spatial coordinates shape: (128,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 128
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (64, 51, 128)
+Updated spatial coordinates shape: (128,)
+x shape: torch.Size([3200, 1, 128])
+y shape: torch.Size([3200, 1, 128])
+spatial coordinates shape: (128,)
+Train dataset size: 25600
+Validation dataset size: 3200
+Test dataset size: 3200
+Resolution 128 - Relative L2 Loss: 0.669021
+Memory cleaned after resolution 128
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (512, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 256
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (512, 51, 256)
+Updated spatial coordinates shape: (256,)
+x shape: torch.Size([25600, 1, 256])
+y shape: torch.Size([25600, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 256
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (64, 51, 256)
+Updated spatial coordinates shape: (256,)
+x shape: torch.Size([3200, 1, 256])
+y shape: torch.Size([3200, 1, 256])
+spatial coordinates shape: (256,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+Resizing from 512 to 256
+Downsampling using FFT-based downsample_1d function
+Data shape after resizing: (64, 51, 256)
+Updated spatial coordinates shape: (256,)
+x shape: torch.Size([3200, 1, 256])
+y shape: torch.Size([3200, 1, 256])
+spatial coordinates shape: (256,)
+Train dataset size: 25600
+Validation dataset size: 3200
+Test dataset size: 3200
+Resolution 256 - Relative L2 Loss: 0.669046
+Memory cleaned after resolution 256
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_train_2048.h5
+Available data keys in 'train': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (2048, 51, 512)
+Time data shape: (2048, 51)
+Spatial coordinates shape: (512,)
+dx shape: (2048,)
+dt shape: (2048,)
+Final data shape: (512, 51, 512)
+Current Spatial Size: 512
+x shape: torch.Size([25600, 1, 512])
+y shape: torch.Size([25600, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_valid.h5
+Available data keys in 'valid': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+x shape: torch.Size([3200, 1, 512])
+y shape: torch.Size([3200, 1, 512])
+spatial coordinates shape: (512,)
+Loading from file: /data/user_data/rvk/ks/visc_0.1/KS_test.h5
+Available data keys in 'test': ['dt', 'dx', 'pde_51-512', 't', 'x']
+PDE data shape: (256, 51, 512)
+Time data shape: (256, 51)
+Spatial coordinates shape: (512,)
+dx shape: (256,)
+dt shape: (256,)
+Final data shape: (64, 51, 512)
+Current Spatial Size: 512
+x shape: torch.Size([3200, 1, 512])
+y shape: torch.Size([3200, 1, 512])
+spatial coordinates shape: (512,)
+Train dataset size: 25600
+Validation dataset size: 3200
+Test dataset size: 3200
+Resolution 512 - Relative L2 Loss: 0.669046
+Memory cleaned after resolution 512
+Creating prediction vs target plots...
+Saved 1D KS prediction plots to figures/5275780/prediction_plots
+Saved numerical results: figures/5275780/ks_1d_evaluation_results_20250729_031105.csv
+Saved summary: figures/5275780/ks_1d_evaluation_summary_20250729_031105.txt
+
+==================================================
+KS EVALUATION SUMMARY
+==================================================
+Resolution  32: 0.118711
+Resolution  64: 0.658241
+Resolution 128: 0.669021
+Resolution 256: 0.669046
+Resolution 512: 0.669046
+
+Summary of Super-Resolution Evaluation:
+Resolution factor 32: Relative L2 Loss = 0.118711
+Resolution factor 64: Relative L2 Loss = 0.658241
+Resolution factor 128: Relative L2 Loss = 0.669021
+Resolution factor 256: Relative L2 Loss = 0.669046
+Resolution factor 512: Relative L2 Loss = 0.669046
+
+Evaluation plots saved to: figures/5275780
+Wandb run: https://wandb.ai/rohanvk-carnegie-mellon-university/cno1d/runs/4jmcrjdl
+Job completed at Tue Jul 29 03:12:11 EDT 2025

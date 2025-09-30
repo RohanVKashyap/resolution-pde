@@ -1,0 +1,2 @@
+/home/rvk/LPSDA/generate/generate_data.py:345: UserWarning: Attempting to set identical low and high ylims makes transformation singular; automatically expanding.
+  axes[row, col].set_ylim(u[sample_idx].min() * 1.1, u[sample_idx].max() * 1.1)

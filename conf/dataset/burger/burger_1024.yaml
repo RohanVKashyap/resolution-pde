@@ -18,4 +18,4 @@ multi_res:
 
 train_mres: false
 
-pde: ks
+pde: burger

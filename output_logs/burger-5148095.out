@@ -1,0 +1,121 @@
+Job started on babel-3-17 at Sun Jun 22 16:22:52 EDT 2025
+Job ID: 5148095
+GPU information:
+Sun Jun 22 16:22:52 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.51.03              Driver Version: 575.51.03      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:D1:00.0 Off |                    0 |
+| N/A   23C    P8             30W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    On  |   00000000:D2:00.0 Off |                    0 |
+| N/A   25C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA devices:
+CUDA_VISIBLE_DEVICES: 0,1
+/home/rvk
+Using device: cuda
+[2025-06-22 16:23:01,347][root][INFO] - model:
+  _target_: CNO.CNO2d_original_version.CNOModule.CNO
+  in_dim: 3
+  out_dim: 3
+  out_size: 1
+  N_layers: 3
+  N_res: 4
+  N_res_neck: 6
+  channel_multiplier: 32
+  conv_kernel: 3
+  cutoff_den: 2.0001
+  filter_size: 6
+  lrelu_upsampling: 2
+  half_width_mult: 0.8
+  radial: false
+  batch_norm: true
+  expand_input: false
+  latent_lift_proj_dim: 64
+  add_inv: true
+  activation: cno_lrelu
+dataset:
+  reduced_batch: 1
+  reduced_resolution: 1
+  reduced_resolution_t: 1
+  window_size: 15
+  original_res: 512
+  train_resolution: 256
+  multi_res:
+  - 1
+  - 2
+  - 8
+  s: 256
+  train_mres: false
+  pde: navier_stokes_0
+  data_path1: data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+training:
+  batch_size: 16
+  epochs: 1
+  learning_rate: 0.001
+  use_normalizer: false
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
+
+Project name: navier_stokes_0_cno_2d/cno_2d_original
+Model name: CNO.CNO2d_original_version.CNOModule.CNO
+PDE Dataset: navier_stokes_0
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 1000, 512, 512, 3)
+Current Spatial Size: 512
+Downsampling from 512x512 to 256x256
+Data shape after downsampling: (4, 1000, 256, 256, 3)
+x shape: torch.Size([3992, 3, 256, 256])
+y shape: torch.Size([3992, 3, 256, 256])
+---------Computing min-max normalization statistics---------------
+Input data range: [-2.757085, 2.507205]
+Output data range: [-2.751314, 2.490209]
+Train dataset size: 3193
+Validation dataset size: 399
+Test dataset size: 400
+<class 'torch.Tensor'> 0.5241027474403381 0.5252789855003357 0.10393410176038742 0.10430046916007996
+Total Model Parameters: 2.95M
+Trainable Parameters: 2.95M
+Using provided normalization statistics from training resolution 256:
+  Input range: [-2.757085, 2.507205]
+  Output range: [-2.751314, 2.490209]
+Testing resolutions: [32]
+Loading from file: /home/rvk/data/pdebench/ns_incom_inhom_2d_512-0.hdf5
+Available keys: ['force', 'particles', 't', 'velocity']
+Velocity data shape: (4, 1000, 512, 512, 2)
+Particles data shape: (4, 1000, 512, 512, 1)
+Combined data shape: (4, 1000, 512, 512, 3)
+Current Spatial Size: 512
+Downsampling from 512x512 to 32x32
+Data shape after downsampling: (4, 1000, 32, 32, 3)
+x shape: torch.Size([3992, 3, 32, 32])
+y shape: torch.Size([3992, 3, 32, 32])
+Train dataset size: 3193
+Validation dataset size: 399
+Test dataset size: 400
+Setting up PyTorch plugin "filtered_lrelu_plugin"... Done.
+Resolution 32 - Relative L2 Loss: 5.354075
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Resolution  32: 5.354075
+Job completed at Sun Jun 22 16:26:32 EDT 2025

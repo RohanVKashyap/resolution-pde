@@ -1,0 +1,7 @@
+Error executing job with overrides: ['model=ffno_1d/ffno_1d', 'dataset=ks/ks']
+Error in call to target 'dataloaders.ks.ks_markov_dataset':
+FileNotFoundError(2, "Unable to synchronously open file (unable to open file: name = '/data/user_data/rvk/ks/res_32/visc_0.001/KS_train_2048.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)")
+full_key: dataset.dataset_params
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+srun: error: babel-3-13: task 0: Exited with exit code 1

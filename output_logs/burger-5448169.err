@@ -1,0 +1,11 @@
+/home/rvk/data_generation/random_fields.py:59: UserWarning: The function torch.ifft is deprecated and will be removed in a future PyTorch release. Use the new torch.fft module functions, instead, by importing torch.fft and calling torch.fft.ifft or torch.fft.ifftn. (Triggered internally at  /opt/conda/conda-bld/pytorch_1607370172916/work/aten/src/ATen/native/SpectralOps.cpp:578.)
+  u = torch.ifft(coeff, self.dim, normalized=False)
+data_generation/ns_2d.py:39: UserWarning: The function torch.rfft is deprecated and will be removed in a future PyTorch release. Use the new torch.fft module functions, instead, by importing torch.fft and calling torch.fft.fft or torch.fft.rfft. (Triggered internally at  /opt/conda/conda-bld/pytorch_1607370172916/work/aten/src/ATen/native/SpectralOps.cpp:590.)
+  w_h = torch.rfft(w0, 2, normalized=False, onesided=False)
+data_generation/ns_2d.py:80: UserWarning: The function torch.irfft is deprecated and will be removed in a future PyTorch release. Use the new torch.fft module functions, instead, by importing torch.fft and calling torch.fft.ifft or torch.fft.irfft. (Triggered internally at  /opt/conda/conda-bld/pytorch_1607370172916/work/aten/src/ATen/native/SpectralOps.cpp:602.)
+  q = torch.irfft(q, 2, normalized=False, onesided=False, signal_sizes=(N,N))
+srun: got SIGCONT
+srun: Job step aborted: Waiting up to 122 seconds for job step to finish.
+slurmstepd: error: *** JOB 5448169 ON babel-15-32 CANCELLED AT 2025-09-09T21:19:35 ***
+srun: forcing job termination
+slurmstepd: error: *** STEP 5448169.0 ON babel-15-32 CANCELLED AT 2025-09-09T21:19:35 ***
