@@ -1,0 +1,25 @@
+_target_: null
+
+image_size: 128         # 64
+patch_size: 4
+num_channels: 3         # 3
+num_out_channels: 3     # 3
+embed_dim: 96
+depths: [8, 8, 8, 8]
+num_heads: [3, 6, 12, 24]
+skip_connections: [2, 2, 2, 0]
+window_size: 16
+mlp_ratio: 4.0
+qkv_bias: true
+hidden_dropout_prob: 0.0
+attention_probs_dropout_prob: 0.0
+drop_path_rate: 0.0
+hidden_act: "gelu"
+use_absolute_embeddings: false
+initializer_range: 0.02
+layer_norm_eps: 1e-5
+p: 1
+channel_slice_list_normalized_loss: [0, 1, 2, 3]
+residual_model: "convnext"
+use_conditioning: true
+learn_residual: false

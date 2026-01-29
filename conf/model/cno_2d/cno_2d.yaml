@@ -1,0 +1,11 @@
+_target_: models.CNO2d.CNO2d
+
+in_dim: 3                  # Number of input channels
+out_dim: 3                 # Number of output channels
+N_layers: 4                # 4: Number of (D) or (U) blocks in the network
+N_res: 4                   # Number of (R) blocks per level (except the neck)
+N_res_neck: 4              # Number of (R) blocks in the neck
+channel_multiplier: 16    
+use_bn: false              # Whether to use batch normalization
+
+# size: s                    # Input and Output spatial size (Training resolution)

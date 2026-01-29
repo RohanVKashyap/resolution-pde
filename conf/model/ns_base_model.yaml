@@ -1,0 +1,5 @@
+# config/model/ns_base_model.yaml
+_target_: null 
+
+in_channels: 1          # [particle, v_x, v_y]  
+out_channels: 1

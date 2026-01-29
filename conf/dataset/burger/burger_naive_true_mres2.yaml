@@ -1,0 +1,39 @@
+dataset_params:
+  _target_: dataloaders.burger_naive_true_multires.burger_true_multires_markov_dataset       # dataloaders.ks.ks_markov_dataset
+  filename_pattern: 1D_Burgers_Sols_Nu*.hdf5
+  saved_folder: "/data/user_data/rvk/pdebench_gen/"
+  viscosity: 0.0001
+  reduced_batch: 1
+  reduced_resolution_t: 1 # 4
+  data_mres_size: {1024: 400, 512: 0, 256: 0, 128: 0}
+  add_res: [32, 64]                # Additional higher resolution for training: [32, 64] 
+  add_res_samples: {64: 1600, 32: 0}
+  downsample_from_res: 128
+  data_normalizer: true
+  use_low_pass_filter: false
+  lowpass_cutoff_ratio: 1.0
+  normalization_type: simple
+  num_samples_max: -1
+
+  eval_dataset_target: dataloaders.burger_naive_markov.burger_markov_dataset
+  eval_filename: "1D_Burgers_Sols_Nu0.0001.hdf5"  # File for evaluation
+  eval_saved_folder: "/data/user_data/rvk/pdebench_gen/burgers_1024_0.0001/"  # Full path to highest res
+
+resize_to_train: false    # if we want to resize test data to train resolution during testing
+evaluation_type: naive_downsample
+
+window_size: 15        # Use this for S4
+original_res: 1024
+max_test_resolution: 1024   # The resolution till where we want to test [32, 64, 128, 256, 512]
+cno_train_size: 1024        # CNO training size
+
+train_mres: true
+
+pde: burger
+
+# checkpoint_resolutions: [128, 1024]
+# model_checkpoints:
+#   0.0: "checkpoints/ffno1d/burger_5561173.pt"
+#   0.05: "checkpoints/ffno1d/burger_5546453.pt"
+#   0.4: "checkpoints/ffno1d/burger_5557677.pt"
+#   1.0: "checkpoints/ffno1d/burger_5509089.pt"

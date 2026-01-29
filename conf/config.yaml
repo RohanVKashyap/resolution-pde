@@ -1,0 +1,12 @@
+defaults:
+  - model: fno_2d/fno_2d           
+  - dataset: darcy_flow/darcy_flow_0.01
+  - training: default
+  - _self_
+
+# Model selection
+# model_type: fno               
+
+# Project and data parameters
+project_name: ${dataset.pde}_${hydra:runtime.choices.model}
+checkpoint_dir: checkpoints
