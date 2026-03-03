@@ -187,9 +187,14 @@ def evaluate_1d_rollout_all_resolution(model, dataset_config, eval_dataset_targe
                         # Get ground truth for comparison
                         ground_truth = batch_trajectories[:, 1:actual_rollout_steps+1, :]  # (batch, rollout_steps, spatial)
                         
-                        # Calculate loss
-                        batch_loss = loss_fn(rollout_denorm, ground_truth)
-                        total_loss += batch_loss.item()
+                        # Calculate loss: average of per-step relative L2 errors
+                        # This is the standard benchmark metric: (1/T) * Σ_t ||pred_t - target_t||₂ / ||target_t||₂
+                        step_losses = []
+                        for step in range(actual_rollout_steps):
+                            step_loss = loss_fn(rollout_denorm[:, step, :], ground_truth[:, step, :])
+                            step_losses.append(step_loss.item())
+                        batch_loss = sum(step_losses) / len(step_losses)
+                        total_loss += batch_loss
                         num_batches += 1
                         
                         # Store examples for plotting
